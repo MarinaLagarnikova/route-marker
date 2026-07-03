@@ -1,9 +1,9 @@
 import { create } from 'zustand'
-import { storageGet, storageSet, storageRemove } from '@/shared/lib/storage'
+import { storageSet, storageRemove } from '@/shared/lib/storage'
 import { buildCheckpoints } from '@/entities/checkpoint'
 import type { Checkpoint } from '@/entities/checkpoint'
 import { applyCheckmark, detectDirection, hashString } from './model'
-import type { Direction, RouteState } from './model'
+import type { RouteState } from './model'
 import type { LatLon } from '@/shared/lib/geo'
 import type { GpxWaypoint } from '@/shared/lib/gpx'
 

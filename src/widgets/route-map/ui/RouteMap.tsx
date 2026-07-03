@@ -1,0 +1,104 @@
+import { useEffect, useRef, useState } from 'react'
+import { createYandexAdapter } from '@/shared/lib/map-adapter'
+import type { MapAdapter } from '@/shared/lib/map-adapter'
+import { useRouteStore } from '@/entities/route'
+import { getLastChecked } from '@/entities/checkpoint'
+import type { LatLon } from '@/shared/lib/geo'
+
+export function RouteMap() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const adapterRef = useRef<MapAdapter | null>(null)
+  const route = useRouteStore((s) => s.route)
+  const markCheckpoint = useRouteStore((s) => s.markCheckpoint)
+  const unmarkLast = useRouteStore((s) => s.unmarkLast)
+  const [userPos, setUserPos] = useState<LatLon | null>(null)
+  const [layer, setLayer] = useState<'map' | 'satellite' | 'hybrid'>('map')
+
+  // Track current checkpoints for the tap handler closure
+  const checkpointsRef = useRef(route?.checkpoints ?? [])
+  checkpointsRef.current = route?.checkpoints ?? []
+
+  function handleTap(index: number) {
+    const cps = checkpointsRef.current
+    const cp = cps[index]
+    if (!cp) return
+    const lastIdx = getLastChecked(cps)
+    if (cp.checkedAt !== undefined && index === lastIdx) {
+      unmarkLast()
+    } else if (cp.checkedAt === undefined) {
+      markCheckpoint(index)
+    }
+  }
+
+  // Init map once
+  useEffect(() => {
+    if (!containerRef.current || !route) return
+    const adapter = createYandexAdapter()
+    adapterRef.current = adapter
+    const center = route.trackPoints[0]
+
+    adapter.init(containerRef.current, center, 12).then(() => {
+      adapter.fitBounds(route.trackPoints)
+      const lastIdx = getLastChecked(route.checkpoints)
+      const trackIdx = lastIdx >= 0 ? route.checkpoints[lastIdx].trackIndex : 0
+      adapter.drawTrack(route.trackPoints, trackIdx)
+      adapter.drawCheckpoints(route.checkpoints, handleTap)
+    })
+
+    return () => {
+      adapter.destroy()
+      adapterRef.current = null
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Redraw when checkpoints change
+  useEffect(() => {
+    if (!adapterRef.current || !route) return
+    const lastIdx = getLastChecked(route.checkpoints)
+    const trackIdx = lastIdx >= 0 ? route.checkpoints[lastIdx].trackIndex : 0
+    adapterRef.current.drawTrack(route.trackPoints, trackIdx)
+    adapterRef.current.drawCheckpoints(route.checkpoints, handleTap)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [route?.checkpoints])
+
+  // GPS watch (optional — works when available)
+  useEffect(() => {
+    if (!navigator.geolocation) return
+    const id = navigator.geolocation.watchPosition(
+      (pos) => setUserPos({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+      () => setUserPos(null),
+      { enableHighAccuracy: true, maximumAge: 5000 }
+    )
+    return () => navigator.geolocation.clearWatch(id)
+  }, [])
+
+  // Update user position on map
+  useEffect(() => {
+    adapterRef.current?.updateUserPosition(userPos)
+  }, [userPos])
+
+  // Layer change
+  useEffect(() => {
+    adapterRef.current?.setLayer(layer)
+  }, [layer])
+
+  return (
+    <div className="relative w-full h-full">
+      <div ref={containerRef} className="w-full h-full" />
+      <div className="absolute top-2 right-2 flex flex-col gap-1 z-10">
+        {(['map', 'satellite', 'hybrid'] as const).map((l) => (
+          <button
+            key={l}
+            onClick={() => setLayer(l)}
+            className={`px-2 py-1 text-xs rounded shadow ${
+              layer === l ? 'bg-gray-900 text-white' : 'bg-white text-gray-700'
+            }`}
+          >
+            {l === 'map' ? 'Схема' : l === 'satellite' ? 'Спутник' : 'Гибрид'}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}

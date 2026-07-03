@@ -1,6 +1,4 @@
 import { YANDEX_MAPS_API_KEY } from '@/shared/config'
-import type { LatLon } from '@/shared/lib/geo'
-import type { Checkpoint } from '@/entities/checkpoint'
 import type { MapAdapter } from './types'
 
 // Minimal types for ymaps3 to avoid needing full @yandex/ymaps3-types package

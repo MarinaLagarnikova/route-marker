@@ -13,7 +13,7 @@ export interface RouteState {
 }
 
 export function detectDirection(
-  checkpoints: Checkpoint[],
+  _checkpoints: Checkpoint[],
   markedIndex: number,
   totalCheckpoints: number
 ): Direction {
