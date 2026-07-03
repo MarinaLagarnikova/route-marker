@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RouteHeader } from '@/widgets/route-header'
-import { ProgressPanel } from '@/widgets/progress-panel'
 import { RouteMap } from '@/widgets/route-map'
 import { CheckpointList } from '@/widgets/checkpoint-list'
 import { useRouteStore } from '@/entities/route'
@@ -17,16 +16,18 @@ export function RoutePage() {
   if (!route) return null
 
   return (
-    <div className="h-screen flex flex-col max-w-[560px] mx-auto bg-white">
+    <div className="min-h-screen flex flex-col max-w-[560px] mx-auto bg-white">
+      {/* Header: back button + name + subtitle + progress bar */}
       <RouteHeader />
-      <ProgressPanel />
-      <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
-        <div className="h-[45vh] min-h-[200px] flex-shrink-0">
-          <RouteMap />
-        </div>
-        <div className="flex-1 min-h-0 overflow-y-auto">
-          <CheckpointList />
-        </div>
+
+      {/* Map card */}
+      <div className="mx-4 mb-4 border border-[#e5e5e5] rounded-[14px] shadow-[0px_1px_1.5px_rgba(0,0,0,0.1)] overflow-hidden h-[45vh] min-h-[200px] flex-shrink-0">
+        <RouteMap />
+      </div>
+
+      {/* Checkpoint list — scrollable */}
+      <div className="flex-1">
+        <CheckpointList />
       </div>
     </div>
   )

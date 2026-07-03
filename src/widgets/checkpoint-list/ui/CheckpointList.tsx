@@ -1,10 +1,15 @@
+import { Check } from 'lucide-react'
 import { useRouteStore } from '@/entities/route'
 import { getLastChecked } from '@/entities/checkpoint'
-import { ResetButton } from '@/features/reset-progress'
 
-function fmtTime(ts: number | undefined): string {
-  if (!ts) return ''
-  return new Date(ts).toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })
+function fmtMeta(distanceKm: number, checkedAt: number | undefined): string {
+  const km = `${distanceKm.toFixed(1)} км`
+  if (!checkedAt) return km
+  const time = new Date(checkedAt).toLocaleTimeString('ru-RU', {
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+  return `${km} · ${time}`
 }
 
 export function CheckpointList() {
@@ -17,65 +22,52 @@ export function CheckpointList() {
   const lastIdx = getLastChecked(route.checkpoints)
 
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-between px-4 py-2 border-t border-gray-100 bg-white sticky top-0 z-10">
-        <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-          Контрольные точки
-        </p>
-        <ResetButton />
-      </div>
+    <div className="flex flex-col gap-3 px-4">
       {route.checkpoints.map((cp, i) => {
         const checked = cp.checkedAt !== undefined
         const isLast = i === lastIdx
-        const isNext = i === lastIdx + 1
+        const isNext = i === lastIdx + 1 || (lastIdx === -1 && i === 0)
 
         return (
           <div
             key={cp.id}
-            className={`flex items-center gap-3 px-4 py-3 border-b border-gray-50 ${
-              checked ? 'bg-red-50' : 'bg-white'
-            }`}
+            className="flex items-start gap-3 min-h-[46px]"
           >
+            {/* Number badge */}
+            <div className="w-5 h-5 flex-shrink-0 mt-0.5 rounded-full border border-[#e5e5e5] flex items-center justify-center">
+              <span className="text-[11px] font-medium text-[#0a0a0a] font-mono leading-4">
+                {i + 1}
+              </span>
+            </div>
+
+            {/* Name + meta */}
             <div
-              className={`w-7 h-7 flex-shrink-0 rounded-full flex items-center justify-center text-xs font-bold border-2 ${
-                checked
-                  ? 'border-red-500 bg-red-500 text-white'
-                  : 'border-gray-300 text-gray-400'
-              }`}
+              className={`flex-1 min-w-0 flex flex-col gap-1.5 justify-center ${checked ? 'opacity-50' : ''}`}
             >
-              {i + 1}
-            </div>
-            <div className="flex-1 min-w-0">
-              <p
-                className={`text-sm font-medium truncate ${
-                  checked ? 'text-gray-400 line-through' : 'text-gray-900'
-                }`}
-              >
-                {cp.name}
-              </p>
-              <p className="text-xs text-gray-400">
-                {cp.distanceKm.toFixed(1)} км
-                {cp.checkedAt ? ` · ${fmtTime(cp.checkedAt)}` : ''}
+              <p className="text-sm font-medium leading-5 text-[#0a0a0a] truncate">{cp.name}</p>
+              <p className="text-sm font-normal leading-5 text-[#737373]">
+                {fmtMeta(cp.distanceKm, cp.checkedAt)}
               </p>
             </div>
-            {checked && isLast ? (
+
+            {/* Right action */}
+            {checked ? (
               <button
-                onClick={() => unmarkLast()}
-                className="min-w-[72px] min-h-[44px] rounded-lg text-sm font-medium bg-gray-100 text-gray-600 active:bg-gray-200 transition-colors px-3"
+                onClick={() => { if (isLast) unmarkLast() }}
+                className={`w-[18px] h-[18px] flex-shrink-0 flex items-center justify-center ${isLast ? 'cursor-pointer' : 'cursor-default'}`}
+                aria-label={isLast ? 'Отменить' : undefined}
               >
-                Отменить
+                <Check className="w-[18px] h-[18px] text-[#0a0a0a]" strokeWidth={2} />
               </button>
-            ) : checked ? (
-              <div className="min-w-[72px]" />
-            ) : isNext || lastIdx === -1 ? (
+            ) : isNext ? (
               <button
                 onClick={() => markCheckpoint(i)}
-                className="min-w-[72px] min-h-[44px] rounded-lg text-sm font-medium bg-red-600 text-white active:bg-red-700 transition-colors px-3"
+                className="flex-shrink-0 h-9 w-[81px] border border-[#e5e5e5] rounded-[10px] bg-white shadow-[0px_1px_1px_rgba(0,0,0,0.1)] text-sm font-medium text-[#0a0a0a] active:bg-gray-50 transition-colors"
               >
                 Здесь
               </button>
             ) : (
-              <div className="min-w-[72px]" />
+              <div className="w-[81px] flex-shrink-0" />
             )}
           </div>
         )
