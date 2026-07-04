@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/route-marker/',
+  base: process.env.GITHUB_ACTIONS ? '/route-marker/' : '/',
   resolve: {
     alias: { '@': path.resolve(__dirname, './src') },
   },

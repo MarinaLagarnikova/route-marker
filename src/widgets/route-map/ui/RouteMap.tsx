@@ -12,7 +12,6 @@ export function RouteMap() {
   const markCheckpoint = useRouteStore((s) => s.markCheckpoint)
   const unmarkLast = useRouteStore((s) => s.unmarkLast)
   const [userPos, setUserPos] = useState<LatLon | null>(null)
-  const [layer, setLayer] = useState<'map' | 'satellite' | 'hybrid'>('map')
   const [mapError, setMapError] = useState<string | null>(null)
   const [mapReady, setMapReady] = useState(false)
 
@@ -51,7 +50,7 @@ export function RouteMap() {
       setMapReady(true)
     }).catch((e: unknown) => {
       if (cancelled) return
-      const msg = e instanceof Error ? e.message : 'Ошибка загрузки карты'
+      const msg = e instanceof Error ? e.message : String(e)
       setMapError(msg)
     })
 
@@ -89,12 +88,7 @@ export function RouteMap() {
     adapterRef.current?.updateUserPosition(userPos)
   }, [userPos])
 
-  // Layer change
-  useEffect(() => {
-    adapterRef.current?.setLayer(layer)
-  }, [layer])
-
-  return (
+return (
     <div className="relative w-full h-full">
       <div ref={containerRef} className="w-full h-full" />
       {!mapReady && !mapError && (
@@ -109,19 +103,6 @@ export function RouteMap() {
           <p className="text-xs text-[#737373] mt-1">Проверьте ключ API в .env</p>
         </div>
       )}
-      <div className="absolute top-2 right-2 flex flex-col gap-1 z-10">
-        {(['map', 'satellite', 'hybrid'] as const).map((l) => (
-          <button
-            key={l}
-            onClick={() => setLayer(l)}
-            className={`px-2 py-1 text-xs rounded shadow ${
-              layer === l ? 'bg-gray-900 text-white' : 'bg-white text-gray-700'
-            }`}
-          >
-            {l === 'map' ? 'Схема' : l === 'satellite' ? 'Спутник' : 'Гибрид'}
-          </button>
-        ))}
-      </div>
     </div>
   )
 }
