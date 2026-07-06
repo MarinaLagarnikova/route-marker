@@ -19,6 +19,10 @@ export function CheckpointList() {
 
   if (!route) return null
 
+  const { isCircular, circularPhase } = route
+  const showNumbers = !isCircular || circularPhase === 3
+  const anyUncheckedMarkable = isCircular && circularPhase < 3
+
   const lastIdx = getLastChecked(route.checkpoints)
 
   return (
@@ -26,7 +30,14 @@ export function CheckpointList() {
       {route.checkpoints.map((cp, i) => {
         const checked = cp.checkedAt !== undefined
         const isLast = i === lastIdx
-        const isNext = i === lastIdx + 1 || (lastIdx === -1 && i === 0)
+        const isNext = anyUncheckedMarkable
+          ? !checked
+          : i === lastIdx + 1 || (lastIdx === -1 && i === 0)
+
+        // For circular phase 2: only the last checked point (index 0) can be unmarked
+        const canUnmark = isCircular && circularPhase === 2
+          ? i === 0
+          : isLast
 
         return (
           <div
@@ -35,9 +46,13 @@ export function CheckpointList() {
           >
             {/* Number badge */}
             <div className="w-5 h-5 flex-shrink-0 mt-0.5 rounded-full border border-[#e5e5e5] flex items-center justify-center">
-              <span className="text-[11px] font-medium text-[#0a0a0a] font-mono leading-4">
-                {i + 1}
-              </span>
+              {showNumbers ? (
+                <span className="text-[11px] font-medium text-[#0a0a0a] font-mono leading-4">
+                  {i + 1}
+                </span>
+              ) : (
+                <span className="w-2 h-2 rounded-full bg-[#e5e5e5] block" />
+              )}
             </div>
 
             {/* Name + meta */}
@@ -53,9 +68,9 @@ export function CheckpointList() {
             {/* Right action */}
             {checked ? (
               <button
-                onClick={() => { if (isLast) unmarkLast() }}
-                className={`w-[18px] h-[18px] flex-shrink-0 flex items-center justify-center ${isLast ? 'cursor-pointer' : 'cursor-default'}`}
-                aria-label={isLast ? 'Отменить' : undefined}
+                onClick={() => { if (canUnmark) unmarkLast() }}
+                className={`w-[18px] h-[18px] flex-shrink-0 flex items-center justify-center ${canUnmark ? 'cursor-pointer' : 'cursor-default'}`}
+                aria-label={canUnmark ? 'Отменить' : undefined}
               >
                 <Check className="w-[18px] h-[18px] text-[#0a0a0a]" strokeWidth={2} />
               </button>
