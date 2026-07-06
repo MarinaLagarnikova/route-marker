@@ -92,7 +92,7 @@ export function createMapTilerAdapter(): MapAdapter {
       })
     },
 
-    drawCheckpoints(checkpoints: Checkpoint[], onTap: (index: number) => void, showNumbers = true) {
+    drawCheckpoints(checkpoints: Checkpoint[], onTap: (index: number) => void, numbering: 'all' | 'checked-only' | 'none' = 'all') {
       if (!map) return
       tapHandler = onTap
       clearMarkers()
@@ -110,7 +110,9 @@ export function createMapTilerAdapter(): MapAdapter {
           'box-shadow:0 1px 4px rgba(0,0,0,0.2)',
           'user-select:none',
         ].join(';')
-        el.textContent = showNumbers ? String(i + 1) : ''
+        el.textContent = numbering === 'all' || (numbering === 'checked-only' && checked)
+          ? String(i + 1)
+          : ''
         el.addEventListener('click', () => tapHandler?.(i))
 
         const marker = new maptilersdk.Marker({ element: el, anchor: 'center' })

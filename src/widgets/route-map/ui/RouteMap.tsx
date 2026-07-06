@@ -48,9 +48,15 @@ export function RouteMap() {
       const trackIdx = directionKnown && lastIdx >= 0
         ? route.checkpoints[lastIdx].trackIndex
         : 0
-      const showNumbers = !route.isCircular || route.circularPhase === 3
+      const numbering = route.isCircular && route.circularPhase === 1 ? 'none' as const
+        : route.isCircular && route.circularPhase === 2 ? 'checked-only' as const
+        : 'all' as const
+      // In phase 2 the virtual Финиш sits on top of Старт — don't draw it
+      const cpsForMap = route.isCircular && route.circularPhase === 2
+        ? route.checkpoints.filter(cp => cp.id !== 'cp_ring_finish')
+        : route.checkpoints
       adapter.drawTrack(route.trackPoints, trackIdx)
-      adapter.drawCheckpoints(route.checkpoints, handleTap, showNumbers)
+      adapter.drawCheckpoints(cpsForMap, handleTap, numbering)
       setMapReady(true)
     }).catch((e: unknown) => {
       if (cancelled) return
@@ -74,9 +80,15 @@ export function RouteMap() {
     const trackIdx = directionKnown && lastIdx >= 0
       ? route.checkpoints[lastIdx].trackIndex
       : 0
-    const showNumbers = !route.isCircular || route.circularPhase === 3
+    const numbering = route.isCircular && route.circularPhase === 1 ? 'none' as const
+        : route.isCircular && route.circularPhase === 2 ? 'checked-only' as const
+        : 'all' as const
+    // In phase 2 the virtual Финиш sits on top of Старт — don't draw it
+    const cpsForMap = route.isCircular && route.circularPhase === 2
+      ? route.checkpoints.filter(cp => cp.id !== 'cp_ring_finish')
+      : route.checkpoints
     adapterRef.current.drawTrack(route.trackPoints, trackIdx)
-    adapterRef.current.drawCheckpoints(route.checkpoints, handleTap, showNumbers)
+    adapterRef.current.drawCheckpoints(cpsForMap, handleTap, numbering)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route?.checkpoints])
 
