@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { createYandexAdapter } from '@/shared/lib/map-adapter'
+import { createMapTilerAdapter } from '@/shared/lib/map-adapter'
 import type { MapAdapter } from '@/shared/lib/map-adapter'
 import { useRouteStore } from '@/entities/route'
 import { getLastChecked } from '@/entities/checkpoint'
@@ -36,7 +36,7 @@ export function RouteMap() {
     if (!containerRef.current || !route) return
 
     let cancelled = false
-    const adapter = createYandexAdapter()
+    const adapter = createMapTilerAdapter()
     adapterRef.current = adapter
     const center = route.trackPoints[0]
 
@@ -44,7 +44,10 @@ export function RouteMap() {
       if (cancelled) return
       adapter.fitBounds(route.trackPoints)
       const lastIdx = getLastChecked(route.checkpoints)
-      const trackIdx = lastIdx >= 0 ? route.checkpoints[lastIdx].trackIndex : 0
+      const directionKnown = !route.isCircular || route.circularPhase === 3
+      const trackIdx = directionKnown && lastIdx >= 0
+        ? route.checkpoints[lastIdx].trackIndex
+        : 0
       adapter.drawTrack(route.trackPoints, trackIdx)
       adapter.drawCheckpoints(route.checkpoints, handleTap)
       setMapReady(true)
@@ -66,7 +69,10 @@ export function RouteMap() {
   useEffect(() => {
     if (!adapterRef.current || !route) return
     const lastIdx = getLastChecked(route.checkpoints)
-    const trackIdx = lastIdx >= 0 ? route.checkpoints[lastIdx].trackIndex : 0
+    const directionKnown = !route.isCircular || route.circularPhase === 3
+    const trackIdx = directionKnown && lastIdx >= 0
+      ? route.checkpoints[lastIdx].trackIndex
+      : 0
     adapterRef.current.drawTrack(route.trackPoints, trackIdx)
     adapterRef.current.drawCheckpoints(route.checkpoints, handleTap)
     // eslint-disable-next-line react-hooks/exhaustive-deps
