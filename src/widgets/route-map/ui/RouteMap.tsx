@@ -48,8 +48,9 @@ export function RouteMap() {
       const trackIdx = directionKnown && lastIdx >= 0
         ? route.checkpoints[lastIdx].trackIndex
         : 0
+      const showNumbers = !route.isCircular || route.circularPhase === 3
       adapter.drawTrack(route.trackPoints, trackIdx)
-      adapter.drawCheckpoints(route.checkpoints, handleTap)
+      adapter.drawCheckpoints(route.checkpoints, handleTap, showNumbers)
       setMapReady(true)
     }).catch((e: unknown) => {
       if (cancelled) return
@@ -73,8 +74,9 @@ export function RouteMap() {
     const trackIdx = directionKnown && lastIdx >= 0
       ? route.checkpoints[lastIdx].trackIndex
       : 0
+    const showNumbers = !route.isCircular || route.circularPhase === 3
     adapterRef.current.drawTrack(route.trackPoints, trackIdx)
-    adapterRef.current.drawCheckpoints(route.checkpoints, handleTap)
+    adapterRef.current.drawCheckpoints(route.checkpoints, handleTap, showNumbers)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route?.checkpoints])
 
