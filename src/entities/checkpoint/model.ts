@@ -13,7 +13,11 @@ export interface Checkpoint {
   checkedAt?: number
 }
 
-export function buildCheckpoints(track: LatLon[], waypoints: GpxWaypoint[]): Checkpoint[] {
+export function buildCheckpoints(
+  track: LatLon[],
+  waypoints: GpxWaypoint[],
+  isCircular = false
+): Checkpoint[] {
   const dists = cumulativeDistances(track)
   const totalKm = dists[dists.length - 1]
 
@@ -22,11 +26,20 @@ export function buildCheckpoints(track: LatLon[], waypoints: GpxWaypoint[]): Che
       ? waypoints
       : generateAutoWaypoints(track, dists, totalKm)
 
-  const projected = rawWpts.map((w) => {
-    const idx = projectWptOnTrack(w, track)
-    return { ...w, trackIndex: idx, distanceKm: dists[idx] }
-  })
+  const MAX_DIST_FROM_TRACK_KM = 0.5
+
+  const projected = rawWpts
+    .map((w) => {
+      const idx = projectWptOnTrack(w, track)
+      const distFromTrack = haversineKm(w, track[idx])
+      return { ...w, trackIndex: idx, distanceKm: dists[idx], distFromTrack }
+    })
+    .filter((w) => w.distFromTrack <= MAX_DIST_FROM_TRACK_KM)
   projected.sort((a, b) => a.trackIndex - b.trackIndex)
+
+  if (isCircular) {
+    return projected.map((cp, i) => ({ ...cp, id: `cp_${i}` }))
+  }
 
   const start = {
     name: 'Старт',
