@@ -37,7 +37,7 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
       isCircular,
       circularPhase: 1,
       totalKm,
-      originalCheckpoints: isCircular ? checkpoints : undefined,
+      originalCheckpoints: isCircular ? checkpoints.map(cp => ({ ...cp })) : undefined,
       originalTrackPoints: isCircular ? [...trackPoints] : undefined,
     }
     storageSet(gpxHash, state)
@@ -66,15 +66,20 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
 
     // Circular phase 2: unmarking P (the only checked point) → restore to phase 1
     if (route.isCircular && route.circularPhase === 2) {
-      const next: RouteState = {
-        ...route,
-        trackPoints: route.originalTrackPoints!,
-        checkpoints: route.originalCheckpoints!,
-        circularPhase: 1,
+      // Guard: if snapshots missing (old persisted state), fall back to normal unmark
+      if (!route.originalTrackPoints || !route.originalCheckpoints) {
+        // just unmark the last checkpoint normally
+      } else {
+        const next: RouteState = {
+          ...route,
+          trackPoints: route.originalTrackPoints,
+          checkpoints: route.originalCheckpoints,
+          circularPhase: 1,
+        }
+        storageSet(route.gpxHash, next)
+        set({ route: next })
+        return
       }
-      storageSet(route.gpxHash, next)
-      set({ route: next })
-      return
     }
 
     const { checkpoints } = route
@@ -94,11 +99,25 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
     if (!route) return
 
     if (route.isCircular) {
+      if (!route.originalCheckpoints || !route.originalTrackPoints) {
+        // corrupted state: just clear checkedAt and go back to phase 1
+        const updated = route.checkpoints.map((cp) => ({ ...cp, checkedAt: undefined }))
+        const next: RouteState = {
+          ...route,
+          checkpoints: updated,
+          direction: 'forward',
+          directionLocked: false,
+          circularPhase: 1,
+        }
+        storageSet(route.gpxHash, next)
+        set({ route: next })
+        return
+      }
       // Restore to original (phase 1)
-      const updated = route.originalCheckpoints!.map((cp) => ({ ...cp, checkedAt: undefined }))
+      const updated = route.originalCheckpoints.map((cp) => ({ ...cp, checkedAt: undefined }))
       const next: RouteState = {
         ...route,
-        trackPoints: route.originalTrackPoints!,
+        trackPoints: route.originalTrackPoints,
         checkpoints: updated,
         direction: 'forward',
         directionLocked: false,
