@@ -51,8 +51,8 @@ export function RouteMap() {
       const numbering = route.isCircular && route.circularPhase === 1 ? 'none' as const
         : route.isCircular && route.circularPhase === 2 ? 'checked-only' as const
         : 'all' as const
-      // In phase 2 the virtual Финиш sits on top of Старт — don't draw it
-      const cpsForMap = route.isCircular && route.circularPhase === 2
+      // Virtual Финиш sits on top of Старт on circular routes — never draw it on the map
+      const cpsForMap = route.isCircular
         ? route.checkpoints.filter(cp => cp.id !== 'cp_ring_finish')
         : route.checkpoints
       adapter.drawTrack(route.trackPoints, trackIdx)
