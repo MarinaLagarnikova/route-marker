@@ -19,6 +19,26 @@ export function ProgressPanel() {
   const route = useRouteStore((s) => s.route)
   if (!route) return null
 
+  if (route.isCircular && route.circularPhase === 1) {
+    return (
+      <div className="flex items-center justify-center px-4 py-3 bg-white border-b border-gray-100">
+        <p className="text-sm text-[#737373] text-center">
+          Отметьте первую точку — она станет началом маршрута
+        </p>
+      </div>
+    )
+  }
+
+  if (route.isCircular && route.circularPhase === 2) {
+    return (
+      <div className="flex items-center justify-center px-4 py-3 bg-white border-b border-gray-100">
+        <p className="text-sm text-[#737373] text-center">
+          Отметьте ещё одну точку — она задаст направление
+        </p>
+      </div>
+    )
+  }
+
   const covered = selectCoveredKm(route)
   const remaining = selectRemainingKm(route)
   const total = selectTotalKm(route)
