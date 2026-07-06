@@ -2,11 +2,15 @@ import { describe, it, expect } from 'vitest'
 import { buildCheckpoints, getLastChecked, canUncheck } from './model'
 import type { LatLon } from '@/shared/lib/geo'
 
+// Realistic track: ~3 km route heading north, points ~0.44 km apart
 const track: LatLon[] = [
-  { lat: 0, lon: 0 },
-  { lat: 0, lon: 1 },
-  { lat: 0, lon: 2 },
-  { lat: 0, lon: 3 },
+  { lat: 55.000, lon: 37.000 },
+  { lat: 55.004, lon: 37.000 },
+  { lat: 55.008, lon: 37.000 },
+  { lat: 55.012, lon: 37.000 },
+  { lat: 55.016, lon: 37.000 },
+  { lat: 55.020, lon: 37.000 },
+  { lat: 55.024, lon: 37.000 },
 ]
 
 describe('buildCheckpoints', () => {
@@ -22,10 +26,11 @@ describe('buildCheckpoints', () => {
   })
 
   it('uses provided waypoints when >=3 given', () => {
+    // Waypoints offset 0.001° lon (~0.06 km) from the track — well within 0.5 km limit
     const wpts = [
-      { lat: 0, lon: 0.5, name: 'A' },
-      { lat: 0, lon: 1.5, name: 'B' },
-      { lat: 0, lon: 2.5, name: 'C' },
+      { lat: 55.004, lon: 37.001, name: 'A' },
+      { lat: 55.012, lon: 37.001, name: 'B' },
+      { lat: 55.020, lon: 37.001, name: 'C' },
     ]
     const cps = buildCheckpoints(track, wpts)
     const names = cps.map((c) => c.name)
