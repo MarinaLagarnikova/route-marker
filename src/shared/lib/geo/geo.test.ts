@@ -63,4 +63,16 @@ describe('isCircularRoute', () => {
   it('returns false for track with fewer than 3 points', () => {
     expect(isCircularRoute([{ lat: 55.0, lon: 37.0 }, { lat: 55.1, lon: 37.1 }])).toBe(false)
   })
+
+  it('returns true when gap > 200m but within 2% of total route length', () => {
+    // Build a ~350km route (100 steps of ~3.5km each going east)
+    // then close it to within ~220m of start — gap > 200m but well under 2% of 350km
+    const pts: Array<{ lat: number; lon: number }> = []
+    for (let i = 0; i <= 100; i++) {
+      pts.push({ lat: 55.0, lon: 37.0 + i * 0.05 })
+    }
+    // Last point ~220m from first (lat offset ~0.002° ≈ 222m)
+    pts.push({ lat: 55.002, lon: 37.0 })
+    expect(isCircularRoute(pts)).toBe(true)
+  })
 })
