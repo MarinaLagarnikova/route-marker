@@ -30,6 +30,9 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
       direction: 'forward',
       directionLocked: false,
       gpxHash,
+      isCircular: false,
+      circularPhase: 1 as import('./model').CircularPhase,
+      totalKm: 0,
     }
     storageSet(gpxHash, state)
     set({ route: state })
@@ -45,6 +48,8 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
 
     const now = Date.now()
     let { checkpoints, direction, directionLocked } = route
+    let trackPoints = route.trackPoints
+    let resolvedIndex = index
 
     if (!directionLocked) {
       direction = detectDirection(checkpoints, index, checkpoints.length)
@@ -52,15 +57,19 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
 
       if (direction === 'reverse') {
         const totalKm = checkpoints[checkpoints.length - 1].distanceKm
+        const n = trackPoints.length
+        trackPoints = [...trackPoints].reverse()
         checkpoints = [...checkpoints].reverse().map((cp) => ({
           ...cp,
           distanceKm: totalKm - cp.distanceKm,
+          trackIndex: n - 1 - cp.trackIndex,
         }))
+        resolvedIndex = checkpoints.length - 1 - index
       }
     }
 
-    const updated = applyCheckmark(checkpoints, index, now)
-    const next: RouteState = { ...route, checkpoints: updated, direction, directionLocked }
+    const updated = applyCheckmark(checkpoints, resolvedIndex, now)
+    const next: RouteState = { ...route, trackPoints, checkpoints: updated, direction, directionLocked }
     storageSet(route.gpxHash, next)
     set({ route: next })
   },
@@ -83,9 +92,24 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
   resetProgress() {
     const { route } = get()
     if (!route) return
-    const updated = route.checkpoints.map((cp) => ({ ...cp, checkedAt: undefined }))
+
+    let { trackPoints, checkpoints } = route
+
+    if (route.direction === 'reverse') {
+      const n = trackPoints.length
+      const totalKm = checkpoints[checkpoints.length - 1].distanceKm
+      trackPoints = [...trackPoints].reverse()
+      checkpoints = [...checkpoints].reverse().map((cp) => ({
+        ...cp,
+        distanceKm: totalKm - cp.distanceKm,
+        trackIndex: n - 1 - cp.trackIndex,
+      }))
+    }
+
+    const updated = checkpoints.map((cp) => ({ ...cp, checkedAt: undefined }))
     const next: RouteState = {
       ...route,
+      trackPoints,
       checkpoints: updated,
       direction: 'forward',
       directionLocked: false,
