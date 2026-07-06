@@ -184,6 +184,42 @@ describe('phase 2 → 3 (second mark)', () => {
   })
 })
 
+// ─── Phase 2 → 3 CCW reversal ─────────────────────────────────────────────────
+
+describe('phase 2 → 3 CCW reversal', () => {
+  it('CCW path: checkpoints are reversed when second mark is past halfway', () => {
+    loadCircular()
+    // Enter phase 2 by marking КТ 1 (index 0 in phase 1)
+    useRouteStore.getState().markCheckpoint(0)
+    const phase2 = useRouteStore.getState().route!
+
+    // In phase 2, checkpoints are [Старт(0), КТ 2(~cw-short), КТ 3(~cw-long), Финиш(totalKm)]
+    // КТ 3 is near track[3] which is ~3/4 of the ring from P (КТ 1 near track[1])
+    // → arcCW(КТ 3) > totalKm/2, so arcCCW < arcCW → CCW branch fires
+    const kt3Idx = 2 // index of КТ 3 in phase-2 checkpoints
+    const kt3 = phase2.checkpoints[kt3Idx]
+
+    // Verify fixture produces the expected CCW case before asserting
+    expect(kt3.distanceKm).toBeGreaterThan(phase2.totalKm / 2)
+
+    const phase2Dist = kt3.distanceKm
+    useRouteStore.getState().markCheckpoint(kt3Idx)
+    const r = useRouteStore.getState().route!
+
+    // Should have transitioned to phase 3
+    expect(r.circularPhase).toBe(3)
+    // Direction is locked
+    expect(r.directionLocked).toBe(true)
+    // Старт (index 0) should still be checked
+    expect(r.checkpoints[0].checkedAt).toBeDefined()
+    // After CCW reversal, КТ 3 is re-indexed; its new distance = totalKm - phase2Dist
+    const qInFinal = r.checkpoints.find((cp) => cp.id === kt3.id)
+    expect(qInFinal).toBeDefined()
+    expect(qInFinal!.distanceKm).toBeCloseTo(phase2.totalKm - phase2Dist, 1)
+    expect(qInFinal!.checkedAt).toBeDefined()
+  })
+})
+
 // ─── Phase 3 normal marking ───────────────────────────────────────────────────
 
 describe('phase 3 — normal rules', () => {
