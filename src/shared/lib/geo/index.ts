@@ -24,6 +24,13 @@ export function cumulativeDistances(points: LatLon[]): number[] {
   return result
 }
 
+export function isCircularRoute(track: LatLon[]): boolean {
+  if (track.length < 3) return false
+  const totalKm = cumulativeDistances(track).at(-1) ?? 0
+  const threshold = Math.max(0.2, totalKm * 0.02)
+  return haversineKm(track[0], track[track.length - 1]) <= threshold
+}
+
 export function projectWptOnTrack(wpt: LatLon, track: LatLon[]): number {
   let minDist = Infinity
   let minIdx = 0
