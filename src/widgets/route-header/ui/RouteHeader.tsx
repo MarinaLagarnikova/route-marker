@@ -54,7 +54,7 @@ export function RouteHeader() {
 
           <div className="flex items-center gap-2">
             <button
-              onClick={() => !historyDisabled && setHistoryOpen(true)}
+              onClick={() => setHistoryOpen(true)}
               disabled={historyDisabled}
               className={`h-9 px-3 flex items-center gap-1.5 border border-[#e5e5e5] rounded-[10px] bg-white shadow-[0px_1px_1px_rgba(0,0,0,0.1)] transition-colors ${
                 historyDisabled
