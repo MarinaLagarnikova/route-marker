@@ -3,6 +3,8 @@ import type { LatLon } from '@/shared/lib/geo'
 
 export type Direction = 'forward' | 'reverse'
 
+export type CircularPhase = 1 | 2 | 3
+
 export interface RouteState {
   name: string
   trackPoints: LatLon[]
@@ -10,6 +12,13 @@ export interface RouteState {
   direction: Direction
   directionLocked: boolean
   gpxHash: string
+  isCircular: boolean
+  circularPhase: CircularPhase
+  totalKm: number
+  /** Snapshot of checkpoints before circular rotation — used for reset */
+  originalCheckpoints?: Checkpoint[]
+  /** Snapshot of trackPoints before circular rotation — used for reset */
+  originalTrackPoints?: LatLon[]
 }
 
 export function detectDirection(

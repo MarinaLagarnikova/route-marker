@@ -1,4 +1,4 @@
-export type { RouteState, Direction } from './model'
+export type { RouteState, Direction, CircularPhase } from './model'
 export { hashString } from './model'
 export { useRouteStore } from './store'
 export {
