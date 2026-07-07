@@ -20,10 +20,9 @@ export function CheckpointList() {
   if (!route) return null
 
   const { isCircular, circularPhase } = route
+  const lastIdx = getLastChecked(route.checkpoints)
   const showNumbers = isCircular ? circularPhase === 3 : lastIdx >= 0
   const anyUncheckedMarkable = isCircular && circularPhase < 3
-
-  const lastIdx = getLastChecked(route.checkpoints)
 
   return (
     <div className="flex flex-col gap-3 px-4">
