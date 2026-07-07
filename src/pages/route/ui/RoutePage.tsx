@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { RouteHeader } from '@/widgets/route-header'
 import { RouteMap } from '@/widgets/route-map'
 import { useRouteStore } from '@/entities/route'
+import { useGpsAutoMark } from '@/features/mark-checkpoint'
 import { FinishCelebration } from './FinishCelebration'
 import type { LatLon } from '@/shared/lib/geo'
 
@@ -41,6 +42,16 @@ export function RoutePage() {
     )
     return () => navigator.geolocation.clearWatch(id)
   }, [])
+
+  const markCheckpoint = useRouteStore((s) => s.markCheckpoint)
+
+  useGpsAutoMark({
+    userPos,
+    checkpoints: route?.checkpoints ?? [],
+    isCircular: route?.isCircular ?? false,
+    circularPhase: route?.circularPhase ?? 1,
+    markCheckpoint,
+  })
 
   if (!route) return null
 
