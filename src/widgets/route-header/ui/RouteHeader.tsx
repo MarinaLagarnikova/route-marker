@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft, Ellipsis, Trash2, Clock } from 'lucide-react'
 import { useRouteStore, selectCoveredKm, selectTotalKm } from '@/entities/route'
@@ -15,7 +15,17 @@ export function RouteHeader() {
   const route = useRouteStore((s) => s.route)
   const clearRoute = useRouteStore((s) => s.clearRoute)
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [drawerVisible, setDrawerVisible] = useState(false)
   const [historyOpen, setHistoryOpen] = useState(false)
+
+  useEffect(() => {
+    if (drawerOpen) {
+      const id = requestAnimationFrame(() => setDrawerVisible(true))
+      return () => cancelAnimationFrame(id)
+    } else {
+      setDrawerVisible(false)
+    }
+  }, [drawerOpen])
 
   if (!route) return null
 
@@ -120,7 +130,7 @@ export function RouteHeader() {
             className="fixed inset-0 bg-black/30 z-40"
             onClick={() => setDrawerOpen(false)}
           />
-          <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border border-[#e5e5e5] rounded-t-[10px] max-w-[560px] mx-auto">
+          <div className={`fixed bottom-0 left-0 right-0 z-50 bg-white border border-[#e5e5e5] rounded-t-[10px] max-w-[560px] mx-auto transition-transform duration-300 ease-out ${drawerVisible ? 'translate-y-0' : 'translate-y-full'}`}>
             <div className="flex items-center justify-center pt-4 pb-0">
               <div className="w-[100px] h-2 bg-[#f5f5f5] rounded-full" />
             </div>

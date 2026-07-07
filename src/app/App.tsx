@@ -1,3 +1,4 @@
+import '@maptiler/sdk/dist/maptiler-sdk.css'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { StartPage } from '@/pages/start'
 import { RoutePage } from '@/pages/route'

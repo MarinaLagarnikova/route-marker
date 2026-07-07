@@ -1,4 +1,5 @@
-import { MapPin, Layers, Check } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { MapPin, Check, Timer, Flag } from 'lucide-react'
 import type { Checkpoint } from '@/entities/checkpoint'
 
 interface Props {
@@ -53,6 +54,12 @@ function calcNetWalkTime(checkpoints: Checkpoint[]): number | null {
 }
 
 export function HistoryDrawer({ checkpoints, onClose }: Props) {
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setVisible(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
+
   const start = checkpoints[0]
   const finish = checkpoints[checkpoints.length - 1]
   const middle = checkpoints.slice(1, -1)
@@ -70,7 +77,7 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
     <>
       <div className="fixed inset-0 bg-black/30 z-40" onClick={onClose} />
 
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border border-[#e5e5e5] rounded-t-[10px] max-w-[560px] mx-auto flex flex-col overflow-hidden" style={{ maxHeight: '85dvh' }}>
+      <div className={`fixed bottom-0 left-0 right-0 z-50 bg-white border border-[#e5e5e5] rounded-t-[10px] max-w-[560px] mx-auto flex flex-col overflow-hidden transition-transform duration-300 ease-out ${visible ? 'translate-y-0' : 'translate-y-full'}`} style={{ maxHeight: '85dvh' }}>
         <div className="overflow-y-auto overscroll-contain min-h-0 flex-1">
         {/* Handle */}
         <div className="flex items-center justify-center pt-4">
@@ -84,9 +91,9 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
 
         <div className="pb-6">
           {/* Total duration card (only when completed) */}
-          {netWalkTime !== null && (
-            <div className="mx-4 mt-4 bg-white rounded-[8px] px-4 py-4 flex items-start gap-4">
-              <Layers className="w-6 h-6 text-[#0a0a0a] shrink-0 mt-0.5" />
+          {netWalkTime !== null && Math.round(netWalkTime / 60000) > 0 && (
+            <div className="mx-4 mt-4 bg-[#f5f5f5] rounded-[8px] px-4 py-4 flex items-center gap-2">
+              <Timer className="w-6 h-6 text-[#0a0a0a] shrink-0" />
               <p className="text-sm leading-5">
                 <span className="font-medium text-[#0a0a0a]">{formatDuration(netWalkTime)} </span>
                 <span className="text-[#737373]">
@@ -164,7 +171,7 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
             {/* Finish */}
             <div className="flex items-center gap-3">
               <div className="w-6 h-6 shrink-0 flex items-center justify-center">
-                <Layers className="w-5 h-5 text-[#171717]" />
+                <Flag className="w-5 h-5 text-[#171717]" />
               </div>
               <span className="text-sm font-semibold leading-5 text-[#171717]">
                 {finish.checkedAt ? `Финиш в ${formatTime(finish.checkedAt)}` : 'Финиш'}

@@ -20,7 +20,7 @@ export function CheckpointList() {
   if (!route) return null
 
   const { isCircular, circularPhase } = route
-  const showNumbers = !isCircular || circularPhase === 3
+  const showNumbers = isCircular ? circularPhase === 3 : lastIdx >= 0
   const anyUncheckedMarkable = isCircular && circularPhase < 3
 
   const lastIdx = getLastChecked(route.checkpoints)

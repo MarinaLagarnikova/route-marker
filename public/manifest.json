@@ -1,0 +1,10 @@
+{
+  "name": "Вешка",
+  "short_name": "Вешка",
+  "description": "Отметка пройденных точек маршрута по GPX",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait"
+}
