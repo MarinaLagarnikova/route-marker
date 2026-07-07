@@ -19,7 +19,7 @@ function RouteCard({ route, onClick }: { route: RouteState; onClick: () => void 
           <p className="text-sm font-semibold text-[#0a0a0a] leading-5 truncate">{route.name}</p>
           <div className="flex items-center gap-1 shrink-0 text-[#737373]">
             <SportShoe className="w-3.5 h-3.5" />
-            <span className="text-sm font-normal leading-5">{route.totalKm.toFixed(0)} км</span>
+            <span className="text-sm font-normal leading-5">{(route.totalKm ?? 0).toFixed(0)} км</span>
           </div>
         </div>
         <p className="text-sm font-normal text-[#737373] leading-5">{fmtRouteSubtitle(route)}</p>
@@ -33,7 +33,7 @@ function RouteCard({ route, onClick }: { route: RouteState; onClick: () => void 
 
 function fmtRouteSubtitle(r: RouteState): string {
   const checked = r.checkpoints.filter((c) => c.checkedAt)
-  const coveredKm = checked.length ? checked[checked.length - 1].distanceKm : 0
+  const coveredKm = checked.length ? (checked[checked.length - 1].distanceKm ?? 0) : 0
   const isCompleted = checked.length === r.checkpoints.length && r.checkpoints.length > 0
 
   if (isCompleted && checked.length > 0) {
