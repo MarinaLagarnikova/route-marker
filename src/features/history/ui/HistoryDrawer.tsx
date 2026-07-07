@@ -60,10 +60,11 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
   const allChecked =
     checkpoints.length > 0 && checkpoints.every((cp) => cp.checkedAt !== undefined)
 
-  const totalDuration =
-    allChecked && start.checkedAt && finish.checkedAt
-      ? finish.checkedAt - start.checkedAt
-      : null
+  const allCheckedInRoute = checkpoints.filter((cp) => cp.checkedAt !== undefined)
+  const uniqueDays = new Set(allCheckedInRoute.map((cp) => calendarDay(cp.checkedAt!)))
+  const isMultiDay = uniqueDays.size > 1
+
+  const netWalkTime = allChecked ? calcNetWalkTime(checkpoints) : null
 
   return (
     <>
@@ -83,12 +84,14 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
 
         <div className="pb-6">
           {/* Total duration card (only when completed) */}
-          {totalDuration !== null && (
+          {netWalkTime !== null && (
             <div className="mx-4 mt-4 bg-white rounded-[8px] px-4 py-4 flex items-start gap-4">
               <Layers className="w-6 h-6 text-[#0a0a0a] shrink-0 mt-0.5" />
               <p className="text-sm leading-5">
-                <span className="font-medium text-[#0a0a0a]">{formatDuration(totalDuration)} </span>
-                <span className="text-[#737373]">занял весь маршрут</span>
+                <span className="font-medium text-[#0a0a0a]">{formatDuration(netWalkTime)} </span>
+                <span className="text-[#737373]">
+                  {isMultiDay ? 'чистого ходового времени' : 'занял весь маршрут'}
+                </span>
               </p>
             </div>
           )}
@@ -101,7 +104,9 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
                 <MapPin className="w-5 h-5 text-[#171717]" />
               </div>
               <span className="text-sm font-semibold leading-5 text-[#171717]">
-                {start.checkedAt ? `Старт в ${formatTime(start.checkedAt)}` : 'Старт'}
+                {start.checkedAt
+                  ? `Старт в ${formatTime(start.checkedAt)}${isMultiDay ? ` · ${formatDate(start.checkedAt)}` : ''}`
+                  : 'Старт'}
               </span>
             </div>
 
@@ -111,34 +116,45 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
                 {middle.map((cp, i) => {
                   const isLast = i === middle.length - 1
                   const checked = cp.checkedAt !== undefined
+                  const prev = i > 0 ? middle[i - 1] : start
+                  const isNewDay =
+                    isMultiDay &&
+                    checked &&
+                    prev.checkedAt !== undefined &&
+                    calendarDay(cp.checkedAt!) !== calendarDay(prev.checkedAt!)
+
                   return (
-                    <div key={cp.id} className="flex items-center gap-3">
-                      {/* Timeline dot + line */}
-                      <div className="relative w-6 h-6 shrink-0 flex items-center justify-center">
-                        {!isLast && (
-                          <div className="absolute left-[11px] top-[15px] w-px h-[38px] bg-[#e5e7eb]" />
-                        )}
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#f3f4f6] ring-1 ring-[#d1d5db]" />
+                    <div key={cp.id}>
+                      {isNewDay && (
+                        <div className="py-2 mb-2">
+                          <span className="text-sm font-semibold text-[#171717]">
+                            Старт в {formatTime(cp.checkedAt!)} · {formatDate(cp.checkedAt!)}
+                          </span>
+                        </div>
+                      )}
+                      <div className="flex items-center gap-3">
+                        <div className="relative w-6 h-6 shrink-0 flex items-center justify-center">
+                          {!isLast && (
+                            <div className="absolute left-[11px] top-[15px] w-px h-[38px] bg-[#e5e7eb]" />
+                          )}
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#f3f4f6] ring-1 ring-[#d1d5db]" />
+                        </div>
+                        <span
+                          className={[
+                            'flex-1 text-sm leading-5',
+                            checked ? 'text-[#737373]' : 'text-[#0a0a0a]',
+                          ].join(' ')}
+                        >
+                          {cp.distanceKm.toFixed(1)} км
+                          {checked && cp.checkedAt ? ` · ${formatTime(cp.checkedAt)}` : ''}
+                        </span>
+                        <Check
+                          className={[
+                            'w-4 h-4 shrink-0',
+                            checked ? 'text-[#737373]' : 'text-[#d1d5db]',
+                          ].join(' ')}
+                        />
                       </div>
-
-                      {/* Label */}
-                      <span
-                        className={[
-                          'flex-1 text-sm leading-5',
-                          checked ? 'text-[#737373]' : 'text-[#0a0a0a]',
-                        ].join(' ')}
-                      >
-                        {cp.distanceKm.toFixed(1)} км
-                        {checked && cp.checkedAt ? ` · ${formatTime(cp.checkedAt)}` : ''}
-                      </span>
-
-                      {/* Check icon */}
-                      <Check
-                        className={[
-                          'w-4 h-4 shrink-0',
-                          checked ? 'text-[#737373]' : 'text-[#d1d5db]',
-                        ].join(' ')}
-                      />
                     </div>
                   )
                 })}
