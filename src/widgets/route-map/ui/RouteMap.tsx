@@ -5,13 +5,16 @@ import { useRouteStore } from '@/entities/route'
 import { getLastChecked } from '@/entities/checkpoint'
 import type { LatLon } from '@/shared/lib/geo'
 
-export function RouteMap() {
+interface Props {
+  userPos: LatLon | null
+}
+
+export function RouteMap({ userPos }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const adapterRef = useRef<MapAdapter | null>(null)
   const route = useRouteStore((s) => s.route)
   const markCheckpoint = useRouteStore((s) => s.markCheckpoint)
   const unmarkLast = useRouteStore((s) => s.unmarkLast)
-  const [userPos, setUserPos] = useState<LatLon | null>(null)
   const [mapError, setMapError] = useState<string | null>(null)
   const [mapReady, setMapReady] = useState(false)
 
@@ -48,9 +51,9 @@ export function RouteMap() {
       const trackIdx = directionKnown && lastIdx >= 0
         ? route.checkpoints[lastIdx].trackIndex
         : 0
-      const numbering = route.isCircular && route.circularPhase === 1 ? 'none' as const
-        : route.isCircular && route.circularPhase === 2 ? 'checked-only' as const
-        : 'all' as const
+      const numbering = route.isCircular
+        ? (route.circularPhase === 1 ? 'none' as const : route.circularPhase === 2 ? 'checked-only' as const : 'all' as const)
+        : (lastIdx >= 0 ? 'all' as const : 'none' as const)
       // Virtual Финиш sits on top of Старт on circular routes — never draw it on the map
       const cpsForMap = route.isCircular
         ? route.checkpoints.filter(cp => cp.id !== 'cp_ring_finish')
@@ -91,17 +94,6 @@ export function RouteMap() {
     adapterRef.current.drawCheckpoints(cpsForMap, handleTap, numbering)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route?.checkpoints])
-
-  // GPS watch (optional — works when available)
-  useEffect(() => {
-    if (!navigator.geolocation) return
-    const id = navigator.geolocation.watchPosition(
-      (pos) => setUserPos({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
-      () => setUserPos(null),
-      { enableHighAccuracy: true, maximumAge: 5000 }
-    )
-    return () => navigator.geolocation.clearWatch(id)
-  }, [])
 
   // Update user position on map
   useEffect(() => {
