@@ -11,20 +11,18 @@ import type { RouteState } from '@/entities/route'
 function fmtRouteSubtitle(r: RouteState): string {
   const checked = r.checkpoints.filter((c) => c.checkedAt)
   const coveredKm = checked.length ? checked[checked.length - 1].distanceKm : 0
-  const totalKm = r.checkpoints[r.checkpoints.length - 1]?.distanceKm ?? 0
+  const isCompleted = checked.length === r.checkpoints.length && r.checkpoints.length > 0
 
-  const lastTs = checked.length ? checked[checked.length - 1].checkedAt! : null
-  const dateStr = lastTs
-    ? new Date(lastTs).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })
-    : null
+  if (isCompleted && checked.length > 0) {
+    const firstTs = checked[0].checkedAt!
+    const lastTs = checked[checked.length - 1].checkedAt!
+    const firstDay = new Date(firstTs).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })
+    const lastDay = new Date(lastTs).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })
+    const dateStr = firstDay === lastDay ? firstDay : `${firstDay} — ${lastDay}`
+    return `${coveredKm.toFixed(1)} км пройдено · ${dateStr}`
+  }
 
-  const parts = [
-    dateStr,
-    `${coveredKm.toFixed(1)} из ${totalKm.toFixed(1)} км`,
-    `${checked.length} из ${r.checkpoints.length} точек`,
-  ].filter(Boolean)
-
-  return parts.join(' · ')
+  return `${coveredKm.toFixed(1)} км пройдено`
 }
 
 export function StartPage() {
@@ -88,7 +86,7 @@ export function StartPage() {
   const canStart = parsedGpx !== null && routeName.trim().length > 0
 
   return (
-    <div className="h-screen flex flex-col max-w-[560px] mx-auto bg-white">
+    <div className="h-dvh flex flex-col max-w-[560px] mx-auto bg-white">
       {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto">
         {/* Title */}
