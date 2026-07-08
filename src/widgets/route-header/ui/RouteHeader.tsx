@@ -46,16 +46,16 @@ export function RouteHeader() {
   }
 
   async function handleShare() {
-    if (!route.gpxXml) return
+    if (!route?.gpxXml) return
     setDrawerMode(null)
     const file = new File([route.gpxXml], `${route.name}.gpx`, { type: 'application/gpx+xml' })
     if (navigator.canShare?.({ files: [file] })) {
-      await navigator.share({ files: [file], title: route.name })
+      await navigator.share({ files: [file], title: route?.name })
     } else {
       const url = URL.createObjectURL(file)
       const a = document.createElement('a')
       a.href = url
-      a.download = `${route.name}.gpx`
+      a.download = `${route?.name}.gpx`
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)
