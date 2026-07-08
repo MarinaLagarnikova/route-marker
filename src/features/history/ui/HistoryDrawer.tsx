@@ -161,12 +161,9 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
                           {cp.distanceKm.toFixed(1)} км
                           {checked && cp.checkedAt ? ` · ${formatTime(cp.checkedAt)}` : ''}
                         </span>
-                        <Check
-                          className={[
-                            'w-4 h-4 shrink-0',
-                            checked ? 'text-[#737373]' : 'text-[#d1d5db]',
-                          ].join(' ')}
-                        />
+                        {checked && (
+                          <Check className="w-4 h-4 shrink-0 text-[#737373]" />
+                        )}
                       </div>
                     </div>
                   )

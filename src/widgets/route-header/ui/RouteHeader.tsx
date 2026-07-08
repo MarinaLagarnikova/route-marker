@@ -23,6 +23,11 @@ export function RouteHeader() {
     }
   }, [drawerMode])
 
+  function switchDrawer(next: DrawerMode) {
+    setDrawerVisible(false)
+    setTimeout(() => setDrawerMode(next), 300)
+  }
+
   if (!route) return null
 
   const historyDisabled = route.isCircular && route.circularPhase < 3
@@ -75,7 +80,7 @@ export function RouteHeader() {
         </button>
       )}
       <button
-        onClick={() => setDrawerMode('delete')}
+        onClick={() => switchDrawer('delete')}
         className="w-full h-12 flex items-center gap-3 px-4 bg-white rounded-[10px] text-sm font-medium text-[#dc2626] active:bg-red-50 transition-colors"
       >
         <Trash2 className="w-4 h-4 shrink-0" />
