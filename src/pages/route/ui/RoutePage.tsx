@@ -4,15 +4,18 @@ import { RouteHeader } from '@/widgets/route-header'
 import { RouteMap } from '@/widgets/route-map'
 import { useRouteStore } from '@/entities/route'
 import { useGpsAutoMark } from '@/features/mark-checkpoint'
+import { useOffRouteDetect } from '@/features/mark-checkpoint/lib/useOffRouteDetect'
 import { FinishCelebration } from './FinishCelebration'
+import { OffRouteBanner } from './OffRouteBanner'
 import type { LatLon } from '@/shared/lib/geo'
+
 
 export function RoutePage() {
   const navigate = useNavigate()
   const route = useRouteStore((s) => s.route)
   const [showCelebration, setShowCelebration] = useState(false)
   const celebratedRef = useRef(false)
-  const [userPos, setUserPos] = useState<(LatLon & { accuracy: number }) | null>(null)
+  const [userPos, setUserPos] = useState<(LatLon & { accuracy: number; speed: number | null }) | null>(null)
 
   useEffect(() => {
     if (!route) navigate('/', { replace: true })
@@ -36,6 +39,7 @@ export function RoutePage() {
         lat: pos.coords.latitude,
         lon: pos.coords.longitude,
         accuracy: pos.coords.accuracy,
+        speed: pos.coords.speed,
       }),
       () => setUserPos(null),
       { enableHighAccuracy: true, maximumAge: 5000 }
@@ -44,6 +48,11 @@ export function RoutePage() {
   }, [])
 
   const markCheckpoint = useRouteStore((s) => s.markCheckpoint)
+
+  const isOffRoute = useOffRouteDetect({
+    userPos,
+    trackPoints: route?.trackPoints ?? [],
+  })
 
   useGpsAutoMark({
     userPos,
@@ -63,6 +72,7 @@ export function RoutePage() {
         <div className="absolute inset-0">
           <RouteMap userPos={userPos ? { lat: userPos.lat, lon: userPos.lon } : null} />
         </div>
+        <OffRouteBanner visible={isOffRoute} />
         {showCelebration && (
           <FinishCelebration onDone={() => setShowCelebration(false)} />
         )}

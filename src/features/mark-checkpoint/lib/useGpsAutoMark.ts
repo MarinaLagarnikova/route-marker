@@ -7,9 +7,11 @@ import type { Checkpoint } from '@/entities/checkpoint'
 const RADIUS_KM = 0.030       // 30 metres
 const ACCURACY_MAX_M = 50     // ignore positions worse than 50m accuracy
 const DWELL_MS = 3000         // must stay within radius for 3 seconds
+const SPEED_MAX_MS = 4.2      // ~15 km/h — ignore if moving faster (transport)
 
 interface GpsPosition extends LatLon {
   accuracy: number
+  speed: number | null
 }
 
 interface Params {
@@ -36,8 +38,12 @@ export function useGpsAutoMark({
     if (isCircular && circularPhase < 3) return
     if (!isCircular && lastIdx < 0) return
 
-    // No GPS or accuracy too poor
+    // No GPS, accuracy too poor, or moving too fast (transport)
     if (!userPos || userPos.accuracy > ACCURACY_MAX_M) {
+      candidateIdxRef.current = null
+      return
+    }
+    if (userPos.speed !== null && userPos.speed > SPEED_MAX_MS) {
       candidateIdxRef.current = null
       return
     }
