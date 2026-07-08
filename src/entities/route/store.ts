@@ -39,6 +39,7 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
       totalKm,
       originalCheckpoints: isCircular ? checkpoints.map(cp => ({ ...cp })) : undefined,
       originalTrackPoints: isCircular ? [...trackPoints] : undefined,
+      gpxXml,
     }
     storageSet(gpxHash, state)
     set({ route: state })

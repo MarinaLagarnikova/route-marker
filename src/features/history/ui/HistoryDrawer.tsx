@@ -129,6 +129,12 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
                     checked &&
                     prev.checkedAt !== undefined &&
                     calendarDay(cp.checkedAt!) !== calendarDay(prev.checkedAt!)
+                  const nextCp = i < middle.length - 1 ? middle[i + 1] : null
+                  const isBeforeDayBreak =
+                    isMultiDay &&
+                    checked &&
+                    nextCp?.checkedAt !== undefined &&
+                    calendarDay(cp.checkedAt!) !== calendarDay(nextCp.checkedAt!)
 
                   return (
                     <div key={cp.id}>
@@ -141,7 +147,7 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
                       )}
                       <div className="flex items-center gap-3">
                         <div className="relative w-6 h-6 shrink-0 flex items-center justify-center">
-                          {!isLast && (
+                          {!isLast && !isBeforeDayBreak && (
                             <div className="absolute left-[11px] top-[15px] w-px h-[38px] bg-[#e5e7eb]" />
                           )}
                           <div className="w-1.5 h-1.5 rounded-full bg-[#f3f4f6] ring-1 ring-[#d1d5db]" />

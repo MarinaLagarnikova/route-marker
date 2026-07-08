@@ -1,31 +1,27 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ChevronLeft, Ellipsis, Trash2, Clock } from 'lucide-react'
+import { ChevronLeft, Ellipsis, Trash2, Clock, Share } from 'lucide-react'
 import { useRouteStore, selectCoveredKm, selectTotalKm } from '@/entities/route'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/shared/ui/dropdown-menu'
 import { HistoryDrawer } from '@/features/history'
+
+type DrawerMode = 'menu' | 'delete' | null
 
 export function RouteHeader() {
   const navigate = useNavigate()
   const route = useRouteStore((s) => s.route)
   const clearRoute = useRouteStore((s) => s.clearRoute)
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [drawerMode, setDrawerMode] = useState<DrawerMode>(null)
   const [drawerVisible, setDrawerVisible] = useState(false)
   const [historyOpen, setHistoryOpen] = useState(false)
 
   useEffect(() => {
-    if (drawerOpen) {
+    if (drawerMode) {
       const id = requestAnimationFrame(() => setDrawerVisible(true))
       return () => cancelAnimationFrame(id)
     } else {
       setDrawerVisible(false)
     }
-  }, [drawerOpen])
+  }, [drawerMode])
 
   if (!route) return null
 
@@ -49,10 +45,78 @@ export function RouteHeader() {
     navigate('/', { replace: true })
   }
 
+  async function handleShare() {
+    if (!route.gpxXml) return
+    setDrawerMode(null)
+    const file = new File([route.gpxXml], `${route.name}.gpx`, { type: 'application/gpx+xml' })
+    if (navigator.canShare?.({ files: [file] })) {
+      await navigator.share({ files: [file], title: route.name })
+    } else {
+      const url = URL.createObjectURL(file)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `${route.name}.gpx`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    }
+  }
+
+  const drawerContent = drawerMode === 'menu' ? (
+    <div className="flex flex-col p-4 gap-2">
+      {route.gpxXml && (
+        <button
+          onClick={handleShare}
+          className="w-full h-12 flex items-center gap-3 px-4 bg-white rounded-[10px] text-sm font-medium text-[#0a0a0a] active:bg-[#f5f5f5] transition-colors"
+        >
+          <Share className="w-4 h-4 shrink-0" />
+          Поделиться треком
+        </button>
+      )}
+      <button
+        onClick={() => setDrawerMode('delete')}
+        className="w-full h-12 flex items-center gap-3 px-4 bg-white rounded-[10px] text-sm font-medium text-[#dc2626] active:bg-red-50 transition-colors"
+      >
+        <Trash2 className="w-4 h-4 shrink-0" />
+        Удалить
+      </button>
+      <button
+        onClick={() => setDrawerMode(null)}
+        className="w-full h-12 bg-[#f5f5f5] rounded-[10px] text-sm font-medium text-[#0a0a0a] active:bg-[#e5e5e5] transition-colors"
+      >
+        Отменить
+      </button>
+    </div>
+  ) : drawerMode === 'delete' ? (
+    <div className="flex flex-col gap-4 p-4">
+      <div className="flex flex-col gap-2">
+        <h2 className="text-lg font-semibold leading-7 text-[#0a0a0a]">
+          Уверены, что хотите удалить трек?
+        </h2>
+        <p className="text-sm leading-5 text-[#737373]">
+          Сам трек и прогресс по нему не сохранится, придётся загружать заново
+        </p>
+      </div>
+      <button
+        onClick={handleDelete}
+        className="w-full h-12 bg-[#dc2626] text-white text-sm font-medium rounded-[10px] shadow-[0px_1px_1px_rgba(0,0,0,0.1)] active:bg-red-700 transition-colors"
+      >
+        Удалить
+      </button>
+      <button
+        onClick={() => setDrawerMode(null)}
+        className="w-full h-12 bg-white border border-[#e5e5e5] text-[#0a0a0a] text-sm font-medium rounded-[10px] shadow-[0px_1px_1px_rgba(0,0,0,0.1)] active:bg-[#f5f5f5] transition-colors"
+      >
+        Отменить
+      </button>
+    </div>
+  ) : null
+
   return (
     <>
       <div className="flex flex-col items-start w-full bg-white">
-        {/* Top row: back button + ellipsis menu */}
+        {/* Top row */}
         <div className="px-4 pt-6 pb-3 w-full flex items-center justify-between">
           <button
             onClick={() => navigate('/')}
@@ -67,34 +131,20 @@ export function RouteHeader() {
               onClick={() => setHistoryOpen(true)}
               disabled={historyDisabled}
               className={`h-9 px-3 flex items-center gap-1.5 border border-[#e5e5e5] rounded-[10px] bg-white shadow-[0px_1px_1px_rgba(0,0,0,0.1)] transition-colors ${
-                historyDisabled
-                  ? 'opacity-40 cursor-not-allowed'
-                  : 'active:bg-[#f5f5f5]'
+                historyDisabled ? 'opacity-40 cursor-not-allowed' : 'active:bg-[#f5f5f5]'
               }`}
             >
               <Clock className="w-4 h-4 text-[#0a0a0a]" />
               <span className="text-sm font-normal leading-5 text-[#0a0a0a]">История</span>
             </button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  className="w-9 h-9 flex items-center justify-center border border-[#e5e5e5] rounded-[10px] bg-white shadow-[0px_1px_1px_rgba(0,0,0,0.1)] active:bg-[#f5f5f5] data-[state=open]:bg-[#f5f5f5] transition-colors"
-                  aria-label="Действия"
-                >
-                  <Ellipsis className="w-4 h-4 text-[#0a0a0a]" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-[180px] bg-white text-[#0a0a0a]">
-                <DropdownMenuItem
-                  className="text-[#dc2626] focus:text-[#dc2626] focus:bg-red-50 cursor-pointer"
-                  onClick={() => setDrawerOpen(true)}
-                >
-                  <Trash2 className="w-4 h-4 mr-2" />
-                  Удалить
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <button
+              onClick={() => setDrawerMode('menu')}
+              className="w-9 h-9 flex items-center justify-center border border-[#e5e5e5] rounded-[10px] bg-white shadow-[0px_1px_1px_rgba(0,0,0,0.1)] active:bg-[#f5f5f5] transition-colors"
+              aria-label="Действия"
+            >
+              <Ellipsis className="w-4 h-4 text-[#0a0a0a]" />
+            </button>
           </div>
         </div>
 
@@ -123,39 +173,15 @@ export function RouteHeader() {
         />
       )}
 
-      {/* Delete drawer */}
-      {drawerOpen && (
+      {/* Menu / Delete drawer */}
+      {drawerMode && (
         <>
-          <div
-            className="fixed inset-0 bg-black/30 z-40"
-            onClick={() => setDrawerOpen(false)}
-          />
+          <div className="fixed inset-0 bg-black/30 z-40" onClick={() => setDrawerMode(null)} />
           <div className={`fixed bottom-0 left-0 right-0 z-50 bg-white border border-[#e5e5e5] rounded-t-[10px] max-w-[560px] mx-auto transition-transform duration-300 ease-out ${drawerVisible ? 'translate-y-0' : 'translate-y-full'}`}>
             <div className="flex items-center justify-center pt-4 pb-0">
               <div className="w-[100px] h-2 bg-[#f5f5f5] rounded-full" />
             </div>
-            <div className="flex flex-col gap-4 p-4">
-              <div className="flex flex-col gap-2">
-                <h2 className="text-lg font-semibold leading-7 text-[#0a0a0a]">
-                  Уверены, что хотите удалить трек?
-                </h2>
-                <p className="text-sm leading-5 text-[#737373]">
-                  Сам трек и прогресс по нему не сохранится, придётся загружать заново
-                </p>
-              </div>
-              <button
-                onClick={handleDelete}
-                className="w-full h-9 bg-[#dc2626] text-white text-sm font-medium rounded-[10px] shadow-[0px_1px_1px_rgba(0,0,0,0.1)] active:bg-red-700 transition-colors"
-              >
-                Удалить
-              </button>
-              <button
-                onClick={() => setDrawerOpen(false)}
-                className="w-full h-9 bg-white border border-[#e5e5e5] text-[#0a0a0a] text-sm font-medium rounded-[10px] shadow-[0px_1px_1px_rgba(0,0,0,0.1)] active:bg-[#f5f5f5] transition-colors"
-              >
-                Отменить
-              </button>
-            </div>
+            {drawerContent}
           </div>
         </>
       )}

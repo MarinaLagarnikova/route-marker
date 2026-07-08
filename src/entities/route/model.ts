@@ -19,6 +19,8 @@ export interface RouteState {
   originalCheckpoints?: Checkpoint[]
   /** Snapshot of trackPoints before circular rotation — used for reset */
   originalTrackPoints?: LatLon[]
+  /** Original GPX XML — used for sharing */
+  gpxXml?: string
 }
 
 export function detectDirection(
