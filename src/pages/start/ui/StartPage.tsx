@@ -46,8 +46,8 @@ const CAROUSEL_VISIBLE = 1.85 // |pos| threshold beyond which opacity = 0
 
 function IconCarousel() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const rafRef = useRef<number>()
-  const startRef = useRef<number>()
+  const rafRef = useRef<number>(undefined)
+  const startRef = useRef<number>(undefined)
 
   useEffect(() => {
     function animate(time: number) {
