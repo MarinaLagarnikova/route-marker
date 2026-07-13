@@ -103,6 +103,7 @@ export function RouteMap({ userPos }: Props) {
 return (
     <div className="relative w-full h-full">
       <div ref={containerRef} className="w-full h-full" />
+
       {!mapReady && !mapError && (
         <div className="absolute inset-0 flex items-center justify-center bg-[#f5f5f5]">
           <p className="text-sm text-[#737373]">Загрузка карты…</p>

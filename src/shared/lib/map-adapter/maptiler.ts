@@ -41,6 +41,7 @@ export function createMapTilerAdapter(): MapAdapter {
 
         m.on('load', () => {
           if (destroyed) { m.remove(); return }
+          m.addControl(new maptilersdk.NavigationControl({ showCompass: false }), 'top-right')
           resolve()
         })
 
@@ -156,5 +157,8 @@ export function createMapTilerAdapter(): MapAdapter {
       else if (layer === 'hybrid') map.setStyle('hybrid')
       else map.setStyle('streets-v2')
     },
+
+    zoomIn() { map?.zoomIn() },
+    zoomOut() { map?.zoomOut() },
   }
 }

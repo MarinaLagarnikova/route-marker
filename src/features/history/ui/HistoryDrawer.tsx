@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { MapPin, Check, Timer, Flag } from 'lucide-react'
+import { Locate, Check, Timer, Flag } from 'lucide-react'
 import type { Checkpoint } from '@/entities/checkpoint'
 
 interface Props {
@@ -77,111 +77,107 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
     <>
       <div className="fixed inset-0 bg-black/30 z-40" onClick={onClose} />
 
-      <div className={`fixed bottom-0 left-0 right-0 z-50 bg-white border border-[#e5e5e5] rounded-t-[10px] max-w-[560px] mx-auto flex flex-col overflow-hidden transition-transform duration-300 ease-out ${visible ? 'translate-y-0' : 'translate-y-full'}`} style={{ maxHeight: '85dvh' }}>
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-x border-zinc-200 rounded-t-[16px] max-w-[560px] mx-auto flex flex-col overflow-hidden transition-transform duration-300 ease-out ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        style={{ maxHeight: '85dvh' }}
+      >
         <div className="overflow-y-auto overscroll-contain min-h-0 flex-1">
-        {/* Handle */}
-        <div className="flex items-center justify-center pt-4">
-          <div className="w-[100px] h-2 bg-[#e5e5e5] rounded-full" />
-        </div>
+          {/* Handle */}
+          <div className="flex items-center justify-center pt-2">
+            <div className="w-[50px] h-1 bg-zinc-400 rounded-full" />
+          </div>
 
-        {/* Header */}
-        <div className="px-4 pt-4 pb-0">
-          <h2 className="text-xl font-semibold leading-7 text-[#0a0a0a]">История</h2>
-        </div>
+          {/* Content */}
+          <div className="flex flex-col gap-6 px-4 pt-4 pb-8">
+            {/* Title */}
+            <h2 className="text-xl font-semibold text-zinc-900">История</h2>
 
-        <div className="pb-6">
-          {/* Total duration card (only when completed) */}
-          {netWalkTime !== null && Math.round(netWalkTime / 60000) > 0 && (
-            <div className="mx-4 mt-4 bg-[#f5f5f5] rounded-[8px] px-4 py-4 flex items-center gap-2">
-              <Timer className="w-6 h-6 text-[#0a0a0a] shrink-0" />
-              <p className="text-sm leading-5">
-                <span className="font-medium text-[#0a0a0a]">{formatDuration(netWalkTime)} </span>
-                <span className="text-[#737373]">
-                  {isMultiDay ? 'чистого ходового времени' : 'занял весь маршрут'}
-                </span>
-              </p>
-            </div>
-          )}
-
-          {/* Timeline */}
-          <div className="px-4 pt-3 flex flex-col gap-6">
-            {/* Start */}
-            <div className="flex items-center gap-3">
-              <div className="w-6 h-6 shrink-0 flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-[#171717]" />
-              </div>
-              <span className="text-sm font-semibold leading-5 text-[#171717]">
-                {start.checkedAt
-                  ? `Старт в ${formatTime(start.checkedAt)}${isMultiDay ? ` · ${formatDate(start.checkedAt)}` : ''}`
-                  : 'Старт'}
-              </span>
-            </div>
-
-            {/* Middle checkpoints */}
-            {middle.length > 0 && (
-              <div className="flex flex-col gap-4">
-                {middle.map((cp, i) => {
-                  const isLast = i === middle.length - 1
-                  const checked = cp.checkedAt !== undefined
-                  const prev = i > 0 ? middle[i - 1] : start
-                  const isNewDay =
-                    isMultiDay &&
-                    checked &&
-                    prev.checkedAt !== undefined &&
-                    calendarDay(cp.checkedAt!) !== calendarDay(prev.checkedAt!)
-                  const nextCp = i < middle.length - 1 ? middle[i + 1] : null
-                  const isBeforeDayBreak =
-                    isMultiDay &&
-                    checked &&
-                    nextCp?.checkedAt !== undefined &&
-                    calendarDay(cp.checkedAt!) !== calendarDay(nextCp.checkedAt!)
-
-                  return (
-                    <div key={cp.id}>
-                      {isNewDay && (
-                        <div className="py-2 mb-2">
-                          <span className="text-sm font-semibold text-[#171717]">
-                            Старт в {formatTime(cp.checkedAt!)} · {formatDate(cp.checkedAt!)}
-                          </span>
-                        </div>
-                      )}
-                      <div className="flex items-center gap-3">
-                        <div className="relative w-6 h-6 shrink-0 flex items-center justify-center">
-                          {!isLast && !isBeforeDayBreak && (
-                            <div className="absolute left-[11px] top-[15px] w-px h-[38px] bg-[#e5e7eb]" />
-                          )}
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#f3f4f6] ring-1 ring-[#d1d5db]" />
-                        </div>
-                        <span
-                          className={[
-                            'flex-1 text-sm leading-5',
-                            checked ? 'text-[#737373]' : 'text-[#0a0a0a]',
-                          ].join(' ')}
-                        >
-                          {cp.distanceKm.toFixed(1)} км
-                          {checked && cp.checkedAt ? ` · ${formatTime(cp.checkedAt)}` : ''}
-                        </span>
-                        {checked && (
-                          <Check className="w-4 h-4 shrink-0 text-[#737373]" />
-                        )}
-                      </div>
-                    </div>
-                  )
-                })}
+            {/* Total duration card */}
+            {netWalkTime !== null && Math.round(netWalkTime / 60000) > 0 && (
+              <div className="bg-zinc-100 rounded-[16px] p-4 flex items-center gap-2">
+                <Timer className="w-6 h-6 text-zinc-900 shrink-0" />
+                <p className="text-sm font-medium">
+                  <span className="text-zinc-900">{formatDuration(netWalkTime)} </span>
+                  <span className="text-zinc-500">
+                    {isMultiDay ? 'чистого ходового времени' : 'занял весь маршрут'}
+                  </span>
+                </p>
               </div>
             )}
 
-            {/* Finish */}
-            <div className="flex items-center gap-3">
-              <div className="w-6 h-6 shrink-0 flex items-center justify-center">
-                <Flag className="w-5 h-5 text-[#171717]" />
+            {/* Timeline */}
+            <div className="flex flex-col gap-4">
+              {/* Start */}
+              <div className="flex items-center gap-2">
+                <Locate className="w-4 h-4 shrink-0 text-zinc-900" />
+                <span className="text-sm font-semibold text-zinc-900">
+                  {start.checkedAt
+                    ? `Старт в ${formatTime(start.checkedAt)}${isMultiDay ? ` · ${formatDate(start.checkedAt)}` : ''}`
+                    : 'Старт'}
+                </span>
               </div>
-              <span className="text-sm font-semibold leading-5 text-[#171717]">
-                {finish.checkedAt ? `Финиш в ${formatTime(finish.checkedAt)}` : 'Финиш'}
-              </span>
+
+              {/* Middle checkpoints */}
+              {middle.length > 0 && (
+                <div className="flex flex-col gap-3">
+                  {middle.map((cp, i) => {
+                    const isLast = i === middle.length - 1
+                    const checked = cp.checkedAt !== undefined
+                    const prev = i > 0 ? middle[i - 1] : start
+                    const isNewDay =
+                      isMultiDay &&
+                      checked &&
+                      prev.checkedAt !== undefined &&
+                      calendarDay(cp.checkedAt!) !== calendarDay(prev.checkedAt!)
+                    const nextCp = i < middle.length - 1 ? middle[i + 1] : null
+                    const isBeforeDayBreak =
+                      isMultiDay &&
+                      checked &&
+                      nextCp?.checkedAt !== undefined &&
+                      calendarDay(cp.checkedAt!) !== calendarDay(nextCp.checkedAt!)
+
+                    return (
+                      <div key={cp.id}>
+                        {isNewDay && (
+                          <div className="flex items-center gap-2 mb-3">
+                            <Locate className="w-4 h-4 shrink-0 text-zinc-900" />
+                            <span className="text-sm font-semibold text-zinc-900">
+                              Старт в {formatTime(cp.checkedAt!)} · {formatDate(cp.checkedAt!)}
+                            </span>
+                          </div>
+                        )}
+                        <div className="flex items-center gap-3 pl-4">
+                          <div className="relative shrink-0 w-6 h-6 flex items-center justify-center">
+                            {!isLast && !isBeforeDayBreak && (
+                              <div className="absolute left-[11px] top-[15px] w-px h-[38px] bg-zinc-200" />
+                            )}
+                            <div className="w-1.5 h-1.5 rounded-full bg-zinc-100 shadow-[0_0_0_1px_#d1d5db]" />
+                          </div>
+                          <span className="flex-1 text-sm font-normal text-zinc-900">
+                            {cp.distanceKm.toFixed(1)} км
+                            {checked && cp.checkedAt ? ` · ${formatTime(cp.checkedAt)}` : ''}
+                          </span>
+                          {checked && (
+                            <Check className="w-4 h-4 shrink-0 text-zinc-400" />
+                          )}
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+
+              {/* Finish */}
+              <div className="flex items-center gap-2">
+                <Flag className="w-4 h-4 shrink-0 text-zinc-900" />
+                <span className="text-sm font-semibold text-zinc-900">
+                  {finish.checkedAt
+                    ? `Финиш в ${formatTime(finish.checkedAt)}${isMultiDay ? ` · ${formatDate(finish.checkedAt)}` : ''}`
+                    : 'Финиш'}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </>

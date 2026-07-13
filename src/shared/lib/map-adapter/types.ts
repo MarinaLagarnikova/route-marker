@@ -9,4 +9,6 @@ export interface MapAdapter {
   updateUserPosition(pos: LatLon | null): void
   fitBounds(points: LatLon[]): void
   setLayer(layer: 'map' | 'satellite' | 'hybrid'): void
+  zoomIn(): void
+  zoomOut(): void
 }
