@@ -11,7 +11,6 @@ export function createMapTilerAdapter(): MapAdapter {
   let destroyed = false
   let tapHandler: ((index: number) => void) | null = null
 
-  const TRACK_SOURCE = 'track-source'
   const TRACK_DONE_LAYER = 'track-done'
   const TRACK_REMAINING_LAYER = 'track-remaining'
   const MARKERS: maptilersdk.Marker[] = []
@@ -43,7 +42,7 @@ export function createMapTilerAdapter(): MapAdapter {
         m.on('load', () => {
           if (destroyed) { m.remove(); return }
           // GeolocateControl first — in bottom-right stack it ends up below NavigationControl
-          m.addControl(new maptilersdk.MaptilerGeolocateControl(), 'bottom-right')
+          m.addControl(new maptilersdk.MaptilerGeolocateControl({}), 'bottom-right')
           m.addControl(new maptilersdk.NavigationControl({ showCompass: false }), 'bottom-right')
           resolve()
         })
