@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RouteHeader } from '@/widgets/route-header'
 import { RouteMap } from '@/widgets/route-map'
@@ -62,6 +62,8 @@ export function RoutePage() {
     markCheckpoint,
   })
 
+  const handleCelebrationDone = useCallback(() => setShowCelebration(false), [])
+
   if (!route) return null
 
   return (
@@ -74,7 +76,7 @@ export function RoutePage() {
         </div>
         <OffRouteBanner visible={isOffRoute} />
         {showCelebration && (
-          <FinishCelebration onDone={() => setShowCelebration(false)} />
+          <FinishCelebration onDone={handleCelebrationDone} />
         )}
       </div>
     </div>
