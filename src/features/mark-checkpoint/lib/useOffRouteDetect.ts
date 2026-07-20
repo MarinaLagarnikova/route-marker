@@ -15,12 +15,19 @@ interface GpsPosition extends LatLon {
 interface Params {
   userPos: GpsPosition | null
   trackPoints: LatLon[]
+  enabled: boolean
 }
 
-export function useOffRouteDetect({ userPos, trackPoints }: Params): boolean {
+export function useOffRouteDetect({ userPos, trackPoints, enabled }: Params): boolean {
   const [isOffRoute, setIsOffRoute] = useState(false)
 
   useEffect(() => {
+    // Only active when route is in progress (started but not finished)
+    if (!enabled) {
+      setIsOffRoute(false)
+      return
+    }
+
     // No GPS, poor accuracy, or transport speed → clear state
     if (
       !userPos ||

@@ -90,3 +90,20 @@ html, body, #root {
   height: 100%;
   overscroll-behavior: none;
 }
+
+/* Map controls: 16px gap between NavigationControl and GeolocateControl */
+.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group + .maplibregl-ctrl-group {
+  margin-top: 16px;
+}
+
+/* Map control button size and border radius */
+.maplibregl-ctrl-group button {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 0 !important;
+}
+
+.maplibregl-ctrl-group {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}

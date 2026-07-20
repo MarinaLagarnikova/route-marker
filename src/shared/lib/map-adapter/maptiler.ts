@@ -35,13 +35,16 @@ export function createMapTilerAdapter(): MapAdapter {
           center: [center.lon, center.lat],
           zoom,
           navigationControl: false,
+          geolocateControl: false,
         })
 
         map = m
 
         m.on('load', () => {
           if (destroyed) { m.remove(); return }
-          m.addControl(new maptilersdk.NavigationControl({ showCompass: false }), 'top-right')
+          // GeolocateControl first — in bottom-right stack it ends up below NavigationControl
+          m.addControl(new maptilersdk.MaptilerGeolocateControl(), 'bottom-right')
+          m.addControl(new maptilersdk.NavigationControl({ showCompass: false }), 'bottom-right')
           resolve()
         })
 
@@ -60,36 +63,55 @@ export function createMapTilerAdapter(): MapAdapter {
       map = null
     },
 
-    drawTrack(points: LatLon[], checkedUpToTrackIndex: number) {
+    drawTrack(points: LatLon[], checkedUpToTrackIndex: number, segments?: LatLon[][]) {
       if (!map) return
       const coords = points.map((p): [number, number] => [p.lon, p.lat])
-
-      // Ensure source exists
-      if (!map.getSource(TRACK_SOURCE)) {
-        map.addSource(TRACK_SOURCE, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
-      }
-
-      // Done segment
-      const doneCoords = checkedUpToTrackIndex > 0 ? coords.slice(0, checkedUpToTrackIndex + 1) : []
-      const remainingCoords = coords.slice(Math.max(0, checkedUpToTrackIndex))
 
       const doneSourceId = 'track-done-source'
       const remainingSourceId = 'track-remaining-source'
 
+      let doneGeometry: [number, number][][] = []
+      let remainingGeometry: [number, number][][] = []
+
+      if (segments && segments.length > 0) {
+        // Split each segment into done/remaining portions by checkedUpToTrackIndex
+        let offset = 0
+        for (const seg of segments) {
+          const segCoords = seg.map((p): [number, number] => [p.lon, p.lat])
+          const segEnd = offset + seg.length - 1
+
+          if (checkedUpToTrackIndex <= 0) {
+            remainingGeometry.push(segCoords)
+          } else if (checkedUpToTrackIndex >= segEnd) {
+            if (segCoords.length >= 2) doneGeometry.push(segCoords)
+          } else if (checkedUpToTrackIndex >= offset) {
+            const localIdx = checkedUpToTrackIndex - offset
+            if (localIdx + 1 >= 2) doneGeometry.push(segCoords.slice(0, localIdx + 1))
+            if (segCoords.length - localIdx >= 2) remainingGeometry.push(segCoords.slice(localIdx))
+          } else {
+            remainingGeometry.push(segCoords)
+          }
+          offset += seg.length
+        }
+      } else {
+        doneGeometry = checkedUpToTrackIndex > 0 ? [coords.slice(0, checkedUpToTrackIndex + 1)] : []
+        remainingGeometry = [coords.slice(Math.max(0, checkedUpToTrackIndex))]
+      }
+
       if (!map.getSource(doneSourceId)) {
-        map.addSource(doneSourceId, { type: 'geojson', data: { type: 'Feature', geometry: { type: 'LineString', coordinates: [] }, properties: {} } })
+        map.addSource(doneSourceId, { type: 'geojson', data: { type: 'Feature', geometry: { type: 'MultiLineString', coordinates: [] }, properties: {} } })
         map.addLayer({ id: TRACK_DONE_LAYER, type: 'line', source: doneSourceId, layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#171717', 'line-width': 4 } })
       }
       ;(map.getSource(doneSourceId) as maptilersdk.GeoJSONSource).setData({
-        type: 'Feature', geometry: { type: 'LineString', coordinates: doneCoords }, properties: {},
+        type: 'Feature', geometry: { type: 'MultiLineString', coordinates: doneGeometry }, properties: {},
       })
 
       if (!map.getSource(remainingSourceId)) {
-        map.addSource(remainingSourceId, { type: 'geojson', data: { type: 'Feature', geometry: { type: 'LineString', coordinates: [] }, properties: {} } })
+        map.addSource(remainingSourceId, { type: 'geojson', data: { type: 'Feature', geometry: { type: 'MultiLineString', coordinates: [] }, properties: {} } })
         map.addLayer({ id: TRACK_REMAINING_LAYER, type: 'line', source: remainingSourceId, layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#6b7280', 'line-width': 3, 'line-dasharray': [2, 2] } })
       }
       ;(map.getSource(remainingSourceId) as maptilersdk.GeoJSONSource).setData({
-        type: 'Feature', geometry: { type: 'LineString', coordinates: remainingCoords }, properties: {},
+        type: 'Feature', geometry: { type: 'MultiLineString', coordinates: remainingGeometry }, properties: {},
       })
     },
 
@@ -160,5 +182,6 @@ export function createMapTilerAdapter(): MapAdapter {
 
     zoomIn() { map?.zoomIn() },
     zoomOut() { map?.zoomOut() },
+    panTo(pos: LatLon) { map?.panTo([pos.lon, pos.lat]) },
   }
 }

@@ -49,9 +49,14 @@ export function RoutePage() {
 
   const markCheckpoint = useRouteStore((s) => s.markCheckpoint)
 
+  const isRouteInProgress = !!route &&
+    route.checkpoints.some((cp) => cp.checkedAt !== undefined) &&
+    !route.checkpoints.every((cp) => cp.checkedAt !== undefined)
+
   const isOffRoute = useOffRouteDetect({
     userPos,
     trackPoints: route?.trackPoints ?? [],
+    enabled: isRouteInProgress,
   })
 
   useGpsAutoMark({

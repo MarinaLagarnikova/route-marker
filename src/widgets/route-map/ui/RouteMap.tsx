@@ -58,7 +58,7 @@ export function RouteMap({ userPos }: Props) {
       const cpsForMap = route.isCircular
         ? route.checkpoints.filter(cp => cp.id !== 'cp_ring_finish')
         : route.checkpoints
-      adapter.drawTrack(route.trackPoints, trackIdx)
+      adapter.drawTrack(route.trackPoints, trackIdx, route.trackSegments)
       adapter.drawCheckpoints(cpsForMap, handleTap, numbering)
       setMapReady(true)
     }).catch((e: unknown) => {
@@ -90,7 +90,7 @@ export function RouteMap({ userPos }: Props) {
     const cpsForMap = route.isCircular && route.circularPhase === 2
       ? route.checkpoints.filter(cp => cp.id !== 'cp_ring_finish')
       : route.checkpoints
-    adapterRef.current.drawTrack(route.trackPoints, trackIdx)
+    adapterRef.current.drawTrack(route.trackPoints, trackIdx, route.trackSegments)
     adapterRef.current.drawCheckpoints(cpsForMap, handleTap, numbering)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route?.checkpoints])
@@ -100,7 +100,7 @@ export function RouteMap({ userPos }: Props) {
     adapterRef.current?.updateUserPosition(userPos)
   }, [userPos])
 
-return (
+  return (
     <div className="relative w-full h-full">
       <div ref={containerRef} className="w-full h-full" />
 
@@ -116,6 +116,8 @@ return (
           <p className="text-xs text-[#737373] mt-1">Проверьте ключ API в .env</p>
         </div>
       )}
+
+
     </div>
   )
 }
