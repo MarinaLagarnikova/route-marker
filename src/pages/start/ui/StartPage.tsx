@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
+import iconLocationSrc from '@/assets/icons/icon-location.png'
+import iconPictureSrc from '@/assets/icons/icon-picture.png'
+import iconFlashSrc from '@/assets/icons/icon-flash.png'
+import iconStarSrc from '@/assets/icons/icon-star.png'
 import { useNavigate } from 'react-router-dom'
 import { ChevronRight, CloudUpload, Flag, SportShoe } from 'lucide-react'
 import { parseGpx } from '@/shared/lib/gpx'
@@ -6,7 +10,7 @@ import { useRouteStore, hashString } from '@/entities/route'
 import { storageGet, storageKeys } from '@/shared/lib/storage'
 import { APP_NAME } from '@/shared/config'
 import type { GpxData } from '@/shared/lib/gpx'
-import type { RouteState } from '@/entities/route'
+import type { RouteState, MultiStageMeta, StageMeta } from '@/entities/route'
 
 interface CarouselIcon {
   src: string
@@ -18,22 +22,22 @@ interface CarouselIcon {
 
 const CAROUSEL_ICONS: CarouselIcon[] = [
   {
-    src: '/icons/icon-location.png',
+    src: iconLocationSrc,
     w: 84, h: 120,
     crop: { h: '147.11%', left: '-49%', top: '-25.08%', w: '197.42%' },
   },
   {
-    src: '/icons/icon-picture.png',
+    src: iconPictureSrc,
     w: 118, h: 120,
     crop: { h: '107.46%', left: '-2.91%', top: '-2.3%', w: '102.91%' },
   },
   {
-    src: '/icons/icon-flash.png',
+    src: iconFlashSrc,
     w: 64, h: 120,
     crop: { h: '117.14%', left: '-52.5%', top: '-9.59%', w: '204.95%' },
   },
   {
-    src: '/icons/icon-star.png',
+    src: iconStarSrc,
     w: 121, h: 120,
     crop: { h: '208.86%', left: '-53.12%', top: '-56.96%', w: '206.25%' },
   },
@@ -164,6 +168,64 @@ function RouteCard({
   )
 }
 
+function calcMultiStageCoveredKm(stages: StageMeta[]): number {
+  let total = 0
+  for (const stageMeta of stages) {
+    const stageState = storageGet<RouteState>(stageMeta.stageKey)
+    if (!stageState) continue
+    const checked = stageState.checkpoints.filter((cp) => cp.checkedAt !== undefined)
+    total += checked.length > 0 ? (checked[checked.length - 1].distanceKm ?? 0) : 0
+  }
+  return total
+}
+
+function isMultiStageCompleted(stages: StageMeta[]): boolean {
+  if (stages.length === 0) return false
+  return stages.every((stageMeta) => {
+    const stageState = storageGet<RouteState>(stageMeta.stageKey)
+    if (!stageState || stageState.checkpoints.length === 0) return false
+    return stageState.checkpoints.every((cp) => cp.checkedAt !== undefined)
+  })
+}
+
+function MultiStageCard({
+  meta,
+  onClick,
+  isActive,
+}: {
+  meta: MultiStageMeta
+  onClick: () => void
+  isActive?: boolean
+}) {
+  const totalKm = meta.stages.reduce((sum, s) => sum + s.totalKm, 0)
+  const coveredKm = calcMultiStageCoveredKm(meta.stages)
+
+  return (
+    <button
+      onClick={onClick}
+      className="w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4"
+    >
+      <div className="flex-1 flex flex-col gap-1.5 min-w-0">
+        <div className="flex items-center gap-1.5 min-w-0">
+          {isActive && (
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0" style={{ overflow: 'visible' }}>
+              <circle className="dot-pulse-ring" cx="8" cy="8" r="8" fill="#FF7A29" />
+              <circle cx="8" cy="8" r="3" fill="#FF7A29" />
+            </svg>
+          )}
+          <p className="text-sm font-semibold text-zinc-900 truncate">{meta.name}</p>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <SportShoe className="w-4 h-4 text-zinc-900" />
+            <span className="text-sm font-normal text-zinc-900">{totalKm.toFixed(0)} км</span>
+          </div>
+        </div>
+        <p className="text-sm font-normal text-zinc-500">{coveredKm.toFixed(1)} км пройдено · {meta.stages.length} этапа</p>
+      </div>
+      <ChevronRight className="w-5 h-5 text-zinc-900 shrink-0 mt-0.5" />
+    </button>
+  )
+}
+
 function fmtRouteSubtitle(r: RouteState): string {
   const checked = r.checkpoints.filter((c) => c.checkedAt)
   const coveredKm = checked.length ? (checked[checked.length - 1].distanceKm ?? 0) : 0
@@ -247,18 +309,33 @@ export function StartPage() {
   const navigate = useNavigate()
   const loadRoute = useRouteStore((s) => s.loadRoute)
   const loadSaved = useRouteStore((s) => s.loadSaved)
+  const loadMultiStage = useRouteStore((s) => s.loadMultiStage)
+  const loadMultiStageSaved = useRouteStore((s) => s.loadMultiStageSaved)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const [parsedGpx, setParsedGpx] = useState<{ data: GpxData; xml: string } | null>(null)
   const [routeName, setRouteName] = useState('')
   const [parseError, setParseError] = useState<string | null>(null)
   const [savedRoutes, setSavedRoutes] = useState<RouteState[]>([])
+  const [savedMultiRoutes, setSavedMultiRoutes] = useState<MultiStageMeta[]>([])
 
   useEffect(() => {
-    const routes = storageKeys()
+    const allKeys = storageKeys()
+    // Regular routes: keys that don't start with 'multi_' and don't match '_s\d+' suffix
+    const routeKeys = allKeys.filter(
+      (k) => !k.startsWith('multi_') && !/^.+_s\d+$/.test(k)
+    )
+    const routes = routeKeys
       .map((k) => storageGet<RouteState>(k))
-      .filter((r): r is RouteState => r !== null)
+      .filter((r): r is RouteState => r !== null && typeof r.gpxHash === 'string')
     setSavedRoutes(routes)
+
+    // Multi-stage metas: keys starting with 'multi_'
+    const multiKeys = allKeys.filter((k) => k.startsWith('multi_'))
+    const multiRoutes = multiKeys
+      .map((k) => storageGet<MultiStageMeta>(k))
+      .filter((m): m is MultiStageMeta => m !== null && typeof m.gpxHash === 'string')
+    setSavedMultiRoutes(multiRoutes)
   }, [])
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -281,11 +358,20 @@ export function StartPage() {
 
   function handleParsed(data: GpxData, xml: string) {
     const hash = hashString(xml)
-    const existing = storageGet<RouteState>(hash)
-    if (existing) {
-      loadSaved(existing)
-      navigate('/route')
-      return
+    if (data.isMultiStage) {
+      const existingMulti = storageGet<MultiStageMeta>(`multi_${hash}`)
+      if (existingMulti) {
+        loadMultiStageSaved(existingMulti)
+        navigate('/stages')
+        return
+      }
+    } else {
+      const existing = storageGet<RouteState>(hash)
+      if (existing) {
+        loadSaved(existing)
+        navigate('/route')
+        return
+      }
     }
     setParsedGpx({ data, xml })
     setRouteName(data.name)
@@ -293,8 +379,14 @@ export function StartPage() {
 
   function handleConfirm() {
     if (!parsedGpx || !routeName.trim()) return
-    loadRoute(routeName.trim(), parsedGpx.data.trackPoints, parsedGpx.data.waypoints, parsedGpx.xml)
-    navigate('/route')
+    if (parsedGpx.data.isMultiStage && parsedGpx.data.stages) {
+      const hash = hashString(parsedGpx.xml)
+      loadMultiStage(routeName.trim(), parsedGpx.data.stages, hash)
+      navigate('/stages')
+    } else {
+      loadRoute(routeName.trim(), parsedGpx.data.trackPoints, parsedGpx.data.waypoints, parsedGpx.xml, parsedGpx.data.trackSegments)
+      navigate('/route')
+    }
   }
 
   function handleCancel() {
@@ -307,12 +399,21 @@ export function StartPage() {
     navigate('/route')
   }
 
+  function handleContinueMulti(meta: MultiStageMeta) {
+    loadMultiStageSaved(meta)
+    navigate('/stages')
+  }
+
   const completedRoutes = savedRoutes.filter(
     (r) => r.checkpoints.length > 0 && r.checkpoints.every((cp) => cp.checkedAt !== undefined)
   )
   const activeRoutes = savedRoutes.filter(
     (r) => !r.checkpoints.every((cp) => cp.checkedAt !== undefined)
   )
+  const completedMultiRoutes = savedMultiRoutes.filter((m) => isMultiStageCompleted(m.stages))
+  const activeMultiRoutes = savedMultiRoutes.filter((m) => !isMultiStageCompleted(m.stages))
+
+  const hasAnySaved = savedRoutes.length > 0 || savedMultiRoutes.length > 0
 
   return (
     <div className="h-dvh flex flex-col max-w-[560px] mx-auto bg-white">
@@ -320,12 +421,16 @@ export function StartPage() {
       <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-8">
         {/* Header */}
         <div className="flex items-center gap-3">
-          <img src="/logo.svg" alt="" className="w-8 h-8 shrink-0" />
+          <svg className="w-8 h-8 shrink-0" viewBox="0 0 36.9498 36.9498" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+            <rect x="18.4749" width="26.1275" height="26.1275" rx="7.11111" transform="rotate(45 18.4749 0)" fill="#FF7A29"/>
+            <path d="M14.2223 10.6667H22.6434H23.1112V17.7778H14.2223L16.889 14.2222L14.2223 10.6667Z" fill="white"/>
+            <path d="M23.1112 18.6667V4.66667L26.6667 8.16667V18.6667C26.6667 23.5759 22.6871 27.5556 17.7779 27.5556H9.08341L5.55564 24H17.7779C20.7234 24 23.1112 21.6122 23.1112 18.6667Z" fill="white"/>
+          </svg>
           <h1 className="text-[30px] font-semibold leading-[36px] text-zinc-900">{APP_NAME}</h1>
         </div>
 
         {/* Routes list or empty state */}
-        {savedRoutes.length === 0 ? (
+        {!hasAnySaved ? (
           <div className="flex-1 flex items-center justify-center">
             <div className="flex flex-col items-center gap-8 w-full">
               <IconCarousel />
@@ -353,17 +458,35 @@ export function StartPage() {
                 isActive={r.checkpoints.some((cp) => cp.checkedAt !== undefined)}
               />
             ))}
+            {activeMultiRoutes.map((m) => (
+              <MultiStageCard
+                key={m.gpxHash}
+                meta={m}
+                onClick={() => handleContinueMulti(m)}
+                isActive={m.stages.some((s) => {
+                  const st = storageGet<RouteState>(s.stageKey)
+                  return st ? st.checkpoints.some((cp) => cp.checkedAt !== undefined) : false
+                })}
+              />
+            ))}
 
             {/* Completed routes */}
-            {completedRoutes.length > 0 && (
+            {(completedRoutes.length > 0 || completedMultiRoutes.length > 0) && (
               <div className="flex flex-col gap-3 mt-5">
                 <div className="flex items-center gap-1.5">
                   <Flag className="w-3.5 h-3.5 text-zinc-500" />
                   <span className="text-sm font-medium text-zinc-500">Завершённые</span>
-                  <span className="text-sm font-medium text-zinc-500">{completedRoutes.length}</span>
+                  <span className="text-sm font-medium text-zinc-500">{completedRoutes.length + completedMultiRoutes.length}</span>
                 </div>
                 {completedRoutes.map((r) => (
                   <RouteCard key={r.gpxHash} route={r} onClick={() => handleContinue(r)} />
+                ))}
+                {completedMultiRoutes.map((m) => (
+                  <MultiStageCard
+                    key={m.gpxHash}
+                    meta={m}
+                    onClick={() => handleContinueMulti(m)}
+                  />
                 ))}
               </div>
             )}
@@ -376,7 +499,7 @@ export function StartPage() {
       </div>
 
       {/* Bottom sticky button — hidden in empty state (button is inline) */}
-      {savedRoutes.length > 0 && (
+      {hasAnySaved && (
         <div className="px-4 py-6 bg-white">
           <input
             ref={fileInputRef}
@@ -396,7 +519,7 @@ export function StartPage() {
       )}
 
       {/* Hidden file input for empty state button */}
-      {savedRoutes.length === 0 && (
+      {!hasAnySaved && (
         <input
           ref={fileInputRef}
           type="file"

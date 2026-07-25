@@ -3,11 +3,25 @@ import type { LatLon } from '@/shared/lib/geo'
 
 export type Direction = 'forward' | 'reverse'
 
+export interface StageMeta {
+  name: string
+  stageKey: string
+  totalKm: number
+}
+
+export interface MultiStageMeta {
+  name: string
+  gpxHash: string
+  stages: StageMeta[]
+}
+
 export type CircularPhase = 1 | 2 | 3
 
 export interface RouteState {
   name: string
   trackPoints: LatLon[]
+  /** Individual GPS segments — used for map drawing without inter-segment connections */
+  trackSegments?: LatLon[][]
   checkpoints: Checkpoint[]
   direction: Direction
   directionLocked: boolean
@@ -19,6 +33,8 @@ export interface RouteState {
   originalCheckpoints?: Checkpoint[]
   /** Snapshot of trackPoints before circular rotation — used for reset */
   originalTrackPoints?: LatLon[]
+  /** Snapshot of trackSegments before circular rotation — used for reset */
+  originalTrackSegments?: LatLon[][]
   /** Original GPX XML — used for sharing */
   gpxXml?: string
 }

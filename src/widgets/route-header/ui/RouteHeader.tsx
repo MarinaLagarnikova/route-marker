@@ -10,6 +10,7 @@ export function RouteHeader() {
   const navigate = useNavigate()
   const route = useRouteStore((s) => s.route)
   const clearRoute = useRouteStore((s) => s.clearRoute)
+  const multiStage = useRouteStore((s) => s.multiStage)
   const [drawerMode, setDrawerMode] = useState<DrawerMode>(null)
   const [drawerVisible, setDrawerVisible] = useState(false)
   const [historyOpen, setHistoryOpen] = useState(false)
@@ -48,7 +49,7 @@ export function RouteHeader() {
 
   function handleDelete() {
     clearRoute()
-    navigate('/', { replace: true })
+    navigate(multiStage !== null ? '/stages' : '/', { replace: true })
   }
 
   async function handleShare() {
@@ -124,7 +125,7 @@ export function RouteHeader() {
         {/* Top row */}
         <div className="px-4 pt-6 pb-6 w-full flex items-center justify-between">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate(multiStage !== null ? '/stages' : '/')}
             className="w-9 h-9 flex items-center justify-center border border-zinc-200 rounded-lg bg-white active:bg-zinc-50 transition-colors"
             aria-label="На главную"
           >
