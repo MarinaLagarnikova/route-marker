@@ -334,11 +334,3 @@ function addStartArrowMarker(
   return marker
 }
 
-function bearing(a: GeoPoint, b: GeoPoint): number {
-  const dLon = ((b.lon - a.lon) * Math.PI) / 180
-  const lat1 = (a.lat * Math.PI) / 180
-  const lat2 = (b.lat * Math.PI) / 180
-  const y = Math.sin(dLon) * Math.cos(lat2)
-  const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon)
-  return ((Math.atan2(y, x) * 180) / Math.PI + 360) % 360
-}
