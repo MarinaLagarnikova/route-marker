@@ -73,7 +73,7 @@ export function TrackThumbnail({ track, size = 48, trackSize = 30, className = '
       <img
         src="/map-bg.png"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover grayscale"
         draggable={false}
       />
 

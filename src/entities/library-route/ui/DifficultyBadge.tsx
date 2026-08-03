@@ -38,7 +38,7 @@ export function DifficultyBadge({ difficulty, className = '' }: Props) {
   return (
     <span className={`flex items-center gap-1.5 ${className}`}>
       <DifficultyCircle fill={fill} stroke={stroke} />
-      <span className="text-sm font-normal text-zinc-900 leading-normal">{LABELS[difficulty]}</span>
+      <span className="text-sm font-normal text-zinc-500 leading-normal">{LABELS[difficulty]}</span>
     </span>
   )
 }

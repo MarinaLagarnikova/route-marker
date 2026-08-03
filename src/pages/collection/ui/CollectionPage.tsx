@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { ArrowUpDown, Check, ChevronDown, ChevronLeft, Map, SportShoe, Timer } from 'lucide-react'
+import { ArrowUpDown, Check, ChevronDown, ChevronLeft, FolderOpen, Map, SportShoe, Timer } from 'lucide-react'
 import { Drawer } from '@/shared/ui/drawer'
 import { fetchCollection } from '@/shared/lib/library-api'
 import { useLibraryStore } from '@/entities/library-route'
@@ -132,23 +132,36 @@ export function CollectionPage() {
 
         {/* Route cards list */}
         <div className="flex flex-col gap-3 px-4 mt-8">
-          {/* Sort trigger */}
-          <button
-            onClick={() => setSortDrawerOpen(true)}
-            className="flex items-center gap-2 self-start active:opacity-70 transition-opacity"
-          >
-            <ArrowUpDown className="w-4 h-4 text-zinc-500" />
-            <span className="text-sm text-zinc-500">{SORT_TRIGGER_LABEL[sortOrder]}</span>
-            <ChevronDown className="w-4 h-4 text-zinc-400" />
-          </button>
+          {collection.routes.length === 0 ? (
+            <div className="flex flex-col items-center gap-3 py-10 bg-zinc-50 rounded-2xl px-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-zinc-100 rounded-2xl">
+                <FolderOpen className="w-6 h-6 text-zinc-500" />
+              </div>
+              <p className="text-base font-semibold text-zinc-900">Пока здесь пусто</p>
+              <p className="text-sm text-zinc-500 text-center leading-[1.4]">
+                Открывайте маршруты из подборок и добавляйте их в избранное
+              </p>
+            </div>
+          ) : (
+            <>
+              <button
+                onClick={() => setSortDrawerOpen(true)}
+                className="flex items-center gap-2 self-start active:opacity-70 transition-opacity"
+              >
+                <ArrowUpDown className="w-4 h-4 text-zinc-500" />
+                <span className="text-sm text-zinc-500">{SORT_TRIGGER_LABEL[sortOrder]}</span>
+                <ChevronDown className="w-4 h-4 text-zinc-400" />
+              </button>
 
-          {sortRoutes(collection.routes, sortOrder).map((route) => (
-            <RouteCard
-              key={route.id}
-              route={route}
-              onTap={() => setSelectedRoute(route)}
-            />
-          ))}
+              {sortRoutes(collection.routes, sortOrder).map((route) => (
+                <RouteCard
+                  key={route.id}
+                  route={route}
+                  onTap={() => setSelectedRoute(route)}
+                />
+              ))}
+            </>
+          )}
         </div>
 
         <div className="mb-8" />
@@ -204,7 +217,7 @@ function RouteCard({
   return (
     <button
       onClick={onTap}
-      className="w-full text-left bg-white border border-zinc-100 rounded-2xl p-4 flex flex-col gap-2 active:bg-zinc-50 transition-colors"
+      className="w-full text-left bg-white border border-zinc-100 rounded-2xl p-4 flex flex-col gap-3 active:bg-zinc-50 transition-colors"
     >
       {/* Row 1: name + distance */}
       <div className="flex items-start justify-between gap-2">
@@ -225,7 +238,7 @@ function RouteCard({
         <div className="flex-1 flex flex-col justify-between gap-[6px]">
           <DifficultyBadge difficulty={route.difficulty} />
           <div className="flex items-center gap-[6px]">
-            <Timer size={14} strokeWidth={1.5} className="text-zinc-500" />
+            <Timer size={16} strokeWidth={1.5} className="text-zinc-500" />
             <span className="text-sm font-normal text-zinc-500 whitespace-nowrap leading-normal">{route.durationLabel}</span>
           </div>
         </div>
