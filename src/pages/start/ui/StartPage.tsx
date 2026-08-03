@@ -4,13 +4,105 @@ import iconPictureSrc from '@/assets/icons/icon-picture.png'
 import iconFlashSrc from '@/assets/icons/icon-flash.png'
 import iconStarSrc from '@/assets/icons/icon-star.png'
 import { useNavigate } from 'react-router-dom'
-import { ChevronRight, CloudUpload, Flag, SportShoe } from 'lucide-react'
+import { CloudUpload, Flag, FolderOpen, SportShoe } from 'lucide-react'
 import { parseGpx } from '@/shared/lib/gpx'
 import { useRouteStore, hashString } from '@/entities/route'
 import { storageGet, storageKeys } from '@/shared/lib/storage'
 import { APP_NAME } from '@/shared/config'
+import { COLLECTION_CARD_LIST, useLibraryStore } from '@/entities/library-route'
 import type { GpxData } from '@/shared/lib/gpx'
 import type { RouteState, MultiStageMeta, StageMeta } from '@/entities/route'
+
+// ────────────────────────────────────────────
+// Exact Figma path from Star 2.svg, viewBox 0 0 88 93
+// ────────────────────────────────────────────
+const BLOB_PATH =
+  'M27.8695 6.77043C36.6591 -2.25681 51.3409 -2.25681 60.1305 6.77043C63.0724 9.79182 66.8326 11.924 70.9677 12.9155C83.3226 15.8778 90.6636 28.3654 87.0983 40.355C85.905 44.3678 85.905 48.6322 87.0983 52.645C90.6636 64.6346 83.3226 77.1222 70.9677 80.0845C66.8326 81.076 63.0724 83.2082 60.1305 86.2296C51.3409 95.2568 36.6591 95.2568 27.8695 86.2296C24.9276 83.2082 21.1674 81.076 17.0323 80.0845C4.67736 77.1222 -2.66356 64.6346 0.901738 52.645C2.09503 48.6322 2.09503 44.3678 0.901738 40.355C-2.66356 28.3654 4.67736 15.8778 17.0323 12.9155C21.1674 11.924 24.9276 9.79182 27.8695 6.77043Z'
+
+// Figma canvas size — exact from Figma export
+const BLOB_VB_W = 88
+const BLOB_VB_H = 93
+const BLOB_W = 88
+const BLOB_H = 93
+
+function BlobCard({
+  id,
+  name,
+  count,
+  imageUrl,
+  onClick,
+}: {
+  id: string
+  name: string
+  count: number
+  imageUrl?: string
+  onClick: () => void
+}) {
+  const clipId = `blob-clip-${id}`
+  const gradId = `blob-grad-${id}`
+
+  return (
+    <button
+      onClick={onClick}
+      className="flex flex-col items-center gap-2 shrink-0 active:opacity-75 transition-opacity"
+      style={{ width: 128 }}
+    >
+      {/* Blob */}
+      <div className="relative" style={{ width: BLOB_W, height: BLOB_H }}>
+        <svg
+          width={BLOB_W}
+          height={BLOB_H}
+          viewBox={`0 0 ${BLOB_VB_W} ${BLOB_VB_H}`}
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ display: 'block', overflow: 'visible' }}
+        >
+          <defs>
+            <clipPath id={clipId}>
+              <path d={BLOB_PATH} />
+            </clipPath>
+            {!imageUrl && (
+              <radialGradient id={gradId} cx="38%" cy="35%" r="65%">
+                <stop offset="0%" stopColor="#FFAA5A" />
+                <stop offset="100%" stopColor="#FF7A29" />
+              </radialGradient>
+            )}
+          </defs>
+
+          {imageUrl ? (
+            <image
+              href={imageUrl}
+              x="0"
+              y="0"
+              width={BLOB_VB_W}
+              height={BLOB_VB_H}
+              preserveAspectRatio="xMidYMid slice"
+              clipPath={`url(#${clipId})`}
+            />
+          ) : (
+            <path d={BLOB_PATH} fill={`url(#${gradId})`} />
+          )}
+        </svg>
+
+        {/* Count badge */}
+        <div
+          className="absolute flex items-center justify-center bg-white rounded-full"
+          style={{ width: 24, height: 24, bottom: 2, right: 5, boxShadow: '0 1px 4px rgba(0,0,0,0.20)' }}
+        >
+          <span className="text-[11px] font-semibold text-zinc-900 leading-none">{count}</span>
+        </div>
+      </div>
+
+      {/* Name */}
+      <p
+        className="text-[12px] font-medium text-zinc-800 text-center leading-[1.3]"
+        style={{ width: 128 }}
+      >
+        {name}
+      </p>
+    </button>
+  )
+}
 
 interface CarouselIcon {
   src: string
@@ -148,14 +240,16 @@ function RouteCard({
       className="w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4"
     >
       <div className="flex-1 flex flex-col gap-1.5 min-w-0">
-        <div className="flex items-center gap-1.5 min-w-0">
-          {isActive && (
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0" style={{ overflow: 'visible' }}>
-              <circle className="dot-pulse-ring" cx="8" cy="8" r="8" fill="#FF7A29" />
-              <circle cx="8" cy="8" r="3" fill="#FF7A29" />
-            </svg>
-          )}
-          <p className="text-sm font-semibold text-zinc-900 truncate">{route.name}</p>
+        <div className="flex items-center justify-between gap-2 min-w-0">
+          <div className="flex items-center gap-1.5 min-w-0">
+            {isActive && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0" style={{ overflow: 'visible' }}>
+                <circle className="dot-pulse-ring" cx="8" cy="8" r="8" fill="#FF7A29" />
+                <circle cx="8" cy="8" r="3" fill="#FF7A29" />
+              </svg>
+            )}
+            <p className="text-sm font-semibold text-zinc-900 truncate">{route.name}</p>
+          </div>
           <div className="flex items-center gap-1.5 shrink-0">
             <SportShoe className="w-4 h-4 text-zinc-900" />
             <span className="text-sm font-normal text-zinc-900">{(route.totalKm ?? 0).toFixed(0)} км</span>
@@ -163,7 +257,6 @@ function RouteCard({
         </div>
         <p className="text-sm font-normal text-zinc-500">{fmtRouteSubtitle(route)}</p>
       </div>
-      <ChevronRight className="w-5 h-5 text-zinc-900 shrink-0 mt-0.5" />
     </button>
   )
 }
@@ -206,14 +299,16 @@ function MultiStageCard({
       className="w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4"
     >
       <div className="flex-1 flex flex-col gap-1.5 min-w-0">
-        <div className="flex items-center gap-1.5 min-w-0">
-          {isActive && (
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0" style={{ overflow: 'visible' }}>
-              <circle className="dot-pulse-ring" cx="8" cy="8" r="8" fill="#FF7A29" />
-              <circle cx="8" cy="8" r="3" fill="#FF7A29" />
-            </svg>
-          )}
-          <p className="text-sm font-semibold text-zinc-900 truncate">{meta.name}</p>
+        <div className="flex items-center justify-between gap-2 min-w-0">
+          <div className="flex items-center gap-1.5 min-w-0">
+            {isActive && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0" style={{ overflow: 'visible' }}>
+                <circle className="dot-pulse-ring" cx="8" cy="8" r="8" fill="#FF7A29" />
+                <circle cx="8" cy="8" r="3" fill="#FF7A29" />
+              </svg>
+            )}
+            <p className="text-sm font-semibold text-zinc-900 truncate">{meta.name}</p>
+          </div>
           <div className="flex items-center gap-1.5 shrink-0">
             <SportShoe className="w-4 h-4 text-zinc-900" />
             <span className="text-sm font-normal text-zinc-900">{totalKm.toFixed(0)} км</span>
@@ -221,7 +316,6 @@ function MultiStageCard({
         </div>
         <p className="text-sm font-normal text-zinc-500">{coveredKm.toFixed(1)} км пройдено · {meta.stages.length} этапа</p>
       </div>
-      <ChevronRight className="w-5 h-5 text-zinc-900 shrink-0 mt-0.5" />
     </button>
   )
 }
@@ -305,12 +399,136 @@ function AddTrackDrawer({ routeName, onNameChange, onConfirm, onCancel }: AddTra
   )
 }
 
+// ────────────────────────────────────────────
+// CompletedSection — always visible; empty state or collapsible list
+// ────────────────────────────────────────────
+function CompletedSection({
+  routes,
+  multiRoutes,
+  onContinue,
+  onContinueMulti,
+}: {
+  routes: RouteState[]
+  multiRoutes: MultiStageMeta[]
+  onContinue: (r: RouteState) => void
+  onContinueMulti: (m: MultiStageMeta) => void
+}) {
+  const count = routes.length + multiRoutes.length
+  const isEmpty = count === 0
+
+  return (
+    <div className="flex flex-col gap-3">
+      {/* Header */}
+      <div className="flex items-center gap-1.5">
+        <Flag className="w-3.5 h-3.5 text-zinc-500" />
+        <span className="text-sm font-medium text-zinc-500">Завершённые</span>
+        <span className="text-sm font-medium text-zinc-500">{count}</span>
+      </div>
+
+      {/* Empty state */}
+      {isEmpty && (
+        <div className="flex flex-col items-center gap-3 py-10 bg-zinc-50 rounded-2xl px-6">
+          <div className="w-12 h-12 flex items-center justify-center bg-zinc-100 rounded-2xl">
+            <FolderOpen className="w-6 h-6 text-zinc-500" />
+          </div>
+          <p className="text-base font-semibold text-zinc-900">Пока здесь пусто</p>
+          <p className="text-sm text-zinc-500 text-center leading-[1.4]">
+            Выберите маршрут из подборки или добавьте его вручную, чтобы начать
+          </p>
+        </div>
+      )}
+
+      {/* All completed cards */}
+      {!isEmpty && (
+        <div className="flex flex-col gap-3">
+          {routes.map((r) => (
+            <RouteCard key={r.gpxHash} route={r} onClick={() => onContinue(r)} />
+          ))}
+          {multiRoutes.map((m) => (
+            <MultiStageCard key={m.gpxHash} meta={m} onClick={() => onContinueMulti(m)} />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ────────────────────────────────────────────
+// PinnedRoutesSection — routes added from library
+// ────────────────────────────────────────────
+function PinnedRoutesSection() {
+  const navigate = useNavigate()
+  const pinnedRoutes = useLibraryStore((s) => s.pinnedRoutes)
+
+  if (pinnedRoutes.length === 0) return null
+
+  return (
+    <>
+      {pinnedRoutes.map((route) => (
+          <button
+            key={route.id}
+            onClick={() => navigate(`/collection/${route.region.id}`)}
+            className="w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4 active:bg-zinc-50 transition-colors"
+          >
+            <div className="flex-1 flex flex-col gap-1.5 min-w-0">
+              <div className="flex items-center justify-between gap-2 min-w-0">
+                <p className="text-sm font-semibold text-zinc-900 truncate">{route.name}</p>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <SportShoe className="w-4 h-4 text-zinc-900" />
+                  <span className="text-sm font-normal text-zinc-900">{Math.round(route.distanceKm)} км</span>
+                </div>
+              </div>
+              <p className="text-sm font-normal text-zinc-500">0.0 км пройдено</p>
+            </div>
+          </button>
+        ))}
+    </>
+  )
+}
+
+// ────────────────────────────────────────────
+// LibraryCollectionsSection — horizontal scroll of blob region cards
+// ────────────────────────────────────────────
+function LibraryCollectionsSection() {
+  const navigate = useNavigate()
+  const favorites = useLibraryStore((s) => s.favorites)
+
+  const totalRoutes = COLLECTION_CARD_LIST.filter((c) => c.id !== 'favorites').reduce(
+    (sum, c) => sum + c.count,
+    0
+  )
+
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex items-baseline gap-1.5">
+        <span className="text-sm font-medium text-zinc-500">Подборки маршрутов</span>
+        <span className="text-sm font-medium text-zinc-400">{totalRoutes}</span>
+      </div>
+
+      {/* Horizontal scroll — no gap at left/right edges */}
+      <div className="flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-none">
+        {COLLECTION_CARD_LIST.map((col) => (
+          <BlobCard
+            key={col.id}
+            id={col.id}
+            name={col.name}
+            count={col.id === 'favorites' ? favorites.length : col.count}
+            imageUrl={col.imageUrl}
+            onClick={() => navigate(`/collection/${col.id}`)}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function StartPage() {
   const navigate = useNavigate()
   const loadRoute = useRouteStore((s) => s.loadRoute)
   const loadSaved = useRouteStore((s) => s.loadSaved)
   const loadMultiStage = useRouteStore((s) => s.loadMultiStage)
   const loadMultiStageSaved = useRouteStore((s) => s.loadMultiStageSaved)
+  const pinnedRoutes = useLibraryStore((s) => s.pinnedRoutes)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const [parsedGpx, setParsedGpx] = useState<{ data: GpxData; xml: string } | null>(null)
@@ -413,7 +631,6 @@ export function StartPage() {
   const completedMultiRoutes = savedMultiRoutes.filter((m) => isMultiStageCompleted(m.stages))
   const activeMultiRoutes = savedMultiRoutes.filter((m) => !isMultiStageCompleted(m.stages))
 
-  const hasAnySaved = savedRoutes.length > 0 || savedMultiRoutes.length > 0
 
   return (
     <div className="h-dvh flex flex-col max-w-[560px] mx-auto bg-white">
@@ -429,27 +646,10 @@ export function StartPage() {
           <h1 className="text-[30px] font-semibold leading-[36px] text-zinc-900">{APP_NAME}</h1>
         </div>
 
-        {/* Routes list or empty state */}
-        {!hasAnySaved ? (
-          <div className="flex-1 flex items-center justify-center">
-            <div className="flex flex-col items-center gap-8 w-full">
-              <IconCarousel />
-              <div className="flex flex-col items-center gap-2">
-                <p className="text-2xl font-semibold text-zinc-900 text-center">Загрузите первый трек</p>
-                <p className="text-sm text-zinc-500 text-center">Отмечайте точки по мере прохождения — работает без GPS. Видно, сколько пройдено и когда будете на финише.</p>
-              </div>
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                className="h-11 px-6 bg-zinc-900 text-white text-sm font-medium rounded-xl flex items-center gap-2.5 active:bg-zinc-800 transition-colors"
-              >
-                <CloudUpload className="w-4 h-4" />
-                Загрузить GPX трек
-              </button>
-            </div>
-          </div>
-        ) : (
+        {/* Pinned + active routes — grouped with gap-3 */}
+        {(pinnedRoutes.length > 0 || activeRoutes.length > 0 || activeMultiRoutes.length > 0) && (
           <div className="flex flex-col gap-3">
-            {/* Active routes */}
+            <PinnedRoutesSection />
             {activeRoutes.map((r) => (
               <RouteCard
                 key={r.gpxHash}
@@ -469,57 +669,27 @@ export function StartPage() {
                 })}
               />
             ))}
-
-            {/* Completed routes */}
-            {(completedRoutes.length > 0 || completedMultiRoutes.length > 0) && (
-              <div className="flex flex-col gap-3 mt-5">
-                <div className="flex items-center gap-1.5">
-                  <Flag className="w-3.5 h-3.5 text-zinc-500" />
-                  <span className="text-sm font-medium text-zinc-500">Завершённые</span>
-                  <span className="text-sm font-medium text-zinc-500">{completedRoutes.length + completedMultiRoutes.length}</span>
-                </div>
-                {completedRoutes.map((r) => (
-                  <RouteCard key={r.gpxHash} route={r} onClick={() => handleContinue(r)} />
-                ))}
-                {completedMultiRoutes.map((m) => (
-                  <MultiStageCard
-                    key={m.gpxHash}
-                    meta={m}
-                    onClick={() => handleContinueMulti(m)}
-                  />
-                ))}
-              </div>
-            )}
           </div>
         )}
+
+        {/* Library collections — always */}
+        <LibraryCollectionsSection />
+
+        {/* Completed routes — always */}
+        <CompletedSection
+          routes={completedRoutes}
+          multiRoutes={completedMultiRoutes}
+          onContinue={handleContinue}
+          onContinueMulti={handleContinueMulti}
+        />
 
         {parseError && (
           <p className="text-sm text-red-600">{parseError}</p>
         )}
       </div>
 
-      {/* Bottom sticky button — hidden in empty state (button is inline) */}
-      {hasAnySaved && (
-        <div className="px-4 py-6 bg-white">
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept=".gpx"
-            className="hidden"
-            onChange={handleFileChange}
-          />
-          <button
-            onClick={() => fileInputRef.current?.click()}
-            className="w-full h-11 bg-zinc-900 text-white text-sm font-medium rounded-xl flex items-center justify-center gap-2.5 active:bg-zinc-800 transition-colors"
-          >
-            <CloudUpload className="w-4 h-4" />
-            Загрузить GPX трек
-          </button>
-        </div>
-      )}
-
-      {/* Hidden file input for empty state button */}
-      {!hasAnySaved && (
+      {/* Footer with upload button — always */}
+      <div className="px-4 py-6 bg-white shrink-0">
         <input
           ref={fileInputRef}
           type="file"
@@ -527,7 +697,14 @@ export function StartPage() {
           className="hidden"
           onChange={handleFileChange}
         />
-      )}
+        <button
+          onClick={() => fileInputRef.current?.click()}
+          className="w-full h-11 bg-zinc-900 text-white text-sm font-medium rounded-xl flex items-center justify-center gap-2.5 active:bg-zinc-800 transition-colors"
+        >
+          <CloudUpload className="w-4 h-4" />
+          Загрузить GPX трек
+        </button>
+      </div>
 
       {/* Add track drawer */}
       {parsedGpx && (

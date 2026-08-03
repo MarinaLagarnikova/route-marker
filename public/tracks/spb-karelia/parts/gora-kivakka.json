@@ -1,0 +1,50 @@
+{
+  "id": "gora-kivakka",
+  "name": "Гора Кивакка",
+  "gpx": "gora-kivakka.gpx",
+  "region": {
+    "id": "spb-karelia",
+    "name": "Санкт-Петербург и Карелия"
+  },
+  "distanceKm": 8.6,
+  "durationLabel": "1 день",
+  "difficulty": "easy",
+  "elevationGainM": 52,
+  "type": "linear",
+  "nearestSettlement": "Пяозерский",
+  "description": "Короткий маршрут на гору Кивакка в Паанаярвском национальном парке — одну из высочайших точек Карелии с круговой панорамой на озёра и тайгу. Подъём несложен, виды впечатляющие.",
+  "highlights": [
+    "гора",
+    "Паанаярви",
+    "панорама",
+    "тайга",
+    "Карелия"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/102/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 66.20274,
+      "lon": 30.47043
+    },
+    {
+      "lat": 66.20353,
+      "lon": 30.51237
+    },
+    {
+      "lat": 66.20822,
+      "lon": 30.52604
+    },
+    {
+      "lat": 66.20546,
+      "lon": 30.54143
+    },
+    {
+      "lat": 66.2063747,
+      "lon": 30.5553674
+    }
+  ]
+}

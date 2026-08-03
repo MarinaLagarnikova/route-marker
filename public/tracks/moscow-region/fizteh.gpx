@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPS Track Editor" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gte="http://www.gpstrackeditor.com/xmlschemas/General/1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" targetNamespace="http://www.topografix.com/GPX/1/1" elementFormDefault="qualified" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata>
+	<name>track24.gpx</name>
+</metadata>
+<trk>
+	<name>«Физтех» (Мытищи — Долгопрудный)</name>
+	<trkseg>
+		<trkpt lat="55.946077" lon="37.561657">
+			<ele>188.00</ele>
+			<time>2020-01-13T16:08:00Z</time>
+		</trkpt>
+		<trkpt lat="55.948244" lon="37.561915">
+			<ele>188.94</ele>
+			<time>2020-01-13T16:12:49.57Z</time>
+		</trkpt>
+		<trkpt lat="55.948137" lon="37.568180">
+			<ele>189.85</ele>
+			<time>2020-01-13T16:20:37.53Z</time>
+		</trkpt>
+		<trkpt lat="55.937944" lon="37.576592">
+			<ele>192.22</ele>
+			<time>2020-01-13T16:45:34.72Z</time>
+		</trkpt>
+		<trkpt lat="55.952579" lon="37.624593">
+			<ele>192.53</ele>
+			<time>2020-01-13T17:53:35.48Z</time>
+		</trkpt>
+		<trkpt lat="55.951591" lon="37.626095">
+			<ele>192.75</ele>
+			<time>2020-01-13T17:56:28.47Z</time>
+		</trkpt>
+		<trkpt lat="55.949896" lon="37.626910">
+			<ele>190.38</ele>
+			<time>2020-01-13T18:00:22.52Z</time>
+		</trkpt>
+		<trkpt lat="55.949961" lon="37.630880">
+			<ele>188.80</ele>
+			<time>2020-01-13T18:05:19.03Z</time>
+		</trkpt>
+		<trkpt lat="55.950368" lon="37.638605">
+			<ele>187.50</ele>
+			<time>2020-01-13T18:14:58.29Z</time>
+		</trkpt>
+		<trkpt lat="55.950562" lon="37.643797">
+			<ele>187.91</ele>
+			<time>2020-01-13T18:21:26.75Z</time>
+		</trkpt>
+		<trkpt lat="55.949344" lon="37.643280">
+			<ele>189.00</ele>
+			<time>2020-01-13T18:24:13.68Z</time>
+		</trkpt>
+		<extensions>
+			<gte:name>Долгопрудный — Беляниново</gte:name>
+			<gte:color>#fbaf00</gte:color>
+		</extensions>
+	</trkseg>
+	<trkseg>
+		<trkpt lat="55.949381" lon="37.643239">
+			<ele>189.00</ele>
+			<time>2020-01-13T18:24:19.48Z</time>
+		</trkpt>
+		<trkpt lat="55.945884" lon="37.654419">
+			<ele>184.41</ele>
+			<time>2020-01-13T18:40:15.58Z</time>
+		</trkpt>
+		<trkpt lat="55.945197" lon="37.657745">
+			<ele>180.82</ele>
+			<time>2020-01-13T18:44:40.27Z</time>
+		</trkpt>
+		<trkpt lat="55.945369" lon="37.665641">
+			<ele>179.91</ele>
+			<time>2020-01-13T18:54:30.27Z</time>
+		</trkpt>
+		<trkpt lat="55.947171" lon="37.665663">
+			<ele>180.01</ele>
+			<time>2020-01-13T18:58:30.54Z</time>
+		</trkpt>
+		<trkpt lat="55.947300" lon="37.673709">
+			<ele>181.49</ele>
+			<time>2020-01-13T19:08:31.51Z</time>
+		</trkpt>
+		<trkpt lat="55.949961" lon="37.673645">
+			<ele>181.58</ele>
+			<time>2020-01-13T19:14:26.34Z</time>
+		</trkpt>
+		<trkpt lat="55.950476" lon="37.701969">
+			<ele>180.34</ele>
+			<time>2020-01-13T19:49:41.99Z</time>
+		</trkpt>
+		<trkpt lat="55.953716" lon="37.702613">
+			<ele>178.46</ele>
+			<time>2020-01-13T19:56:56.65Z</time>
+		</trkpt>
+		<trkpt lat="55.955947" lon="37.706067">
+			<ele>176.25</ele>
+			<time>2020-01-13T20:03:30.30Z</time>
+		</trkpt>
+		<trkpt lat="55.956076" lon="37.721839">
+			<ele>176.35</ele>
+			<time>2020-01-13T20:23:07.71Z</time>
+		</trkpt>
+		<trkpt lat="55.950197" lon="37.724521">
+			<ele>175.84</ele>
+			<time>2020-01-13T20:36:36.74Z</time>
+		</trkpt>
+		<trkpt lat="55.949918" lon="37.741773">
+			<ele>176.46</ele>
+			<time>2020-01-13T20:58:05.24Z</time>
+		</trkpt>
+		<trkpt lat="55.953952" lon="37.741988">
+			<ele>175.28</ele>
+			<time>2020-01-13T21:07:03.34Z</time>
+		</trkpt>
+		<trkpt lat="55.954939" lon="37.745335">
+			<ele>175.26</ele>
+			<time>2020-01-13T21:11:45.73Z</time>
+		</trkpt>
+		<trkpt lat="55.956634" lon="37.750764">
+			<ele>174.21</ele>
+			<time>2020-01-13T21:19:29.73Z</time>
+		</trkpt>
+		<trkpt lat="55.956849" lon="37.771191">
+			<ele>173.36</ele>
+			<time>2020-01-13T21:44:54.72Z</time>
+		</trkpt>
+		<trkpt lat="55.960046" lon="37.773080">
+			<ele>170.20</ele>
+			<time>2020-01-13T21:52:23.70Z</time>
+		</trkpt>
+		<trkpt lat="55.959767" lon="37.784345">
+			<ele>166.94</ele>
+			<time>2020-01-13T22:06:25.30Z</time>
+		</trkpt>
+		<trkpt lat="55.959273" lon="37.785911">
+			<ele>163.27</ele>
+			<time>2020-01-13T22:08:39.46Z</time>
+		</trkpt>
+		<trkpt lat="55.950218" lon="37.800631">
+			<ele>162.12</ele>
+			<time>2020-01-13T22:35:51.95Z</time>
+		</trkpt>
+		<trkpt lat="55.948502" lon="37.799709">
+			<ele>161.77</ele>
+			<time>2020-01-13T22:39:50.88Z</time>
+		</trkpt>
+		<trkpt lat="55.947751" lon="37.799022">
+			<ele>162.96</ele>
+			<time>2020-01-13T22:41:43.38Z</time>
+		</trkpt>
+		<trkpt lat="55.947128" lon="37.798958">
+			<ele>164.00</ele>
+			<time>2020-01-13T22:43:06.59Z</time>
+		</trkpt>
+		<extensions>
+			<gte:name>Беляниново — Мытищи</gte:name>
+			<gte:color>#00ce00</gte:color>
+		</extensions>
+	</trkseg>
+</trk>
+</gpx>

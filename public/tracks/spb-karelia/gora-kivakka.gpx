@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<gpx version="1.1" creator="Locus Map, Android"
+ xmlns="http://www.topografix.com/GPX/1/1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
+ xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3"
+ xmlns:gpxtrkx="http://www.garmin.com/xmlschemas/TrackStatsExtension/v1"
+ xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v2"
+ xmlns:locus="http://www.locusmap.eu">
+	<metadata>
+		<desc>File with points/tracks from Locus Map/3.46.2</desc>
+	</metadata>
+<trk>
+<name>Кивакка</name>
+	<extensions>
+		<line xmlns="http://www.topografix.com/GPX/gpx_style/0/2">
+			<color>0000FF</color>
+			<opacity>0.59</opacity>
+			<width>6.0</width>
+			<extensions>
+				<locus:lsColorBase>#960000FF</locus:lsColorBase>
+				<locus:lsWidth>6.0</locus:lsWidth>
+				<locus:lsUnits>PIXELS</locus:lsUnits>
+			</extensions>
+		</line>
+		<locus:activity>hiking</locus:activity>
+		<locus:rteComputeType>10</locus:rteComputeType>
+		<locus:rteSimpleRoundabouts>1</locus:rteSimpleRoundabouts>
+	</extensions>
+<trkseg>
+<trkpt lat="66.2027400" lon="30.4704300">
+</trkpt>
+<trkpt lat="66.2026700" lon="30.4706000">
+</trkpt>
+<trkpt lat="66.2027600" lon="30.4715300">
+</trkpt>
+<trkpt lat="66.2027800" lon="30.4725400">
+</trkpt>
+<trkpt lat="66.2028000" lon="30.4747300">
+</trkpt>
+<trkpt lat="66.2027500" lon="30.4777300">
+</trkpt>
+<trkpt lat="66.2028400" lon="30.4799300">
+</trkpt>
+<trkpt lat="66.2028500" lon="30.4810100">
+</trkpt>
+<trkpt lat="66.2028100" lon="30.4821900">
+</trkpt>
+<trkpt lat="66.2029300" lon="30.4831000">
+</trkpt>
+<trkpt lat="66.2029700" lon="30.4853800">
+</trkpt>
+<trkpt lat="66.2029800" lon="30.4858900">
+</trkpt>
+<trkpt lat="66.2029100" lon="30.4863300">
+</trkpt>
+<trkpt lat="66.2031100" lon="30.4892700">
+</trkpt>
+<trkpt lat="66.2030200" lon="30.4913100">
+</trkpt>
+<trkpt lat="66.2030500" lon="30.4927100">
+</trkpt>
+<trkpt lat="66.2029900" lon="30.4932400">
+</trkpt>
+<trkpt lat="66.2031100" lon="30.4941900">
+</trkpt>
+<trkpt lat="66.2031000" lon="30.4962200">
+</trkpt>
+<trkpt lat="66.2031500" lon="30.4983400">
+</trkpt>
+<trkpt lat="66.2035500" lon="30.4990600">
+</trkpt>
+<trkpt lat="66.2037900" lon="30.5005200">
+</trkpt>
+<trkpt lat="66.2036200" lon="30.5025000">
+</trkpt>
+<trkpt lat="66.2034000" lon="30.5034100">
+</trkpt>
+<trkpt lat="66.2032800" lon="30.5051400">
+</trkpt>
+<trkpt lat="66.2033400" lon="30.5088200">
+</trkpt>
+<trkpt lat="66.2036400" lon="30.5105300">
+</trkpt>
+<trkpt lat="66.2036800" lon="30.5117200">
+</trkpt>
+<trkpt lat="66.2035300" lon="30.5123700">
+</trkpt>
+<trkpt lat="66.2039900" lon="30.5136500">
+</trkpt>
+<trkpt lat="66.2044600" lon="30.5148900">
+</trkpt>
+<trkpt lat="66.2049700" lon="30.5159500">
+</trkpt>
+<trkpt lat="66.2052600" lon="30.5172800">
+</trkpt>
+<trkpt lat="66.2055600" lon="30.5177500">
+</trkpt>
+<trkpt lat="66.2057100" lon="30.5179700">
+</trkpt>
+<trkpt lat="66.2059600" lon="30.5181400">
+</trkpt>
+<trkpt lat="66.2065500" lon="30.5196200">
+</trkpt>
+<trkpt lat="66.2066300" lon="30.5209400">
+</trkpt>
+<trkpt lat="66.2069100" lon="30.5224100">
+</trkpt>
+<trkpt lat="66.2073800" lon="30.5233600">
+</trkpt>
+<trkpt lat="66.2077800" lon="30.5249900">
+</trkpt>
+<trkpt lat="66.2082200" lon="30.5260400">
+</trkpt>
+<trkpt lat="66.2082500" lon="30.5272300">
+</trkpt>
+<trkpt lat="66.2080700" lon="30.5288400">
+</trkpt>
+<trkpt lat="66.2072400" lon="30.5306500">
+</trkpt>
+<trkpt lat="66.2067300" lon="30.5355600">
+</trkpt>
+<trkpt lat="66.2062900" lon="30.5360500">
+</trkpt>
+<trkpt lat="66.2060900" lon="30.5362600">
+</trkpt>
+<trkpt lat="66.2054600" lon="30.5414300">
+</trkpt>
+<trkpt lat="66.2054000" lon="30.5441200">
+</trkpt>
+<trkpt lat="66.2055100" lon="30.5456600">
+</trkpt>
+<trkpt lat="66.2054600" lon="30.5467100">
+</trkpt>
+<trkpt lat="66.2059000" lon="30.5474500">
+</trkpt>
+<trkpt lat="66.2059800" lon="30.5481400">
+</trkpt>
+<trkpt lat="66.2058000" lon="30.5492200">
+</trkpt>
+<trkpt lat="66.2058400" lon="30.5495900">
+</trkpt>
+<trkpt lat="66.2056600" lon="30.5500900">
+</trkpt>
+<trkpt lat="66.2055600" lon="30.5517100">
+</trkpt>
+<trkpt lat="66.2056200" lon="30.5536900">
+</trkpt>
+<trkpt lat="66.2060400" lon="30.5545300">
+</trkpt>
+<trkpt lat="66.2064300" lon="30.5551200">
+</trkpt>
+<trkpt lat="66.2063747" lon="30.5553674">
+</trkpt>
+</trkseg>
+</trk>
+</gpx>

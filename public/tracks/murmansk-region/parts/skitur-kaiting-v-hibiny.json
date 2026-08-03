@@ -1,0 +1,38 @@
+{
+  "id": "skitur-kaiting-v-hibiny",
+  "name": "Скитур с кайтингом из Мончегорска в Хибины",
+  "gpx": "skitur-kaiting-v-hibiny.gpx",
+  "region": {
+    "id": "murmansk-region",
+    "name": "Мурманская область"
+  },
+  "distanceKm": 30,
+  "durationLabel": "1—2 дня",
+  "difficulty": "hard",
+  "elevationGainM": 600,
+  "type": "linear",
+  "nearestSettlement": "Мончегорск",
+  "description": "Сложный зимний переход на лыжах через замёрзшее озеро Имандра с кайтом и подъёмом на горы Хибин. Маршрут для опытных лыжников-туристов с кайтинговым снаряжением.",
+  "highlights": [
+    "кайтинг",
+    "озеро Имандра",
+    "Хибины",
+    "зима",
+    "сложный"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/128/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 67.9358,
+      "lon": 32.9183
+    },
+    {
+      "lat": 67.95,
+      "lon": 32.95
+    }
+  ]
+}

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPS Track Editor" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gte="http://www.gpstrackeditor.com/xmlschemas/General/1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" targetNamespace="http://www.topografix.com/GPX/1/1" elementFormDefault="qualified" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata>
+	<name>track69.gpx</name>
+</metadata>
+<trk>
+	<name>Караваево — Калинки</name>
+	<trkseg>
+		<trkpt lat="57.734005" lon="41.084786">
+			<ele>117.00</ele>
+			<time>2017-10-24T06:31:00Z</time>
+		</trkpt>
+		<trkpt lat="57.730332" lon="41.099721">
+			<ele>118.34</ele>
+			<time>2017-10-24T06:50:30Z</time>
+		</trkpt>
+		<trkpt lat="57.724822" lon="41.111394">
+			<ele>120.31</ele>
+			<time>2017-10-24T07:08:59Z</time>
+		</trkpt>
+		<trkpt lat="57.717841" lon="41.113797">
+			<ele>126.05</ele>
+			<time>2017-10-24T07:24:46Z</time>
+		</trkpt>
+		<trkpt lat="57.717657" lon="41.138516">
+			<ele>131.40</ele>
+			<time>2017-10-24T07:54:06Z</time>
+		</trkpt>
+		<trkpt lat="57.709940" lon="41.164952">
+			<ele>139.03</ele>
+			<time>2017-10-24T08:29:52Z</time>
+		</trkpt>
+		<trkpt lat="57.706779" lon="41.171611">
+			<ele>141.80</ele>
+			<time>2017-10-24T08:40:30Z</time>
+		</trkpt>
+		<trkpt lat="57.706688" lon="41.171697">
+			<ele>143.23</ele>
+			<time>2017-10-24T08:40:44Z</time>
+		</trkpt>
+		<trkpt lat="57.697498" lon="41.172727">
+			<ele>139.68</ele>
+			<time>2017-10-24T09:01:11Z</time>
+		</trkpt>
+		<trkpt lat="57.688122" lon="41.173414">
+			<ele>135.95</ele>
+			<time>2017-10-24T09:22:03Z</time>
+		</trkpt>
+		<trkpt lat="57.681502" lon="41.177877">
+			<ele>130.45</ele>
+			<time>2017-10-24T09:37:41Z</time>
+		</trkpt>
+		<trkpt lat="57.675616" lon="41.178563">
+			<ele>126.58</ele>
+			<time>2017-10-24T09:50:47Z</time>
+		</trkpt>
+		<trkpt lat="57.672121" lon="41.190236">
+			<ele>122.26</ele>
+			<time>2017-10-24T10:06:41Z</time>
+		</trkpt>
+		<trkpt lat="57.671570" lon="41.201909">
+			<ele>119.08</ele>
+			<time>2017-10-24T10:20:37Z</time>
+		</trkpt>
+		<trkpt lat="57.667154" lon="41.220449">
+			<ele>115.26</ele>
+			<time>2017-10-24T10:44:44Z</time>
+		</trkpt>
+		<trkpt lat="57.661635" lon="41.236585">
+			<ele>113.41</ele>
+			<time>2017-10-24T11:07:30Z</time>
+		</trkpt>
+		<trkpt lat="57.668258" lon="41.253751">
+			<ele>111.86</ele>
+			<time>2017-10-24T11:32:39Z</time>
+		</trkpt>
+		<trkpt lat="57.674513" lon="41.270574">
+			<ele>112.74</ele>
+			<time>2017-10-24T11:57:00Z</time>
+		</trkpt>
+		<trkpt lat="57.680766" lon="41.281217">
+			<ele>110.46</ele>
+			<time>2017-10-24T12:15:47Z</time>
+		</trkpt>
+		<trkpt lat="57.686331" lon="41.289811">
+			<ele>105.73</ele>
+			<time>2017-10-24T12:31:50Z</time>
+		</trkpt>
+		<trkpt lat="57.684492" lon="41.299081">
+			<ele>97.00</ele>
+			<time>2017-10-24T12:43:34Z</time>
+		</trkpt>
+		<extensions>
+			<gte:name>Караваево — Иконниково</gte:name>
+			<gte:color>#fbaf00</gte:color>
+		</extensions>
+	</trkseg>
+	<trkseg>
+		<trkpt lat="57.684492" lon="41.299081">
+			<ele>97.00</ele>
+			<time>2017-10-24T12:43:34Z</time>
+		</trkpt>
+		<trkpt lat="57.683599" lon="41.302621">
+			<ele>112.86</ele>
+			<time>2017-10-24T12:48:13Z</time>
+		</trkpt>
+		<trkpt lat="57.683322" lon="41.306730">
+			<ele>126.41</ele>
+			<time>2017-10-24T12:53:09Z</time>
+		</trkpt>
+		<trkpt lat="57.684288" lon="41.306902">
+			<ele>132.98</ele>
+			<time>2017-10-24T12:55:18Z</time>
+		</trkpt>
+		<trkpt lat="57.684610" lon="41.305700">
+			<ele>137.18</ele>
+			<time>2017-10-24T12:56:54Z</time>
+		</trkpt>
+		<trkpt lat="57.686356" lon="41.308189">
+			<ele>136.10</ele>
+			<time>2017-10-24T13:01:47Z</time>
+		</trkpt>
+		<trkpt lat="57.687138" lon="41.306816">
+			<ele>134.10</ele>
+			<time>2017-10-24T13:04:10Z</time>
+		</trkpt>
+		<trkpt lat="57.689758" lon="41.306473">
+			<ele>130.55</ele>
+			<time>2017-10-24T13:10:00Z</time>
+		</trkpt>
+		<trkpt lat="57.691734" lon="41.308018">
+			<ele>125.98</ele>
+			<time>2017-10-24T13:14:45Z</time>
+		</trkpt>
+		<trkpt lat="57.708271" lon="41.324772">
+			<ele>123.33</ele>
+			<time>2017-10-24T13:56:33Z</time>
+		</trkpt>
+		<trkpt lat="57.710611" lon="41.323799">
+			<ele>120.60</ele>
+			<time>2017-10-24T14:01:52Z</time>
+		</trkpt>
+		<trkpt lat="57.713229" lon="41.331696">
+			<ele>120.57</ele>
+			<time>2017-10-24T14:12:54Z</time>
+		</trkpt>
+		<trkpt lat="57.714010" lon="41.341223">
+			<ele>120.78</ele>
+			<time>2017-10-24T14:24:21Z</time>
+		</trkpt>
+		<trkpt lat="57.716169" lon="41.352553">
+			<ele>121.82</ele>
+			<time>2017-10-24T14:38:37Z</time>
+		</trkpt>
+		<trkpt lat="57.716720" lon="41.355728">
+			<ele>122.84</ele>
+			<time>2017-10-24T14:42:35Z</time>
+		</trkpt>
+		<trkpt lat="57.716858" lon="41.358389">
+			<ele>123.78</ele>
+			<time>2017-10-24T14:45:45Z</time>
+		</trkpt>
+		<trkpt lat="57.716751" lon="41.363557">
+			<ele>124.72</ele>
+			<time>2017-10-24T14:51:54Z</time>
+		</trkpt>
+		<trkpt lat="57.716567" lon="41.365531">
+			<ele>125.66</ele>
+			<time>2017-10-24T14:54:16Z</time>
+		</trkpt>
+		<trkpt lat="57.719874" lon="41.378406">
+			<ele>127.00</ele>
+			<time>2017-10-24T15:11:14Z</time>
+		</trkpt>
+		<trkpt lat="57.721573" lon="41.377633">
+			<ele>128.26</ele>
+			<time>2017-10-24T15:15:07Z</time>
+		</trkpt>
+		<trkpt lat="57.722951" lon="41.378063">
+			<ele>130.31</ele>
+			<time>2017-10-24T15:18:13Z</time>
+		</trkpt>
+		<trkpt lat="57.724283" lon="41.378406">
+			<ele>131.80</ele>
+			<time>2017-10-24T15:21:12Z</time>
+		</trkpt>
+		<trkpt lat="57.725569" lon="41.380037">
+			<ele>133.66</ele>
+			<time>2017-10-24T15:24:40Z</time>
+		</trkpt>
+		<trkpt lat="57.725846" lon="41.382263">
+			<ele>135.25</ele>
+			<time>2017-10-24T15:27:22Z</time>
+		</trkpt>
+		<trkpt lat="57.726427" lon="41.401919">
+			<ele>136.28</ele>
+			<time>2017-10-24T15:50:44Z</time>
+		</trkpt>
+		<trkpt lat="57.729958" lon="41.412043">
+			<ele>136.96</ele>
+			<time>2017-10-24T16:05:05Z</time>
+		</trkpt>
+		<trkpt lat="57.732254" lon="41.415819">
+			<ele>134.95</ele>
+			<time>2017-10-24T16:11:52Z</time>
+		</trkpt>
+		<trkpt lat="57.737074" lon="41.435045">
+			<ele>132.22</ele>
+			<time>2017-10-24T16:37:04Z</time>
+		</trkpt>
+		<trkpt lat="57.741243" lon="41.440947">
+			<ele>128.72</ele>
+			<time>2017-10-24T16:48:41Z</time>
+		</trkpt>
+		<trkpt lat="57.741840" lon="41.441118">
+			<ele>127.52</ele>
+			<time>2017-10-24T16:50:01Z</time>
+		</trkpt>
+		<trkpt lat="57.744778" lon="41.445839">
+			<ele>129.19</ele>
+			<time>2017-10-24T16:58:37Z</time>
+		</trkpt>
+		<trkpt lat="57.746659" lon="41.450302">
+			<ele>133.00</ele>
+			<time>2017-10-24T17:05:22Z</time>
+		</trkpt>
+		<extensions>
+			<gte:name>Иконниково — Кобякино</gte:name>
+			<gte:color>#00ce00</gte:color>
+		</extensions>
+	</trkseg>
+	<trkseg>
+		<trkpt lat="57.746659" lon="41.450302">
+			<ele>133.00</ele>
+			<time>2017-10-24T17:05:22Z</time>
+		</trkpt>
+		<trkpt lat="57.755398" lon="41.442273">
+			<ele>132.77</ele>
+			<time>2017-10-24T17:27:00Z</time>
+		</trkpt>
+		<trkpt lat="57.761271" lon="41.416352">
+			<ele>133.49</ele>
+			<time>2017-10-24T18:00:23Z</time>
+		</trkpt>
+		<trkpt lat="57.762463" lon="41.414463">
+			<ele>138.47</ele>
+			<time>2017-10-24T18:03:51Z</time>
+		</trkpt>
+		<trkpt lat="57.768426" lon="41.412575">
+			<ele>142.18</ele>
+			<time>2017-10-24T18:17:17Z</time>
+		</trkpt>
+		<trkpt lat="57.776317" lon="41.400562">
+			<ele>148.43</ele>
+			<time>2017-10-24T18:39:53Z</time>
+		</trkpt>
+		<trkpt lat="57.778426" lon="41.398845">
+			<ele>150.92</ele>
+			<time>2017-10-24T18:44:59Z</time>
+		</trkpt>
+		<trkpt lat="57.781727" lon="41.400047">
+			<ele>154.54</ele>
+			<time>2017-10-24T18:52:27Z</time>
+		</trkpt>
+		<trkpt lat="57.785579" lon="41.402143">
+			<ele>155.77</ele>
+			<time>2017-10-24T19:01:22Z</time>
+		</trkpt>
+		<trkpt lat="57.789873" lon="41.400527">
+			<ele>155.89</ele>
+			<time>2017-10-24T19:11:06Z</time>
+		</trkpt>
+		<trkpt lat="57.793785" lon="41.400894">
+			<ele>154.34</ele>
+			<time>2017-10-24T19:19:48Z</time>
+		</trkpt>
+		<trkpt lat="57.799232" lon="41.398320">
+			<ele>150.50</ele>
+			<time>2017-10-24T19:32:17Z</time>
+		</trkpt>
+		<trkpt lat="57.803325" lon="41.399782">
+			<ele>146.44</ele>
+			<time>2017-10-24T19:41:33Z</time>
+		</trkpt>
+		<trkpt lat="57.804516" lon="41.400297">
+			<ele>141.94</ele>
+			<time>2017-10-24T19:44:16Z</time>
+		</trkpt>
+		<trkpt lat="57.805158" lon="41.402185">
+			<ele>139.19</ele>
+			<time>2017-10-24T19:46:55Z</time>
+		</trkpt>
+		<trkpt lat="57.809373" lon="41.405447">
+			<ele>137.98</ele>
+			<time>2017-10-24T19:57:03Z</time>
+		</trkpt>
+		<trkpt lat="57.813284" lon="41.389276">
+			<ele>140.50</ele>
+			<time>2017-10-24T20:18:04Z</time>
+		</trkpt>
+		<trkpt lat="57.816525" lon="41.347256">
+			<ele>142.96</ele>
+			<time>2017-10-24T21:08:20Z</time>
+		</trkpt>
+		<trkpt lat="57.816251" lon="41.343308">
+			<ele>146.98</ele>
+			<time>2017-10-24T21:13:02Z</time>
+		</trkpt>
+		<trkpt lat="57.815335" lon="41.339532">
+			<ele>147.34</ele>
+			<time>2017-10-24T21:17:57Z</time>
+		</trkpt>
+		<trkpt lat="57.814235" lon="41.336442">
+			<ele>146.62</ele>
+			<time>2017-10-24T21:22:21Z</time>
+		</trkpt>
+		<trkpt lat="57.809382" lon="41.326652">
+			<ele>143.13</ele>
+			<time>2017-10-24T21:38:11Z</time>
+		</trkpt>
+		<trkpt lat="57.807092" lon="41.310859">
+			<ele>139.00</ele>
+			<time>2017-10-24T21:57:34Z</time>
+		</trkpt>
+		<extensions>
+			<gte:name>Кобякино — Калинки</gte:name>
+			<gte:color>#ffb0ff</gte:color>
+		</extensions>
+	</trkseg>
+</trk>
+</gpx>

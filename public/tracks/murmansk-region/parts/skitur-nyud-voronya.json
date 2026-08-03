@@ -1,0 +1,37 @@
+{
+  "id": "skitur-nyud-voronya",
+  "name": "Скитур Нюд — Воронья",
+  "gpx": "skitur-nyud-voronya.gpx",
+  "region": {
+    "id": "murmansk-region",
+    "name": "Мурманская область"
+  },
+  "distanceKm": 12,
+  "durationLabel": "1 день",
+  "difficulty": "easy",
+  "elevationGainM": 72,
+  "type": "linear",
+  "nearestSettlement": "Мончегорск",
+  "description": "Зимний лыжный маршрут по хребту от горы Нюд до горы Воронья — по открытым плато с видами на снежные просторы Кольского полуострова. Подходит для начинающих лыжников-туристов.",
+  "highlights": [
+    "скитур",
+    "зима",
+    "горное плато",
+    "Мончегорск"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/126/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 67.9358,
+      "lon": 32.9183
+    },
+    {
+      "lat": 67.95,
+      "lon": 32.95
+    }
+  ]
+}

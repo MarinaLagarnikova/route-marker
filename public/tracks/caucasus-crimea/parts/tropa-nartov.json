@@ -1,0 +1,61 @@
+{
+  "id": "tropa-nartov",
+  "name": "Тропа Нартов",
+  "gpx": "tropa-nartov.gpx",
+  "region": {
+    "id": "caucasus-crimea",
+    "name": "Кавказ и Крым"
+  },
+  "distanceKm": 11,
+  "durationLabel": "1 день",
+  "difficulty": "medium",
+  "elevationGainM": 110,
+  "type": "linear",
+  "nearestSettlement": "Нальчик",
+  "description": "Маршрут на гору Нартия над Нальчиком в Кабардино-Балкарии — по лесным тропам и открытым склонам с видами на предгорья Кавказа. Недалеко от города, подходит для однодневного выхода.",
+  "highlights": [
+    "Нальчик",
+    "Кабардино-Балкария",
+    "горный лес",
+    "панорама"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/109/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 43.454434,
+      "lon": 43.591095
+    },
+    {
+      "lat": 43.453854,
+      "lon": 43.593627
+    },
+    {
+      "lat": 43.443171,
+      "lon": 43.592457
+    },
+    {
+      "lat": 43.429822,
+      "lon": 43.596089
+    },
+    {
+      "lat": 43.42706,
+      "lon": 43.600976
+    },
+    {
+      "lat": 43.423162,
+      "lon": 43.601363
+    },
+    {
+      "lat": 43.420085,
+      "lon": 43.603798
+    },
+    {
+      "lat": 43.417189,
+      "lon": 43.610314
+    }
+  ]
+}

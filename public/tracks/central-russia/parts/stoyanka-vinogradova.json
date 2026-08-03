@@ -1,0 +1,73 @@
+{
+  "id": "stoyanka-vinogradova",
+  "name": "Стоянка Виноградова",
+  "gpx": "stoyanka-vinogradova.gpx",
+  "region": {
+    "id": "central-russia",
+    "name": "Центральная Россия"
+  },
+  "distanceKm": 16.9,
+  "durationLabel": "1 день",
+  "difficulty": "easy",
+  "elevationGainM": 101,
+  "type": "loop",
+  "nearestSettlement": "Брянск",
+  "description": "Кольцевая прогулка по брянскому лесу к живописной стоянке на берегу реки. Смешанный лес, луговые поляны и укромные места для отдыха вблизи от города.",
+  "highlights": [
+    "брянский лес",
+    "кольцевой",
+    "река",
+    "лесные поляны"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/33/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 53.427245,
+      "lon": 34.33756
+    },
+    {
+      "lat": 53.429507,
+      "lon": 34.327865
+    },
+    {
+      "lat": 53.42963,
+      "lon": 34.296152
+    },
+    {
+      "lat": 53.435808,
+      "lon": 34.2886
+    },
+    {
+      "lat": 53.439141,
+      "lon": 34.287902
+    },
+    {
+      "lat": 53.439321,
+      "lon": 34.251023
+    },
+    {
+      "lat": 53.450452,
+      "lon": 34.260908
+    },
+    {
+      "lat": 53.439236,
+      "lon": 34.251274
+    },
+    {
+      "lat": 53.439098,
+      "lon": 34.33102
+    },
+    {
+      "lat": 53.428238,
+      "lon": 34.332913
+    },
+    {
+      "lat": 53.427283,
+      "lon": 34.337521
+    }
+  ]
+}

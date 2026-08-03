@@ -1,0 +1,54 @@
+{
+  "id": "kolco-sukhanova-aktru",
+  "name": "«Кольцо Суханова» (Ущелье Актру)",
+  "gpx": "kolco-sukhanova-aktru.gpx",
+  "region": {
+    "id": "siberia",
+    "name": "Сибирь"
+  },
+  "distanceKm": 4.2,
+  "durationLabel": "1 день",
+  "difficulty": "medium",
+  "elevationGainM": 42,
+  "type": "loop",
+  "nearestSettlement": "Курай",
+  "description": "Короткое, но интенсивное кольцо по высокогорному ущелью Актру на Алтае — мимо ледника, морены и альпийских лугов. Высота и перепад делают маршрут технически насыщенным.",
+  "highlights": [
+    "ледник",
+    "ущелье Актру",
+    "Алтай",
+    "высокогорье",
+    "морена"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/61/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 50.083797,
+      "lon": 87.778763
+    },
+    {
+      "lat": 50.070606,
+      "lon": 87.771721
+    },
+    {
+      "lat": 50.069725,
+      "lon": 87.76786
+    },
+    {
+      "lat": 50.074818,
+      "lon": 87.767036
+    },
+    {
+      "lat": 50.077179,
+      "lon": 87.772583
+    },
+    {
+      "lat": 50.083599,
+      "lon": 87.779137
+    }
+  ]
+}

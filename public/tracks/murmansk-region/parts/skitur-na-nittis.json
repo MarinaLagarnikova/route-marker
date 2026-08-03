@@ -1,0 +1,49 @@
+{
+  "id": "skitur-na-nittis",
+  "name": "Скитур на Ниттис",
+  "gpx": "skitur-na-nittis.gpx",
+  "region": {
+    "id": "murmansk-region",
+    "name": "Мурманская область"
+  },
+  "distanceKm": 2.4,
+  "durationLabel": "5—6 часов",
+  "difficulty": "medium",
+  "elevationGainM": 24,
+  "type": "linear",
+  "nearestSettlement": "Мончегорск",
+  "description": "Короткий зимний подъём на вершину Ниттис на лыжах — технически интереснее летнего варианта благодаря снежным склонам. Отличный тренировочный маршрут для лыжного туризма.",
+  "highlights": [
+    "скитур",
+    "Ниттис",
+    "зима",
+    "короткий выход"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/127/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 67.916154,
+      "lon": 32.802646
+    },
+    {
+      "lat": 67.91624,
+      "lon": 32.782261
+    },
+    {
+      "lat": 67.917935,
+      "lon": 32.781059
+    },
+    {
+      "lat": 67.919437,
+      "lon": 32.768356
+    },
+    {
+      "lat": 67.913987,
+      "lon": 32.755696
+    }
+  ]
+}

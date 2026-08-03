@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { StartPage } from '@/pages/start'
 import { RoutePage } from '@/pages/route'
 import { StagesPage } from '@/pages/stages'
+import { CollectionPage } from '@/pages/collection'
 
 class ErrorBoundary extends Component<{ children: React.ReactNode }, { error: Error | null }> {
   state = { error: null }
@@ -33,6 +34,7 @@ export function App() {
           <Route path="/" element={<StartPage />} />
           <Route path="/route" element={<RoutePage />} />
           <Route path="/stages" element={<StagesPage />} />
+          <Route path="/collection/:id" element={<CollectionPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>

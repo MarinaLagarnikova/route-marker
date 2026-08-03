@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="http://nakarte.me" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1">
+	<metadata>
+		<time>2024-05-29T10:58:30.367Z</time>
+	</metadata>
+	<trk>
+		<name>Скитур Ниттис</name>
+		<trkseg>
+			<trkpt lat="67.916154" lon="32.802646"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.916240" lon="32.782261"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.917935" lon="32.781059"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.918021" lon="32.779557"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.918364" lon="32.777712"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.918665" lon="32.776897"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.919373" lon="32.771875"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.919437" lon="32.768356"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.916133" lon="32.761447"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.915060" lon="32.758014"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+			<trkpt lat="67.913987" lon="32.755696"><time>1970-01-01T00:00:01.000Z</time></trkpt>
+		</trkseg>
+	</trk>
+</gpx>

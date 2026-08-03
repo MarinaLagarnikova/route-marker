@@ -1,0 +1,69 @@
+{
+  "id": "vodoskat-uchar",
+  "name": "Водоскат Учар",
+  "gpx": "vodoskat-uchar.gpx",
+  "region": {
+    "id": "siberia",
+    "name": "Сибирь"
+  },
+  "distanceKm": 16.4,
+  "durationLabel": "1 день",
+  "difficulty": "easy",
+  "elevationGainM": 98,
+  "type": "linear",
+  "nearestSettlement": "Коо",
+  "description": "Однодневный маршрут к крупнейшему нетронутому водоскату России Учар в Чулышманской долине Алтая. Путь проходит по крутому берегу Чулышмана с видами на каньон.",
+  "highlights": [
+    "водоскат Учар",
+    "Чулышман",
+    "каньон",
+    "Алтай"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/103/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 51.087165,
+      "lon": 87.996133
+    },
+    {
+      "lat": 51.08925,
+      "lon": 87.996467
+    },
+    {
+      "lat": 51.095398,
+      "lon": 88.023509
+    },
+    {
+      "lat": 51.098517,
+      "lon": 88.027579
+    },
+    {
+      "lat": 51.102269,
+      "lon": 88.038147
+    },
+    {
+      "lat": 51.108873,
+      "lon": 88.045054
+    },
+    {
+      "lat": 51.114348,
+      "lon": 88.056895
+    },
+    {
+      "lat": 51.117478,
+      "lon": 88.068148
+    },
+    {
+      "lat": 51.11673,
+      "lon": 88.079697
+    },
+    {
+      "lat": 51.117982,
+      "lon": 88.083794
+    }
+  ]
+}

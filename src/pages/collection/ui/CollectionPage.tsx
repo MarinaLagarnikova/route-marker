@@ -1,14 +1,34 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { ArrowUpRight, ChevronLeft, Expand, SportShoe, Timer } from 'lucide-react'
-import { initPlainMap, initCollectionMap } from '@/shared/lib/map-adapter/library-map'
+import { ArrowUpDown, Check, ChevronDown, ChevronLeft, Map, SportShoe, Timer } from 'lucide-react'
+import { Drawer } from '@/shared/ui/drawer'
 import { fetchCollection } from '@/shared/lib/library-api'
 import { useLibraryStore } from '@/entities/library-route'
 import { DifficultyBadge } from '@/entities/library-route/ui/DifficultyBadge'
+import { TrackThumbnail } from '@/entities/library-route/ui/TrackThumbnail'
 import { CollectionMap } from '@/widgets/collection-map'
 import { RouteDetailDrawer } from '@/widgets/route-detail-drawer'
 import type { LibraryCollection, LibraryRoute } from '@/entities/library-route'
-import type { LibraryMapHandle } from '@/shared/lib/map-adapter/library-map'
+import { ElevationSparkline } from '@/shared/ui/elevation-sparkline'
+
+type SortOrder = 'short' | 'long'
+
+const SORT_OPTIONS: { value: SortOrder; label: string }[] = [
+  { value: 'short', label: 'Короткие' },
+  { value: 'long',  label: 'Длинные' },
+]
+
+const SORT_TRIGGER_LABEL: Record<SortOrder, string> = {
+  short: 'Сначала короткие',
+  long:  'Сначала длинные',
+}
+
+function sortRoutes(routes: LibraryRoute[], order: SortOrder): LibraryRoute[] {
+  const copy = [...routes]
+  return order === 'short'
+    ? copy.sort((a, b) => a.distanceKm - b.distanceKm)
+    : copy.sort((a, b) => b.distanceKm - a.distanceKm)
+}
 
 function buildFavoritesCollection(
   favorites: string[],
@@ -30,11 +50,10 @@ export function CollectionPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const miniMapRef = useRef<HTMLDivElement>(null)
-  const mapHandleRef = useRef<LibraryMapHandle | null>(null)
-
   const [fullscreenMap, setFullscreenMap] = useState(false)
   const [selectedRoute, setSelectedRoute] = useState<LibraryRoute | null>(null)
+  const [sortOrder, setSortOrder] = useState<SortOrder>('short')
+  const [sortDrawerOpen, setSortDrawerOpen] = useState(false)
 
   useEffect(() => {
     if (!id) return
@@ -58,36 +77,6 @@ export function CollectionPage() {
       .catch(() => setError('Не удалось загрузить подборку'))
       .finally(() => setLoading(false))
   }, [id])
-
-  useEffect(() => {
-    if (!miniMapRef.current || !collection) return
-    let handle: LibraryMapHandle | null = null
-
-    if (collection.routes.length === 0) {
-      initPlainMap(miniMapRef.current).then((h) => {
-        handle = h
-        mapHandleRef.current = h
-      })
-    } else {
-      const mapRoutes = collection.routes.map((r) => ({
-        id: r.id,
-        track: r.trackSimplified,
-        name: r.name,
-      }))
-      initCollectionMap(miniMapRef.current, mapRoutes, (routeId) => {
-        const found = collection.routes.find((r) => r.id === routeId)
-        if (found) setSelectedRoute(found)
-      }, false).then((h) => {
-        handle = h
-        mapHandleRef.current = h
-      })
-    }
-
-    return () => {
-      handle?.destroy()
-      mapHandleRef.current = null
-    }
-  }, [collection])
 
   if (loading) {
     return (
@@ -122,28 +111,38 @@ export function CollectionPage() {
             </button>
           </div>
           {/* Title */}
-          <div className="px-4 pb-3 flex items-baseline gap-2 w-full">
+          <div className="px-4 flex items-baseline gap-2 w-full">
             <h1 className="text-xl font-semibold text-zinc-900 truncate">{collection.name}</h1>
             <span className="text-xl font-semibold text-zinc-400 shrink-0">{collection.totalRoutes}</span>
           </div>
         </div>
 
-        {/* Mini-map */}
-        <div className="relative mx-4 mt-8 rounded-2xl overflow-hidden bg-zinc-100" style={{ height: 220 }}>
-          <div ref={miniMapRef} className="absolute inset-0" />
-          {/* Expand button */}
-          <button
-            onClick={() => setFullscreenMap(true)}
-            className="absolute bottom-3 right-3 w-9 h-9 flex items-center justify-center border border-zinc-200 rounded-lg bg-white active:bg-zinc-50 transition-colors z-10"
-            aria-label="На весь экран"
-          >
-            <Expand className="w-4 h-4 text-zinc-900" />
-          </button>
-        </div>
+        {/* Show on map button — hidden for favorites */}
+        {id !== 'favorites' && (
+          <div className="px-4 mt-3">
+            <button
+              onClick={() => setFullscreenMap(true)}
+              className="w-full h-9 flex items-center justify-center gap-2 border border-zinc-200 rounded-[12px] bg-white active:bg-zinc-50 transition-colors"
+            >
+              <Map className="w-5 h-5 text-zinc-900" />
+              <span className="text-sm font-normal text-zinc-900">Показать на карте</span>
+            </button>
+          </div>
+        )}
 
         {/* Route cards list */}
         <div className="flex flex-col gap-3 px-4 mt-8">
-          {collection.routes.map((route) => (
+          {/* Sort trigger */}
+          <button
+            onClick={() => setSortDrawerOpen(true)}
+            className="flex items-center gap-2 self-start active:opacity-70 transition-opacity"
+          >
+            <ArrowUpDown className="w-4 h-4 text-zinc-500" />
+            <span className="text-sm text-zinc-500">{SORT_TRIGGER_LABEL[sortOrder]}</span>
+            <ChevronDown className="w-4 h-4 text-zinc-400" />
+          </button>
+
+          {sortRoutes(collection.routes, sortOrder).map((route) => (
             <RouteCard
               key={route.id}
               route={route}
@@ -152,12 +151,7 @@ export function CollectionPage() {
           ))}
         </div>
 
-        {/* Attribution */}
-        {collection.routes.length > 0 && (
-          <div className="mx-4 mt-8 mb-8">
-            <CollectionAttribution source={collection.routes[0].source} />
-          </div>
-        )}
+        <div className="mb-8" />
       </div>
 
       {/* Fullscreen map overlay */}
@@ -174,6 +168,27 @@ export function CollectionPage() {
           route={selectedRoute}
           onClose={() => setSelectedRoute(null)}
         />
+      )}
+
+      {/* Sort drawer */}
+      {sortDrawerOpen && (
+        <Drawer onClose={() => setSortDrawerOpen(false)}>
+          <div className="flex flex-col gap-2 p-4 pb-8">
+            <p className="text-sm font-semibold text-zinc-900">Показать сначала</p>
+            <div className="flex flex-col">
+              {SORT_OPTIONS.map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => { setSortOrder(opt.value); setSortDrawerOpen(false) }}
+                  className={`flex items-center justify-between px-2 py-3 rounded-[6px] transition-colors ${sortOrder === opt.value ? 'bg-zinc-100' : 'active:bg-zinc-50'}`}
+                >
+                  <span className="text-sm text-zinc-900">{opt.label}</span>
+                  {sortOrder === opt.value && <Check className="w-4 h-4 text-zinc-900" />}
+                </button>
+              ))}
+            </div>
+          </div>
+        </Drawer>
       )}
     </div>
   )
@@ -199,7 +214,7 @@ function RouteCard({
         <div className="flex items-center gap-1.5 shrink-0">
           <SportShoe className="w-4 h-4 text-zinc-900" />
           <span className="text-sm font-normal text-zinc-900 whitespace-nowrap">
-            {route.distanceKm} км
+            {Math.round(route.distanceKm)} км
           </span>
         </div>
       </div>
@@ -218,52 +233,20 @@ function RouteCard({
         {/* Center: elevation gain + profile placeholder */}
         <div className="flex-1 min-w-0 flex flex-col justify-between gap-1 min-w-0">
           <div className="flex items-center gap-1">
-            <span className="text-sm font-normal text-zinc-500 whitespace-nowrap leading-normal">{route.elevationGainM} м</span>
+            <span className="text-sm font-normal text-zinc-500 whitespace-nowrap leading-normal">
+              {route.trackSimplified.some((p) => p.ele !== undefined) ? '' : '~'}{route.elevationGainM} м
+            </span>
           </div>
-          <div className="h-8 bg-zinc-100 rounded-lg" />
+          <div className="h-8 rounded-lg overflow-hidden">
+            <ElevationSparkline points={route.trackSimplified} />
+          </div>
         </div>
 
-        {/* Right: track thumbnail — flex-1 wrapper, square inside */}
+        {/* Right: track thumbnail */}
         <div className="flex-1 flex items-center justify-end">
-          <div className="w-12 h-12 rounded-xl bg-zinc-100 shrink-0" />
+          <TrackThumbnail track={route.trackSimplified} size={48} trackSize={30} />
         </div>
       </div>
     </button>
-  )
-}
-
-function CollectionAttribution({ source }: { source: LibraryRoute['source'] }) {
-  return (
-    <a
-      href={source.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-3 active:opacity-70 transition-opacity no-underline"
-    >
-      {/* Logo */}
-      {source.logoUrl ? (
-        <img
-          src={source.logoUrl}
-          alt={source.name}
-          className="object-contain shrink-0"
-          style={{ width: 43, height: 38 }}
-        />
-      ) : (
-        <div className="w-10 h-10 rounded-xl bg-zinc-100 shrink-0 flex items-center justify-center">
-          <span className="text-sm font-semibold text-zinc-500">{source.name[0]}</span>
-        </div>
-      )}
-
-      {/* Text */}
-      <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-        <span className="text-sm font-medium text-zinc-900 leading-snug">{source.name}</span>
-        <span className="text-xs font-normal text-zinc-500 leading-5 tracking-normal">Маршруты предоставлены</span>
-      </div>
-
-      {/* Arrow button */}
-      <div className="w-9 h-9 flex items-center justify-center border border-zinc-200 rounded-lg bg-white shrink-0">
-        <ArrowUpRight className="w-4 h-4 text-zinc-900" />
-      </div>
-    </a>
   )
 }

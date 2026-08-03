@@ -1,0 +1,61 @@
+{
+  "id": "gora-shimeroy",
+  "name": "На гору Шимерой",
+  "gpx": "gora-shimeroy.gpx",
+  "region": {
+    "id": "caucasus-crimea",
+    "name": "Кавказ и Крым"
+  },
+  "distanceKm": 8.8,
+  "durationLabel": "1 день",
+  "difficulty": "easy",
+  "elevationGainM": 53,
+  "type": "loop",
+  "nearestSettlement": "Хой",
+  "description": "Небольшой кольцевой поход на гору Шимерой в горной Чечне — через субальпийские луга с видами на ущелья Аргунского каньона и древние чеченские башни.",
+  "highlights": [
+    "Чечня",
+    "горные луга",
+    "древние башни",
+    "субальпийский пояс"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/132/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 42.767074,
+      "lon": 46.133676
+    },
+    {
+      "lat": 42.762482,
+      "lon": 46.129985
+    },
+    {
+      "lat": 42.75789,
+      "lon": 46.132346
+    },
+    {
+      "lat": 42.759328,
+      "lon": 46.132796
+    },
+    {
+      "lat": 42.759757,
+      "lon": 46.138997
+    },
+    {
+      "lat": 42.757118,
+      "lon": 46.154168
+    },
+    {
+      "lat": 42.760315,
+      "lon": 46.158481
+    },
+    {
+      "lat": 42.763663,
+      "lon": 46.158331
+    }
+  ]
+}

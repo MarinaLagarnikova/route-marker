@@ -9,23 +9,26 @@
 
 import { readFileSync } from 'fs'
 
-interface Point { lat: number; lon: number }
+interface Point { lat: number; lon: number; ele?: number }
 
 function parseGpxPoints(xml: string): Point[] {
-  const points: Point[] = []
-  const regex = /<trkpt\s+lat="([^"]+)"\s+lon="([^"]+)"/g
+  // Extract each trkpt block and parse lat/lon/ele from it
+  const trkptRegex = /<trkpt\s([^>]*)>([\s\S]*?)<\/trkpt>/g
+  const coords: Point[] = []
   let m: RegExpExecArray | null
-  while ((m = regex.exec(xml)) !== null) {
-    points.push({ lat: parseFloat(m[1]), lon: parseFloat(m[2]) })
+  while ((m = trkptRegex.exec(xml)) !== null) {
+    const attrs = m[1]
+    const inner = m[2]
+    const latM = attrs.match(/lat="([^"]+)"/)
+    const lonM = attrs.match(/lon="([^"]+)"/)
+    if (!latM || !lonM) continue
+    const lat = parseFloat(latM[1])
+    const lon = parseFloat(lonM[1])
+    const eleM = inner.match(/<ele>([^<]+)<\/ele>/)
+    const ele = eleM ? parseFloat(eleM[1]) : undefined
+    coords.push(ele !== undefined ? { lat, lon, ele } : { lat, lon })
   }
-  // fallback: try lon before lat attribute order
-  if (points.length === 0) {
-    const regex2 = /<trkpt\s+lon="([^"]+)"\s+lat="([^"]+)"/g
-    while ((m = regex2.exec(xml)) !== null) {
-      points.push({ lat: parseFloat(m[2]), lon: parseFloat(m[1]) })
-    }
-  }
-  return points
+  return coords
 }
 
 function perpendicularDistance(p: Point, start: Point, end: Point): number {

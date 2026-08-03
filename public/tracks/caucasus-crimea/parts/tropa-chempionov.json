@@ -1,0 +1,66 @@
+{
+  "id": "tropa-chempionov",
+  "name": "Тропа Чемпионов",
+  "gpx": "tropa-chempionov.gpx",
+  "region": {
+    "id": "caucasus-crimea",
+    "name": "Кавказ и Крым"
+  },
+  "distanceKm": 5.2,
+  "durationLabel": "4—5 часов",
+  "difficulty": "hard",
+  "elevationGainM": 104,
+  "type": "linear",
+  "nearestSettlement": "Сочи",
+  "description": "Напряжённый горный подъём от парка Йети до хребта Аибга в Красной Поляне — крутые склоны с набором высоты 900 м и финальной панорамой на горный узел Кавказа.",
+  "highlights": [
+    "Аибга",
+    "набор высоты",
+    "Красная Поляна",
+    "Сочи",
+    "крутой подъём"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/140/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 43.646174,
+      "lon": 40.31414
+    },
+    {
+      "lat": 43.642612,
+      "lon": 40.30839
+    },
+    {
+      "lat": 43.643491,
+      "lon": 40.305343
+    },
+    {
+      "lat": 43.638642,
+      "lon": 40.312166
+    },
+    {
+      "lat": 43.637419,
+      "lon": 40.311179
+    },
+    {
+      "lat": 43.639136,
+      "lon": 40.307381
+    },
+    {
+      "lat": 43.635102,
+      "lon": 40.309269
+    },
+    {
+      "lat": 43.632183,
+      "lon": 40.302618
+    },
+    {
+      "lat": 43.623986,
+      "lon": 40.307896
+    }
+  ]
+}

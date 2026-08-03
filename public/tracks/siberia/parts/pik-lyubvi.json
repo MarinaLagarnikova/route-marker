@@ -1,0 +1,66 @@
+{
+  "id": "pik-lyubvi",
+  "name": "Пик Любви",
+  "gpx": "pik-lyubvi.gpx",
+  "region": {
+    "id": "siberia",
+    "name": "Сибирь"
+  },
+  "distanceKm": 8.1,
+  "durationLabel": "1 день",
+  "difficulty": "medium",
+  "elevationGainM": 81,
+  "type": "linear",
+  "nearestSettlement": "Аршан",
+  "description": "Короткий, но крутой подъём на Пик Любви над курортным посёлком Аршан в Тункинской долине. Открывается панорама на Саянские хребты и долину реки Иркут.",
+  "highlights": [
+    "Пик Любви",
+    "Тунка",
+    "Саяны",
+    "панорама",
+    "Аршан"
+  ],
+  "source": {
+    "name": "RuTrail",
+    "url": "https://rutrail.org/trails/48/",
+    "logoUrl": "/tracks/rutrail-logo.svg"
+  },
+  "trackSimplified": [
+    {
+      "lat": 51.914746,
+      "lon": 102.428198
+    },
+    {
+      "lat": 51.915725,
+      "lon": 102.431095
+    },
+    {
+      "lat": 51.918888,
+      "lon": 102.430193
+    },
+    {
+      "lat": 51.920304,
+      "lon": 102.433122
+    },
+    {
+      "lat": 51.922587,
+      "lon": 102.432318
+    },
+    {
+      "lat": 51.928889,
+      "lon": 102.43588
+    },
+    {
+      "lat": 51.93175,
+      "lon": 102.435059
+    },
+    {
+      "lat": 51.938147,
+      "lon": 102.440498
+    },
+    {
+      "lat": 51.945452,
+      "lon": 102.44023
+    }
+  ]
+}
