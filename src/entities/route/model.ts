@@ -37,6 +37,8 @@ export interface RouteState {
   originalTrackSegments?: LatLon[][]
   /** Original GPX XML — used for sharing */
   gpxXml?: string
+  /** ID of the library route this was loaded from, if any */
+  libraryRouteId?: string
 }
 
 export function detectDirection(

@@ -11,7 +11,7 @@ import type { GpxWaypoint, StageGpxData } from '@/shared/lib/gpx'
 interface RouteStore {
   route: RouteState | null
   multiStage: MultiStageMeta | null
-  loadRoute(name: string, trackPoints: LatLon[], waypoints: GpxWaypoint[], gpxXml: string, trackSegments?: LatLon[][]): void
+  loadRoute(name: string, trackPoints: LatLon[], waypoints: GpxWaypoint[], gpxXml: string, trackSegments?: LatLon[][], libraryRouteId?: string): void
   loadSaved(state: RouteState): void
   loadMultiStage(name: string, stages: StageGpxData[], gpxHash: string): void
   loadMultiStageSaved(meta: MultiStageMeta): void
@@ -26,7 +26,7 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
   route: null,
   multiStage: null,
 
-  loadRoute(name, trackPoints, waypoints, gpxXml, trackSegments?) {
+  loadRoute(name, trackPoints, waypoints, gpxXml, trackSegments?, libraryRouteId?) {
     const gpxHash = hashString(gpxXml)
     const isCircular = isCircularRoute(trackPoints)
     const dists = cumulativeDistances(trackPoints)
@@ -47,6 +47,7 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
       originalTrackPoints: isCircular ? [...trackPoints] : undefined,
       originalTrackSegments: isCircular && trackSegments ? trackSegments.map(s => [...s]) : undefined,
       gpxXml,
+      libraryRouteId,
     }
     storageSet(gpxHash, state)
     set({ route: state })

@@ -2,3 +2,4 @@ export type { GeoPoint, LibraryRoute, LibraryCollection, Difficulty, RouteType, 
 export { COLLECTION_CARD_LIST } from './data'
 export type { CollectionCardMeta } from './data'
 export { useLibraryStore } from './store'
+export type { FavoriteEntry } from './store'

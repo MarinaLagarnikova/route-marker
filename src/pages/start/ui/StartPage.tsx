@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CloudUpload, Flag, FolderOpen, SportShoe } from 'lucide-react'
+import { CloudUpload, Flag, FolderOpen, SportShoe, X } from 'lucide-react'
 import { parseGpx } from '@/shared/lib/gpx'
 import { useRouteStore, hashString } from '@/entities/route'
-import { storageGet, storageKeys } from '@/shared/lib/storage'
+import { storageGet, storageSet, storageKeys } from '@/shared/lib/storage'
 import { APP_NAME } from '@/shared/config'
 import { COLLECTION_CARD_LIST, useLibraryStore } from '@/entities/library-route'
+import type { LibraryRoute } from '@/entities/library-route'
+import { fetchRouteGpxXml } from '@/shared/lib/library-api'
 import type { GpxData } from '@/shared/lib/gpx'
 import type { RouteState, MultiStageMeta, StageMeta } from '@/entities/route'
 
@@ -227,48 +229,67 @@ function AddTrackDrawer({ routeName, onNameChange, onConfirm, onCancel }: AddTra
     return () => cancelAnimationFrame(id)
   }, [])
 
+  function handleClose() {
+    setVisible(false)
+    setTimeout(onCancel, 300)
+  }
+
   return (
     <>
-      <div className="fixed inset-0 bg-black/30 z-40" onClick={onCancel} />
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 bg-white border border-zinc-200 rounded-t-2xl max-w-[560px] mx-auto transition-transform duration-300 ease-out ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`fixed inset-0 bg-black/30 z-40 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+        onClick={handleClose}
+      />
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 max-w-[560px] mx-auto flex flex-col transition-transform duration-300 ease-out pointer-events-none ${visible ? 'translate-y-0' : 'translate-y-full'}`}
       >
-        {/* Handle */}
-        <div className="flex items-center justify-center pt-4">
-          <div className="w-[100px] h-2 bg-zinc-100 rounded-full" />
+        <div className="flex justify-end px-4 pb-1.5 pointer-events-none">
+          <button
+            onClick={handleClose}
+            className="pointer-events-auto w-9 h-9 flex items-center justify-center rounded-full bg-black/40 active:bg-black/60 transition-colors"
+            aria-label="Закрыть"
+          >
+            <X className="w-4 h-4 text-white" />
+          </button>
         </div>
-
-        {/* Content */}
-        <div className="flex flex-col gap-4 p-4">
-          {/* Name input */}
-          <div className="flex flex-col gap-3">
-            <p className="text-sm font-medium text-zinc-900">Название</p>
-            <input
-              type="text"
-              value={routeName}
-              onChange={(e) => onNameChange(e.target.value)}
-              placeholder="Введите название"
-              autoFocus
-              className="w-full h-9 px-3 rounded-lg border border-zinc-200 text-base text-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent"
-            />
+        <div className="bg-white border border-zinc-200 rounded-t-2xl pointer-events-auto">
+          {/* Handle */}
+          <div className="flex items-center justify-center pt-4">
+            <div className="w-[100px] h-2 bg-zinc-100 rounded-full" />
           </div>
 
-          {/* Confirm button */}
-          <button
-            onClick={onConfirm}
-            disabled={!routeName.trim()}
-            className="w-full h-11 bg-zinc-900 text-white text-sm font-medium rounded-xl disabled:opacity-40 disabled:cursor-not-allowed active:bg-zinc-800 transition-colors"
-          >
-            Добавить трек
-          </button>
+          {/* Content */}
+          <div className="flex flex-col gap-4 p-4">
+            {/* Name input */}
+            <div className="flex flex-col gap-3">
+              <p className="text-sm font-medium text-zinc-900">Название</p>
+              <input
+                type="text"
+                value={routeName}
+                onChange={(e) => onNameChange(e.target.value)}
+                placeholder="Введите название"
+                autoFocus
+                className="w-full h-9 px-3 rounded-lg border border-zinc-200 text-base text-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent"
+              />
+            </div>
 
-          {/* Cancel button */}
-          <button
-            onClick={onCancel}
-            className="w-full h-9 bg-white border border-zinc-200 text-sm font-medium text-zinc-900 rounded-xl active:bg-zinc-50 transition-colors"
-          >
-            Отменить
-          </button>
+            {/* Confirm button */}
+            <button
+              onClick={onConfirm}
+              disabled={!routeName.trim()}
+              className="w-full h-11 bg-zinc-900 text-white text-sm font-medium rounded-xl disabled:opacity-40 disabled:cursor-not-allowed active:bg-zinc-800 transition-colors"
+            >
+              Добавить трек
+            </button>
+
+            {/* Cancel button */}
+            <button
+              onClick={handleClose}
+              className="w-full h-9 bg-white border border-zinc-200 text-sm font-medium text-zinc-900 rounded-xl active:bg-zinc-50 transition-colors"
+            >
+              Отменить
+            </button>
+          </div>
         </div>
       </div>
     </>
@@ -332,32 +353,42 @@ function CompletedSection({
 // ────────────────────────────────────────────
 // PinnedRoutesSection — routes added from library
 // ────────────────────────────────────────────
-function PinnedRoutesSection() {
-  const navigate = useNavigate()
+type PinnedRoute = Omit<LibraryRoute, 'track'>
+
+function PinnedRoutesSection({ onOpen }: { onOpen: (route: PinnedRoute) => Promise<void> }) {
   const pinnedRoutes = useLibraryStore((s) => s.pinnedRoutes)
+  const [loadingId, setLoadingId] = useState<string | null>(null)
 
   if (pinnedRoutes.length === 0) return null
 
   return (
     <>
       {pinnedRoutes.map((route) => (
-          <button
-            key={route.id}
-            onClick={() => navigate(`/collection/${route.region.id}`)}
-            className="w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4 active:bg-zinc-50 transition-colors"
-          >
-            <div className="flex-1 flex flex-col gap-1.5 min-w-0">
-              <div className="flex items-center justify-between gap-2 min-w-0">
-                <p className="text-sm font-semibold text-zinc-900 truncate">{route.name}</p>
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <SportShoe className="w-4 h-4 text-zinc-900" />
-                  <span className="text-sm font-normal text-zinc-900">{Math.round(route.distanceKm)} км</span>
-                </div>
+        <button
+          key={route.id}
+          disabled={loadingId !== null}
+          onClick={async () => {
+            setLoadingId(route.id)
+            try {
+              await onOpen(route)
+            } finally {
+              setLoadingId(null)
+            }
+          }}
+          className={`w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4 transition-colors ${loadingId === route.id ? 'opacity-60' : 'active:bg-zinc-50'}`}
+        >
+          <div className="flex-1 flex flex-col gap-1.5 min-w-0">
+            <div className="flex items-center justify-between gap-2 min-w-0">
+              <p className="text-sm font-semibold text-zinc-900 truncate">{route.name}</p>
+              <div className="flex items-center gap-1.5 shrink-0">
+                <SportShoe className="w-4 h-4 text-zinc-900" />
+                <span className="text-sm font-normal text-zinc-900">{Math.round(route.distanceKm)} км</span>
               </div>
-              <p className="text-sm font-normal text-zinc-500">0.0 км пройдено</p>
             </div>
-          </button>
-        ))}
+            <p className="text-sm font-normal text-zinc-500">0.0 км пройдено</p>
+          </div>
+        </button>
+      ))}
     </>
   )
 }
@@ -488,6 +519,25 @@ export function StartPage() {
     setRouteName('')
   }
 
+  async function handleOpenPinnedRoute(route: PinnedRoute) {
+    if (!route.gpx) return
+    const xml = await fetchRouteGpxXml(route.region.id, route.gpx)
+    const hash = hashString(xml)
+    const existing = storageGet<RouteState>(hash)
+    if (existing) {
+      // Patch libraryRouteId if missing (e.g. loaded before this feature was added)
+      if (!existing.libraryRouteId) {
+        existing.libraryRouteId = route.id
+        storageSet(hash, existing)
+      }
+      loadSaved(existing)
+    } else {
+      const data = parseGpx(xml)
+      loadRoute(route.name, data.trackPoints, data.waypoints, xml, data.trackSegments, route.id)
+    }
+    navigate('/route')
+  }
+
   function handleContinue(route: RouteState) {
     loadSaved(route)
     navigate('/route')
@@ -525,7 +575,7 @@ export function StartPage() {
         {/* Pinned + active routes — grouped with gap-3 */}
         {(pinnedRoutes.length > 0 || activeRoutes.length > 0 || activeMultiRoutes.length > 0) && (
           <div className="flex flex-col gap-3">
-            <PinnedRoutesSection />
+            <PinnedRoutesSection onOpen={handleOpenPinnedRoute} />
             {activeRoutes.map((r) => (
               <RouteCard
                 key={r.gpxHash}

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ChevronLeft, Ellipsis, Trash2, History, Share } from 'lucide-react'
+import { ChevronLeft, Ellipsis, Trash2, History, Share, X } from 'lucide-react'
 import { useRouteStore, selectCoveredKm, selectTotalKm } from '@/entities/route'
+import { useLibraryStore } from '@/entities/library-route'
 import { HistoryDrawer } from '@/features/history'
 
 type DrawerMode = 'menu' | 'delete' | null
@@ -10,6 +11,7 @@ export function RouteHeader() {
   const navigate = useNavigate()
   const route = useRouteStore((s) => s.route)
   const clearRoute = useRouteStore((s) => s.clearRoute)
+  const unpinRoute = useLibraryStore((s) => s.unpinRoute)
   const multiStage = useRouteStore((s) => s.multiStage)
   const [drawerMode, setDrawerMode] = useState<DrawerMode>(null)
   const [drawerVisible, setDrawerVisible] = useState(false)
@@ -19,10 +21,13 @@ export function RouteHeader() {
     if (drawerMode) {
       const id = requestAnimationFrame(() => setDrawerVisible(true))
       return () => cancelAnimationFrame(id)
-    } else {
-      setDrawerVisible(false)
     }
   }, [drawerMode])
+
+  function closeDrawer() {
+    setDrawerVisible(false)
+    setTimeout(() => setDrawerMode(null), 300)
+  }
 
   function switchDrawer(next: DrawerMode) {
     setDrawerVisible(false)
@@ -48,13 +53,14 @@ export function RouteHeader() {
     : `${coveredKm.toFixed(1)} км пройдено`
 
   function handleDelete() {
+    if (route?.libraryRouteId) unpinRoute(route.libraryRouteId)
     clearRoute()
     navigate(multiStage !== null ? '/stages' : '/', { replace: true })
   }
 
   async function handleShare() {
     if (!route?.gpxXml) return
-    setDrawerMode(null)
+    closeDrawer()
     const file = new File([route.gpxXml], `${route.name}.gpx`, { type: 'application/gpx+xml' })
     if (navigator.canShare?.({ files: [file] })) {
       await navigator.share({ files: [file], title: route?.name })
@@ -111,7 +117,7 @@ export function RouteHeader() {
         Удалить
       </button>
       <button
-        onClick={() => setDrawerMode(null)}
+        onClick={closeDrawer}
         className="w-full h-9 bg-white border border-zinc-200 text-zinc-700 text-sm font-medium rounded-lg active:bg-zinc-50 transition-colors"
       >
         Отменить
@@ -184,12 +190,28 @@ export function RouteHeader() {
       {/* Menu / Delete drawer */}
       {drawerMode && (
         <>
-          <div className="fixed inset-0 bg-black/30 z-40" onClick={() => setDrawerMode(null)} />
-          <div className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-x border-zinc-200 rounded-t-[16px] max-w-[560px] mx-auto transition-transform duration-300 ease-out ${drawerVisible ? 'translate-y-0' : 'translate-y-full'}`}>
-            <div className="flex items-center justify-center pt-2">
-              <div className="w-[50px] h-1 bg-zinc-400 rounded-full" />
+          <div
+            className={`fixed inset-0 bg-black/30 z-40 transition-opacity duration-300 ${drawerVisible ? 'opacity-100' : 'opacity-0'}`}
+            onClick={closeDrawer}
+          />
+          <div
+            className={`fixed bottom-0 left-0 right-0 z-50 max-w-[560px] mx-auto flex flex-col transition-transform duration-300 ease-out pointer-events-none ${drawerVisible ? 'translate-y-0' : 'translate-y-full'}`}
+          >
+            <div className="flex justify-end px-4 pb-1.5 pointer-events-none">
+              <button
+                onClick={closeDrawer}
+                className="pointer-events-auto w-9 h-9 flex items-center justify-center rounded-full bg-black/40 active:bg-black/60 transition-colors"
+                aria-label="Закрыть"
+              >
+                <X className="w-4 h-4 text-white" />
+              </button>
             </div>
-            {drawerContent}
+            <div className="bg-white border-t border-x border-zinc-200 rounded-t-[16px] pointer-events-auto">
+              <div className="flex items-center justify-center pt-2">
+                <div className="w-[50px] h-1 bg-zinc-400 rounded-full" />
+              </div>
+              {drawerContent}
+            </div>
           </div>
         </>
       )}

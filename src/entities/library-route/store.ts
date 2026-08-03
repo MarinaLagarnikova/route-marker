@@ -5,12 +5,17 @@ import type { LibraryCollection, LibraryRoute } from './model'
 const FAVORITES_KEY = 'library_favorites'
 const PINNED_KEY = 'library_pinned'
 
+export interface FavoriteEntry {
+  id: string
+  regionId: string
+}
+
 // Store without full track data to keep localStorage lean
 type PinnedRoute = Omit<LibraryRoute, 'track'>
 
 interface LibraryStore {
-  favorites: string[]
-  toggleFavorite(routeId: string): void
+  favorites: FavoriteEntry[]
+  toggleFavorite(routeId: string, regionId: string): void
   isFavorite(routeId: string): boolean
 
   pinnedRoutes: PinnedRoute[]
@@ -24,8 +29,12 @@ interface LibraryStore {
   getCollectionCache(id: string): LibraryCollection | undefined
 }
 
-function loadFavorites(): string[] {
-  return storageGet<string[]>(FAVORITES_KEY) ?? []
+function loadFavorites(): FavoriteEntry[] {
+  const raw = storageGet<unknown>(FAVORITES_KEY)
+  if (!Array.isArray(raw)) return []
+  // Migrate old format (string[]) to new format (FavoriteEntry[])
+  if (raw.length > 0 && typeof raw[0] === 'string') return []
+  return raw as FavoriteEntry[]
 }
 
 function loadPinned(): PinnedRoute[] {
@@ -35,17 +44,17 @@ function loadPinned(): PinnedRoute[] {
 export const useLibraryStore = create<LibraryStore>((set, get) => ({
   favorites: loadFavorites(),
 
-  toggleFavorite(routeId: string) {
+  toggleFavorite(routeId: string, regionId: string) {
     const current = get().favorites
-    const next = current.includes(routeId)
-      ? current.filter((id) => id !== routeId)
-      : [...current, routeId]
+    const next = current.some((f) => f.id === routeId)
+      ? current.filter((f) => f.id !== routeId)
+      : [...current, { id: routeId, regionId }]
     storageSet(FAVORITES_KEY, next)
     set({ favorites: next })
   },
 
   isFavorite(routeId: string) {
-    return get().favorites.includes(routeId)
+    return get().favorites.some((f) => f.id === routeId)
   },
 
   pinnedRoutes: loadPinned(),

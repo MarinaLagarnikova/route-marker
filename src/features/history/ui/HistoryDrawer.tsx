@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Locate, Check, Timer, Flag } from 'lucide-react'
+import { Locate, Check, Timer, Flag, X } from 'lucide-react'
 import type { Checkpoint } from '@/entities/checkpoint'
 
 interface Props {
@@ -60,6 +60,11 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
     return () => cancelAnimationFrame(id)
   }, [])
 
+  function handleClose() {
+    setVisible(false)
+    setTimeout(onClose, 300)
+  }
+
   const start = checkpoints[0]
   const finish = checkpoints[checkpoints.length - 1]
   const middle = checkpoints.slice(1, -1)
@@ -75,12 +80,21 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/30 z-40" onClick={onClose} />
+      <div
+        className={`fixed inset-0 bg-black/30 z-40 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+        onClick={handleClose}
+      />
 
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-x border-zinc-200 rounded-t-[16px] max-w-[560px] mx-auto flex flex-col overflow-hidden transition-transform duration-300 ease-out ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`fixed bottom-0 left-0 right-0 z-50 max-w-[560px] mx-auto flex flex-col transition-transform duration-300 ease-out pointer-events-none ${visible ? 'translate-y-0' : 'translate-y-full'}`}
         style={{ maxHeight: '85dvh' }}
       >
+        <div className="flex justify-end px-4 pb-1.5 pointer-events-none">
+          <button onClick={handleClose} className="pointer-events-auto w-9 h-9 flex items-center justify-center rounded-full bg-black/40 active:bg-black/60 transition-colors" aria-label="Закрыть">
+            <X className="w-4 h-4 text-white" />
+          </button>
+        </div>
+        <div className="bg-white border-t border-x border-zinc-200 rounded-t-[16px] flex flex-col overflow-hidden min-h-0 flex-1 pointer-events-auto">
         <div className="overflow-y-auto overscroll-contain min-h-0 flex-1">
           {/* Handle */}
           <div className="flex items-center justify-center pt-2">
@@ -178,6 +192,7 @@ export function HistoryDrawer({ checkpoints, onClose }: Props) {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>

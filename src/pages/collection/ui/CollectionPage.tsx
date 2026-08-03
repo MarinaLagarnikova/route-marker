@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { ArrowUpDown, Check, ChevronDown, ChevronLeft, FolderOpen, Map, SportShoe, Timer } from 'lucide-react'
+import { ArrowUpDown, Check, ChevronDown, ChevronLeft, FolderOpen, Map as MapIcon, SportShoe, Timer } from 'lucide-react'
 import { Drawer } from '@/shared/ui/drawer'
 import { fetchCollection } from '@/shared/lib/library-api'
 import { useLibraryStore } from '@/entities/library-route'
+import type { FavoriteEntry } from '@/entities/library-route'
 import { DifficultyBadge } from '@/entities/library-route/ui/DifficultyBadge'
 import { TrackThumbnail } from '@/entities/library-route/ui/TrackThumbnail'
 import { CollectionMap } from '@/widgets/collection-map'
@@ -31,11 +32,12 @@ function sortRoutes(routes: LibraryRoute[], order: SortOrder): LibraryRoute[] {
 }
 
 function buildFavoritesCollection(
-  favorites: string[],
+  favorites: FavoriteEntry[],
   cache: Record<string, LibraryCollection>
 ): LibraryCollection {
+  const favoriteIds = new Set(favorites.map((f) => f.id))
   const all = Object.values(cache).flatMap((c) => c.routes)
-  const routes = all.filter((r) => favorites.includes(r.id))
+  const routes = all.filter((r) => favoriteIds.has(r.id))
   return { id: 'favorites', name: 'Избранное', totalRoutes: routes.length, routes }
 }
 
@@ -54,12 +56,34 @@ export function CollectionPage() {
   const [selectedRoute, setSelectedRoute] = useState<LibraryRoute | null>(null)
   const [sortOrder, setSortOrder] = useState<SortOrder>('short')
   const [sortDrawerOpen, setSortDrawerOpen] = useState(false)
+  const [removingIds, setRemovingIds] = useState<Set<string>>(new Set())
+  const routeCacheRef = useRef<Map<string, LibraryRoute>>(new Map())
+  const prevFavoritesRef = useRef<FavoriteEntry[]>(favorites)
 
   useEffect(() => {
     if (!id) return
     if (id === 'favorites') {
-      setCollection(buildFavoritesCollection(favorites, collectionsCache))
-      setLoading(false)
+      if (favorites.length === 0) {
+        setCollection(buildFavoritesCollection(favorites, collectionsCache))
+        setLoading(false)
+        return
+      }
+      // Load any collections that aren't cached yet
+      const regionIds = [...new Set(favorites.map((f) => f.regionId))]
+      const missingIds = regionIds.filter((rid) => !collectionsCache[rid])
+      if (missingIds.length === 0) {
+        setCollection(buildFavoritesCollection(favorites, collectionsCache))
+        setLoading(false)
+        return
+      }
+      setLoading(true)
+      Promise.all(
+        missingIds.map((rid) =>
+          fetchCollection(rid).then((col) => setCollectionCache(rid, col))
+        )
+      )
+        .catch(() => setError('Не удалось загрузить избранное'))
+        .finally(() => setLoading(false))
       return
     }
     const cached = collectionsCache[id]
@@ -77,6 +101,39 @@ export function CollectionPage() {
       .catch(() => setError('Не удалось загрузить подборку'))
       .finally(() => setLoading(false))
   }, [id])
+
+  // Keep favorites collection reactive to favorites changes
+  useEffect(() => {
+    if (id === 'favorites') {
+      setCollection(buildFavoritesCollection(favorites, collectionsCache))
+    }
+  }, [id, favorites])
+
+  // Cache all seen routes so we can render them during fade-out animation
+  useEffect(() => {
+    if (collection) {
+      collection.routes.forEach((r) => routeCacheRef.current.set(r.id, r))
+    }
+  }, [collection])
+
+  // Detect removed favorites and trigger fade-out animation
+  useEffect(() => {
+    if (id !== 'favorites') return
+    const prev = prevFavoritesRef.current
+    const currentIds = new Set(favorites.map((f) => f.id))
+    const removed = prev.map((f) => f.id).filter((fid) => !currentIds.has(fid))
+    prevFavoritesRef.current = favorites
+    if (removed.length === 0) return
+    setRemovingIds((current) => new Set([...current, ...removed]))
+    const timer = setTimeout(() => {
+      setRemovingIds((current) => {
+        const next = new Set(current)
+        removed.forEach((rid) => next.delete(rid))
+        return next
+      })
+    }, 350)
+    return () => clearTimeout(timer)
+  }, [favorites, id])
 
   if (loading) {
     return (
@@ -124,7 +181,7 @@ export function CollectionPage() {
               onClick={() => setFullscreenMap(true)}
               className="w-full h-9 flex items-center justify-center gap-2 border border-zinc-200 rounded-[12px] bg-white active:bg-zinc-50 transition-colors"
             >
-              <Map className="w-5 h-5 text-zinc-900" />
+              <MapIcon className="w-5 h-5 text-zinc-900" />
               <span className="text-sm font-normal text-zinc-900">Показать на карте</span>
             </button>
           </div>
@@ -132,7 +189,7 @@ export function CollectionPage() {
 
         {/* Route cards list */}
         <div className="flex flex-col gap-3 px-4 mt-8">
-          {collection.routes.length === 0 ? (
+          {collection.routes.length === 0 && removingIds.size === 0 ? (
             <div className="flex flex-col items-center gap-3 py-10 bg-zinc-50 rounded-2xl px-6">
               <div className="w-12 h-12 flex items-center justify-center bg-zinc-100 rounded-2xl">
                 <FolderOpen className="w-6 h-6 text-zinc-500" />
@@ -144,21 +201,35 @@ export function CollectionPage() {
             </div>
           ) : (
             <>
-              <button
-                onClick={() => setSortDrawerOpen(true)}
-                className="flex items-center gap-2 self-start active:opacity-70 transition-opacity"
-              >
-                <ArrowUpDown className="w-4 h-4 text-zinc-500" />
-                <span className="text-sm text-zinc-500">{SORT_TRIGGER_LABEL[sortOrder]}</span>
-                <ChevronDown className="w-4 h-4 text-zinc-400" />
-              </button>
+              {collection.routes.length > 0 && (
+                <button
+                  onClick={() => setSortDrawerOpen(true)}
+                  className="flex items-center gap-2 self-start active:opacity-70 transition-opacity"
+                >
+                  <ArrowUpDown className="w-4 h-4 text-zinc-500" />
+                  <span className="text-sm text-zinc-500">{SORT_TRIGGER_LABEL[sortOrder]}</span>
+                  <ChevronDown className="w-4 h-4 text-zinc-400" />
+                </button>
+              )}
 
-              {sortRoutes(collection.routes, sortOrder).map((route) => (
-                <RouteCard
+              {[
+                ...sortRoutes(collection.routes, sortOrder),
+                ...[...removingIds]
+                  .filter((rid) => !collection.routes.some((r) => r.id === rid))
+                  .map((rid) => routeCacheRef.current.get(rid))
+                  .filter((r): r is LibraryRoute => r !== undefined),
+              ].map((route) => (
+                <div
                   key={route.id}
-                  route={route}
-                  onTap={() => setSelectedRoute(route)}
-                />
+                  className={`transition-all duration-300 ease-out overflow-hidden ${
+                    removingIds.has(route.id) ? 'opacity-0 max-h-0' : 'opacity-100 max-h-96'
+                  }`}
+                >
+                  <RouteCard
+                    route={route}
+                    onTap={() => setSelectedRoute(route)}
+                  />
+                </div>
               ))}
             </>
           )}

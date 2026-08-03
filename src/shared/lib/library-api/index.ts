@@ -13,6 +13,18 @@ export async function fetchCollection(id: string): Promise<LibraryCollection> {
 }
 
 /**
+ * Fetches raw GPX XML text for a route.
+ */
+export async function fetchRouteGpxXml(
+  collectionId: string,
+  gpxFile: string
+): Promise<string> {
+  const res = await fetch(`/tracks/${collectionId}/${gpxFile}`)
+  if (!res.ok) throw new Error(`Не удалось загрузить трек: ${gpxFile}`)
+  return res.text()
+}
+
+/**
  * Fetches and parses a full GPX track for a route.
  * Returns array of points from trkpt segments.
  */

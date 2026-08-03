@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, Plus, Star, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Check, Plus, Star, X } from 'lucide-react'
 import { initLibraryMap } from '@/shared/lib/map-adapter/library-map'
 import { useLibraryStore } from '@/entities/library-route'
 import { DifficultyBadge } from '@/entities/library-route/ui/DifficultyBadge'
@@ -30,6 +30,11 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
     const id = requestAnimationFrame(() => setVisible(true))
     return () => cancelAnimationFrame(id)
   }, [])
+
+  function handleClose() {
+    setVisible(false)
+    setTimeout(onClose, 300)
+  }
 
   useEffect(() => {
     if (route.track) {
@@ -66,13 +71,29 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-black/30 z-40" onClick={onClose} />
-
-      {/* Sheet */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-x border-zinc-200 rounded-t-[16px] max-w-[560px] mx-auto flex flex-col overflow-hidden transition-transform duration-300 ease-out ${visible ? 'translate-y-0' : 'translate-y-full'}`}
-        style={{ maxHeight: '85dvh' }}
+        className={`fixed inset-0 bg-black/30 z-40 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+        onClick={handleClose}
+      />
+
+      {/* Close button + Sheet — wrapped together so button stays 6px above sheet */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 max-w-[560px] mx-auto flex flex-col transition-transform duration-300 ease-out pointer-events-none ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        style={{ maxHeight: '90dvh' }}
       >
+        {/* Close button row */}
+        <div className="flex justify-end px-4 pb-1.5 pointer-events-none">
+          <button
+            onClick={handleClose}
+            className="pointer-events-auto w-9 h-9 flex items-center justify-center rounded-full bg-black/40 active:bg-black/60 transition-colors"
+            aria-label="Закрыть"
+          >
+            <X className="w-4 h-4 text-white" />
+          </button>
+        </div>
+
+        {/* Sheet */}
+        <div className="bg-white border-t border-x border-zinc-200 rounded-t-[16px] flex flex-col overflow-hidden min-h-0 flex-1 pointer-events-auto">
         {/* Handle */}
         <div className="flex items-center justify-center pt-2 shrink-0">
           <div className="w-[50px] h-1 bg-zinc-400 rounded-full" />
@@ -130,7 +151,7 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
                 )}
               </button>
               <button
-                onClick={() => toggleFavorite(route.id)}
+                onClick={() => toggleFavorite(route.id, route.region.id)}
                 className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors shrink-0 active:scale-95 ${
                   isFavorite
                     ? 'bg-[#FF7A29] active:bg-[#e86d22]'
@@ -183,7 +204,8 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
 
           </div>
         </div>
-      </div>
+        </div>{/* Sheet */}
+      </div>{/* Wrapper */}
     </>
   )
 }
