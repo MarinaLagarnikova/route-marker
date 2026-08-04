@@ -102,12 +102,12 @@ export function CollectionPage() {
       .finally(() => setLoading(false))
   }, [id])
 
-  // Keep favorites collection reactive to favorites changes
+  // Keep favorites collection reactive to favorites and cache changes
   useEffect(() => {
     if (id === 'favorites') {
       setCollection(buildFavoritesCollection(favorites, collectionsCache))
     }
-  }, [id, favorites])
+  }, [id, favorites, collectionsCache])
 
   // Cache all seen routes so we can render them during fade-out animation
   useEffect(() => {
