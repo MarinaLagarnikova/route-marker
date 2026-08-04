@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CloudUpload, Flag, FolderOpen, SportShoe, X } from 'lucide-react'
+import { ChevronRight, CloudUpload, Flag, FolderOpen, SportShoe, X } from 'lucide-react'
 import { parseGpx } from '@/shared/lib/gpx'
 import { useRouteStore, hashString } from '@/entities/route'
 import { storageGet, storageSet, storageKeys } from '@/shared/lib/storage'
@@ -9,7 +9,7 @@ import { COLLECTION_CARD_LIST, useLibraryStore } from '@/entities/library-route'
 import type { LibraryRoute } from '@/entities/library-route'
 import { fetchRouteGpxXml } from '@/shared/lib/library-api'
 import type { GpxData } from '@/shared/lib/gpx'
-import type { RouteState, MultiStageMeta, StageMeta } from '@/entities/route'
+import type { RouteState } from '@/entities/route'
 
 // ────────────────────────────────────────────
 // Exact Figma path from Star 2.svg, viewBox 0 0 88 93
@@ -139,63 +139,18 @@ function RouteCard({
   )
 }
 
-function calcMultiStageCoveredKm(stages: StageMeta[]): number {
-  let total = 0
-  for (const stageMeta of stages) {
-    const stageState = storageGet<RouteState>(stageMeta.stageKey)
-    if (!stageState) continue
-    const checked = stageState.checkpoints.filter((cp) => cp.checkedAt !== undefined)
-    total += checked.length > 0 ? (checked[checked.length - 1].distanceKm ?? 0) : 0
-  }
-  return total
-}
 
-function isMultiStageCompleted(stages: StageMeta[]): boolean {
-  if (stages.length === 0) return false
-  return stages.every((stageMeta) => {
-    const stageState = storageGet<RouteState>(stageMeta.stageKey)
-    if (!stageState || stageState.checkpoints.length === 0) return false
-    return stageState.checkpoints.every((cp) => cp.checkedAt !== undefined)
-  })
-}
-
-function MultiStageCard({
-  meta,
-  onClick,
-  isActive,
-}: {
-  meta: MultiStageMeta
-  onClick: () => void
-  isActive?: boolean
-}) {
-  const totalKm = meta.stages.reduce((sum, s) => sum + s.totalKm, 0)
-  const coveredKm = calcMultiStageCoveredKm(meta.stages)
-
-  return (
-    <button
-      onClick={onClick}
-      className="w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4"
-    >
-      <div className="flex-1 flex flex-col gap-1.5 min-w-0">
-        <div className="flex items-center justify-between gap-2 min-w-0">
-          <div className="flex items-center gap-1.5 min-w-0">
-            {isActive && (
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0" style={{ overflow: 'visible' }}>
-                <circle className="dot-pulse-ring" cx="8" cy="8" r="8" fill="#FF7A29" />
-                <circle cx="8" cy="8" r="3" fill="#FF7A29" />
-              </svg>
-            )}
-            <p className="text-sm font-semibold text-zinc-900 truncate">{meta.name}</p>
-          </div>
-          <div className="flex items-center gap-1.5 shrink-0">
-            <SportShoe className="w-4 h-4 text-zinc-900" />
-            <span className="text-sm font-normal text-zinc-900">{totalKm.toFixed(0)} км</span>
-          </div>
-        </div>
-        <p className="text-sm font-normal text-zinc-500">{coveredKm.toFixed(1)} км пройдено · {meta.stages.length} этапа</p>
-      </div>
-    </button>
-  )
+function fmtCompletedSubtitle(r: RouteState): string {
+  const checked = r.checkpoints.filter((c) => c.checkedAt)
+  if (checked.length === 0) return ''
+  const firstTs = checked[0].checkedAt!
+  const lastTs = checked[checked.length - 1].checkedAt!
+  const date = new Date(lastTs).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })
+  const durationMs = lastTs - firstTs
+  const hours = Math.floor(durationMs / 3600000)
+  const minutes = Math.floor((durationMs % 3600000) / 60000)
+  const dur = hours === 0 ? `${minutes} мин` : minutes === 0 ? `${hours} ч` : `${hours} ч ${minutes} мин`
+  return `${date} · ${dur}`
 }
 
 function fmtRouteSubtitle(r: RouteState): string {
@@ -299,51 +254,68 @@ function AddTrackDrawer({ routeName, onNameChange, onConfirm, onCancel }: AddTra
 // ────────────────────────────────────────────
 // CompletedSection — always visible; empty state or collapsible list
 // ────────────────────────────────────────────
+function CompletedRouteCard({ route, onClick }: { route: RouteState; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4"
+    >
+      <div className="flex-1 flex flex-col gap-1.5 min-w-0">
+        <div className="flex items-center justify-between gap-2 min-w-0">
+          <p className="text-sm font-semibold text-zinc-900 truncate">{route.name}</p>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <SportShoe className="w-4 h-4 text-zinc-900" />
+            <span className="text-sm font-normal text-zinc-900">{(route.totalKm ?? 0).toFixed(0)} км</span>
+          </div>
+        </div>
+        <p className="text-sm font-normal text-zinc-500">{fmtCompletedSubtitle(route)}</p>
+      </div>
+    </button>
+  )
+}
+
 function CompletedSection({
   routes,
-  multiRoutes,
-  onContinue,
-  onContinueMulti,
+  onOpen,
+  onNavigateAll,
 }: {
   routes: RouteState[]
-  multiRoutes: MultiStageMeta[]
-  onContinue: (r: RouteState) => void
-  onContinueMulti: (m: MultiStageMeta) => void
+  onOpen: (r: RouteState) => void
+  onNavigateAll: () => void
 }) {
-  const count = routes.length + multiRoutes.length
-  const isEmpty = count === 0
+  if (routes.length === 0) return null
+
+  const hasMany = routes.length > 1
 
   return (
     <div className="flex flex-col gap-3">
       {/* Header */}
-      <div className="flex items-center gap-1.5">
+      <button
+        onClick={hasMany ? onNavigateAll : undefined}
+        className={`flex items-center gap-1.5 ${hasMany ? 'active:opacity-70' : ''}`}
+        disabled={!hasMany}
+      >
         <Flag className="w-3.5 h-3.5 text-zinc-500" />
         <span className="text-sm font-medium text-zinc-500">Завершённые</span>
-        <span className="text-sm font-medium text-zinc-500">{count}</span>
-      </div>
+        <span className="text-sm font-medium text-zinc-500">{routes.length}</span>
+        {hasMany && <ChevronRight className="w-4 h-4 text-zinc-400 ml-auto" />}
+      </button>
 
-      {/* Empty state */}
-      {isEmpty && (
-        <div className="flex flex-col items-center gap-3 py-10 bg-zinc-50 rounded-2xl px-6">
-          <div className="w-12 h-12 flex items-center justify-center bg-zinc-100 rounded-2xl">
-            <FolderOpen className="w-6 h-6 text-zinc-500" />
-          </div>
-          <p className="text-base font-semibold text-zinc-900">Пока здесь пусто</p>
-          <p className="text-sm text-zinc-500 text-center leading-[1.4]">
-            Выберите маршрут из подборки или добавьте его вручную, чтобы начать
-          </p>
-        </div>
+      {/* Single route — just the card */}
+      {!hasMany && (
+        <CompletedRouteCard route={routes[0]} onClick={() => onOpen(routes[0])} />
       )}
 
-      {/* All completed cards */}
-      {!isEmpty && (
-        <div className="flex flex-col gap-3">
-          {routes.map((r) => (
-            <RouteCard key={r.gpxHash} route={r} onClick={() => onContinue(r)} />
-          ))}
-          {multiRoutes.map((m) => (
-            <MultiStageCard key={m.gpxHash} meta={m} onClick={() => onContinueMulti(m)} />
-          ))}
+      {/* Multiple routes — first card with stack effect */}
+      {hasMany && (
+        <div className="relative pb-8">
+          {/* Ghost 2 — narrowest, furthest back, peeks below ghost 1 */}
+          <div className="absolute inset-x-6 top-4 bottom-0 rounded-2xl border border-zinc-200 bg-white" />
+          {/* Ghost 1 — stops earlier so ghost 2 can peek out */}
+          <div className="absolute inset-x-3 top-2 bottom-4 rounded-2xl border border-zinc-200 bg-white" />
+          <div className="relative">
+            <CompletedRouteCard route={routes[0]} onClick={onNavigateAll} />
+          </div>
         </div>
       )}
     </div>
@@ -400,16 +372,10 @@ function LibraryCollectionsSection() {
   const navigate = useNavigate()
   const favorites = useLibraryStore((s) => s.favorites)
 
-  const totalRoutes = COLLECTION_CARD_LIST.filter((c) => c.id !== 'favorites').reduce(
-    (sum, c) => sum + c.count,
-    0
-  )
-
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-baseline gap-1.5">
-        <span className="text-sm font-medium text-zinc-500">Подборки маршрутов</span>
-        <span className="text-sm font-medium text-zinc-400">{totalRoutes}</span>
+        <span className="text-sm font-medium text-zinc-500">Маршруты</span>
       </div>
 
       {/* Horizontal scroll — no gap at left/right edges */}
@@ -433,8 +399,6 @@ export function StartPage() {
   const navigate = useNavigate()
   const loadRoute = useRouteStore((s) => s.loadRoute)
   const loadSaved = useRouteStore((s) => s.loadSaved)
-  const loadMultiStage = useRouteStore((s) => s.loadMultiStage)
-  const loadMultiStageSaved = useRouteStore((s) => s.loadMultiStageSaved)
   const pinnedRoutes = useLibraryStore((s) => s.pinnedRoutes)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -442,11 +406,10 @@ export function StartPage() {
   const [routeName, setRouteName] = useState('')
   const [parseError, setParseError] = useState<string | null>(null)
   const [savedRoutes, setSavedRoutes] = useState<RouteState[]>([])
-  const [savedMultiRoutes, setSavedMultiRoutes] = useState<MultiStageMeta[]>([])
 
   useEffect(() => {
     const allKeys = storageKeys()
-    // Regular routes: keys that don't start with 'multi_' and don't match '_s\d+' suffix
+    // Regular routes: skip multi-stage keys (multi_ prefix or _sN suffix)
     const routeKeys = allKeys.filter(
       (k) => !k.startsWith('multi_') && !/^.+_s\d+$/.test(k)
     )
@@ -454,13 +417,6 @@ export function StartPage() {
       .map((k) => storageGet<RouteState>(k))
       .filter((r): r is RouteState => r !== null && typeof r.gpxHash === 'string')
     setSavedRoutes(routes)
-
-    // Multi-stage metas: keys starting with 'multi_'
-    const multiKeys = allKeys.filter((k) => k.startsWith('multi_'))
-    const multiRoutes = multiKeys
-      .map((k) => storageGet<MultiStageMeta>(k))
-      .filter((m): m is MultiStageMeta => m !== null && typeof m.gpxHash === 'string')
-    setSavedMultiRoutes(multiRoutes)
   }, [])
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -483,20 +439,11 @@ export function StartPage() {
 
   function handleParsed(data: GpxData, xml: string) {
     const hash = hashString(xml)
-    if (data.isMultiStage) {
-      const existingMulti = storageGet<MultiStageMeta>(`multi_${hash}`)
-      if (existingMulti) {
-        loadMultiStageSaved(existingMulti)
-        navigate('/stages')
-        return
-      }
-    } else {
-      const existing = storageGet<RouteState>(hash)
-      if (existing) {
-        loadSaved(existing)
-        navigate('/route')
-        return
-      }
+    const existing = storageGet<RouteState>(hash)
+    if (existing) {
+      loadSaved(existing)
+      navigate('/route')
+      return
     }
     setParsedGpx({ data, xml })
     setRouteName(data.name)
@@ -504,14 +451,8 @@ export function StartPage() {
 
   function handleConfirm() {
     if (!parsedGpx || !routeName.trim()) return
-    if (parsedGpx.data.isMultiStage && parsedGpx.data.stages) {
-      const hash = hashString(parsedGpx.xml)
-      loadMultiStage(routeName.trim(), parsedGpx.data.stages, hash)
-      navigate('/stages')
-    } else {
-      loadRoute(routeName.trim(), parsedGpx.data.trackPoints, parsedGpx.data.waypoints, parsedGpx.xml, parsedGpx.data.trackSegments)
-      navigate('/route')
-    }
+    loadRoute(routeName.trim(), parsedGpx.data.trackPoints, parsedGpx.data.waypoints, parsedGpx.xml, parsedGpx.data.trackSegments)
+    navigate('/route')
   }
 
   function handleCancel() {
@@ -543,19 +484,12 @@ export function StartPage() {
     navigate('/route')
   }
 
-  function handleContinueMulti(meta: MultiStageMeta) {
-    loadMultiStageSaved(meta)
-    navigate('/stages')
-  }
-
   const completedRoutes = savedRoutes.filter(
     (r) => r.checkpoints.length > 0 && r.checkpoints.every((cp) => cp.checkedAt !== undefined)
   )
   const activeRoutes = savedRoutes.filter(
     (r) => !r.checkpoints.every((cp) => cp.checkedAt !== undefined)
   )
-  const completedMultiRoutes = savedMultiRoutes.filter((m) => isMultiStageCompleted(m.stages))
-  const activeMultiRoutes = savedMultiRoutes.filter((m) => !isMultiStageCompleted(m.stages))
 
 
   return (
@@ -572,31 +506,32 @@ export function StartPage() {
           <h1 className="text-[30px] font-semibold leading-[36px] text-zinc-900">{APP_NAME}</h1>
         </div>
 
-        {/* Pinned + active routes — grouped with gap-3 */}
-        {(pinnedRoutes.length > 0 || activeRoutes.length > 0 || activeMultiRoutes.length > 0) && (
-          <div className="flex flex-col gap-3">
-            <PinnedRoutesSection onOpen={handleOpenPinnedRoute} />
-            {activeRoutes.map((r) => (
-              <RouteCard
-                key={r.gpxHash}
-                route={r}
-                onClick={() => handleContinue(r)}
-                isActive={r.checkpoints.some((cp) => cp.checkedAt !== undefined)}
-              />
-            ))}
-            {activeMultiRoutes.map((m) => (
-              <MultiStageCard
-                key={m.gpxHash}
-                meta={m}
-                onClick={() => handleContinueMulti(m)}
-                isActive={m.stages.some((s) => {
-                  const st = storageGet<RouteState>(s.stageKey)
-                  return st ? st.checkpoints.some((cp) => cp.checkedAt !== undefined) : false
-                })}
-              />
-            ))}
-          </div>
-        )}
+        {/* Pinned + active routes — always visible */}
+        <div className="flex flex-col gap-3">
+          {pinnedRoutes.length === 0 && activeRoutes.length === 0 ? (
+            <div className="flex flex-col items-center gap-3 py-10 bg-zinc-50 rounded-2xl px-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-zinc-100 rounded-2xl">
+                <FolderOpen className="w-6 h-6 text-zinc-500" />
+              </div>
+              <p className="text-base font-semibold text-zinc-900">Нет активных маршрутов</p>
+              <p className="text-sm text-zinc-500 text-center leading-[1.4]">
+                Выберите маршрут из подборки или добавьте его вручную, чтобы начать
+              </p>
+            </div>
+          ) : (
+            <>
+              <PinnedRoutesSection onOpen={handleOpenPinnedRoute} />
+              {activeRoutes.map((r) => (
+                <RouteCard
+                  key={r.gpxHash}
+                  route={r}
+                  onClick={() => handleContinue(r)}
+                  isActive={r.checkpoints.some((cp) => cp.checkedAt !== undefined)}
+                />
+              ))}
+            </>
+          )}
+        </div>
 
         {/* Library collections — always */}
         <LibraryCollectionsSection />
@@ -604,9 +539,8 @@ export function StartPage() {
         {/* Completed routes — always */}
         <CompletedSection
           routes={completedRoutes}
-          multiRoutes={completedMultiRoutes}
-          onContinue={handleContinue}
-          onContinueMulti={handleContinueMulti}
+          onOpen={handleContinue}
+          onNavigateAll={() => navigate('/completed')}
         />
 
         {parseError && (

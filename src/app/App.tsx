@@ -5,6 +5,7 @@ import { StartPage } from '@/pages/start'
 import { RoutePage } from '@/pages/route'
 import { StagesPage } from '@/pages/stages'
 import { CollectionPage } from '@/pages/collection'
+import { CompletedPage } from '@/pages/completed'
 
 class ErrorBoundary extends Component<{ children: React.ReactNode }, { error: Error | null }> {
   state = { error: null }
@@ -35,6 +36,7 @@ export function App() {
           <Route path="/route" element={<RoutePage />} />
           <Route path="/stages" element={<StagesPage />} />
           <Route path="/collection/:id" element={<CollectionPage />} />
+          <Route path="/completed" element={<CompletedPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
