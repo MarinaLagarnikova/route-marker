@@ -1,0 +1,148 @@
+- generic [ref=f13e3]:
+  - generic [ref=f13e4]:
+    - button "Назад" [ref=f13e5]
+    - heading "Москва и область6" [level=1] [ref=f13e9]
+  - generic [ref=f13e10]:
+    - generic [ref=f13e11]:
+      - generic:
+        - generic:
+          - region "Map" [ref=f13e12]
+          - button "Map marker" [ref=f13e176] [cursor=pointer]
+          - button "Map marker" [ref=f13e180] [cursor=pointer]
+          - button "Map marker" [ref=f13e184] [cursor=pointer]
+          - button "Map marker" [ref=f13e188] [cursor=pointer]
+          - button "Map marker" [ref=f13e192] [cursor=pointer]
+          - button "Map marker" [ref=f13e196] [cursor=pointer]
+        - generic:
+          - link "MapTiler logo" [ref=f13e201] [cursor=pointer]:
+            - /url: https://www.maptiler.com/
+          - group [ref=f13e202]:
+            - generic [ref=f13e203]:
+              - link "© MapTiler" [ref=f13e204] [cursor=pointer]:
+                - /url: https://www.maptiler.com/copyright/
+              - link "© OpenStreetMap contributors" [ref=f13e205] [cursor=pointer]:
+                - /url: https://www.openstreetmap.org/copyright
+        - generic:
+          - region "Map" [ref=f13e13]
+          - button "Map marker" [ref=f13e206] [cursor=pointer]
+          - button "Map marker" [ref=f13e210] [cursor=pointer]
+          - button "Map marker" [ref=f13e214] [cursor=pointer]
+          - button "Map marker" [ref=f13e218] [cursor=pointer]
+          - button "Map marker" [ref=f13e222] [cursor=pointer]
+          - button "Map marker" [ref=f13e226] [cursor=pointer]
+        - generic:
+          - link "MapTiler logo" [ref=f13e231] [cursor=pointer]:
+            - /url: https://www.maptiler.com/
+          - group [ref=f13e232]:
+            - generic [ref=f13e233]:
+              - link "© MapTiler" [ref=f13e234] [cursor=pointer]:
+                - /url: https://www.maptiler.com/copyright/
+              - link "© OpenStreetMap contributors" [ref=f13e235] [cursor=pointer]:
+                - /url: https://www.openstreetmap.org/copyright
+      - button "На весь экран" [ref=f13e14]
+    - generic [ref=f13e24]:
+      - button "Марафон кольцо 42 км Средний 1–2 дня" [active] [ref=f13e25]:
+        - generic [ref=f13e29]:
+          - generic [ref=f13e30]:
+            - paragraph [ref=f13e31]: Марафон кольцо
+            - generic [ref=f13e32]: 42 км
+          - generic [ref=f13e38]: Средний
+          - generic [ref=f13e41]: 1–2 дня
+      - button "Калужская тропа 28 км Лёгкий 2–3 дня" [ref=f13e49]:
+        - generic [ref=f13e53]:
+          - generic [ref=f13e54]:
+            - paragraph [ref=f13e55]: Калужская тропа
+            - generic [ref=f13e56]: 28 км
+          - generic [ref=f13e62]: Лёгкий
+          - generic [ref=f13e65]: 2–3 дня
+      - button "Приокско-Террасный 15 км Лёгкий 1 день" [ref=f13e73]:
+        - generic [ref=f13e77]:
+          - generic [ref=f13e78]:
+            - paragraph [ref=f13e79]: Приокско-Террасный
+            - generic [ref=f13e80]: 15 км
+          - generic [ref=f13e86]: Лёгкий
+          - generic [ref=f13e89]: 1 день
+      - button "Звенигородский поход 35 км Средний 3–4 дня" [ref=f13e97]:
+        - generic [ref=f13e101]:
+          - generic [ref=f13e102]:
+            - paragraph [ref=f13e103]: Звенигородский поход
+            - generic [ref=f13e104]: 35 км
+          - generic [ref=f13e110]: Средний
+          - generic [ref=f13e113]: 3–4 дня
+      - button "Яуза — исток 22 км Лёгкий 2 дня" [ref=f13e121]:
+        - generic [ref=f13e125]:
+          - generic [ref=f13e126]:
+            - paragraph [ref=f13e127]: Яуза — исток
+            - generic [ref=f13e128]: 22 км
+          - generic [ref=f13e134]: Лёгкий
+          - generic [ref=f13e137]: 2 дня
+      - button "Исток Угры 18 км Лёгкий 1–2 дня" [ref=f13e145]:
+        - generic [ref=f13e149]:
+          - generic [ref=f13e150]:
+            - paragraph [ref=f13e151]: Исток Угры
+            - generic [ref=f13e152]: 18 км
+          - generic [ref=f13e158]: Лёгкий
+          - generic [ref=f13e161]: 1–2 дня
+    - link "Маршруты предоставлены Маркированные маршруты России" [ref=f13e170] [cursor=pointer]:
+      - /url: https://russiatrails.ru
+      - generic [ref=f13e171]:
+        - generic [ref=f13e172]: Маршруты предоставлены
+        - generic [ref=f13e173]: Маркированные маршруты России
+  - generic [ref=f13e240]:
+    - generic [ref=f13e241]:
+      - button "Закрыть" [ref=f13e242]
+      - generic [ref=f13e245]: Москва и область
+    - generic [ref=f13e246]:
+      - heading "Марафон кольцо" [level=2] [ref=f13e247]
+      - generic [ref=f13e248]:
+        - button "+ Добавить на главную" [ref=f13e249]
+        - button "В избранное" [ref=f13e250]
+      - generic [ref=f13e253]:
+        - generic [ref=f13e254]:
+          - generic [ref=f13e255]: Расстояние
+          - generic [ref=f13e260]: 42 км
+        - generic [ref=f13e261]:
+          - generic [ref=f13e262]: Сложность
+          - generic [ref=f13e265]: Средний
+        - generic [ref=f13e269]:
+          - generic [ref=f13e270]: Время
+          - generic [ref=f13e275]: 1–2 дня
+        - generic [ref=f13e276]:
+          - generic [ref=f13e277]: Перепад высот
+          - generic [ref=f13e281]: +320 м
+        - generic [ref=f13e282]:
+          - generic [ref=f13e283]: Ближайший н.п.
+          - generic [ref=f13e288]: Московская область, г. Лобня
+      - generic [ref=f13e289]:
+        - generic:
+          - region "Map" [ref=f13e290]
+          - button "Map marker" [ref=f13e291] [cursor=pointer]
+        - generic:
+          - link "MapTiler logo" [ref=f13e296] [cursor=pointer]:
+            - /url: https://www.maptiler.com/
+          - group [ref=f13e297]:
+            - generic [ref=f13e298]:
+              - link "© MapTiler" [ref=f13e299] [cursor=pointer]:
+                - /url: https://www.maptiler.com/copyright/
+              - link "© OpenStreetMap contributors" [ref=f13e300] [cursor=pointer]:
+                - /url: https://www.openstreetmap.org/copyright
+        - generic:
+          - region "Map" [ref=f13e301]
+          - button "Map marker" [ref=f13e302] [cursor=pointer]
+        - generic:
+          - link "MapTiler logo" [ref=f13e307] [cursor=pointer]:
+            - /url: https://www.maptiler.com/
+          - group [ref=f13e308]:
+            - generic [ref=f13e309]:
+              - link "© MapTiler" [ref=f13e310] [cursor=pointer]:
+                - /url: https://www.maptiler.com/copyright/
+              - link "© OpenStreetMap contributors" [ref=f13e311] [cursor=pointer]:
+                - /url: https://www.openstreetmap.org/copyright
+      - generic [ref=f13e312]:
+        - heading "Описание" [level=3] [ref=f13e313]
+        - paragraph [ref=f13e314]: Классический кольцевой маршрут по Подмосковью длиной 42 км. Проходит через смешанные леса, мимо небольших рек и живописных полян. Подходит для опытных туристов, желающих провести выходные на природе вблизи Москвы. Встречаются удобные стоянки для ночёвки с родниками.
+      - link "Маршруты предоставлены Маркированные маршруты России" [ref=f13e315] [cursor=pointer]:
+        - /url: https://russiatrails.ru
+        - generic [ref=f13e316]:
+          - generic [ref=f13e317]: Маршруты предоставлены
+          - generic [ref=f13e318]: Маркированные маршруты России

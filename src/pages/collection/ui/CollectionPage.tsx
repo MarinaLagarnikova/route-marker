@@ -38,7 +38,7 @@ function buildFavoritesCollection(
   const favoriteIds = new Set(favorites.map((f) => f.id))
   const all = Object.values(cache).flatMap((c) => c.routes)
   const routes = all.filter((r) => favoriteIds.has(r.id))
-  return { id: 'favorites', name: 'Избранное', totalRoutes: routes.length, routes }
+  return { id: 'favorites', name: 'Хочу пройти', totalRoutes: routes.length, routes }
 }
 
 export function CollectionPage() {
@@ -82,7 +82,7 @@ export function CollectionPage() {
           fetchCollection(rid).then((col) => setCollectionCache(rid, col))
         )
       )
-        .catch(() => setError('Не удалось загрузить избранное'))
+        .catch(() => setError('Не удалось загрузить список'))
         .finally(() => setLoading(false))
       return
     }
@@ -196,7 +196,7 @@ export function CollectionPage() {
               </div>
               <p className="text-base font-semibold text-zinc-900">Пока здесь пусто</p>
               <p className="text-sm text-zinc-500 text-center leading-[1.4]">
-                Открывайте маршруты из подборок и добавляйте их в избранное
+                Открывайте маршруты из подборок и добавляйте их в список
               </p>
             </div>
           ) : (

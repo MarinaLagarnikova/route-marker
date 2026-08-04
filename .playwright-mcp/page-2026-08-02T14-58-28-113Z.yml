@@ -1,0 +1,254 @@
+- generic [ref=f4e3]:
+  - link [ref=f4e5] [cursor=pointer]:
+    - /url: /
+  - generic [ref=f4e8]:
+    - link "Главная" [ref=f4e9] [cursor=pointer]:
+      - /url: /
+    - link "Маршруты" [ref=f4e10] [cursor=pointer]:
+      - /url: /trails/
+    - link "Обучение" [ref=f4e11] [cursor=pointer]:
+      - /url: /edu/
+    - link "Сотрудничество" [ref=f4e12] [cursor=pointer]:
+      - /url: /coop/
+    - generic [ref=f4e13] [cursor=pointer]:
+      - text: О проекте
+      - generic [ref=f4e14]: 
+    - text: 
+  - heading "Прогулка по Москве" [level=1] [ref=f4e16]
+  - generic [ref=f4e17]: Маркированный маршрут, Москва
+  - generic [ref=f4e23]:
+    - generic [ref=f4e24]:
+      - generic [ref=f4e25]: Пеший
+      - generic [ref=f4e27]: Простой маршрут
+    - generic [ref=f4e30]:
+      - text: "(Возможно:"
+      - generic [ref=f4e31]: Вело
+      - text: )
+    - generic [ref=f4e33]: Пешая легкая прогулка по центру Москвы от метро «Театральная» до метро «Воробьевы горы». Маршрут на данный момент не маркирован на местности - отличная возможность потренировать навыки навигации по карте с одновременным просмотром достопримечательностей центра столицы.
+    - generic [ref=f4e35]:
+      - generic [ref=f4e36]:
+        - generic [ref=f4e37]: Протяженность
+        - generic [ref=f4e38]: 2–4 часа
+      - generic [ref=f4e39]:
+        - generic [ref=f4e40]: Расстояние
+        - generic [ref=f4e41]: 9.9 км
+      - generic [ref=f4e42]:
+        - generic [ref=f4e43]: Набор высоты
+        - generic [ref=f4e44]: 73 м
+    - generic [ref=f4e45]: "Ключевые точки маршрута: метро Театральная — Красная площадь — Александровский сад — Храм Христа Спасителя — Памятник Петру Первому — Парк Горького — Лужнецкий метромост — смотровая площадка на Воробьевых горах — метро Воробьевы горы."
+  - generic [ref=f4e47]:
+    - button "Marker" [ref=f4e49] [cursor=pointer]
+    - generic:
+      - generic:
+        - generic [ref=f4e50]:
+          - button "Zoom in" [ref=f4e51] [cursor=pointer]: +
+          - button "Zoom out" [ref=f4e52] [cursor=pointer]: −
+        - link "Полный экран" [ref=f4e54] [cursor=pointer]:
+          - /url: "#"
+        - generic "Сбросить масштаб" [ref=f4e55]: 
+      - button "Layers" [ref=f4e58] [cursor=pointer]
+      - generic: 3 km
+  - generic [ref=f4e67]:
+    - link " Скачать GPX-трек" [ref=f4e69] [cursor=pointer]:
+      - /url: /trails/71/gpx/
+      - generic [ref=f4e70]: 
+      - text: Скачать GPX-трек
+    - link " Скачать карту 1:10000 в PDF" [ref=f4e72] [cursor=pointer]:
+      - /url: /data/trail/map_pdf/map_71.pdf?v2
+      - generic [ref=f4e73]: 
+      - text: Скачать карту 1:10000 в PDF
+    - link " Трек nakarte.me" [ref=f4e75] [cursor=pointer]:
+      - /url: https://nakarte.me/#m=13/55.73078/37.63332&l=O&nktk=Q1s4MXMycmJ0aTFfTU9TXzFfUlVUUkFJTC5ncHhB_0DvgOuAssyegT1FN0IyQjQ9vz8gJDorNS4sPC8lDxo2Fbo_Lh8Hpj8jNDQ_RDpJPj8wNzlUK1A9TDQ-PAEmKjIoLA8XHhMnIilJOEBDPMNAKdZAHmAsfyJdNlQ3SDo-PThBhT-RP50_HZY9uz6aP5g_LyoDkj83IKo_mD8dEy4lICMpJxooABQwLbM_BB8qODY8Mzc4KDIWJIg_pj8QGREuqD8RACkyQZs_Gas_Jh80PT0iNzVByD4Osz8xhj8r_D489j4_nz-5PwhENj46PDE6EjmiPzo3Okk5PjrlPlQhRgZRM0AzQ5o_aSlOPEhFQ2Imz0AiXD1rOEs8fTpjQ0lHTUZ5RU9FVUFJO306fj5GS0lGUkVLQT5GS0JYPktCS0toP2BRREBAZrn56oCJxZ6B0EDQvNC10YLRgNC-INCi0LXQsNGC0YDQsNC70YzQvdCw0Y8sICDQvNC10YLRgNC-INCf0LvQvtGJ0LDQtNGMINGA0LXQstC-0LvRjtGG0LjQuEG0R6pHzEDQmNCy0LXRgNGB0LrQuNC1INCy0L7RgNC-0YLQsCwgINCd0YPQu9C10LLQvtC5INC60LjQu9C-0LzQtdGC0YAg0JzQvtGB0LrQstGLQdNGkUfwQNCc0LDQvdC10LbQvdCw0Y8g0L_Quy4sICAgICDQn9Cw0LzRj9GC0L3QuNC6INC80LDRgNGI0LDQu9GDINCW0YPQutC-0LLRgywgICDQmNGB0YLQvtGA0LjRh9C10YHQutC40Lkg0LzRg9C30LXQuS5ByUaOR2vQktC40LQg0L3QsCDQmtGA0LDRgdC90YPRjiAg0L_Qu9C-0YnQsNC00YwuQZxG-0ZX0JLQtdGH0L3Ri9C5INC-0LPQvtC90YxBiEbaRmbQkNC70LvQtdGPINCT0L7RgNC00L7QsiAg0JPQtdGA0L7QtdCyLkGDRs9G4kDQntCx0LXQu9C40YHQuiDQsiDQv9Cw0LzRj9GC0YwgMzAwLdC70LXRgtC40Y8g0YbQsNGA0YHRgtCy0L7QstCw0L3QuNGPINCU0L7QvNCwINCg0L7QvNCw0L3QvtCy0YvRhUHsRaxGZtCQ0LvQtdC60YHQsNC90LTRgNC-0LLRgdC60LjQuSAg0YHQsNC0QcNFmUZl0JDQu9C10LrRgdCw0L3QtNGA0L7QstGB0LrQuNC5INGB0LDQtEGbRdtFX9CR0L7RgNC-0LLQuNGG0LrQsNGPINCx0LDRiNC90Y9B5USARchA0J_QsNC80Y_RgtC90LjQuiAg0LrQvdGP0LfRjiDQktC70LDQtNC40LzQuNGA0YMg0KHQstGP0YLQvtGB0LvQsNCy0LjRh9GDQatE0kTGQNCf0YDQvtGF0L7QtNC40Lwg0L_QvtC0INCR0L7Qu9GM0YjQuNC8INC60LDQvNC10L3QvdGL0LwgINC80L7RgdGC0L7QvC5B1USPRGLQn9GA0LXRh9C40YHRgtC10L3RgdC60LDRjyDQvdCw0LEuQZdE7UNp0KXRgNCw0Lwg0KXRgNC40YHRgtCwINCh0L_QsNGB0LjRgtC10LvRjy5BlUPwQl3Qn9Cw0YLRgNC40LDRgNGI0LjQuSDQvNC-0YHRgkH_Q6BCXdCf0LDRgtGA0LjQsNGA0YjQuNC5INC80L7RgdGCQbNEg0Jk0JLQvtC00L7QvtGC0LLQvtC00L3Ri9C5ICDQutCw0L3QsNC7QYpF30Fd0K_QutC40LzQsNC90YHQutCw0Y8gINC90LDQsS5Bg0XUQV3Qr9C60LjQvNCw0L3RgdC60LDRjyAg0L3QsNCxLkHVRKhBXdCv0LrQuNC80LDQvdGB0LrQsNGPICDQvdCw0LEuQa1EiEFq0J_QsNC80Y_RgtC90LjQuiDQn9C10YLRgNGDINCf0LXRgNCy0L7QvNGDQfZD40Bl0JrRgNGL0LzRgdC60LDRjyDQvdCw0LHQtdGA0LXQttC90LDRj0HUQ9dA10DQmtGA0YvQvNGB0LrQsNGPINC90LDQsdC10YDQtdC20L3QsNGPLCDQptC10L3RgtGA0LDQu9GM0L3Ri9C5INC00L7QvCDRhdGD0LTQvtC20L3QuNC60LBBjUImwUDQmtGA0YvQvNGB0LrQsNGPINC90LDQsdC10YDQtdC20L3QsNGPICwg0JrRgNGL0LzRgdC60LjQuSDQvNC-0YHRgkHQQIg_XNCf0YPRiNC60LjQvdGB0LrQsNGPINC90LDQsS5BLas-WdCv0YXRgtCwLdGA0LXRgdGC0L7RgNCw0L1Btj_cPVzQn9GD0YjQutC40L3RgdC60LDRjyDQvdCw0LEuQaM_vj3xQNCd0LDRhtC40L7QvdCw0LvRjNC90YvQuSDRhtC10L3RgtGAINGD0L_RgNCw0LLQu9C10L3QuNGPINC-0LHQvtGA0L7QvdC-0Lkg0KDQvtGB0YHQuNC50YHQutC-0Lkg0KTQtdC00LXRgNCw0YbQuNC4QY4_hD1c0J_Rg9GI0LrQuNC90YHQutCw0Y8g0L3QsNCxLkHTPsI8d9Cf0YPRiNC60LjQvdGB0LrQuNC5ICjQkNC90LTRgNC10LXQstGB0LrQuNC5KSDQvNC-0YHRgi5Blj7zO2bQodC_0YPRgdC6INC90LAgINC90LDQsdC10YDQtdC20L3Rg9GOLkHKPMI6dNCQ0L3QtNGA0LXQtdCy0YHQutC40Lkg0LYu0LQuINC4INCw0LLRgtC-ICDQvNC-0YHRgi5BwTjSN2vQkNC90LTRgNC10LXQstGB0LrQsNGPINC90LDQsdC10YDQtdC20L3QsNGPQZg3mTfiQNCb0YPQttC90LXRhtC60LjQuSAg0LzQtdGC0YDQvtC80L7RgdGCIC0g0YHRgtCw0L3RhtC40Y8g0LzQtdGC0YDQviDCq9CS0L7RgNC-0LHRjNGR0LLRiyDQs9C-0YDRi8K7QeswjzZa0JTQvtGA0L7QttC60LAg0LIg0LPQvtGA0YNBxi_GNeVA0J_QsNC80Y_RgtC90YvQuSDQt9C90LDQuiDQvdCwINC80LXRgdGC0LUg0LrQu9GP0YLQstGLINCQLtCYLiDQk9C10YDRhtC10L3QsCDQuCDQnS7Qny4g0J7Qs9Cw0YDRkdCy0LBB0y3HNVDQotGA0L7Qv9C40L3QutCwQYstyTVj0KHQvNC-0YLRgNC-0LLQsNGPINC_0LvQvtGJ0LDQtNC60LBB0CvyNQ
+      - generic [ref=f4e76]: 
+      - text: Трек nakarte.me
+  - generic [ref=f4e77]:
+    - generic [ref=f4e79]:
+      - link [ref=f4e81] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1711_full.jpg
+      - link [ref=f4e83] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1712_full.jpg
+      - link [ref=f4e85] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1713_full.jpg
+      - link [ref=f4e87] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1714_full.jpg
+      - link [ref=f4e89] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1715_full.jpg
+      - link [ref=f4e91] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1716_full.jpg
+      - link [ref=f4e93] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1717_full.jpg
+      - link [ref=f4e95] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1718_full.jpg
+      - link [ref=f4e97] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1710_full.jpg
+      - link [ref=f4e99] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1719_full.jpg
+      - link [ref=f4e101] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1720_full.jpg
+      - link [ref=f4e103] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1721_full.jpg
+      - link [ref=f4e105] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1722_full.jpg
+      - link [ref=f4e107] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1723_full.jpg
+      - link [ref=f4e109] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1724_full.jpg
+      - link [ref=f4e111] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1725_full.jpg
+      - link [ref=f4e113] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1726_full.jpg
+      - link [ref=f4e115] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1727_full.jpg
+      - link [ref=f4e117] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1728_full.jpg
+      - link [ref=f4e119] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1729_full.jpg
+      - link [ref=f4e121] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1730_full.jpg
+      - link [ref=f4e123] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1731_full.jpg
+      - link [ref=f4e125] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1734_full.jpg
+      - link [ref=f4e127] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1735_full.jpg
+      - link [ref=f4e129] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1733_full.jpg
+      - link [ref=f4e131] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1736_full.jpg
+      - link [ref=f4e133] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1737_full.jpg
+      - link [ref=f4e135] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1738_full.jpg
+      - link [ref=f4e137] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1739_full.jpg
+      - link [ref=f4e139] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1740_full.jpg
+      - link [ref=f4e141] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1741_full.jpg
+      - link [ref=f4e143] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1742_full.jpg
+      - link [ref=f4e145] [cursor=pointer]:
+        - /url: /data/trail/gallery/71/1732_full.jpg
+    - generic [ref=f4e146]:
+      - paragraph
+      - generic [ref=f4e147] [cursor=pointer]:
+        - text: Показать все 33 фотографии
+        - generic [ref=f4e148]: 
+      - paragraph
+    - generic [ref=f4e149]:
+      - heading "Что интересного на маршруте" [level=2] [ref=f4e150]
+      - paragraph [ref=f4e151]: Маршрут проходит по центру Москвы, проводя по основным достопримечательностям столицы.
+      - paragraph [ref=f4e152]: Красная площадь, Александровский сад, Храм Христа Спасителя, Крымская набережная и памятник Петру Первому, Парк Горького, Лужнецкий метромост, смотровая площадка на Воробьевых горах с прекрасными видами на город.
+      - paragraph [ref=f4e153]: Маршрут можно использовать для тренировки навигации на местности, а также переходов на длительные расстояния новичками и детьми. Можно проходить маршрут в обе стороны.
+      - heading "Важно знать" [level=2] [ref=f4e154]
+      - heading "Ограничения и особенности" [level=3] [ref=f4e155]
+      - paragraph [ref=f4e156]: "Маршрут не маркирован на местности. Используйте карту для навигации:"
+      - list [ref=f4e157]:
+        - listitem [ref=f4e158]:
+          - text: • Установите приложение
+          - link "maps.me" [ref=f4e159] [cursor=pointer]:
+            - /url: http://maps.me/ru/home
+          - text: "на вашем смартфоне и откройте в нем kml-трек маршрута:"
+      - link " KML-трек (9,8 КБ)" [ref=f4e162] [cursor=pointer]:
+        - /url: /trails/71/file-64/
+        - generic [ref=f4e163]: 
+        - text: KML-трек (9,8 КБ)
+      - list [ref=f4e164]:
+        - listitem [ref=f4e165]:
+          - text: • Распечатайте с
+          - link "сайта Nakarte.tk" [ref=f4e166] [cursor=pointer]:
+            - /url: http://nakarte.tk/#m=13/55.73083/37.63332&l=O&nktk=Q1s4MXMycmJ0aTFfTU9TXzFfUlVUUkFJTC5ncHhB_0DvgOuAssyegT1FN0IyQjQ9vz8gJDorNS4sPC8lDxo2Fbo_Lh8Hpj8jNDQ_RDpJPj8wNzlUK1A9TDQ-PAEmKjIoLA8XHhMnIilJOEBDPMNAKdZAHmAsfyJdNlQ3SDo-PThBhT-RP50_HZY9uz6aP5g_LyoDkj83IKo_mD8dEy4lICMpJxooABQwLbM_BB8qODY8Mzc4KDIWJIg_pj8QGREuqD8RACkyQZs_Gas_Jh80PT0iNzVByD4Osz8xhj8r_D489j4_nz-5PwhENj46PDE6EjmiPzo3Okk5PjrlPlQhRgZRM0AzQ5o_aSlOPEhFQ2Imz0AiXD1rOEs8fTpjQ0lHTUZ5RU9FVUFJO306fj5GS0lGUkVLQT5GS0JYPktCS0toP2BRREBAZrn56oCJxZ6B0EDQvNC10YLRgNC-INCi0LXQsNGC0YDQsNC70YzQvdCw0Y8sICDQvNC10YLRgNC-INCf0LvQvtGJ0LDQtNGMINGA0LXQstC-0LvRjtGG0LjQuEG0R6pHzEDQmNCy0LXRgNGB0LrQuNC1INCy0L7RgNC-0YLQsCwgINCd0YPQu9C10LLQvtC5INC60LjQu9C-0LzQtdGC0YAg0JzQvtGB0LrQstGLQdNGkUfwQNCc0LDQvdC10LbQvdCw0Y8g0L_Quy4sICAgICDQn9Cw0LzRj9GC0L3QuNC6INC80LDRgNGI0LDQu9GDINCW0YPQutC-0LLRgywgICDQmNGB0YLQvtGA0LjRh9C10YHQutC40Lkg0LzRg9C30LXQuS5ByUaOR2vQktC40LQg0L3QsCDQmtGA0LDRgdC90YPRjiAg0L_Qu9C-0YnQsNC00YwuQZxG-0ZX0JLQtdGH0L3Ri9C5INC-0LPQvtC90YxBiEbaRmbQkNC70LvQtdGPINCT0L7RgNC00L7QsiAg0JPQtdGA0L7QtdCyLkGDRs9G4kDQntCx0LXQu9C40YHQuiDQsiDQv9Cw0LzRj9GC0YwgMzAwLdC70LXRgtC40Y8g0YbQsNGA0YHRgtCy0L7QstCw0L3QuNGPINCU0L7QvNCwINCg0L7QvNCw0L3QvtCy0YvRhUHsRaxGZtCQ0LvQtdC60YHQsNC90LTRgNC-0LLRgdC60LjQuSAg0YHQsNC0QcNFmUZl0JDQu9C10LrRgdCw0L3QtNGA0L7QstGB0LrQuNC5INGB0LDQtEGbRdtFX9CR0L7RgNC-0LLQuNGG0LrQsNGPINCx0LDRiNC90Y9B5USARchA0J_QsNC80Y_RgtC90LjQuiAg0LrQvdGP0LfRjiDQktC70LDQtNC40LzQuNGA0YMg0KHQstGP0YLQvtGB0LvQsNCy0LjRh9GDQatE0kTGQNCf0YDQvtGF0L7QtNC40Lwg0L_QvtC0INCR0L7Qu9GM0YjQuNC8INC60LDQvNC10L3QvdGL0LwgINC80L7RgdGC0L7QvC5B1USPRGLQn9GA0LXRh9C40YHRgtC10L3RgdC60LDRjyDQvdCw0LEuQZdE7UNp0KXRgNCw0Lwg0KXRgNC40YHRgtCwINCh0L_QsNGB0LjRgtC10LvRjy5BlUPwQl3Qn9Cw0YLRgNC40LDRgNGI0LjQuSDQvNC-0YHRgkH_Q6BCXdCf0LDRgtGA0LjQsNGA0YjQuNC5INC80L7RgdGCQbNEg0Jk0JLQvtC00L7QvtGC0LLQvtC00L3Ri9C5ICDQutCw0L3QsNC7QYpF30Fd0K_QutC40LzQsNC90YHQutCw0Y8gINC90LDQsS5Bg0XUQV3Qr9C60LjQvNCw0L3RgdC60LDRjyAg0L3QsNCxLkHVRKhBXdCv0LrQuNC80LDQvdGB0LrQsNGPICDQvdCw0LEuQa1EiEFq0J_QsNC80Y_RgtC90LjQuiDQn9C10YLRgNGDINCf0LXRgNCy0L7QvNGDQfZD40Bl0JrRgNGL0LzRgdC60LDRjyDQvdCw0LHQtdGA0LXQttC90LDRj0HUQ9dA10DQmtGA0YvQvNGB0LrQsNGPINC90LDQsdC10YDQtdC20L3QsNGPLCDQptC10L3RgtGA0LDQu9GM0L3Ri9C5INC00L7QvCDRhdGD0LTQvtC20L3QuNC60LBBjUImwUDQmtGA0YvQvNGB0LrQsNGPINC90LDQsdC10YDQtdC20L3QsNGPICwg0JrRgNGL0LzRgdC60LjQuSDQvNC-0YHRgkHQQIg_XNCf0YPRiNC60LjQvdGB0LrQsNGPINC90LDQsS5BLas-WdCv0YXRgtCwLdGA0LXRgdGC0L7RgNCw0L1Btj_cPVzQn9GD0YjQutC40L3RgdC60LDRjyDQvdCw0LEuQaM_vj3xQNCd0LDRhtC40L7QvdCw0LvRjNC90YvQuSDRhtC10L3RgtGAINGD0L_RgNCw0LLQu9C10L3QuNGPINC-0LHQvtGA0L7QvdC-0Lkg0KDQvtGB0YHQuNC50YHQutC-0Lkg0KTQtdC00LXRgNCw0YbQuNC4QY4_hD1c0J_Rg9GI0LrQuNC90YHQutCw0Y8g0L3QsNCxLkHTPsI8d9Cf0YPRiNC60LjQvdGB0LrQuNC5ICjQkNC90LTRgNC10LXQstGB0LrQuNC5KSDQvNC-0YHRgi5Blj7zO2bQodC_0YPRgdC6INC90LAgINC90LDQsdC10YDQtdC20L3Rg9GOLkHKPMI6dNCQ0L3QtNGA0LXQtdCy0YHQutC40Lkg0LYu0LQuINC4INCw0LLRgtC-ICDQvNC-0YHRgi5BwTjSN2vQkNC90LTRgNC10LXQstGB0LrQsNGPINC90LDQsdC10YDQtdC20L3QsNGPQZg3mTfiQNCb0YPQttC90LXRhtC60LjQuSAg0LzQtdGC0YDQvtC80L7RgdGCIC0g0YHRgtCw0L3RhtC40Y8g0LzQtdGC0YDQviDCq9CS0L7RgNC-0LHRjNGR0LLRiyDQs9C-0YDRi8K7QeswjzZa0JTQvtGA0L7QttC60LAg0LIg0LPQvtGA0YNBxi_GNeVA0J_QsNC80Y_RgtC90YvQuSDQt9C90LDQuiDQvdCwINC80LXRgdGC0LUg0LrQu9GP0YLQstGLINCQLtCYLiDQk9C10YDRhtC10L3QsCDQuCDQnS7Qny4g0J7Qs9Cw0YDRkdCy0LBB0y3HNVDQotGA0L7Qv9C40L3QutCwQYstyTVj0KHQvNC-0YLRgNC-0LLQsNGPINC_0LvQvtGJ0LDQtNC60LBB0CvyNQ
+          - text: нужные участки маршрута, кликнув на значок принтера в левом нижнем углу или используйте карту для печати, прикрепленную вверху этой страницы.
+        - listitem [ref=f4e167]: • Загрузите gpx-трек маршрута в GPS навигатор. Трек также доступен вверху страницы под картой.
+      - heading "Как добраться" [level=3] [ref=f4e168]
+      - paragraph [ref=f4e169]: Маршрут начинается от метро «Театральная» и завершается у метро «Воробьевы горы».
+      - heading "Места для отдыха" [level=3] [ref=f4e170]
+      - paragraph [ref=f4e171]: На набережных и в парках есть множество зон отдыха, скамеек.
+      - heading "Не забыть с собой" [level=3] [ref=f4e172]
+      - list [ref=f4e173]:
+        - listitem [ref=f4e174]: • Хорошее настроение.
+        - listitem [ref=f4e175]: • Воду и перекус.
+        - listitem [ref=f4e176]: • Удобную одежду и обувь по погоде.
+        - listitem [ref=f4e177]: • Фотоаппарат.
+      - heading "Подробное описание маршрута" [level=2] [ref=f4e178]
+      - link [ref=f4e182] [cursor=pointer]:
+        - /url: /trails/71/image-850/full/
+      - paragraph [ref=f4e183]:
+        - text: "Фотографии с привязкой к карте:"
+        - link "https://goo.gl/photos/3hpFv7YpYgoEighJ9" [ref=f4e184] [cursor=pointer]:
+          - /url: https://goo.gl/photos/3hpFv7YpYgoEighJ9
+      - paragraph [ref=f4e185]: Чтобы увидеть карту с привязкой для фотографии, нажмите на иконку "информация".
+      - link [ref=f4e189] [cursor=pointer]:
+        - /url: /trails/71/image-851/full/
+  - iframe [ref=f4e191]:
+    - generic [ref=f5e3]:
+      - text: Не удалось найти IP-адрес сервера
+      - strong [ref=f5e4]: money.yandex.ru
+      - text: .
+  - iframe [ref=f4e195]:
+    - generic [ref=f6e1]:
+      - iframe [ref=f6e4]:
+        
+      - link:
+        - /url: "javascript: return;"
+      - generic [ref=f6e7]:
+        - generic [ref=f6e8]:
+          - generic [ref=f6e9]: 2 комментария
+          - link [ref=f6e10] [cursor=pointer]:
+            - /url: https://dev.vk.com/widgets/comments
+        - generic [ref=f6e14]:
+          - generic [ref=f6e17]:
+            - generic [ref=f6e18]: Ваш комментарий...
+            - button "Отправить" [ref=f6e22] [cursor=pointer]
+          - generic [ref=f6e27]:
+            - generic [ref=f6e29]:
+              - link [ref=f6e30] [cursor=pointer]:
+                - /url: /id5028430
+                - img "Дмитрий Никитин" [ref=f6e31]
+              - generic [ref=f6e33]:
+                - link "Дмитрий Никитин" [ref=f6e35] [cursor=pointer]:
+                  - /url: /id5028430
+                - generic [ref=f6e36]:
+                  - generic [ref=f6e37]: Хороший маршрут для легкой пробежки или прогулки. В воскресенье с утра совсем немного народу, что непривычно для центра города. Еще очень ценно для пробежек то, что маршрут почти не пересекает автодороги, поэтому не надо останавливаться и сбивать себе темп. В конце же маршрута на Воробьевых горочка наверх дает прикурить и нужно приложить определенные усилия, чтобы не перейти на шаг. Мне понравилось и бодрое начало выходного дня было обеспечено! :)
+                  - generic [ref=f6e40]:
+                    - generic [ref=f6e41]: 14 апр 2019
+                    - generic [ref=f6e43]:
+                      - generic [ref=f6e44]:
+                        - button "Лайк 5" [ref=f6e45] [cursor=pointer]:
+                          - generic [ref=f6e47]: "5"
+                        - link "Показать список оценивших" [ref=f6e48]
+                      - link "Комментировать" [ref=f6e50] [cursor=pointer]:
+                        - /url: "#"
+            - generic [ref=f6e52]:
+              - link [ref=f6e53] [cursor=pointer]:
+                - /url: /tulyakov79
+                - img "Михаил Туляков" [ref=f6e54]
+              - generic [ref=f6e56]:
+                - link "Михаил Туляков" [ref=f6e58] [cursor=pointer]:
+                  - /url: /tulyakov79
+                - generic [ref=f6e59]:
+                  - generic [ref=f6e60]: Класс!
+                  - generic [ref=f6e63]:
+                    - generic [ref=f6e64]: 4 дек 2017
+                    - generic [ref=f6e66]:
+                      - generic [ref=f6e67]:
+                        - button "Лайк 3" [ref=f6e68] [cursor=pointer]:
+                          - generic [ref=f6e70]: "3"
+                        - link "Показать список оценивших" [ref=f6e71]
+                      - link "Комментировать" [ref=f6e73] [cursor=pointer]:
+                        - /url: "#"
+  - generic [ref=f4e196]:
+    - separator [ref=f4e197]
+    - paragraph [ref=f4e198]: © Маркированные маршруты России, 2017–2026.
+    - paragraph [ref=f4e199]:
+      - link "Как связаться" [ref=f4e200] [cursor=pointer]:
+        - /url: /contacts/
+    - generic [ref=f4e201]:
+      - link [ref=f4e202] [cursor=pointer]:
+        - /url: https://www.youtube.com/channel/UCRvNTXycbr_b9cIbTiQNPbQ/
+      - link [ref=f4e203] [cursor=pointer]:
+        - /url: https://vk.com/rutrail
+    - generic [ref=f4e205]:
+      - text: Разработка сайта —
+      - link "Intminds" [ref=f4e206] [cursor=pointer]:
+        - /url: https://company.intminds.ru/

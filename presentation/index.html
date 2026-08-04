@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вешка — Больше, чем путешествие</title>
+  <style>
+    @font-face {
+      font-family: 'TT Fors Trial';
+      src: url('assets/Шрифты и лого/Шрифты/TT Fors Trial Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'TT Fors Trial';
+      src: url('assets/Шрифты и лого/Шрифты/TT Fors Trial Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'TT Fors Trial';
+      src: url('assets/Шрифты и лого/Шрифты/TT Fors Trial Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+  </style>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0D2244;
+      --blue:   #1565C0;
+      --gold:   #FEB82B;
+      --text:   #0D2244;
+      --muted:  #4A5568;
+      --white:  #FFFFFF;
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      font-family: 'TT Fors Trial', sans-serif;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    /* ——— SLIDE SYSTEM ——— */
+    .slides { width: 100%; height: 100vh; position: relative; }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ——— COVER ——— */
+    .slide-cover {
+      background: url('assets/tmpl_cover.jpg') left center / cover no-repeat;
+      flex-direction: column;
+      /* left = 75px * (100vh / 824px) ≈ where "б" sits in source image */
+      padding: 57vh 0 0 calc(75px * (100vh / 824px));
+      text-align: left;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .cover-nomination {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .cover-nomination span { font-weight: 400; }
+
+    .cover-app-title {
+      font-size: clamp(22px, 2.6vw, 32px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .cover-author {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ——— CONTENT SLIDES ——— */
+    .slide-content {
+      background: var(--white);
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      padding: 0 0 48px;
+    }
+
+    /* gold wave — full width, proportional height (original 4390×338) */
+    .gold-wave {
+      width: 100%;
+      height: calc(100vw * 338 / 4390);
+      background: url('assets/tmpl_gold.png') left top / 100% 100% no-repeat;
+      flex-shrink: 0;
+    }
+
+    .slide-content .inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 72px 0;
+    }
+
+    .slide-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .slide-h1 {
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+
+    .slide-h1 em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    /* ——— TEMPLATE STRUCTURE (matches PPTX layout) ——— */
+    .tmpl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      flex: 1;
+    }
+
+    .tmpl-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .tmpl-section {
+      padding: 10px 0 12px;
+    }
+
+    .tmpl-h {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .tmpl-body {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+
+    .tmpl-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-left: 2px;
+    }
+
+    .tmpl-list li {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .tmpl-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .tmpl-divider {
+      height: 2px;
+      background: var(--gold);
+      width: 100%;
+      margin: 2px 0;
+    }
+
+    .tmpl-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .tmpl-photo-placeholder {
+      width: 90px; height: 90px;
+      border: 1.5px solid #ccc;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #f5f5f5;
+    }
+
+    .tmpl-logo-block .tmpl-logo-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .tmpl-logo-block .tmpl-logo-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .tmpl-slide-name {
+      position: absolute;
+      bottom: 18px;
+      right: 72px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--blue);
+    }
+
+    /* ——— TWO-COL ——— */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .col { display: flex; flex-direction: column; gap: 0; }
+
+    /* ——— BODY TEXT ——— */
+    .body-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    /* ——— INFO CARDS ——— */
+    .info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-card {
+      background: #F7F9FC;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+    }
+
+    .info-card .card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    .info-card .card-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    /* ——— STAT CARDS ——— */
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      background: #F7F9FC;
+      border-radius: 12px;
+      padding: 18px 20px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .stat-num {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-num.blue { color: var(--blue); }
+
+    .stat-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ——— LIST ——— */
+    .feat-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feat-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .feat-list .bullet {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 1px;
+    }
+
+    /* ——— STEPS ——— */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #F7F9FC;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    .step-text span {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ——— PHONE ——— */
+    .phone-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .phone-wrap img {
+      border-radius: 22px;
+      box-shadow: 0 20px 50px rgba(13,34,68,0.18);
+    }
+
+    /* ——— COMPONENT SLIDE ——— */
+    .component-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .comp-card {
+      background: #F7F9FC;
+      border-radius: 14px;
+      padding: 20px 22px;
+      border-top: 3px solid var(--blue);
+    }
+
+    .comp-card.gold { border-top-color: var(--gold); }
+
+    .comp-card .comp-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .comp-card .comp-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ——— SCREENS GRID ——— */
+    .screens-grid {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 8px;
+    }
+
+    .screen-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .screen-item img {
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(13,34,68,0.15);
+    }
+
+    .screen-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* ——— CHANNELS ——— */
+    .channels-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .ch-tag {
+      background: #EBF2FF;
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    /* ——— METRICS ——— */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .metric-block {
+      background: #F7F9FC;
+      border-radius: 14px;
+      padding: 20px 22px;
+    }
+
+    .metric-block h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .metric-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .metric-block ul li {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .metric-block ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ——— FINAL SLIDE ——— */
+    .slide-final {
+      background: var(--navy) url('assets/tmpl_cover.jpg') center/cover no-repeat;
+      flex-direction: column;
+      text-align: center;
+      padding: 60px 80px;
+    }
+
+    .final-title {
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .final-title span { color: var(--gold); }
+
+    .final-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.7);
+      max-width: 520px;
+      line-height: 1.6;
+      margin: 0 auto 40px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-chip {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 12px;
+      padding: 14px 22px;
+      font-size: 14px;
+      color: var(--white);
+    }
+
+    .contact-chip strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+
+    /* ——— NAV ——— */
+    .nav {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(13,34,68,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 8px 18px;
+      z-index: 100;
+      user-select: none;
+    }
+
+    .nav-btn {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 16px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    .nav-dots { display: flex; gap: 5px; align-items: center; }
+
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .dot.active {
+      background: var(--gold);
+      transform: scale(1.4);
+    }
+
+    .nav-counter {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      min-width: 36px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slides" id="slides">
+
+  <!-- ===== SLIDE 1 — COVER ===== -->
+  <div class="slide slide-cover active">
+    <div class="cover-nomination">НОМИНАЦИЯ: <span>«Больше, чем сервис»</span></div>
+    <div class="cover-app-title">Вешка — умный навигатор похода</div>
+    <div class="cover-author">Лагарникова Марина Николаевна</div>
+  </div>
+
+  <!-- ===== SLIDE 2 — О ПРОЕКТЕ ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <div class="tmpl-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="tmpl-col">
+          <div class="tmpl-section">
+            <h3 class="tmpl-h">Краткое описание заявки</h3>
+            <ul class="tmpl-list">
+              <li>Для кого: пешие туристы и треккеры, организаторы молодёжных походов</li>
+              <li>Сегментация: от начинающих до опытных туристов, возраст от 14 лет</li>
+              <li>Адаптация для детей: подходит для школьных и лагерных маршрутов</li>
+              <li>Инновационность: первое PWA без GPS, бэкенда и авторизации</li>
+            </ul>
+          </div>
+          <div class="tmpl-divider"></div>
+          <div class="tmpl-section">
+            <h3 class="tmpl-h">Цели и задачи</h3>
+            <p class="tmpl-body">Цель: сделать безопасное прохождение туристических маршрутов доступным без специального оборудования</p>
+            <p class="tmpl-body">Задача 1: дать туристам инструмент отслеживания прогресса без GPS и интернета</p>
+            <p class="tmpl-body">Задача 2: снизить риск потери ориентации — особенно в молодёжных группах</p>
+          </div>
+          <div class="tmpl-divider"></div>
+          <div class="tmpl-section">
+            <h3 class="tmpl-h">Целевая аудитория</h3>
+            <p class="tmpl-body">Пешие туристы, треккеры и организаторы молодёжных походов по России — от однодневных вылазок до многодневных маршрутов в условиях без связи.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="tmpl-col">
+          <div class="tmpl-section tmpl-logo-row">
+            <div class="tmpl-photo-placeholder">
+              <img src="assets/logo.png" style="width:64px;height:64px;border-radius:14px;" alt="Вешка" />
+            </div>
+            <div class="tmpl-logo-block">
+              <p class="tmpl-logo-label">Логотип проекта</p>
+              <p class="tmpl-logo-name">Вешка</p>
+            </div>
+          </div>
+          <div class="tmpl-divider"></div>
+          <div class="tmpl-section">
+            <h3 class="tmpl-h">Регионы реализации</h3>
+            <ul class="tmpl-list">
+              <li>Ключевой регион: вся Россия</li>
+              <li>Регионы реализации: любой регион с туристическими GPX-маршрутами</li>
+            </ul>
+          </div>
+          <div class="tmpl-divider"></div>
+          <div class="tmpl-section">
+            <h3 class="tmpl-h">Финансирование</h3>
+            <p class="tmpl-body"><strong>Тип финансирования:</strong></p>
+            <ul class="tmpl-list">
+              <li>Не требует финансирования от пользователя</li>
+              <li>Самофинансируемый проект (open source)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 3 — КАК РАБОТАЕТ ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <p class="slide-label">Ключевые характеристики</p>
+      <h2 class="slide-h1">Как работает <em>Вешка</em></h2>
+      <div class="two-col">
+        <div class="col">
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-text">
+                <strong>Загрузи GPX-трек</strong>
+                <span>Файл с любого устройства или сервиса. Поддерживается любой стандарт GPX.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-text">
+                <strong>Отмечай контрольные точки</strong>
+                <span>Тапни по точке, когда дошёл до неё — время фиксируется автоматически.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-text">
+                <strong>Следи за прогрессом</strong>
+                <span>Пройдено км, остаток и прогноз финиша пересчитываются в реальном времени.</span>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:20px;">
+            <div class="stat-row">
+              <div class="stat-card">
+                <div class="stat-num blue">100%</div>
+                <div class="stat-desc">работает офлайн, без интернета</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num blue">GPX</div>
+                <div class="stat-desc">открытый стандарт, любой трек</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="phone-wrap">
+            <img src="assets/screen4_history.png" style="width:160px;" />
+            <img src="assets/screen3_route.png" style="width:178px;" />
+          </div>
+        </div>
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 4 — ЭКРАНЫ ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <p class="slide-label">Интерфейс</p>
+      <h2 class="slide-h1">Чистый дизайн для <em>условий маршрута</em></h2>
+      <div class="screens-grid">
+        <div class="screen-item">
+          <img src="assets/screen1_start.png" style="width:140px;" />
+          <span class="screen-label">Загрузка<br/>маршрута</span>
+        </div>
+        <div class="screen-item">
+          <img src="assets/screen2_home.png" style="width:160px;" />
+          <span class="screen-label">Главная<br/>с каталогом</span>
+        </div>
+        <div class="screen-item">
+          <img src="assets/screen3_route.png" style="width:185px;" />
+          <span class="screen-label">Карта<br/>маршрута</span>
+        </div>
+        <div class="screen-item">
+          <img src="assets/screen5_completed.png" style="width:160px;" />
+          <span class="screen-label">Завершённые<br/>маршруты</span>
+        </div>
+        <div class="screen-item">
+          <img src="assets/screen4_history.png" style="width:140px;" />
+          <span class="screen-label">История<br/>прохождения</span>
+        </div>
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 5 — ОБЩЕСТВЕННАЯ ПОЛЬЗА ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <p class="slide-label">Общественно полезная компонента</p>
+      <h2 class="slide-h1"><em>«Вешка»</em></h2>
+      <div class="two-col">
+        <div class="col">
+          <p class="body-text">
+            Приложение снижает риски потери ориентации на туристическом маршруте, делая пеший туризм более безопасным и доступным для широкой аудитории — особенно для групп без профессионального снаряжения.
+          </p>
+          <div class="component-block" style="grid-template-columns:1fr;">
+            <div class="comp-card">
+              <div class="comp-title">Безопасность на маршруте</div>
+              <div class="comp-text">Чёткий контроль прогресса группы позволяет своевременно оценить риск не успеть до темноты и принять решение о возврате.</div>
+            </div>
+            <div class="comp-card gold">
+              <div class="comp-title">Доступность без снаряжения</div>
+              <div class="comp-text">Работает на любом смартфоне в браузере — не требует GPS-трекера, специальных устройств или платной подписки.</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-title">Поддержка волонтёрских походов</div>
+              <div class="comp-text">Организаторы экологических и поисково-спасательных маршрутов получают простой инструмент координации группы без связи.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="stat-row">
+            <div class="stat-card">
+              <div class="stat-num blue">48%</div>
+              <div class="stat-desc">туристов теряли GPS-сигнал в длительных походах</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num blue">4 млн</div>
+              <div class="stat-desc">туристических маршрутов зарегистрировано в России</div>
+            </div>
+          </div>
+          <div class="phone-wrap" style="margin-top:16px;">
+            <img src="assets/screen3_route.png" style="width:200px;" />
+          </div>
+        </div>
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 6 — ОБРАЗОВАТЕЛЬНАЯ ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <p class="slide-label">Образовательная компонента</p>
+      <h2 class="slide-h1"><em>«Вешка»</em></h2>
+      <div class="two-col">
+        <div class="col">
+          <p class="body-text">
+            Работа с приложением формирует навыки картографической грамотности и планирования маршрута. Пользователь учится читать GPX-треки, понимать расстояния и управлять темпом движения.
+          </p>
+          <div class="component-block" style="grid-template-columns:1fr;">
+            <div class="comp-card gold">
+              <div class="comp-title">Навыки чтения маршрута</div>
+              <div class="comp-text">Загрузка и анализ GPX-файла обучает работе с открытыми картографическими форматами — знанию, полезному на всю жизнь.</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-title">Планирование темпа</div>
+              <div class="comp-text">Прогноз финиша после каждой отметки учит оценивать собственные возможности и правильно распределять силы на маршруте.</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-title">Осознанное прохождение</div>
+              <div class="comp-text">Ручная отметка контрольных точек формирует внимательность и ответственность — ключевые компетенции туриста.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="phone-wrap">
+            <img src="assets/screen2_home.png" style="width:195px;" />
+            <img src="assets/screen5_completed.png" style="width:175px;" />
+          </div>
+        </div>
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 7 — ПАТРИОТИЧЕСКАЯ ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <p class="slide-label">Патриотическая компонента</p>
+      <h2 class="slide-h1"><em>«Вешка»</em></h2>
+      <div class="two-col">
+        <div class="col">
+          <p class="body-text">
+            Вешка создана специально для маршрутов по России — от Карелии до Алтая. Приложение работает там, где связь нестабильна, поддерживая внутренний туризм и знакомство с природным и культурным наследием страны.
+          </p>
+          <div class="component-block" style="grid-template-columns:1fr;">
+            <div class="comp-card">
+              <div class="comp-title">Поддержка внутреннего туризма</div>
+              <div class="comp-text">Приложение снижает барьер входа в пеший туризм по России — не нужны дорогие GPS-устройства или платные сервисы.</div>
+            </div>
+            <div class="comp-card gold">
+              <div class="comp-title">Любые маршруты по России</div>
+              <div class="comp-text">Горные тропы Кавказа, леса Сибири, маршруты Золотого кольца — GPX-формат поддерживается всеми российскими сервисами.</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-title">Офлайн в дикой природе</div>
+              <div class="comp-text">Работает без интернета даже в заповедниках и национальных парках, где связь отсутствует полностью.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="stat-row">
+            <div class="stat-card">
+              <div class="stat-num blue">∞</div>
+              <div class="stat-desc">километров маршрутов без покрытия связью</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num blue">0 ₽</div>
+              <div class="stat-desc">стоимость использования приложения</div>
+            </div>
+          </div>
+          <div class="phone-wrap" style="margin-top:16px;">
+            <img src="assets/screen3_route.png" style="width:195px;" />
+          </div>
+        </div>
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 8 — МОЛОДЁЖНАЯ ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <p class="slide-label">Молодёжная аудитория</p>
+      <h2 class="slide-h1"><em>«Вешка»</em></h2>
+      <div class="two-col">
+        <div class="col">
+          <p class="body-text">
+            Приложение создано с учётом потребностей молодой аудитории: mobile-first дизайн, работа без установки, интуитивный интерфейс. Молодые туристы получают современный инструмент, который не уступает платным GPS-навигаторам.
+          </p>
+          <div class="component-block" style="grid-template-columns:1fr;">
+            <div class="comp-card gold">
+              <div class="comp-title">Открывается в браузере телефона</div>
+              <div class="comp-text">Не нужно скачивать из магазина — работает как сайт, устанавливается как приложение. Мгновенный старт.</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-title">Удобно для групповых походов</div>
+              <div class="comp-text">Организаторы молодёжных слётов и лагерей могут отслеживать прогресс команды без специального оборудования.</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-title">История и достижения</div>
+              <div class="comp-text">Все пройденные маршруты сохраняются с километражем и временем — мотивирует проходить новые маршруты.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="phone-wrap">
+            <img src="assets/screen4_history.png" style="width:175px;" />
+            <img src="assets/screen5_completed.png" style="width:192px;" />
+          </div>
+        </div>
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 9 — ПРОДВИЖЕНИЕ И ДОСТУПНОСТЬ ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <p class="slide-label">Каналы продвижения · Ценовое решение</p>
+      <h2 class="slide-h1">Продвижение <em>«Вешки»</em></h2>
+      <div class="two-col">
+        <div class="col">
+          <p class="body-text" style="margin-bottom:12px;">Каналы продвижения:</p>
+          <div class="channels-row">
+            <span class="ch-tag">Туристические клубы</span>
+            <span class="ch-tag">Telegram-сообщества</span>
+            <span class="ch-tag">ВКонтакте</span>
+            <span class="ch-tag">Wikiloc / Nakarte.me</span>
+            <span class="ch-tag">Партнёрства с РГО</span>
+            <span class="ch-tag">Молодёжные лагеря</span>
+            <span class="ch-tag">Турнаправления вузов</span>
+          </div>
+          <div class="info-cards" style="margin-top:4px;">
+            <div class="info-card">
+              <div class="card-label">Ценовое решение</div>
+              <div class="card-value">Бесплатно для всех пользователей. Открытый исходный код.</div>
+            </div>
+            <div class="info-card">
+              <div class="card-label">Монетизация</div>
+              <div class="card-value">Не предусмотрена на текущем этапе — приоритет на охват и доступность</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="component-block" style="grid-template-columns:1fr;">
+            <div class="comp-card gold">
+              <div class="comp-title">PWA — без магазинов приложений</div>
+              <div class="comp-text">Доступно на любом смартфоне через браузер. Нет ограничений по платформе.</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-title">Интеграция с туристическим сообществом</div>
+              <div class="comp-text">Прямое взаимодействие с организаторами походов через профильные Telegram-каналы и форумы.</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-title">Вирусный потенциал</div>
+              <div class="comp-text">Функция шаринга трека позволяет участникам похода делиться маршрутом одним нажатием.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 10 — ПОКАЗАТЕЛИ ===== -->
+  <div class="slide slide-content">
+    <div class="gold-wave"></div>
+    <div class="inner">
+      <p class="slide-label">Показатели эффекта</p>
+      <h2 class="slide-h1">Количественные и качественные <em>результаты</em></h2>
+      <div class="two-col">
+        <div class="col">
+          <div class="metrics-grid" style="grid-template-columns:1fr;">
+            <div class="metric-block">
+              <h3>Количественные показатели</h3>
+              <ul>
+                <li>Приложение доступно для 100% пользователей Android и iOS без установки</li>
+                <li>Поддержка GPX-маршрутов любой длины — от 1 до 1000+ км</li>
+                <li>До 10+ активных маршрутов одновременно на одном устройстве</li>
+                <li>0 ₽ — стоимость использования для участника похода</li>
+                <li>Прогноз финиша рассчитывается после 2 отметок (≥ 2 точки данных)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="metrics-grid" style="grid-template-columns:1fr;">
+            <div class="metric-block">
+              <h3>Качественные показатели</h3>
+              <ul>
+                <li>Снижение тревожности группы на маршруте — есть ответ на вопрос «сколько ещё?»</li>
+                <li>Формирование привычки планирования и самоконтроля у молодых туристов</li>
+                <li>Вовлечение в пеший туризм аудитории без специального снаряжения</li>
+                <li>Поддержка регионального туризма по всей России без географических ограничений</li>
+                <li>Открытая архитектура — сообщество может добавлять маршруты и расширять функционал</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tmpl-slide-name">«Вешка»</div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 11 — КОНТАКТЫ ===== -->
+  <div class="slide slide-final">
+    <img src="assets/logo.png" style="width:56px;height:56px;border-radius:14px;margin-bottom:24px;" />
+    <h2 class="final-title">Вешка —<br/>маршрут <span>под контролем</span></h2>
+    <p class="final-sub">Простой, надёжный инструмент для туристов, который работает там, где другие приложения сдаются.</p>
+    <div class="contact-row">
+      <div class="contact-chip">
+        <strong>Сайт</strong>
+        veshka.tech
+      </div>
+      <div class="contact-chip">
+        <strong>Почта</strong>
+        marinalagarnikova@yandex.ru
+      </div>
+      <div class="contact-chip">
+        <strong>Телефон (Max)</strong>
+        +7 (913) 229-71-39
+      </div>
+    </div>
+  </div>
+
+</div><!-- /slides -->
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-btn" onclick="go(-1)">&#8592;</button>
+  <div class="nav-dots" id="dots"></div>
+  <button class="nav-btn" onclick="go(1)">&#8594;</button>
+  <span class="nav-counter" id="counter"></span>
+</nav>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let cur = 0;
+
+  const urlPage = new URLSearchParams(window.location.search).get('page');
+  if (urlPage !== null) {
+    cur = Math.max(0, Math.min(slides.length - 1, parseInt(urlPage)));
+    document.querySelector('.nav').style.display = 'none';
+  }
+
+  function render() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === cur));
+    document.getElementById('counter').textContent = `${cur + 1} / ${slides.length}`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  function go(dir) {
+    cur = Math.max(0, Math.min(slides.length - 1, cur + dir));
+    render();
+  }
+
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.onclick = () => { cur = i; render(); };
+    dotsEl.appendChild(d);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') go(1);
+    if (e.key === 'ArrowLeft') go(-1);
+  });
+
+  render();
+</script>
+
+</body>
+</html>

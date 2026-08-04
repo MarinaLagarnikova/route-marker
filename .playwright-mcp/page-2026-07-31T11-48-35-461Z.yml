@@ -1,0 +1,136 @@
+- generic [ref=e5]:
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e10]:
+        - application [ref=e148]
+        - status [ref=e18]: Screenreader support for the board is currently disabled. To enable it via Accessibility settings, press ⌘K, type Accessibility Settings, and press Enter. To see available keyboard shortcuts, enter ⌃⇧Question mark .
+        - status [ref=e20]
+        - generic:
+          - generic:
+            - generic:
+              - region "Comments on canvas":
+                - button "Create new comment"
+        - generic: Marina
+        - generic:
+          - region "Left sidebar":
+            - generic [ref=e149]:
+              - button "Main menu" [ref=e150]
+              - button "Expand UI for file named Анкета › Секретный проект" [ref=e151]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - button "Анкета › Секретный проект, file name": Анкета › Секретный проект
+                      - generic: File name
+                - generic:
+                  - generic:
+                    - status
+        - generic [ref=e89]:
+          - generic [ref=e153]:
+            - button "Multiplayer tools" [ref=e155]
+            - button "Follow Marina" [ref=e162]
+          - button "17%, zoom and view options" [expanded] [ref=e170]:
+            - generic [ref=e93]: 17%
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - button "Present" [ref=e101]
+              - button "Prototype view" [ref=e102]
+            - button "Share" [ref=e104]
+      - generic:
+        - generic:
+          - generic:
+            - region "Application toolbar":
+              - generic [ref=e171]:
+                - toolbar "Editor" [ref=e173]:
+                  - generic [ref=e175]:
+                    - generic:
+                      - generic [ref=e178]:
+                        - generic [ref=e179]:
+                          - button "Move" [ref=e180]
+                          - button "Hand tool" [pressed] [ref=e181]
+                          - button "Comment" [ref=e182]
+                        - group "Frame" [ref=e184]:
+                          - button "Frame" [ref=e185]
+                          - button "Region tools" [ref=e186]
+                        - group "Rectangle" [ref=e187]:
+                          - button "Rectangle" [ref=e188]
+                          - button "Shape tools" [ref=e189]
+                        - group "Pen" [ref=e190]:
+                          - button "Pen" [ref=e191]
+                          - button "Creation tools" [ref=e192]
+                        - button "Text" [ref=e193]
+                        - button "Actions" [ref=e194]
+                      - text: Request sent
+                  - radiogroup "Toolbelt Mode" [ref=e198]:
+                    - generic [ref=e200]:
+                      - generic [ref=e202]:
+                        - radio "Design" [checked] [ref=e203]
+                        - generic [ref=e207]: Design
+                      - generic [ref=e208]:
+                        - radio "Motion" [ref=e209]
+                        - generic [ref=e213]: Motion
+                      - generic [ref=e214]:
+                        - radio "Dev Mode" [ref=e215]
+                        - generic [ref=e219]: Dev Mode
+                - generic [ref=e220]:
+                  - generic [ref=e221]: Sign up to comment, edit, inspect and more.
+                  - generic [ref=e222]:
+                    - button "Sign up" [ref=e223]
+                    - button "Continue with Google" [ref=e226]:
+                      - generic: Continue
+    - region "Help/zoom toolbar" [ref=e125]:
+      - toolbar "Help/zoom toolbar" [ref=e127]:
+        - button "Help" [ref=e129]
+  - generic:
+    - status
+    - group [ref=e131]:
+      - alert [ref=e133]
+      - alert [ref=e135]
+    - region "Consent Manager" [ref=e137]:
+      - generic [ref=e138]:
+        - text: This website uses cookies, pixel tags, and local storage for performance, personalization, and marketing purposes. We use our own cookies and some from third parties. Only essential cookies are turned on by default.
+        - link "Cookies settings" [ref=e139]:
+          - /url: /consent-preferences/
+      - generic [ref=e140]:
+        - button "Do not allow cookies" [ref=e141]
+        - button "Allow all cookies" [ref=e142]
+      - button "Dismiss" [ref=e144]
+  - menu [ref=e227]:
+    - generic [ref=e232]:
+      - generic [ref=e235]:
+        - generic [ref=e236]: Zoom/view options
+        - textbox "Zoom/view options" [active] [ref=e237]: 17%
+      - generic [ref=e240]:
+        - menuitemcheckbox "Zoom in ⌘+" [ref=e241]:
+          - generic [ref=e243]: Zoom in
+          - generic [ref=e244]: ⌘+
+        - menuitemcheckbox "Zoom out ⌘–" [ref=e245]:
+          - generic [ref=e247]: Zoom out
+          - generic [ref=e248]: ⌘–
+        - menuitemcheckbox "Zoom to fit 1" [ref=e249]:
+          - generic [ref=e251]: Zoom to fit
+          - generic [ref=e252]: "1"
+        - menuitemcheckbox "Zoom to 50%" [ref=e253]
+        - menuitemcheckbox "Zoom to 100% ⌘0" [ref=e256]:
+          - generic [ref=e258]: Zoom to 100%
+          - generic [ref=e259]: ⌘0
+        - menuitemcheckbox "Zoom to 200%" [ref=e260]
+        - menuitemcheckbox "Pixel preview" [ref=e265]
+        - menuitemcheckbox "Pixel grid ⇧′" [checked] [ref=e271]:
+          - generic [ref=e275]: Pixel grid
+          - generic [ref=e276]: ⇧′
+        - menuitemcheckbox "Snap to pixel grid ⇧⌘′" [checked] [ref=e277]:
+          - generic [ref=e281]: Snap to pixel grid
+          - generic [ref=e282]: ⇧⌘′
+        - menuitemcheckbox "Rulers ⇧R" [ref=e283]:
+          - generic [ref=e285]: Rulers
+          - generic [ref=e286]: ⇧R
+        - menuitemcheckbox "Multiplayer cursors ⌥⌘\\" [checked] [ref=e287]:
+          - generic [ref=e291]: Multiplayer cursors
+          - generic [ref=e292]: ⌥⌘\
+        - menuitemcheckbox "Additional labels" [checked] [ref=e293]
+        - menuitemcheckbox "Comments ⇧C" [checked] [disabled] [ref=e300]:
+          - generic [ref=e304]: Comments
+          - generic [ref=e305]: ⇧C
+        - menuitemcheckbox "Prototyping ⇧E" [ref=e306]:
+          - generic [ref=e308]: Prototyping
+          - generic [ref=e309]: ⇧E

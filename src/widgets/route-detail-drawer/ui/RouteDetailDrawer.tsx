@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowUpRight, Check, Plus, Star, X } from 'lucide-react'
+import { ArrowUpRight, Bookmark, Check, Plus, X } from 'lucide-react'
 import { initLibraryMap } from '@/shared/lib/map-adapter/library-map'
 import { useLibraryStore } from '@/entities/library-route'
 import { DifficultyBadge } from '@/entities/library-route/ui/DifficultyBadge'
@@ -109,7 +109,22 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
               <h2 className="text-xl font-semibold text-zinc-900 leading-normal">{route.name}</h2>
             </div>
 
+            {/* Parameters */}
+            <div className="flex flex-col">
+              <ParamRow label="Расстояние" value={`${route.distanceKm} км`} />
+              <ParamRow label="Сложность" value={<DifficultyBadge difficulty={route.difficulty} textColor="text-zinc-900" />} />
+              <ParamRow label="Время" value={route.durationLabel} />
+              <ParamRow label="Перепад высот" value={`${route.elevationGainM} м`} />
+              {route.nearestSettlement && (
+                <div className="flex flex-col py-1.5">
+                  <span className="text-sm text-zinc-500 leading-5">Ближайший населенный пункт</span>
+                  <span className="text-sm text-zinc-900 leading-5">{route.nearestSettlement}</span>
+                </div>
+              )}
+            </div>
+
             {/* Action buttons */}
+            <div className="flex flex-col gap-2">
             <div className="flex gap-2">
               <button
                 disabled={addState === 'loading'}
@@ -154,30 +169,26 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
                 onClick={() => toggleFavorite(route.id, route.region.id)}
                 className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors shrink-0 active:scale-95 ${
                   isFavorite
-                    ? 'bg-[#FF7A29] active:bg-[#e86d22]'
+                    ? 'bg-[#FFF3EC] border border-[#FF7A29] active:bg-[#ffe8d6]'
                     : 'bg-white border border-zinc-200 active:bg-zinc-50'
                 }`}
-                aria-label={isFavorite ? 'Убрать из избранного' : 'В избранное'}
+                aria-label={isFavorite ? 'Убрать из списка' : 'Хочу пройти'}
               >
-                <Star
+                <Bookmark
                   className="w-4 h-4"
-                  style={{ color: isFavorite ? 'white' : '#3f3f46', fill: isFavorite ? 'white' : 'none' }}
+                  style={{ color: isFavorite ? '#FF7A29' : '#3f3f46', fill: isFavorite ? '#FF7A29' : 'none' }}
                 />
               </button>
             </div>
 
-            {/* Parameters */}
-            <div className="flex flex-col">
-              <ParamRow label="Расстояние" value={`${route.distanceKm} км`} />
-              <ParamRow label="Сложность" value={<DifficultyBadge difficulty={route.difficulty} />} />
-              <ParamRow label="Время" value={route.durationLabel} />
-              <ParamRow label="Перепад высот" value={`${route.elevationGainM} м`} />
-              {route.nearestSettlement && (
-                <div className="flex flex-col py-1.5">
-                  <span className="text-sm text-zinc-500 leading-5">Ближайший населенный пункт</span>
-                  <span className="text-sm text-zinc-900 leading-5">{route.nearestSettlement}</span>
-                </div>
-              )}
+            {/* Favorite hint */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-out ${isFavorite ? 'max-h-12 opacity-100' : 'max-h-0 opacity-0'}`}
+            >
+              <p className="text-xs text-zinc-500 leading-[1.4] pt-0.5 text-center">
+                Добавлен в подборку «Хочу пройти»
+              </p>
+            </div>
             </div>
 
             {/* Map */}

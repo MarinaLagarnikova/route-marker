@@ -1,0 +1,104 @@
+- generic [ref=e3]:
+  - generic [ref=e8]:
+    - generic [ref=e9]: Главная
+    - link "Маршруты" [ref=e10] [cursor=pointer]:
+      - /url: /trails/
+    - link "Обучение" [ref=e11] [cursor=pointer]:
+      - /url: /edu/
+    - link "Сотрудничество" [ref=e12] [cursor=pointer]:
+      - /url: /coop/
+    - generic [ref=e13] [cursor=pointer]:
+      - text: О проекте
+      - generic [ref=e14]: 
+    - text: 
+  - generic [ref=e18]:
+    - generic [ref=e19]: Походы с рюкзаком для всех
+    - generic [ref=e20]: Учись ходить в походы. Выбирай маркированные маршруты. Путешествуй.
+  - link " Найти свой маршрут" [ref=e22] [cursor=pointer]:
+    - /url: /trails/
+    - generic [ref=e23]: 
+    - text: Найти свой маршрут
+  - generic [ref=e24]:
+    - text: Рутрейл — это
+    - link "112 маршрутов" [ref=e25] [cursor=pointer]:
+      - /url: /trails/
+    - text: по всей России. 3073 км маркированных троп.
+  - iframe [ref=e28]:
+    - generic [ref=f1e1]:
+      - generic "Проигрыватель YouTube" [ref=f1e3]
+      - generic [ref=f1e5]:
+        - generic:
+          - generic:
+            - button "Воспроизвести видео" [ref=f1e10] [cursor=pointer]
+            - button "Скрыть панель управления" [ref=f1e12] [cursor=pointer]
+            - generic [ref=f1e14]:
+              - generic [ref=f1e19]:
+                - generic [ref=f1e20]:
+                  - 'link "RuTrail.org: Что ты знаешь о маркированных маршрутах России?" [ref=f1e21] [cursor=pointer]':
+                    - /url: https://www.youtube.com/watch?v=AWBx7HVLYtE
+                  - link "Доропей про Туризм и походы." [ref=f1e22] [cursor=pointer]:
+                    - /url: /channel/UCEh-gVcX1qGpI5G1oUlBRKg
+                - generic [ref=f1e24]:
+                  - button [ref=f1e25] [cursor=pointer]
+                  - generic [ref=f1e27]:
+                    - generic: Доропей про Туризм и походы.
+                    - generic: 78,5 тыс. подписчиков
+              - generic [ref=f1e28]:
+                - button "Поделиться" [ref=f1e31] [cursor=pointer]
+                - link "Посмотреть на YouTube" [ref=f1e42] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=AWBx7HVLYtE
+                  - generic [ref=f1e43]: Смотреть на
+  - heading "Для кого этот проект" [level=1] [ref=e29]
+  - generic [ref=e30]:
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e34]: Новичок в туризме?
+        - generic [ref=e35]: Изучи основы на сайте и сходи в свой первый поход. Маркировка троп не даст заблудиться, а сайт поможет выбрать маршрут подходящей сложности.
+      - generic [ref=e36]:
+        - generic [ref=e38]: Опытный путешественник?
+        - generic [ref=e39]: Не трать время на подготовку маршрута. Купил билет — и поехал, в дороге почитаешь описание.
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e43]: Идешь с семьей или группой детей?
+        - generic [ref=e44]: Описание маршрута поможет оценить силы и сделает поход безопаснее, а маркировка не позволит сбиться с пути.
+      - generic [ref=e45]:
+        - generic [ref=e47]: Спортсмен?
+        - generic [ref=e48]: Трейлраннер, велосипедист, лыжник — используй готовую красивую тропу для тренировок.
+  - heading " Обучение на сайте" [level=1] [ref=e49]:
+    - generic [ref=e50]: 
+    - text: Обучение на сайте
+  - generic [ref=e51]:
+    - paragraph [ref=e52]:
+      - text: Даже если сейчас ты ничего не знаешь о туризме — потрать 2 часа на изучение материалов, и ты без проблем пройдешь наши простые маршруты (отмеченные
+      - generic [ref=e53]: значком ).
+    - link "Перейти в раздел «Обучение» " [ref=e57] [cursor=pointer]:
+      - /url: /edu/
+      - text: Перейти в раздел «Обучение»
+      - generic [ref=e58]: 
+    - paragraph
+  - generic [ref=e59]: Пара слов о том, зачем мы делаем Рутрейл
+  - table [ref=e62]:
+    - rowgroup [ref=e63]:
+      - row [ref=e64]:
+        - cell [ref=e65]:
+          - paragraph [ref=e66]:
+            - text: "Первый раз я пошёл в поход в пятом классе. В жизни было много занятий и хобби, но туризм остался навсегда. Этой любовью к походам и хочется поделиться. Также хочется, чтобы люди путешествовали, не упираясь в заборы и буреломы, не тратя кучу времени на выбор маршрута — шли по красивым местам и убирали за собой мусор. Буду рад, если вы поможете в развитии проекта: сходите в поход, расскажете об этом друзьям или даже"
+            - link "промаркируете новый маршрут" [ref=e67] [cursor=pointer]:
+              - /url: /creators/
+            - text: . Ведь 112 троп — это только начало!
+          - paragraph [ref=e68]: — Денис Доропей, автор проекта
+  - generic [ref=e69]:
+    - separator [ref=e70]
+    - paragraph [ref=e71]: © Маркированные маршруты России, 2017–2026.
+    - paragraph [ref=e72]:
+      - link "Как связаться" [ref=e73] [cursor=pointer]:
+        - /url: /contacts/
+    - generic [ref=e74]:
+      - link [ref=e75] [cursor=pointer]:
+        - /url: https://www.youtube.com/channel/UCRvNTXycbr_b9cIbTiQNPbQ/
+      - link [ref=e76] [cursor=pointer]:
+        - /url: https://vk.com/rutrail
+    - generic [ref=e78]:
+      - text: Разработка сайта —
+      - link "Intminds" [ref=e79] [cursor=pointer]:
+        - /url: https://company.intminds.ru/

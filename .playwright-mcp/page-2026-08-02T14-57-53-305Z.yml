@@ -1,0 +1,1322 @@
+- generic [ref=f3e3]:
+  - link [ref=f3e5] [cursor=pointer]:
+    - /url: /
+  - generic [ref=f3e8]:
+    - link "Главная" [ref=f3e9] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f3e10]: Маршруты
+    - link "Обучение" [ref=f3e11] [cursor=pointer]:
+      - /url: /edu/
+    - link "Сотрудничество" [ref=f3e12] [cursor=pointer]:
+      - /url: /coop/
+    - generic [ref=f3e13] [cursor=pointer]:
+      - text: О проекте
+      - generic [ref=f3e14]: 
+    - text: 
+  - heading "Маркированные маршруты" [level=1] [ref=f3e16]
+  - generic [ref=f3e17]:
+    - text: 
+    - generic [ref=f3e18]:
+      - text: 
+      - generic [ref=f3e19] [cursor=pointer]:
+        - generic [ref=f3e20]: 
+        - text: На карте
+      - generic [ref=f3e21] [cursor=pointer]:
+        - generic [ref=f3e22]: 
+        - text: Списком
+  - generic [ref=f3e23]:
+    - generic [ref=f3e26]:
+      - generic [ref=f3e27]: 
+      - text: Фильтры
+    - generic [ref=f3e29]:
+      - generic [ref=f3e30]: 
+      - textbox "Название, регион" [ref=f3e31]
+    - generic [ref=f3e32]:
+      - generic [ref=f3e33]: "Тип:"
+      - generic [ref=f3e34]:
+        - list [ref=f3e35]:
+          - listitem [ref=f3e36]:
+            - textbox [ref=f3e37]: Любой
+        - generic [ref=f3e38]:
+          - list
+    - generic [ref=f3e39]:
+      - generic [ref=f3e40]: "Сложность:"
+      - generic [ref=f3e41]:
+        - list [ref=f3e42]:
+          - listitem [ref=f3e43]:
+            - textbox [ref=f3e44]: Любая
+        - generic [ref=f3e45]:
+          - list
+    - generic [ref=f3e46]:
+      - generic [ref=f3e47]: "Расстояние:"
+      - textbox [ref=f3e48]: "0"
+      - generic [ref=f3e49]: —
+      - textbox [ref=f3e50]
+      - generic [ref=f3e51]: км
+    - generic [ref=f3e52]:
+      - generic [ref=f3e53]: "Протяженность:"
+      - textbox [ref=f3e54]: "0"
+      - generic [ref=f3e55]: —
+      - textbox [ref=f3e56]
+      - generic [ref=f3e57]: дней
+  - generic [ref=f3e58]:
+    - text: 
+    - generic [ref=f3e59]:
+      - generic:
+        - generic:
+          - button "Marker" [ref=f3e94] [cursor=pointer]
+          - button "Marker" [ref=f3e95] [cursor=pointer]
+          - button "Marker" [ref=f3e96] [cursor=pointer]
+          - button "Marker" [ref=f3e97] [cursor=pointer]
+          - button "Marker" [ref=f3e98] [cursor=pointer]
+          - button "Marker" [ref=f3e99] [cursor=pointer]
+          - button "Marker" [ref=f3e100] [cursor=pointer]
+          - button "Marker" [ref=f3e101] [cursor=pointer]
+          - button "Marker" [ref=f3e102] [cursor=pointer]
+          - button "Marker" [ref=f3e103] [cursor=pointer]
+          - button "Marker" [ref=f3e104] [cursor=pointer]
+          - button "Marker" [ref=f3e105] [cursor=pointer]
+          - button "Marker" [ref=f3e106] [cursor=pointer]
+          - button "Marker" [ref=f3e107] [cursor=pointer]
+          - button "Marker" [ref=f3e108] [cursor=pointer]
+          - button "Marker" [ref=f3e109] [cursor=pointer]
+          - button "Marker" [ref=f3e110] [cursor=pointer]
+          - button "Marker" [ref=f3e111] [cursor=pointer]
+          - button "Marker" [ref=f3e112] [cursor=pointer]
+          - button "Marker" [ref=f3e113] [cursor=pointer]
+          - button "Marker" [ref=f3e114] [cursor=pointer]
+          - button "Marker" [ref=f3e115] [cursor=pointer]
+          - button "Marker" [ref=f3e116] [cursor=pointer]
+          - button "Marker" [ref=f3e117] [cursor=pointer]
+          - button "Marker" [ref=f3e118] [cursor=pointer]
+          - button "Marker" [ref=f3e119] [cursor=pointer]
+          - button "Marker" [ref=f3e120] [cursor=pointer]
+          - button "Marker" [ref=f3e121] [cursor=pointer]
+          - button "Marker" [ref=f3e122] [cursor=pointer]
+          - button "Marker" [ref=f3e123] [cursor=pointer]
+          - button "Marker" [ref=f3e124] [cursor=pointer]
+          - button "Marker" [ref=f3e125] [cursor=pointer]
+          - button "Marker" [ref=f3e126] [cursor=pointer]
+          - button "Marker" [ref=f3e127] [cursor=pointer]
+          - button "Marker" [ref=f3e128] [cursor=pointer]
+          - button "Marker" [ref=f3e129] [cursor=pointer]
+          - button "Marker" [ref=f3e130] [cursor=pointer]
+          - button "Marker" [ref=f3e131] [cursor=pointer]
+          - button "Marker" [ref=f3e132] [cursor=pointer]
+          - button "Marker" [ref=f3e133] [cursor=pointer]
+          - button "Marker" [ref=f3e134] [cursor=pointer]
+          - button "Marker" [ref=f3e135] [cursor=pointer]
+          - button "Marker" [ref=f3e136] [cursor=pointer]
+          - button "Marker" [ref=f3e137] [cursor=pointer]
+          - button "Marker" [ref=f3e138] [cursor=pointer]
+          - button "Marker" [ref=f3e139] [cursor=pointer]
+          - button "Marker" [ref=f3e140] [cursor=pointer]
+          - button "Marker" [ref=f3e141] [cursor=pointer]
+          - button "Marker" [ref=f3e142] [cursor=pointer]
+          - button "Marker" [ref=f3e143] [cursor=pointer]
+          - button "Marker" [ref=f3e144] [cursor=pointer]
+          - button "Marker" [ref=f3e145] [cursor=pointer]
+          - button "Marker" [ref=f3e146] [cursor=pointer]
+          - button "Marker" [ref=f3e147] [cursor=pointer]
+          - button "Marker" [ref=f3e148] [cursor=pointer]
+          - button "Marker" [ref=f3e149] [cursor=pointer]
+          - button "Marker" [ref=f3e150] [cursor=pointer]
+          - button "Marker" [ref=f3e151] [cursor=pointer]
+          - button "Marker" [ref=f3e152] [cursor=pointer]
+          - button "Marker" [ref=f3e153] [cursor=pointer]
+          - button "Marker" [ref=f3e154] [cursor=pointer]
+          - button "Marker" [ref=f3e155] [cursor=pointer]
+          - button "Marker" [ref=f3e156] [cursor=pointer]
+          - button "Marker" [ref=f3e157] [cursor=pointer]
+          - button "Marker" [ref=f3e158] [cursor=pointer]
+          - button "Marker" [ref=f3e159] [cursor=pointer]
+          - button "Marker" [ref=f3e160] [cursor=pointer]
+          - button "Marker" [ref=f3e161] [cursor=pointer]
+          - button "Marker" [ref=f3e162] [cursor=pointer]
+          - button "Marker" [ref=f3e163] [cursor=pointer]
+          - button "Marker" [ref=f3e164] [cursor=pointer]
+          - button "Marker" [ref=f3e165] [cursor=pointer]
+          - button "Marker" [ref=f3e166] [cursor=pointer]
+          - button "Marker" [ref=f3e167] [cursor=pointer]
+          - button "Marker" [ref=f3e168] [cursor=pointer]
+          - button "Marker" [ref=f3e169] [cursor=pointer]
+          - button "Marker" [ref=f3e170] [cursor=pointer]
+          - button "Marker" [ref=f3e171] [cursor=pointer]
+          - button "Marker" [ref=f3e172] [cursor=pointer]
+          - button "Marker" [ref=f3e173] [cursor=pointer]
+          - button "Marker" [ref=f3e174] [cursor=pointer]
+          - button "Marker" [ref=f3e175] [cursor=pointer]
+          - button "Marker" [ref=f3e176] [cursor=pointer]
+          - button "Marker" [ref=f3e177] [cursor=pointer]
+          - button "Marker" [ref=f3e178] [cursor=pointer]
+          - button "Marker" [ref=f3e179] [cursor=pointer]
+          - button "Marker" [ref=f3e180] [cursor=pointer]
+          - button "Marker" [ref=f3e181] [cursor=pointer]
+          - button "Marker" [ref=f3e182] [cursor=pointer]
+          - button "Marker" [ref=f3e183] [cursor=pointer]
+          - button "Marker" [ref=f3e184] [cursor=pointer]
+          - button "Marker" [ref=f3e185] [cursor=pointer]
+          - button "Marker" [ref=f3e186] [cursor=pointer]
+          - button "Marker" [ref=f3e187] [cursor=pointer]
+          - button "Marker" [ref=f3e188] [cursor=pointer]
+          - button "Marker" [ref=f3e189] [cursor=pointer]
+          - button "Marker" [ref=f3e190] [cursor=pointer]
+          - button "Marker" [ref=f3e191] [cursor=pointer]
+          - button "Marker" [ref=f3e192] [cursor=pointer]
+          - button "Marker" [ref=f3e193] [cursor=pointer]
+          - button "Marker" [ref=f3e194] [cursor=pointer]
+          - button "Marker" [ref=f3e195] [cursor=pointer]
+          - button "Marker" [ref=f3e196] [cursor=pointer]
+          - button "Marker" [ref=f3e197] [cursor=pointer]
+          - button "Marker" [ref=f3e198] [cursor=pointer]
+          - button "Marker" [ref=f3e199] [cursor=pointer]
+          - button "Marker" [ref=f3e200] [cursor=pointer]
+          - button "Marker" [ref=f3e201] [cursor=pointer]
+          - button "Marker" [ref=f3e202] [cursor=pointer]
+          - button "Marker" [ref=f3e203] [cursor=pointer]
+      - generic:
+        - generic:
+          - generic [ref=f3e204]:
+            - button "Zoom in" [ref=f3e205] [cursor=pointer]: +
+            - button "Zoom out" [ref=f3e206] [cursor=pointer]: −
+          - link "Полный экран" [ref=f3e208] [cursor=pointer]:
+            - /url: "#"
+          - generic "Сбросить масштаб" [ref=f3e209]: 
+        - button "Layers" [ref=f3e212] [cursor=pointer]
+        - generic: 2000 km
+    - generic [ref=f3e227]:
+      - generic [ref=f3e228]:
+        - link [ref=f3e230] [cursor=pointer]:
+          - /url: /trails/142/
+          - img "Photo" [ref=f3e231]
+        - link "Низовья Клязьмы" [ref=f3e233] [cursor=pointer]:
+          - /url: /trails/142/
+        - generic [ref=f3e234]: Нижегородская область.
+        - generic [ref=f3e235]: Пеший (возможно , )
+        - generic [ref=f3e241]: 1–2 дня, 21.4 км
+        - generic [ref=f3e242]: Простой маршрут
+      - generic [ref=f3e245]:
+        - link [ref=f3e247] [cursor=pointer]:
+          - /url: /trails/141/
+          - img "Photo" [ref=f3e248]
+        - link "Шониха — Сетчуга — Оранки." [ref=f3e250] [cursor=pointer]:
+          - /url: /trails/141/
+        - generic [ref=f3e251]: Нижегородская область.
+        - generic [ref=f3e252]: Пеший (возможно , )
+        - generic [ref=f3e258]: 1–2 дня, 24.3 км
+        - generic [ref=f3e259]: Простой маршрут
+      - generic [ref=f3e262]:
+        - link [ref=f3e264] [cursor=pointer]:
+          - /url: /trails/140/
+          - img "Photo" [ref=f3e265]
+        - link "Тропа Чемпионов" [ref=f3e267] [cursor=pointer]:
+          - /url: /trails/140/
+        - generic [ref=f3e268]: Краснодарский край, муниципальное образование город-курорт Сочи
+        - generic [ref=f3e269]: Пеший
+        - generic [ref=f3e271]: 3–4 часа, 5.2 км
+        - generic [ref=f3e272]: Сложный маршрут
+      - generic [ref=f3e275]:
+        - link [ref=f3e277] [cursor=pointer]:
+          - /url: /trails/139/
+          - img "Photo" [ref=f3e278]
+        - link "Путь Тритона" [ref=f3e280] [cursor=pointer]:
+          - /url: /trails/139/
+        - generic [ref=f3e281]: Краснодарский край, муниципальное образование город-курорт Сочи
+        - generic [ref=f3e282]: Пеший
+        - generic [ref=f3e284]: 3–7 часов, 5.1 км
+        - generic [ref=f3e285]: Средняя сложность
+      - generic [ref=f3e288]:
+        - link [ref=f3e290] [cursor=pointer]:
+          - /url: /trails/138/
+          - img "Photo" [ref=f3e291]
+        - link "Озерный Траверс" [ref=f3e293] [cursor=pointer]:
+          - /url: /trails/138/
+        - generic [ref=f3e294]: Краснодарский край, муниципальное образование город-курорт Сочи
+        - generic [ref=f3e295]: Пеший (возможно )
+        - generic [ref=f3e299]: 3–4 часа, 6.7 км
+        - generic [ref=f3e300]: Простой маршрут
+      - generic [ref=f3e303]:
+        - link [ref=f3e305] [cursor=pointer]:
+          - /url: /trails/137/
+          - img "Photo" [ref=f3e306]
+        - link "Дорога Турья" [ref=f3e308] [cursor=pointer]:
+          - /url: /trails/137/
+        - generic [ref=f3e309]: Краснодарский край, муниципальное образование город-курорт Сочи
+        - generic [ref=f3e310]: Пеший
+        - generic [ref=f3e312]: 5–6 часов, 10.2 км
+        - generic [ref=f3e313]: Средняя сложность
+      - generic [ref=f3e316]:
+        - link [ref=f3e318] [cursor=pointer]:
+          - /url: /trails/136/
+          - img "Photo" [ref=f3e319]
+        - link "Дорога Нахазо" [ref=f3e321] [cursor=pointer]:
+          - /url: /trails/136/
+        - generic [ref=f3e322]: Краснодарский край, муниципальное образование город-курорт Сочи
+        - generic [ref=f3e323]: Пеший
+        - generic [ref=f3e325]: 6–7 часов, 9.9 км
+        - generic [ref=f3e326]: Средняя сложность
+      - generic [ref=f3e329]:
+        - link [ref=f3e331] [cursor=pointer]:
+          - /url: /trails/135/
+          - img "Photo" [ref=f3e332]
+        - link "Большая Калужская Тропа" [ref=f3e334] [cursor=pointer]:
+          - /url: /trails/135/
+        - generic [ref=f3e335]: Калужская область
+        - generic [ref=f3e336]: Пеший (возможно , )
+        - generic [ref=f3e342]: 1–4 дня, 50.1 км
+        - generic [ref=f3e343]: Простой маршрут
+      - generic [ref=f3e346]:
+        - link [ref=f3e348] [cursor=pointer]:
+          - /url: /trails/134/
+          - img "Photo" [ref=f3e349]
+        - link "На гору Кашкерлам" [ref=f3e351] [cursor=pointer]:
+          - /url: /trails/134/
+        - generic [ref=f3e352]: Чеченская Республика, Веденский район. Ближайшие населённые пункты - Макажой и Харачой
+        - generic [ref=f3e353]: Пеший
+        - generic [ref=f3e355]: 1–3 дня, 25.6 км
+        - generic [ref=f3e356]: Сложный маршрут
+      - generic [ref=f3e359]:
+        - link [ref=f3e361] [cursor=pointer]:
+          - /url: /trails/133/
+          - img "Photo" [ref=f3e362]
+        - link "Харкаройская боевая башня" [ref=f3e364] [cursor=pointer]:
+          - /url: /trails/133/
+        - generic [ref=f3e365]: Чеченская Республика, Веденский район. Хойское сельское поселение
+        - generic [ref=f3e366]: Пеший (возможно )
+        - generic [ref=f3e370]: 2–3 дня, 22.9 км
+        - generic [ref=f3e371]: Средняя сложность
+      - generic [ref=f3e374]:
+        - link [ref=f3e376] [cursor=pointer]:
+          - /url: /trails/132/
+          - img "Photo" [ref=f3e377]
+        - link "На гору Шимерой" [ref=f3e379] [cursor=pointer]:
+          - /url: /trails/132/
+        - generic [ref=f3e380]: Чеченская Республика, Веденский район. Ближайшие населённые пункты — Хой и Макажой
+        - generic [ref=f3e381]: Пеший
+        - generic [ref=f3e383]: 5–6 часов, 8.8 км
+        - generic [ref=f3e384]: Простой маршрут
+      - generic [ref=f3e387]:
+        - link [ref=f3e389] [cursor=pointer]:
+          - /url: /trails/131/
+          - img "Photo" [ref=f3e390]
+        - link "К озеру Сейдъявр и водопаду Девичьи Косы" [ref=f3e392] [cursor=pointer]:
+          - /url: /trails/131/
+        - generic [ref=f3e393]: Мурманская область
+        - generic [ref=f3e394]: Пеший
+        - generic [ref=f3e396]: 1–3 дня, 27.9 км
+        - generic [ref=f3e397]: Сложный маршрут
+      - generic [ref=f3e400]:
+        - link [ref=f3e402] [cursor=pointer]:
+          - /url: /trails/130/
+          - img "Photo" [ref=f3e403]
+        - link "Скитур в Мончетундрах (Гора Хиппик)" [ref=f3e405] [cursor=pointer]:
+          - /url: /trails/130/
+        - generic [ref=f3e406]: Кольский полуостров, Мончетундры.
+        - generic [ref=f3e407]: Лыжный (возможно , )
+        - generic [ref=f3e409]: 6 часов, 7.7 км
+        - generic [ref=f3e410]: Средняя сложность
+      - generic [ref=f3e413]:
+        - link [ref=f3e415] [cursor=pointer]:
+          - /url: /trails/129/
+          - img "Photo" [ref=f3e416]
+        - link "Скитур здоровья — гора Нюд (Нюдуайвенч)" [ref=f3e418] [cursor=pointer]:
+          - /url: /trails/129/
+        - generic [ref=f3e419]: Кольский полуостров, Мурманская область, город Мончегорск, ближайшая к городу гора - Нюд.
+        - generic [ref=f3e420]: Лыжный (возможно , )
+        - generic [ref=f3e422]: 2 часа, 7.7 км
+        - generic [ref=f3e423]: Простой маршрут
+      - generic [ref=f3e426]:
+        - link [ref=f3e428] [cursor=pointer]:
+          - /url: /trails/128/
+          - img "Photo" [ref=f3e429]
+        - link "Скитур с кайтингом из Мончегорска в Хибины." [ref=f3e431] [cursor=pointer]:
+          - /url: /trails/128/
+        - generic [ref=f3e432]: Мончегорск, озеро Имандра, Хибины (г. Манепахк).
+        - generic [ref=f3e433]: Лыжный (возможно , , )
+        - generic [ref=f3e439]: 12 часов
+        - generic [ref=f3e440]: Сложный маршрут
+      - generic [ref=f3e443]:
+        - link [ref=f3e445] [cursor=pointer]:
+          - /url: /trails/127/
+          - img "Photo" [ref=f3e446]
+        - link "Скитур на Ниттис" [ref=f3e448] [cursor=pointer]:
+          - /url: /trails/127/
+        - generic [ref=f3e449]: Кольский полуостров, Мончегорск, гора Ниттис
+        - generic [ref=f3e450]: Лыжный (возможно , , )
+        - generic [ref=f3e452]: 5 часов, 2.4 км
+        - generic [ref=f3e453]: Средняя сложность
+      - generic [ref=f3e456]:
+        - link [ref=f3e458] [cursor=pointer]:
+          - /url: /trails/126/
+          - img "Photo" [ref=f3e459]
+        - link "Скитур Нюд — Воронья" [ref=f3e461] [cursor=pointer]:
+          - /url: /trails/126/
+        - generic [ref=f3e462]: Мурманской область, Мончегорск
+        - generic [ref=f3e463]: Лыжный
+        - generic [ref=f3e465]: 5–6 часов
+        - generic [ref=f3e466]: Простой маршрут
+      - generic [ref=f3e469]:
+        - link [ref=f3e471] [cursor=pointer]:
+          - /url: /trails/125/
+          - img "Photo" [ref=f3e472]
+        - link "От Орехово до Ладоги и обратно" [ref=f3e474] [cursor=pointer]:
+          - /url: /trails/125/
+        - generic [ref=f3e475]: Ленинградская область
+        - generic [ref=f3e476]: Вело (возможно )
+        - generic [ref=f3e480]: 1–6 дней, 99.8 км
+        - generic [ref=f3e481]: Средняя сложность
+      - generic [ref=f3e484]:
+        - link [ref=f3e486] [cursor=pointer]:
+          - /url: /trails/124/
+          - img "Photo" [ref=f3e487]
+        - link "Тропа «Шесть озер»" [ref=f3e489] [cursor=pointer]:
+          - /url: /trails/124/
+        - generic [ref=f3e490]: Санкт-Петербург, Ленинградская область, Курортный район
+        - generic [ref=f3e491]: Пеший (возможно )
+        - generic [ref=f3e495]: 1–2 дня, 44.9 км
+        - generic [ref=f3e496]: Простой маршрут
+      - generic [ref=f3e499]:
+        - link [ref=f3e501] [cursor=pointer]:
+          - /url: /trails/121/
+          - img "Photo" [ref=f3e502]
+        - link "Каменные озёра" [ref=f3e504] [cursor=pointer]:
+          - /url: /trails/121/
+        - generic [ref=f3e505]: Мурманская область
+        - generic [ref=f3e506]: Пеший
+        - generic [ref=f3e508]: 1–2 дня, 21.0 км
+        - generic [ref=f3e509]: Средняя сложность
+      - generic [ref=f3e512]:
+        - link [ref=f3e514] [cursor=pointer]:
+          - /url: /trails/119/
+          - img "Photo" [ref=f3e515]
+        - link "Тропа Мыс Киперорт" [ref=f3e517] [cursor=pointer]:
+          - /url: /trails/119/
+        - generic [ref=f3e518]: полуостров Киперорт, Приморское городское поселение, Выборгский район, Ленинградская область
+        - generic [ref=f3e519]: Пеший (возможно )
+        - generic [ref=f3e523]: 1–2 дня, 18.1 км
+        - generic [ref=f3e524]: Простой маршрут
+      - generic [ref=f3e527]:
+        - link [ref=f3e529] [cursor=pointer]:
+          - /url: /trails/118/
+          - img "Photo" [ref=f3e530]
+        - link "Оредежское кольцо" [ref=f3e532] [cursor=pointer]:
+          - /url: /trails/118/
+        - generic [ref=f3e533]: Лужский район, Ленинградская область
+        - generic [ref=f3e534]: Пеший (возможно , )
+        - generic [ref=f3e540]: 3–4 дня, 61.5 км
+        - generic [ref=f3e541]: Средняя сложность
+      - generic [ref=f3e544]:
+        - link [ref=f3e546] [cursor=pointer]:
+          - /url: /trails/117/
+          - img "Photo" [ref=f3e547]
+        - link "Тропа Сысертская сотня" [ref=f3e549] [cursor=pointer]:
+          - /url: /trails/117/
+        - generic [ref=f3e550]: Сысертский городской округ, Свердловская область
+        - generic [ref=f3e551]: Пеший (возможно )
+        - generic [ref=f3e555]: 4–6 дней, 109.4 км
+        - generic [ref=f3e556]: Простой маршрут
+      - generic [ref=f3e559]:
+        - link [ref=f3e561] [cursor=pointer]:
+          - /url: /trails/116/
+          - img "Photo" [ref=f3e562]
+        - link "Ниттис" [ref=f3e564] [cursor=pointer]:
+          - /url: /trails/116/
+        - generic [ref=f3e565]: Мурманская область
+        - generic [ref=f3e566]: Пеший
+        - generic [ref=f3e568]: 3–5 часов, 4.9 км
+        - generic [ref=f3e569]: Средняя сложность
+      - generic [ref=f3e572]:
+        - link [ref=f3e574] [cursor=pointer]:
+          - /url: /trails/115/
+          - img "Photo" [ref=f3e575]
+        - link "Тропа Геологов" [ref=f3e577] [cursor=pointer]:
+          - /url: /trails/115/
+        - generic [ref=f3e578]: Мурманская область
+        - generic [ref=f3e579]: Пеший
+        - generic [ref=f3e581]: 2–3 часа, 4.9 км
+        - generic [ref=f3e582]: Простой маршрут
+      - generic [ref=f3e585]:
+        - link [ref=f3e587] [cursor=pointer]:
+          - /url: /trails/114/
+          - img "Photo" [ref=f3e588]
+        - link "Тропа Воронов" [ref=f3e590] [cursor=pointer]:
+          - /url: /trails/114/
+        - generic [ref=f3e591]: Мурманская область
+        - generic [ref=f3e592]: Пеший
+        - generic [ref=f3e594]: 3–5 часов, 5.7 км
+        - generic [ref=f3e595]: Простой маршрут
+      - generic [ref=f3e598]:
+        - link [ref=f3e600] [cursor=pointer]:
+          - /url: /trails/113/
+          - img "Photo" [ref=f3e601]
+        - link "Тропа Силы" [ref=f3e603] [cursor=pointer]:
+          - /url: /trails/113/
+        - generic [ref=f3e604]: Мурманская область
+        - generic [ref=f3e605]: Пеший
+        - generic [ref=f3e607]: 5–8 часов, 12.4 км
+        - generic [ref=f3e608]: Простой маршрут
+      - generic [ref=f3e611]:
+        - link [ref=f3e613] [cursor=pointer]:
+          - /url: /trails/112/
+          - img "Photo" [ref=f3e614]
+        - link "Тропа Здоровья" [ref=f3e616] [cursor=pointer]:
+          - /url: /trails/112/
+        - generic [ref=f3e617]: Мурманская область
+        - generic [ref=f3e618]: Пеший
+        - generic [ref=f3e620]: 3–5 часов, 7.0 км
+        - generic [ref=f3e621]: Простой маршрут
+      - generic [ref=f3e624]:
+        - link [ref=f3e626] [cursor=pointer]:
+          - /url: /trails/111/
+          - img "Photo" [ref=f3e627]
+        - link "Тропа Викингов" [ref=f3e629] [cursor=pointer]:
+          - /url: /trails/111/
+        - generic [ref=f3e630]: Мурманская область
+        - generic [ref=f3e631]: Пеший
+        - generic [ref=f3e633]: 1–3 дня, 48.4 км
+        - generic [ref=f3e634]: Средняя сложность
+      - generic [ref=f3e637]:
+        - link [ref=f3e639] [cursor=pointer]:
+          - /url: /trails/109/
+          - img "Photo" [ref=f3e640]
+        - link "Тропа Нартов" [ref=f3e642] [cursor=pointer]:
+          - /url: /trails/109/
+        - generic [ref=f3e643]: Кабардино-Балкария
+        - generic [ref=f3e644]: Пеший
+        - generic [ref=f3e646]: 3–6 часов, 11.0 км
+        - generic [ref=f3e647]: Средняя сложность
+      - generic [ref=f3e650]:
+        - link [ref=f3e652] [cursor=pointer]:
+          - /url: /trails/107/
+          - img "Photo" [ref=f3e653]
+        - link "Источник Жизни" [ref=f3e655] [cursor=pointer]:
+          - /url: /trails/107/
+        - generic [ref=f3e656]: Чеченская Республика, Веденский район, Шатойский район
+        - generic [ref=f3e657]: Пеший
+        - generic [ref=f3e659]: 2–3 дня, 26.6 км
+        - generic [ref=f3e660]: Средняя сложность
+      - generic [ref=f3e663]:
+        - link [ref=f3e665] [cursor=pointer]:
+          - /url: /trails/106/
+          - img "Photo" [ref=f3e666]
+        - link "Ожерелье Якты-Куль" [ref=f3e668] [cursor=pointer]:
+          - /url: /trails/106/
+        - generic [ref=f3e669]: Башкортостан, Урал
+        - generic [ref=f3e670]: Пеший (возможно )
+        - generic [ref=f3e674]: 7–10 часов, 25.5 км
+        - generic [ref=f3e675]: Простой маршрут
+      - generic [ref=f3e678]:
+        - link [ref=f3e680] [cursor=pointer]:
+          - /url: /trails/105/
+          - img "Photo" [ref=f3e681]
+        - link "Гряда Вярямянселькя" [ref=f3e683] [cursor=pointer]:
+          - /url: /trails/105/
+        - generic [ref=f3e684]: Природный заказник "Гряда Вярямянселькя, Ленинградская область
+        - generic [ref=f3e685]: Пеший (возможно )
+        - generic [ref=f3e689]: 3–4 часа, 12.6 км
+        - generic [ref=f3e690]: Простой маршрут
+      - generic [ref=f3e693]:
+        - link [ref=f3e695] [cursor=pointer]:
+          - /url: /trails/104/
+          - img "Photo" [ref=f3e696]
+        - link "Природа — великий скульптор" [ref=f3e698] [cursor=pointer]:
+          - /url: /trails/104/
+        - generic [ref=f3e699]: Государственный природный заповедник “Столбы”, Красноярский край
+        - generic [ref=f3e700]: Пеший
+        - generic [ref=f3e702]: 6–7 часов, 15.4 км
+        - generic [ref=f3e703]: Простой маршрут
+      - generic [ref=f3e706]:
+        - link [ref=f3e708] [cursor=pointer]:
+          - /url: /trails/103/
+          - img "Photo" [ref=f3e709]
+        - link "Водоскат Учар" [ref=f3e711] [cursor=pointer]:
+          - /url: /trails/103/
+        - generic [ref=f3e712]: Алтайский государственный заповедник, Республика Алтай
+        - generic [ref=f3e713]: Пеший
+        - generic [ref=f3e715]: 7–8 часов, 16.4 км
+        - generic [ref=f3e716]: Простой маршрут
+      - generic [ref=f3e719]:
+        - link [ref=f3e721] [cursor=pointer]:
+          - /url: /trails/102/
+          - img "Photo" [ref=f3e722]
+        - link "Гора Кивакка" [ref=f3e724] [cursor=pointer]:
+          - /url: /trails/102/
+        - generic [ref=f3e725]: Национальный парк "Паанаярви", Республика Карелия
+        - generic [ref=f3e726]: Пеший
+        - generic [ref=f3e728]: 6–8 часов, 8.6 км
+        - generic [ref=f3e729]: Простой маршрут
+      - generic [ref=f3e732]:
+        - link [ref=f3e734] [cursor=pointer]:
+          - /url: /trails/100/
+          - img "Photo" [ref=f3e735]
+        - link "п. Листвянка — п. Большое Голоустное" [ref=f3e737] [cursor=pointer]:
+          - /url: /trails/100/
+        - generic [ref=f3e738]: Прибайкальский национальный парк, Иркутская область
+        - generic [ref=f3e739]: Пеший (возможно , )
+        - generic [ref=f3e745]: 3–5 дней, 51.4 км
+        - generic [ref=f3e746]: Простой маршрут
+      - generic [ref=f3e749]:
+        - link [ref=f3e751] [cursor=pointer]:
+          - /url: /trails/99/
+          - img "Photo" [ref=f3e752]
+        - link "Большой Тхач" [ref=f3e754] [cursor=pointer]:
+          - /url: /trails/99/
+        - generic [ref=f3e755]: Природный парк "Большой Тхач", Республика Адыгея
+        - generic [ref=f3e756]: Пеший
+        - generic [ref=f3e758]: 5–7 дней, 55.3 км
+        - generic [ref=f3e759]: Простой маршрут
+      - generic [ref=f3e762]:
+        - link [ref=f3e764] [cursor=pointer]:
+          - /url: /trails/98/
+          - img "Photo" [ref=f3e765]
+        - link "Экологическое кольцо (Боткинская + Штангеевская тропы)" [ref=f3e767] [cursor=pointer]:
+          - /url: /trails/98/
+        - generic [ref=f3e768]: Ялтинский горно-лесной природный заповедник, Республика Крым
+        - generic [ref=f3e769]: Пеший
+        - generic [ref=f3e771]: 4–5 часов, 6.2 км
+        - generic [ref=f3e772]: Средняя сложность
+      - generic [ref=f3e775]:
+        - link [ref=f3e777] [cursor=pointer]:
+          - /url: /trails/97/
+          - img "Photo" [ref=f3e778]
+        - link "«Через горы к Черному морю, через приют Фишт» («Тридцатка»)" [ref=f3e780] [cursor=pointer]:
+          - /url: /trails/97/
+        - generic [ref=f3e781]: Кавказский государственный природный биосферный заповедник имени Х.Г.Шапошникова, Краснодарский край
+        - generic [ref=f3e782]: Пеший
+        - generic [ref=f3e784]: 4–5 дней, 44.8 км
+        - generic [ref=f3e785]: Средняя сложность
+      - generic [ref=f3e788]:
+        - link [ref=f3e790] [cursor=pointer]:
+          - /url: /trails/96/
+          - img "Photo" [ref=f3e791]
+        - link "Монастырская тропа" [ref=f3e793] [cursor=pointer]:
+          - /url: /trails/96/
+        - generic [ref=f3e794]: Национальный парк «Водлозерский», Карелия
+        - generic [ref=f3e795]: Пеший (возможно )
+        - generic [ref=f3e799]: 2 дня, 33.2 км
+        - generic [ref=f3e800]: Простой маршрут
+      - generic [ref=f3e803]:
+        - link [ref=f3e805] [cursor=pointer]:
+          - /url: /trails/95/
+          - img "Photo" [ref=f3e806]
+        - link "Большая Валдайская тропа" [ref=f3e808] [cursor=pointer]:
+          - /url: /trails/95/
+        - generic [ref=f3e809]: Национальный парк "Валдайский", Новгородская область
+        - generic [ref=f3e810]: Пеший
+        - generic [ref=f3e812]: 5 дней, 59.0 км
+        - generic [ref=f3e813]: Простой маршрут
+      - generic [ref=f3e816]:
+        - link [ref=f3e818] [cursor=pointer]:
+          - /url: /trails/93/
+          - img "Photo" [ref=f3e819]
+        - link "Из Иванцева в Иванково лесом и берегом" [ref=f3e821] [cursor=pointer]:
+          - /url: /trails/93/
+        - generic [ref=f3e822]: Ивановская область
+        - generic [ref=f3e823]: Пеший (возможно , )
+        - generic [ref=f3e829]: 6–8 часов, 22.9 км
+        - generic [ref=f3e830]: Простой маршрут
+      - generic [ref=f3e833]:
+        - link [ref=f3e835] [cursor=pointer]:
+          - /url: /trails/92/
+          - img "Photo" [ref=f3e836]
+        - link "Окская тропа" [ref=f3e838] [cursor=pointer]:
+          - /url: /trails/92/
+        - generic [ref=f3e839]: Нижегородская область
+        - generic [ref=f3e840]: Пеший
+        - generic [ref=f3e842]: 2 дня, 40.4 км
+        - generic [ref=f3e843]: Средняя сложность
+      - generic [ref=f3e846]:
+        - link [ref=f3e848] [cursor=pointer]:
+          - /url: /trails/91/
+          - img "Photo" [ref=f3e849]
+        - link "Озерный край" [ref=f3e851] [cursor=pointer]:
+          - /url: /trails/91/
+        - generic [ref=f3e852]: Ивановская, Владимирская область
+        - generic [ref=f3e853]: Пеший (возможно )
+        - generic [ref=f3e857]: 2–3 дня, 53.0 км
+        - generic [ref=f3e858]: Средняя сложность
+      - generic [ref=f3e861]:
+        - link [ref=f3e863] [cursor=pointer]:
+          - /url: /trails/90/
+          - img "Photo" [ref=f3e864]
+        - link "Аургазинские скальники" [ref=f3e866] [cursor=pointer]:
+          - /url: /trails/90/
+        - generic [ref=f3e867]: Южный Урал
+        - generic [ref=f3e868]: Пеший (возможно , )
+        - generic [ref=f3e874]: 1–2 дня, 21.0 км
+        - generic [ref=f3e875]: Средняя сложность
+      - generic [ref=f3e878]:
+        - link [ref=f3e880] [cursor=pointer]:
+          - /url: /trails/89/
+          - img "Photo" [ref=f3e881]
+        - link "Тропы Березополья" [ref=f3e883] [cursor=pointer]:
+          - /url: /trails/89/
+        - generic [ref=f3e884]: Нижегородская область
+        - generic [ref=f3e885]: Пеший (возможно , )
+        - generic [ref=f3e891]: 1–10 дней, 118.7 км
+        - generic [ref=f3e892]: Простой маршрут
+      - generic [ref=f3e895]:
+        - link [ref=f3e897] [cursor=pointer]:
+          - /url: /trails/88/
+          - img "Photo" [ref=f3e898]
+        - link "Тропа Южного Берега" [ref=f3e900] [cursor=pointer]:
+          - /url: /trails/88/
+        - generic [ref=f3e901]: Ленинградская область
+        - generic [ref=f3e902]: Пеший (возможно )
+        - generic [ref=f3e906]: 4 дня, 39.3 км
+        - generic [ref=f3e907]: Простой маршрут
+      - generic [ref=f3e910]:
+        - link [ref=f3e912] [cursor=pointer]:
+          - /url: /trails/87/
+          - img "Photo" [ref=f3e913]
+        - link "Южный Вандан" [ref=f3e915] [cursor=pointer]:
+          - /url: /trails/87/
+        - generic [ref=f3e916]: Хабаровский край
+        - generic [ref=f3e917]: Пеший
+        - generic [ref=f3e919]: 1–2 дня, 31.4 км
+        - generic [ref=f3e920]: Простой маршрут
+      - generic [ref=f3e923]:
+        - link [ref=f3e925] [cursor=pointer]:
+          - /url: /trails/86/
+          - img "Photo" [ref=f3e926]
+        - link "Аргуновская волость" [ref=f3e928] [cursor=pointer]:
+          - /url: /trails/86/
+        - generic [ref=f3e929]: Московская область, Владимирская область
+        - generic [ref=f3e930]: Пеший (возможно )
+        - generic [ref=f3e934]: 1–2 дня, 31.3 км
+        - generic [ref=f3e935]: Простой маршрут
+      - generic [ref=f3e938]:
+        - link [ref=f3e940] [cursor=pointer]:
+          - /url: /trails/85/
+          - img "Photo" [ref=f3e941]
+        - link "Львовская — Молоди" [ref=f3e943] [cursor=pointer]:
+          - /url: /trails/85/
+        - generic [ref=f3e944]: Московская область
+        - generic [ref=f3e945]: Пеший (возможно )
+        - generic [ref=f3e949]: 6–8 часов, 19.6 км
+        - generic [ref=f3e950]: Простой маршрут
+      - generic [ref=f3e953]:
+        - link [ref=f3e955] [cursor=pointer]:
+          - /url: /trails/84/
+          - img "Photo" [ref=f3e956]
+        - link "Кремль и фарфор (Вербилки — Дмитров)" [ref=f3e958] [cursor=pointer]:
+          - /url: /trails/84/
+        - generic [ref=f3e959]: Московская область
+        - generic [ref=f3e960]: Пеший (возможно )
+        - generic [ref=f3e964]: 2 дня, 43.3 км
+        - generic [ref=f3e965]: Простой маршрут
+      - generic [ref=f3e968]:
+        - link [ref=f3e970] [cursor=pointer]:
+          - /url: /trails/83/
+          - img "Photo" [ref=f3e971]
+        - link "Ногинск — Авдотьино" [ref=f3e973] [cursor=pointer]:
+          - /url: /trails/83/
+        - generic [ref=f3e974]: Московская область
+        - generic [ref=f3e975]: Пеший
+        - generic [ref=f3e977]: 1–2 дня, 29.2 км
+        - generic [ref=f3e978]: Средняя сложность
+      - generic [ref=f3e981]:
+        - link [ref=f3e983] [cursor=pointer]:
+          - /url: /trails/82/
+          - img "Photo" [ref=f3e984]
+        - link "Марфино кольцо" [ref=f3e986] [cursor=pointer]:
+          - /url: /trails/82/
+        - generic [ref=f3e987]: Московская область
+        - generic [ref=f3e988]: Пеший
+        - generic [ref=f3e990]: 1–2 дня, 30.3 км
+        - generic [ref=f3e991]: Средняя сложность
+      - generic [ref=f3e994]:
+        - link [ref=f3e996] [cursor=pointer]:
+          - /url: /trails/81/
+          - img "Photo" [ref=f3e997]
+        - link "Боровский тракт" [ref=f3e999] [cursor=pointer]:
+          - /url: /trails/81/
+        - generic [ref=f3e1000]: Московская область, Калужская область
+        - generic [ref=f3e1001]: Пеший
+        - generic [ref=f3e1003]: 5–6 часов, 15.2 км
+        - generic [ref=f3e1004]: Средняя сложность
+      - generic [ref=f3e1007]:
+        - link [ref=f3e1009] [cursor=pointer]:
+          - /url: /trails/80/
+          - img "Photo" [ref=f3e1010]
+        - link "На Марс! (Полушкино — Театральная)" [ref=f3e1012] [cursor=pointer]:
+          - /url: /trails/80/
+        - generic [ref=f3e1013]: Московская область
+        - generic [ref=f3e1014]: Пеший (возможно )
+        - generic [ref=f3e1018]: 1–2 дня, 26.3 км
+        - generic [ref=f3e1019]: Простой маршрут
+      - generic [ref=f3e1022]:
+        - link [ref=f3e1024] [cursor=pointer]:
+          - /url: /trails/79/
+          - img "Photo" [ref=f3e1025]
+        - link "Калужская Ниагара (Протвино — Кременки)" [ref=f3e1027] [cursor=pointer]:
+          - /url: /trails/79/
+        - generic [ref=f3e1028]: Московская область, Калужская область
+        - generic [ref=f3e1029]: Пеший (возможно , )
+        - generic [ref=f3e1035]: 5–6 часов, 15.5 км
+        - generic [ref=f3e1036]: Простой маршрут
+      - generic [ref=f3e1039]:
+        - link [ref=f3e1041] [cursor=pointer]:
+          - /url: /trails/78/
+          - img "Photo" [ref=f3e1042]
+        - link "Вдоль Рожайки" [ref=f3e1044] [cursor=pointer]:
+          - /url: /trails/78/
+        - generic [ref=f3e1045]: Московская область
+        - generic [ref=f3e1046]: Пеший (возможно )
+        - generic [ref=f3e1050]: 4–5 часов, 14.1 км
+        - generic [ref=f3e1051]: Простой маршрут
+      - generic [ref=f3e1054]:
+        - link [ref=f3e1056] [cursor=pointer]:
+          - /url: /trails/77/
+          - img "Photo" [ref=f3e1057]
+        - link "К Талежскому источнику" [ref=f3e1059] [cursor=pointer]:
+          - /url: /trails/77/
+        - generic [ref=f3e1060]: Московская область
+        - generic [ref=f3e1061]: Пеший
+        - generic [ref=f3e1063]: 1–2 дня, 26.0 км
+        - generic [ref=f3e1064]: Средняя сложность
+      - generic [ref=f3e1067]:
+        - link [ref=f3e1069] [cursor=pointer]:
+          - /url: /trails/76/
+          - img "Photo" [ref=f3e1070]
+        - link "Войново — Заполицы" [ref=f3e1072] [cursor=pointer]:
+          - /url: /trails/76/
+        - generic [ref=f3e1073]: Московская область
+        - generic [ref=f3e1074]: Пеший (возможно , )
+        - generic [ref=f3e1080]: 2–3 дня, 56.3 км
+        - generic [ref=f3e1081]: Средняя сложность
+      - generic [ref=f3e1084]:
+        - link [ref=f3e1086] [cursor=pointer]:
+          - /url: /trails/75/
+          - img "Photo" [ref=f3e1087]
+        - link "Саровская Кругосветка — Царские Места (Часть 1)" [ref=f3e1089] [cursor=pointer]:
+          - /url: /trails/75/
+        - generic [ref=f3e1090]: Нижегородская область
+        - generic [ref=f3e1091]: Пеший (возможно , )
+        - generic [ref=f3e1097]: 2–3 дня, 39.0 км
+        - generic [ref=f3e1098]: Простой маршрут
+      - generic [ref=f3e1101]:
+        - link [ref=f3e1103] [cursor=pointer]:
+          - /url: /trails/74/
+          - img "Photo" [ref=f3e1104]
+        - link "Зеленоград — Менделеево" [ref=f3e1106] [cursor=pointer]:
+          - /url: /trails/74/
+        - generic [ref=f3e1107]: Московская область
+        - generic [ref=f3e1108]: Пеший (возможно , )
+        - generic [ref=f3e1114]: 1–2 дня, 18.1 км
+        - generic [ref=f3e1115]: Средняя сложность
+      - generic [ref=f3e1118]:
+        - link [ref=f3e1120] [cursor=pointer]:
+          - /url: /trails/73/
+          - img "Photo" [ref=f3e1121]
+        - link "Хаджохское кольцо" [ref=f3e1123] [cursor=pointer]:
+          - /url: /trails/73/
+        - generic [ref=f3e1124]: Адыгея
+        - generic [ref=f3e1125]: Пеший
+        - generic [ref=f3e1127]: 1–3 дня, 29.4 км
+        - generic [ref=f3e1128]: Сложный маршрут
+      - generic [ref=f3e1131]:
+        - link [ref=f3e1133] [cursor=pointer]:
+          - /url: /trails/72/
+          - img "Photo" [ref=f3e1134]
+        - link "Ялангас" [ref=f3e1136] [cursor=pointer]:
+          - /url: /trails/72/
+        - generic [ref=f3e1137]: Башкортостан, Урал
+        - generic [ref=f3e1138]: Пеший (возможно )
+        - generic [ref=f3e1142]: 1–2 дня, 23.8 км
+        - generic [ref=f3e1143]: Простой маршрут
+      - generic [ref=f3e1146]:
+        - link [ref=f3e1148] [cursor=pointer]:
+          - /url: /trails/71/
+          - img "Photo" [ref=f3e1149]
+        - link "Прогулка по Москве" [ref=f3e1151] [cursor=pointer]:
+          - /url: /trails/71/
+        - generic [ref=f3e1152]: Москва
+        - generic [ref=f3e1153]: Пеший (возможно )
+        - generic [ref=f3e1157]: 2–4 часа, 9.9 км
+        - generic [ref=f3e1158]: Простой маршрут
+      - generic [ref=f3e1161]:
+        - link [ref=f3e1163] [cursor=pointer]:
+          - /url: /trails/70/
+          - img "Photo" [ref=f3e1164]
+        - link "От вершин к вершинам (Индюк, Семашхо, Два брата)" [ref=f3e1166] [cursor=pointer]:
+          - /url: /trails/70/
+        - generic [ref=f3e1167]: Краснодарский край
+        - generic [ref=f3e1168]: Пеший (возможно )
+        - generic [ref=f3e1172]: 2–3 дня, 20.8 км
+        - generic [ref=f3e1173]: Средняя сложность
+      - generic [ref=f3e1176]:
+        - link [ref=f3e1178] [cursor=pointer]:
+          - /url: /trails/69/
+          - img "Photo" [ref=f3e1179]
+        - link "Караваево — Калинки" [ref=f3e1181] [cursor=pointer]:
+          - /url: /trails/69/
+        - generic [ref=f3e1182]: Костромская область
+        - generic [ref=f3e1183]: Пеший (возможно , )
+        - generic [ref=f3e1189]: 2–3 дня, 46.4 км
+        - generic [ref=f3e1190]: Средняя сложность
+      - generic [ref=f3e1193]:
+        - link [ref=f3e1195] [cursor=pointer]:
+          - /url: /trails/68/
+          - img "Photo" [ref=f3e1196]
+        - link "Старицкая Земля" [ref=f3e1198] [cursor=pointer]:
+          - /url: /trails/68/
+        - generic [ref=f3e1199]: Тверская область
+        - generic [ref=f3e1200]: Пеший
+        - generic [ref=f3e1202]: 1–2 дня, 21.5 км
+        - generic [ref=f3e1203]: Сложный маршрут
+      - generic [ref=f3e1206]:
+        - link [ref=f3e1208] [cursor=pointer]:
+          - /url: /trails/66/
+          - img "Photo" [ref=f3e1209]
+        - link "Тирлян — Инзерские Зубчатки" [ref=f3e1211] [cursor=pointer]:
+          - /url: /trails/66/
+        - generic [ref=f3e1212]: Башкортостан, Урал
+        - generic [ref=f3e1213]: Пеший (возможно , )
+        - generic [ref=f3e1219]: 2 дня, 41.7 км
+        - generic [ref=f3e1220]: Средняя сложность
+      - generic [ref=f3e1223]:
+        - link [ref=f3e1225] [cursor=pointer]:
+          - /url: /trails/65/
+          - img "Photo" [ref=f3e1226]
+        - link "Пик Черского" [ref=f3e1228] [cursor=pointer]:
+          - /url: /trails/65/
+        - generic [ref=f3e1229]: Иркутская область, Байкал
+        - generic [ref=f3e1230]: Пеший
+        - generic [ref=f3e1232]: 2–3 дня, 51.7 км
+        - generic [ref=f3e1233]: Средняя сложность
+      - generic [ref=f3e1236]:
+        - link [ref=f3e1238] [cursor=pointer]:
+          - /url: /trails/64/
+          - img "Photo" [ref=f3e1239]
+        - link "Кузьмоловский карьер" [ref=f3e1241] [cursor=pointer]:
+          - /url: /trails/64/
+        - generic [ref=f3e1242]: Ленинградская область
+        - generic [ref=f3e1243]: Пеший (возможно , )
+        - generic [ref=f3e1249]: 4–5 часов, 9.6 км
+        - generic [ref=f3e1250]: Простой маршрут
+      - generic [ref=f3e1253]:
+        - link [ref=f3e1255] [cursor=pointer]:
+          - /url: /trails/63/
+          - img "Photo" [ref=f3e1256]
+        - link "К Пантелееву болоту" [ref=f3e1258] [cursor=pointer]:
+          - /url: /trails/63/
+        - generic [ref=f3e1259]: Тверская область
+        - generic [ref=f3e1260]: Пеший
+        - generic [ref=f3e1262]: 7 часов, 21.0 км
+        - generic [ref=f3e1263]: Средняя сложность
+      - generic [ref=f3e1266]:
+        - link [ref=f3e1268] [cursor=pointer]:
+          - /url: /trails/62/
+          - img "Photo" [ref=f3e1269]
+        - link "Озеры — Коломна" [ref=f3e1271] [cursor=pointer]:
+          - /url: /trails/62/
+        - generic [ref=f3e1272]: Московская область
+        - generic [ref=f3e1273]: Пеший (возможно )
+        - generic [ref=f3e1277]: 2–3 дня, 36.9 км
+        - generic [ref=f3e1278]: Средняя сложность
+      - generic [ref=f3e1281]:
+        - link [ref=f3e1283] [cursor=pointer]:
+          - /url: /trails/61/
+          - img "Photo" [ref=f3e1284]
+        - link "«Кольцо Суханова» (Ущелье Актру)" [ref=f3e1286] [cursor=pointer]:
+          - /url: /trails/61/
+        - generic [ref=f3e1287]: Алтай
+        - generic [ref=f3e1288]: Пеший
+        - generic [ref=f3e1290]: 2–3 часа, 4.2 км
+        - generic [ref=f3e1291]: Средняя сложность
+      - generic [ref=f3e1294]:
+        - link [ref=f3e1296] [cursor=pointer]:
+          - /url: /trails/60/
+          - img "Photo" [ref=f3e1297]
+        - link "Гора Качканар" [ref=f3e1299] [cursor=pointer]:
+          - /url: /trails/60/
+        - generic [ref=f3e1300]: Свердловская область, Урал
+        - generic [ref=f3e1301]: Пеший
+        - generic [ref=f3e1303]: 2 дня, 16.1 км
+        - generic [ref=f3e1304]: Средняя сложность
+      - generic [ref=f3e1307]:
+        - link [ref=f3e1309] [cursor=pointer]:
+          - /url: /trails/59/
+          - img "Photo" [ref=f3e1310]
+        - link "Терем в Асташово" [ref=f3e1312] [cursor=pointer]:
+          - /url: /trails/59/
+        - generic [ref=f3e1313]: Костромская область
+        - generic [ref=f3e1314]: Лыжный (возможно )
+        - generic [ref=f3e1318]: 4–5 часов, 13.6 км
+        - generic [ref=f3e1319]: Средняя сложность
+      - generic [ref=f3e1322]:
+        - link [ref=f3e1324] [cursor=pointer]:
+          - /url: /trails/58/
+          - img "Photo" [ref=f3e1325]
+        - link "Усадьбы и святые или Калистовский узел" [ref=f3e1327] [cursor=pointer]:
+          - /url: /trails/58/
+        - generic [ref=f3e1328]: Московская область
+        - generic [ref=f3e1329]: Пеший
+        - generic [ref=f3e1331]: 2–3 дня, 37.3 км
+        - generic [ref=f3e1332]: Простой маршрут
+      - generic [ref=f3e1335]:
+        - link [ref=f3e1337] [cursor=pointer]:
+          - /url: /trails/57/
+          - img "Photo" [ref=f3e1338]
+        - link "Сувар" [ref=f3e1340] [cursor=pointer]:
+          - /url: /trails/57/
+        - generic [ref=f3e1341]: Чебоксарский район, Чувашия
+        - generic [ref=f3e1342]: Пеший
+        - generic [ref=f3e1344]: 6–7 часов, 14.1 км
+        - generic [ref=f3e1345]: Простой маршрут
+      - generic [ref=f3e1348]:
+        - link [ref=f3e1350] [cursor=pointer]:
+          - /url: /trails/56/
+          - img "Photo" [ref=f3e1351]
+        - link "На озеро Кщара за тайником Кощея" [ref=f3e1353] [cursor=pointer]:
+          - /url: /trails/56/
+        - generic [ref=f3e1354]: Владимирская область
+        - generic [ref=f3e1355]: Пеший
+        - generic [ref=f3e1357]: 2–3 дня, 46.6 км
+        - generic [ref=f3e1358]: Простой маршрут
+      - generic [ref=f3e1361]:
+        - link [ref=f3e1363] [cursor=pointer]:
+          - /url: /trails/55/
+          - img "Photo" [ref=f3e1364]
+        - link "Большой Алольский круг" [ref=f3e1366] [cursor=pointer]:
+          - /url: /trails/55/
+        - generic [ref=f3e1367]: Псковская область
+        - generic [ref=f3e1368]: Пеший
+        - generic [ref=f3e1370]: 7–8 часов, 21.3 км
+        - generic [ref=f3e1371]: Сложный маршрут
+      - generic [ref=f3e1374]:
+        - link [ref=f3e1376] [cursor=pointer]:
+          - /url: /trails/54/
+          - img "Photo" [ref=f3e1377]
+        - link "Герои-панфиловцы" [ref=f3e1379] [cursor=pointer]:
+          - /url: /trails/54/
+        - generic [ref=f3e1380]: Московская область
+        - generic [ref=f3e1381]: Пеший
+        - generic [ref=f3e1383]: 7–8 часов, 20.4 км
+        - generic [ref=f3e1384]: Средняя сложность
+      - generic [ref=f3e1387]:
+        - link [ref=f3e1389] [cursor=pointer]:
+          - /url: /trails/53/
+          - img "Photo" [ref=f3e1390]
+        - link "Водопад у подножия хребта Борус" [ref=f3e1392] [cursor=pointer]:
+          - /url: /trails/53/
+        - generic [ref=f3e1393]: Красноярский край
+        - generic [ref=f3e1394]: Пеший (возможно )
+        - generic [ref=f3e1398]: 1–2 дня, 17.4 км
+        - generic [ref=f3e1399]: Простой маршрут
+      - generic [ref=f3e1402]:
+        - link [ref=f3e1404] [cursor=pointer]:
+          - /url: /trails/52/
+          - img "Photo" [ref=f3e1405]
+        - link "Красногорские виражи (Митино — Красногорская)" [ref=f3e1407] [cursor=pointer]:
+          - /url: /trails/52/
+        - generic [ref=f3e1408]: Московская область
+        - generic [ref=f3e1409]: Пеший (возможно , )
+        - generic [ref=f3e1415]: 5 часов, 15.3 км
+        - generic [ref=f3e1416]: Простой маршрут
+      - generic [ref=f3e1419]:
+        - link [ref=f3e1421] [cursor=pointer]:
+          - /url: /trails/51/
+          - img "Photo" [ref=f3e1422]
+        - link "Приокские дюны (Акри — Турово)" [ref=f3e1424] [cursor=pointer]:
+          - /url: /trails/51/
+        - generic [ref=f3e1425]: Московская область
+        - generic [ref=f3e1426]: Пеший (возможно )
+        - generic [ref=f3e1430]: 2 дня, 26.1 км
+        - generic [ref=f3e1431]: Простой маршрут
+      - generic [ref=f3e1434]:
+        - link [ref=f3e1436] [cursor=pointer]:
+          - /url: /trails/50/
+          - img "Photo" [ref=f3e1437]
+        - link "По хребту Салопа" [ref=f3e1439] [cursor=pointer]:
+          - /url: /trails/50/
+        - generic [ref=f3e1440]: Алтай
+        - generic [ref=f3e1441]: Пеший
+        - generic [ref=f3e1443]: 6–8 часов, 15.2 км
+        - generic [ref=f3e1444]: Простой маршрут
+      - generic [ref=f3e1447]:
+        - link [ref=f3e1449] [cursor=pointer]:
+          - /url: /trails/49/
+          - img "Photo" [ref=f3e1450]
+        - link "Гора Малиновая" [ref=f3e1452] [cursor=pointer]:
+          - /url: /trails/49/
+        - generic [ref=f3e1453]: Башкортостан, Урал
+        - generic [ref=f3e1454]: Пеший
+        - generic [ref=f3e1456]: 1–2 дня, 11.9 км
+        - generic [ref=f3e1457]: Простой маршрут
+      - generic [ref=f3e1460]:
+        - link [ref=f3e1462] [cursor=pointer]:
+          - /url: /trails/48/
+          - img "Photo" [ref=f3e1463]
+        - link "Пик Любви" [ref=f3e1465] [cursor=pointer]:
+          - /url: /trails/48/
+        - generic [ref=f3e1466]: Тункинский район, Бурятия
+        - generic [ref=f3e1467]: Пеший
+        - generic [ref=f3e1469]: 4–6 часов, 8.1 км
+        - generic [ref=f3e1470]: Средняя сложность
+      - generic [ref=f3e1473]:
+        - link [ref=f3e1475] [cursor=pointer]:
+          - /url: /trails/47/
+          - img "Photo" [ref=f3e1476]
+        - link "«Дорога в Лавру» (Москва — Сергиев Посад)" [ref=f3e1478] [cursor=pointer]:
+          - /url: /trails/47/
+        - generic [ref=f3e1479]: Москва / Московская область
+        - generic [ref=f3e1480]: Пеший (возможно )
+        - generic [ref=f3e1484]: 5 дней, 113.2 км
+        - generic [ref=f3e1485]: Простой маршрут
+      - generic [ref=f3e1488]:
+        - link [ref=f3e1490] [cursor=pointer]:
+          - /url: /trails/45/
+          - img "Photo" [ref=f3e1491]
+        - link "На водопад Радужный" [ref=f3e1493] [cursor=pointer]:
+          - /url: /trails/45/
+        - generic [ref=f3e1494]: Московская область / Калужская область
+        - generic [ref=f3e1495]: Пеший
+        - generic [ref=f3e1497]: 1–2 дня, 18.3 км
+        - generic [ref=f3e1498]: Простой маршрут
+      - generic [ref=f3e1501]:
+        - link [ref=f3e1503] [cursor=pointer]:
+          - /url: /trails/44/
+          - img "Photo" [ref=f3e1504]
+        - link "Комсомольская роща" [ref=f3e1506] [cursor=pointer]:
+          - /url: /trails/44/
+        - generic [ref=f3e1507]: Тверская область
+        - generic [ref=f3e1508]: Пеший (возможно )
+        - generic [ref=f3e1512]: 3–5 часов, 10.6 км
+        - generic [ref=f3e1513]: Простой маршрут
+      - generic [ref=f3e1516]:
+        - link [ref=f3e1518] [cursor=pointer]:
+          - /url: /trails/43/
+          - img "Photo" [ref=f3e1519]
+        - link "Петушинские озера (озеро «Светец»)" [ref=f3e1521] [cursor=pointer]:
+          - /url: /trails/43/
+        - generic [ref=f3e1522]: Владимирская область
+        - generic [ref=f3e1523]: Пеший
+        - generic [ref=f3e1525]: 2–3 дня, 30.6 км
+        - generic [ref=f3e1526]: Средняя сложность
+      - generic [ref=f3e1529]:
+        - link [ref=f3e1531] [cursor=pointer]:
+          - /url: /trails/42/
+          - img "Photo" [ref=f3e1532]
+        - link "На Поднебесные Зубья к Алгуйским водопадам" [ref=f3e1534] [cursor=pointer]:
+          - /url: /trails/42/
+        - generic [ref=f3e1535]: Кемеровская область, Кузнецкий Алатау
+        - generic [ref=f3e1536]: Пеший
+        - generic [ref=f3e1538]: 2 дня, 25.7 км
+        - generic [ref=f3e1539]: Средняя сложность
+      - generic [ref=f3e1542]:
+        - link [ref=f3e1544] [cursor=pointer]:
+          - /url: /trails/40/
+          - img "Photo" [ref=f3e1545]
+        - link "Жемчужина Чувашии (Озеро «Изъяр»)" [ref=f3e1547] [cursor=pointer]:
+          - /url: /trails/40/
+        - generic [ref=f3e1548]: Чебоксарский район, Чувашия
+        - generic [ref=f3e1549]: Пеший
+        - generic [ref=f3e1551]: 1–2 дня, 21.6 км
+        - generic [ref=f3e1552]: Простой маршрут
+      - generic [ref=f3e1555]:
+        - link [ref=f3e1557] [cursor=pointer]:
+          - /url: /trails/39/
+          - img "Photo" [ref=f3e1558]
+        - link "Медведь-Камень" [ref=f3e1560] [cursor=pointer]:
+          - /url: /trails/39/
+        - generic [ref=f3e1561]: Свердловская область, Урал
+        - generic [ref=f3e1562]: Пеший (возможно )
+        - generic [ref=f3e1566]: 6–8 часов, 13.1 км
+        - generic [ref=f3e1567]: Простой маршрут
+      - generic [ref=f3e1570]:
+        - link [ref=f3e1572] [cursor=pointer]:
+          - /url: /trails/37/
+          - img "Photo" [ref=f3e1573]
+        - link "Ущелье Бунчихи (Белопесоцкий — Жилево)" [ref=f3e1575] [cursor=pointer]:
+          - /url: /trails/37/
+        - generic [ref=f3e1576]: Московская область
+        - generic [ref=f3e1577]: Пеший
+        - generic [ref=f3e1579]: 1–2 дня, 30.8 км
+        - generic [ref=f3e1580]: Средняя сложность
+      - generic [ref=f3e1583]:
+        - link [ref=f3e1585] [cursor=pointer]:
+          - /url: /trails/36/
+          - img "Photo" [ref=f3e1586]
+        - link "Лопатинские карьеры" [ref=f3e1588] [cursor=pointer]:
+          - /url: /trails/36/
+        - generic [ref=f3e1589]: Московская область
+        - generic [ref=f3e1590]: Пеший (возможно )
+        - generic [ref=f3e1594]: 2–3 дня, 37.4 км
+        - generic [ref=f3e1595]: Средняя сложность
+      - generic [ref=f3e1598]:
+        - link [ref=f3e1600] [cursor=pointer]:
+          - /url: /trails/35/
+          - img "Photo" [ref=f3e1601]
+        - link "Река Нерская" [ref=f3e1603] [cursor=pointer]:
+          - /url: /trails/35/
+        - generic [ref=f3e1604]: Московская область
+        - generic [ref=f3e1605]: Пеший (возможно )
+        - generic [ref=f3e1609]: 6–8 часов, 23.2 км
+        - generic [ref=f3e1610]: Простой маршрут
+      - generic [ref=f3e1613]:
+        - link [ref=f3e1615] [cursor=pointer]:
+          - /url: /trails/34/
+          - img "Photo" [ref=f3e1616]
+        - link "Стяжное — Дизельный" [ref=f3e1618] [cursor=pointer]:
+          - /url: /trails/34/
+        - generic [ref=f3e1619]: Брянская область
+        - generic [ref=f3e1620]: Пеший (возможно )
+        - generic [ref=f3e1624]: 4–6 часов, 17.9 км
+        - generic [ref=f3e1625]: Простой маршрут
+      - generic [ref=f3e1628]:
+        - link [ref=f3e1630] [cursor=pointer]:
+          - /url: /trails/33/
+          - img "Photo" [ref=f3e1631]
+        - link "Стоянка Виноградова" [ref=f3e1633] [cursor=pointer]:
+          - /url: /trails/33/
+        - generic [ref=f3e1634]: Брянская область
+        - generic [ref=f3e1635]: Пеший
+        - generic [ref=f3e1637]: 4–6 часов, 16.9 км
+        - generic [ref=f3e1638]: Простой маршрут
+      - generic [ref=f3e1641]:
+        - link [ref=f3e1643] [cursor=pointer]:
+          - /url: /trails/32/
+          - img "Photo" [ref=f3e1644]
+        - link "Партизанская поляна" [ref=f3e1646] [cursor=pointer]:
+          - /url: /trails/32/
+        - generic [ref=f3e1647]: Брянская область
+        - generic [ref=f3e1648]: Пеший (возможно )
+        - generic [ref=f3e1652]: 4–6 часов, 17.7 км
+        - generic [ref=f3e1653]: Простой маршрут
+      - generic [ref=f3e1656]:
+        - link [ref=f3e1658] [cursor=pointer]:
+          - /url: /trails/31/
+          - img "Photo" [ref=f3e1659]
+        - link "Шумновские озера" [ref=f3e1661] [cursor=pointer]:
+          - /url: /trails/31/
+        - generic [ref=f3e1662]: Тверская область
+        - generic [ref=f3e1663]: Пеший
+        - generic [ref=f3e1665]: 4–6 часов, 13.0 км
+        - generic [ref=f3e1666]: Средняя сложность
+      - generic [ref=f3e1669]:
+        - link [ref=f3e1671] [cursor=pointer]:
+          - /url: /trails/30/
+          - img "Photo" [ref=f3e1672]
+        - link "Соколиное — Богатырь" [ref=f3e1674] [cursor=pointer]:
+          - /url: /trails/30/
+        - generic [ref=f3e1675]: Крым
+        - generic [ref=f3e1676]: Пеший
+        - generic [ref=f3e1678]: 4–7 часов, 7.1 км
+        - generic [ref=f3e1679]: Простой маршрут
+      - generic [ref=f3e1682]:
+        - link [ref=f3e1684] [cursor=pointer]:
+          - /url: /trails/27/
+          - img "Photo" [ref=f3e1685]
+        - link "Кольцовские пещеры" [ref=f3e1687] [cursor=pointer]:
+          - /url: /trails/27/
+        - generic [ref=f3e1688]: Калужская область
+        - generic [ref=f3e1689]: Пеший (возможно )
+        - generic [ref=f3e1693]: 2–3 дня, 26.5 км
+        - generic [ref=f3e1694]: Простой маршрут
+      - generic [ref=f3e1697]:
+        - link [ref=f3e1699] [cursor=pointer]:
+          - /url: /trails/25/
+          - img "Photo" [ref=f3e1700]
+        - link "Озеро Песчаное (Тимирязевское)" [ref=f3e1702] [cursor=pointer]:
+          - /url: /trails/25/
+        - generic [ref=f3e1703]: Томская область
+        - generic [ref=f3e1704]: Пеший
+        - generic [ref=f3e1706]: 1–2 дня, 16.3 км
+        - generic [ref=f3e1707]: Простой маршрут
+      - generic [ref=f3e1710]:
+        - link [ref=f3e1712] [cursor=pointer]:
+          - /url: /trails/24/
+          - img "Photo" [ref=f3e1713]
+        - link "«Физтех» (Мытищи — Долгопрудный)" [ref=f3e1715] [cursor=pointer]:
+          - /url: /trails/24/
+        - generic [ref=f3e1716]: Московская область
+        - generic [ref=f3e1717]: Пеший (возможно )
+        - generic [ref=f3e1721]: 1–2 дня, 19.8 км
+        - generic [ref=f3e1722]: Простой маршрут
+      - generic [ref=f3e1725]:
+        - link [ref=f3e1727] [cursor=pointer]:
+          - /url: /trails/23/
+          - img "Photo" [ref=f3e1728]
+        - link "Рожновский мыс" [ref=f3e1730] [cursor=pointer]:
+          - /url: /trails/23/
+        - generic [ref=f3e1731]: Ярославская область
+        - generic [ref=f3e1732]: Пеший
+        - generic [ref=f3e1734]: 2 дня, 20.7 км
+        - generic [ref=f3e1735]: Простой маршрут
+      - generic [ref=f3e1738]:
+        - link [ref=f3e1740] [cursor=pointer]:
+          - /url: /trails/22/
+          - img "Photo" [ref=f3e1741]
+        - link "Городище Шеломок" [ref=f3e1743] [cursor=pointer]:
+          - /url: /trails/22/
+        - generic [ref=f3e1744]: Томская область
+        - generic [ref=f3e1745]: Пеший
+        - generic [ref=f3e1747]: 2–4 часа, 11.5 км
+        - generic [ref=f3e1748]: Простой маршрут
+      - generic [ref=f3e1751]:
+        - link [ref=f3e1753] [cursor=pointer]:
+          - /url: /trails/21/
+          - img "Photo" [ref=f3e1754]
+        - link "Зеленое Кольцо Москвы 160км" [ref=f3e1756] [cursor=pointer]:
+          - /url: /trails/21/
+        - generic [ref=f3e1757]: Москва
+        - generic [ref=f3e1758]: Пеший
+        - generic [ref=f3e1760]: 1–14 дней, 162.3 км
+        - generic [ref=f3e1761]: Простой маршрут
+      - generic [ref=f3e1764]:
+        - link [ref=f3e1766] [cursor=pointer]:
+          - /url: /trails/20/
+          - img "Photo" [ref=f3e1767]
+        - link "Фирсановка — усадьба Середниково" [ref=f3e1769] [cursor=pointer]:
+          - /url: /trails/20/
+        - generic [ref=f3e1770]: Московская область
+        - generic [ref=f3e1771]: Пеший
+        - generic [ref=f3e1773]: 4–6 часов, 14.1 км
+        - generic [ref=f3e1774]: Средняя сложность
+      - generic [ref=f3e1777]:
+        - link [ref=f3e1779] [cursor=pointer]:
+          - /url: /trails/19/
+          - img "Photo" [ref=f3e1780]
+        - link "По высокому берегу Дона от станицы Голубинской" [ref=f3e1782] [cursor=pointer]:
+          - /url: /trails/19/
+        - generic [ref=f3e1783]: Волгоградская область
+        - generic [ref=f3e1784]: Пеший
+        - generic [ref=f3e1786]: 2 дня, 30.3 км
+        - generic [ref=f3e1787]: Простой маршрут
+      - generic [ref=f3e1790]:
+        - link [ref=f3e1792] [cursor=pointer]:
+          - /url: /trails/16/
+          - img "Photo" [ref=f3e1793]
+        - link "Боровск — Верея" [ref=f3e1795] [cursor=pointer]:
+          - /url: /trails/16/
+        - generic [ref=f3e1796]: Московская область / Калужская область
+        - generic [ref=f3e1797]: Пеший (возможно )
+        - generic [ref=f3e1801]: 3–4 дня, 49.9 км
+        - generic [ref=f3e1802]: Средняя сложность
+      - generic [ref=f3e1805]:
+        - link [ref=f3e1807] [cursor=pointer]:
+          - /url: /trails/12/
+          - img "Photo" [ref=f3e1808]
+        - link "Каверзинские водопады" [ref=f3e1810] [cursor=pointer]:
+          - /url: /trails/12/
+        - generic [ref=f3e1811]: Краснодарский край
+        - generic [ref=f3e1812]: Пеший (возможно )
+        - generic [ref=f3e1816]: 6–8 часов, 13.2 км
+        - generic [ref=f3e1817]: Простой маршрут
+  - generic [ref=f3e215]:
+    - separator [ref=f3e216]
+    - paragraph [ref=f3e217]: © Маркированные маршруты России, 2017–2026.
+    - paragraph [ref=f3e218]:
+      - link "Как связаться" [ref=f3e219] [cursor=pointer]:
+        - /url: /contacts/
+    - generic [ref=f3e220]:
+      - link [ref=f3e221] [cursor=pointer]:
+        - /url: https://www.youtube.com/channel/UCRvNTXycbr_b9cIbTiQNPbQ/
+      - link [ref=f3e222] [cursor=pointer]:
+        - /url: https://vk.com/rutrail
+    - generic [ref=f3e224]:
+      - text: Разработка сайта —
+      - link "Intminds" [ref=f3e225] [cursor=pointer]:
+        - /url: https://company.intminds.ru/

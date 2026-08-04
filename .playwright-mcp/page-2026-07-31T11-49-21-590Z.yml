@@ -1,0 +1,18 @@
+- generic [ref=f8e5]:
+  - region "Help/zoom toolbar" [ref=f8e27]:
+    - toolbar "Help/zoom toolbar" [ref=f8e29]:
+      - button "Help" [ref=f8e31]
+  - generic:
+    - status
+    - group [ref=f8e33]:
+      - alert [ref=f8e35]
+      - alert [ref=f8e37]
+    - region "Consent Manager" [ref=f8e39]:
+      - generic [ref=f8e40]:
+        - text: This website uses cookies, pixel tags, and local storage for performance, personalization, and marketing purposes. We use our own cookies and some from third parties. Only essential cookies are turned on by default.
+        - link "Cookies settings" [ref=f8e41]:
+          - /url: /consent-preferences/
+      - generic [ref=f8e42]:
+        - button "Do not allow cookies" [ref=f8e43]
+        - button "Allow all cookies" [ref=f8e44]
+      - button "Dismiss" [ref=f8e46]

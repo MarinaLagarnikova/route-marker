@@ -1,0 +1,138 @@
+[     267ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:14335
+[     292ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/collection/moscow-region:0
+[     357ms] [INFO] %c❖%c❖%c❖ %cMapTiler SDK JS v4.0.2 %c❖%c❖%c❖ color: #FBC935; background: white; padding: 5px; font-weight: bold;padding-right: 0; color: #3A1888; background: white; padding: 5px 0; font-weight: bold; color: #F1175D; background: white; padding: 5px 0; font-weight: bold; color: #333; background: white; padding: 5px 0; font-weight: bold; color: #F1175D; background: white; padding: 5px 0; font-weight: bold; color: #3A1888; background: white; padding: 5px 0; font-weight: bold; color: #FBC935; background: white; padding: 5px; font-weight: bold;padding-left: 0; @ http://localhost:5173/node_modules/.vite/deps/@maptiler_sdk.js?v=480aa938:48211
+[  889270ms] [ERROR] %o
+
+%s
+
+%s
+ ReferenceError: useRef is not defined
+    at CollectionPage (http://localhost:5173/src/pages/collection/ui/CollectionPage.tsx?t=1785751829854:50:21)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:12866:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:4213:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:5569:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:6140:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:851:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8429:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8325:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8309:6)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7994:27) The above error occurred in the <CollectionPage> component. React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:5173/@vite/client:524
+[  889278ms] [WARNING] Style "Streets Default" is deprecated and will be removed in a future version. @ http://localhost:5173/@vite/client:524
+[  889280ms] [WARNING] [Map.setStyle]: Invalid style. A style must be a valid URL to a style.json, a JSON string representing a valid StyleSpecification or a valid StyleSpecification object. Keeping the curent style instead. @ http://localhost:5173/@vite/client:524
+[  889349ms] [WARNING] [webglcontextlost] WebGL context lost after map removal. This is harmless. @ http://localhost:5173/@vite/client:524
+[  893996ms] [ERROR] %o
+
+%s
+
+%s
+ ReferenceError: miniMapRef is not defined
+    at http://localhost:5173/src/pages/collection/ui/CollectionPage.tsx?t=1785751834799:74:3
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:12902:13)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:851:66)
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:6617:153)
+    at commitHookPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:6652:55)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7618:22)
+    at recursivelyTraversePassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7606:5)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7672:14)
+    at recursivelyTraversePassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7606:5)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7617:6) The above error occurred in the <CollectionPage> component. React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:5173/@vite/client:524
+[  901720ms] [ERROR] %o
+
+%s
+
+%s
+ ReferenceError: miniMapRef is not defined
+    at CollectionPage (http://localhost:5173/src/pages/collection/ui/CollectionPage.tsx?t=1785751842548:166:13)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:12866:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:4213:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:5569:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:6140:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:851:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8429:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8325:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8309:6)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7994:27) The above error occurred in the <CollectionPage> component. React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:5173/@vite/client:524
+[ 4046498ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/src/pages/start/ui/StartPage.tsx?t=1785754987360:0
+[ 4046502ms] [ERROR] [vite] Failed to reload /src/pages/start/ui/StartPage.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:5173/@vite/client:524
+[ 4756793ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5173/@vite/client:992
+[ 4757421ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:14335
+[ 4757497ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/collection/moscow-region:0
+[ 6104884ms] [ERROR] [vite] ReferenceError: iconLocationSrc is not defined
+    at http://localhost:5173/src/pages/start/ui/StartPage.tsx?t=1785757045556:151:8 @ http://localhost:5173/@vite/client:524
+[ 6104896ms] [ERROR] [vite] Failed to reload /src/pages/start/ui/StartPage.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:5173/@vite/client:524
+[ 7206692ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5173/@vite/client:992
+[ 7207441ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:14335
+[ 7207556ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/collection/moscow-region:0
+[10342323ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/src/widgets/route-detail-drawer/ui/RouteDetailDrawer.tsx?t=1785761283181:0
+[10342327ms] [ERROR] [vite] Failed to reload /src/widgets/route-detail-drawer/ui/RouteDetailDrawer.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:5173/@vite/client:524
+[10724357ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/src/features/history/ui/HistoryDrawer.tsx?t=1785761665226:0
+[10724359ms] [ERROR] [vite] Failed to reload /src/features/history/ui/HistoryDrawer.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:5173/@vite/client:524
+[10882659ms] [ERROR] [vite] Failed to reload /src/widgets/route-header/ui/RouteHeader.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:5173/@vite/client:524
+[10889714ms] [ERROR] [vite] Failed to reload /src/widgets/route-header/ui/RouteHeader.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:5173/@vite/client:524
+[11776203ms] [ERROR] %o
+
+%s
+
+%s
+ TypeError: Map is not a constructor
+    at CollectionPage (http://localhost:5173/src/pages/collection/ui/CollectionPage.tsx?t=1785762717009:55:31)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:12866:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:4213:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:5569:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:6140:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:851:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8429:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8325:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8309:6)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7994:27) The above error occurred in the <CollectionPage> component. React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:5173/@vite/client:524
+[11786601ms] [ERROR] %o
+
+%s
+
+%s
+ TypeError: Map is not a constructor
+    at CollectionPage (http://localhost:5173/src/pages/collection/ui/CollectionPage.tsx?t=1785762727419:55:31)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:12866:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:4213:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:5569:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:6140:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:851:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8429:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8325:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8309:6)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7994:27) The above error occurred in the <CollectionPage> component. React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:5173/@vite/client:524
+[11802652ms] [ERROR] %o
+
+%s
+
+%s
+ TypeError: Map is not a constructor
+    at CollectionPage (http://localhost:5173/src/pages/collection/ui/CollectionPage.tsx?t=1785762743473:55:31)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:12866:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:4213:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:5569:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:6140:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:851:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8429:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8325:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8309:6)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7994:27) The above error occurred in the <CollectionPage> component. React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:5173/@vite/client:524
+[11840190ms] [ERROR] %o
+
+%s
+
+%s
+ TypeError: Constructor Map requires 'new'
+    at Map (<anonymous>)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:12866:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:4213:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:5569:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:6140:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:851:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8429:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8325:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:8309:6)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:7994:27) The above error occurred in the <Map> component. React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:5173/@vite/client:524
+[12098164ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5173/@vite/client:992
+[12099023ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=480aa938:14335
+[12099103ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/collection/moscow-region:0

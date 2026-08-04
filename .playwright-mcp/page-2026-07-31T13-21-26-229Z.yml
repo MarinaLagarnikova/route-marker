@@ -1,0 +1,25 @@
+- generic [active]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic [ref=f12e1]:
+            - generic [ref=f12e2]:
+              - region "Prototype controls": Skip to content Continue with Google
+              - generic [ref=f12e3]:
+                - generic [ref=f12e5]:
+                  - main:
+                    - paragraph [ref=f12e6]: Screenreader support is currently disabled. To enable it, use the Accessibility settings from the Options menu.
+                - text: Give feedback, ask a question, or just leave a note of appreciation. Click anywhere in the file to leave a comment.
+            - region "Consent Manager" [ref=f12e11]:
+              - generic [ref=f12e12]:
+                - text: This website uses cookies, pixel tags, and local storage for performance, personalization, and marketing purposes. We use our own cookies and some from third parties. Only essential cookies are turned on by default.
+                - link "Cookies settings" [ref=f12e13]:
+                  - /url: /consent-preferences/
+              - generic [ref=f12e14]:
+                - button "Do not allow cookies" [ref=f12e15]
+                - button "Allow all cookies" [ref=f12e16]
+              - button "Dismiss" [ref=f12e18]
+          - group [ref=f12e41]:
+            - alert [ref=f12e43]
+            - alert [ref=f12e45]

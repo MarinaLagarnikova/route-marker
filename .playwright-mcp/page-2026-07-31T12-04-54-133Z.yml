@@ -1,0 +1,64 @@
+- generic [ref=f13e3]:
+  - generic [ref=f13e4]:
+    - button "Назад" [ref=f13e5]
+    - heading "Москва и область6" [level=1] [ref=f13e9]
+  - generic [ref=f13e10]:
+    - generic [ref=f13e11]:
+      - generic:
+        - region "Map" [ref=f13e12]
+        - generic:
+          - generic:
+            - group
+        - region "Map" [ref=f13e13]
+        - generic:
+          - generic:
+            - group
+      - button "На весь экран" [ref=f13e14]
+    - generic [ref=f13e24]:
+      - button "Марафон кольцо 42 км Средний 1–2 дня" [ref=f13e25]:
+        - generic [ref=f13e29]:
+          - generic [ref=f13e30]:
+            - paragraph [ref=f13e31]: Марафон кольцо
+            - generic [ref=f13e32]: 42 км
+          - generic [ref=f13e38]: Средний
+          - generic [ref=f13e41]: 1–2 дня
+      - button "Калужская тропа 28 км Лёгкий 2–3 дня" [ref=f13e49]:
+        - generic [ref=f13e53]:
+          - generic [ref=f13e54]:
+            - paragraph [ref=f13e55]: Калужская тропа
+            - generic [ref=f13e56]: 28 км
+          - generic [ref=f13e62]: Лёгкий
+          - generic [ref=f13e65]: 2–3 дня
+      - button "Приокско-Террасный 15 км Лёгкий 1 день" [ref=f13e73]:
+        - generic [ref=f13e77]:
+          - generic [ref=f13e78]:
+            - paragraph [ref=f13e79]: Приокско-Террасный
+            - generic [ref=f13e80]: 15 км
+          - generic [ref=f13e86]: Лёгкий
+          - generic [ref=f13e89]: 1 день
+      - button "Звенигородский поход 35 км Средний 3–4 дня" [ref=f13e97]:
+        - generic [ref=f13e101]:
+          - generic [ref=f13e102]:
+            - paragraph [ref=f13e103]: Звенигородский поход
+            - generic [ref=f13e104]: 35 км
+          - generic [ref=f13e110]: Средний
+          - generic [ref=f13e113]: 3–4 дня
+      - button "Яуза — исток 22 км Лёгкий 2 дня" [ref=f13e121]:
+        - generic [ref=f13e125]:
+          - generic [ref=f13e126]:
+            - paragraph [ref=f13e127]: Яуза — исток
+            - generic [ref=f13e128]: 22 км
+          - generic [ref=f13e134]: Лёгкий
+          - generic [ref=f13e137]: 2 дня
+      - button "Исток Угры 18 км Лёгкий 1–2 дня" [ref=f13e145]:
+        - generic [ref=f13e149]:
+          - generic [ref=f13e150]:
+            - paragraph [ref=f13e151]: Исток Угры
+            - generic [ref=f13e152]: 18 км
+          - generic [ref=f13e158]: Лёгкий
+          - generic [ref=f13e161]: 1–2 дня
+    - link "Маршруты предоставлены Маркированные маршруты России" [ref=f13e170] [cursor=pointer]:
+      - /url: https://russiatrails.ru
+      - generic [ref=f13e171]:
+        - generic [ref=f13e172]: Маршруты предоставлены
+        - generic [ref=f13e173]: Маркированные маршруты России

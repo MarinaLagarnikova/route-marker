@@ -1,0 +1,95 @@
+- generic [ref=f8e5]:
+  - generic [ref=f8e6]:
+    - generic [ref=f8e7]:
+      - generic [ref=f8e52]:
+        - application [active] [ref=f8e60]
+        - status [ref=f8e61]: Screenreader support for the board is currently disabled. To enable it via Accessibility settings, press ⌘K, type Accessibility Settings, and press Enter. To see available keyboard shortcuts, enter ⌃⇧Question mark .
+        - status [ref=f8e63]
+        - generic:
+          - generic:
+            - generic:
+              - region "Comments on canvas":
+                - button "Create new comment"
+        - generic:
+          - region "Left sidebar":
+            - generic [ref=f8e64]:
+              - button "Main menu" [ref=f8e65]
+              - button "Expand UI for file named Анкета › Секретный проект" [ref=f8e66]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - button "Анкета › Секретный проект, file name": Анкета › Секретный проект
+                      - generic: File name
+                - generic:
+                  - generic:
+                    - status
+        - generic [ref=f8e69]:
+          - generic [ref=f8e71]:
+            - button "Multiplayer tools" [ref=f8e73]
+            - button "Follow Marina" [ref=f8e80]
+          - button "17%, zoom and view options" [ref=f8e90]:
+            - generic [ref=f8e91]: 17%
+          - generic [ref=f8e97]:
+            - generic [ref=f8e98]:
+              - button "Present" [ref=f8e99]
+              - button "Prototype view" [ref=f8e100]
+            - button "Share" [ref=f8e102]
+      - generic:
+        - generic:
+          - generic:
+            - region "Application toolbar":
+              - generic [ref=f8e103]:
+                - toolbar "Editor" [ref=f8e105]:
+                  - generic [ref=f8e107]:
+                    - generic:
+                      - generic [ref=f8e110]:
+                        - generic [ref=f8e111]:
+                          - button "Move" [ref=f8e112]
+                          - button "Hand tool" [pressed] [ref=f8e113]
+                          - button "Comment" [ref=f8e114]
+                        - group "Frame" [ref=f8e116]:
+                          - button "Frame" [ref=f8e117]
+                          - button "Region tools" [ref=f8e118]
+                        - group "Rectangle" [ref=f8e119]:
+                          - button "Rectangle" [ref=f8e120]
+                          - button "Shape tools" [ref=f8e121]
+                        - group "Pen" [ref=f8e122]:
+                          - button "Pen" [ref=f8e123]
+                          - button "Creation tools" [ref=f8e124]
+                        - button "Text" [ref=f8e125]
+                        - button "Actions" [ref=f8e126]
+                      - text: Request sent
+                  - radiogroup "Toolbelt Mode" [ref=f8e130]:
+                    - generic [ref=f8e132]:
+                      - generic [ref=f8e134]:
+                        - radio "Design" [checked] [ref=f8e135]
+                        - generic [ref=f8e139]: Design
+                      - generic [ref=f8e140]:
+                        - radio "Motion" [ref=f8e141]
+                        - generic [ref=f8e145]: Motion
+                      - generic [ref=f8e146]:
+                        - radio "Dev Mode" [ref=f8e147]
+                        - generic [ref=f8e151]: Dev Mode
+                - generic [ref=f8e152]:
+                  - generic [ref=f8e153]: Sign up to comment, edit, inspect and more.
+                  - generic [ref=f8e154]:
+                    - button "Sign up" [ref=f8e155]
+                    - button "Continue with Google" [ref=f8e158]:
+                      - generic: Continue
+    - region "Help/zoom toolbar" [ref=f8e27]:
+      - toolbar "Help/zoom toolbar" [ref=f8e29]:
+        - button "Help" [ref=f8e31]
+  - generic:
+    - status
+    - group [ref=f8e33]:
+      - alert [ref=f8e35]
+      - alert [ref=f8e37]
+    - region "Consent Manager" [ref=f8e39]:
+      - generic [ref=f8e40]:
+        - text: This website uses cookies, pixel tags, and local storage for performance, personalization, and marketing purposes. We use our own cookies and some from third parties. Only essential cookies are turned on by default.
+        - link "Cookies settings" [ref=f8e41]:
+          - /url: /consent-preferences/
+      - generic [ref=f8e42]:
+        - button "Do not allow cookies" [ref=f8e43]
+        - button "Allow all cookies" [ref=f8e44]
+      - button "Dismiss" [ref=f8e46]

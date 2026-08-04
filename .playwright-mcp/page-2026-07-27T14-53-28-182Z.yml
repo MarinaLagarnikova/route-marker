@@ -1,0 +1,203 @@
+- generic [active] [ref=f8e1]:
+  - generic [ref=f8e2]: ← → для листания | Ctrl+P для PDF
+  - generic [ref=f8e3]:
+    - generic [ref=f8e4]:
+      - img "Вешка" [ref=f8e5]
+      - heading "Вешка — умный навигатор похода" [level=1] [ref=f8e6]: Вешка — умныйнавигатор похода
+      - paragraph [ref=f8e7]: "Мобильное веб-приложение для пеших маршрутов: загрузи GPX-трек, отмечай контрольные точки и знай, сколько ещё идти — даже без GPS и интернета."
+      - generic [ref=f8e8]:
+        - generic [ref=f8e9]:
+          - generic [ref=f8e10]: 100%
+          - generic [ref=f8e11]: Работает офлайн
+        - generic [ref=f8e13]:
+          - generic [ref=f8e14]: GPX
+          - generic [ref=f8e15]: Любой трек
+    - generic:
+      - generic:
+        - generic:
+          - paragraph: Проблема
+          - heading "Часто GPS не работает как надо" [level=2]:
+            - text: Часто
+            - emphasis: GPS не работает
+            - text: как надо
+          - paragraph: Туристы теряются не потому, что нет карты — а потому что непонятно, где ты на маршруте, сколько прошёл и успеешь ли до темноты.
+          - list:
+            - listitem:
+              - generic: 📡
+              - generic: Интернет и GPS-сигнал пропадают в густом лесу и ущельях
+            - listitem:
+              - generic: 🔋
+              - generic: Навигационные приложения требуют постоянного соединения и садят батарею
+            - listitem:
+              - generic: 📊
+              - generic: Нет простого способа отслеживать прогресс группы и прогнозировать финиш
+        - generic:
+          - generic:
+            - generic: 48%
+            - generic: туристов сталкивались с потерей сигнала в длительных походах
+          - generic:
+            - generic: 4 млн
+            - generic: зарегистрированных туристических маршрутов в России
+          - generic:
+            - generic: GPX
+            - generic: открытый стандарт трека, поддерживаемый всеми устройствами
+          - generic:
+            - generic: ∞
+            - generic: километров маршрутов без надёжного покрытия связью
+    - generic:
+      - generic:
+        - generic:
+          - paragraph: Решение
+          - heading "«Умный чек-лист» поверх карты" [level=2]:
+            - text: «Умный чек-лист» поверх
+            - emphasis: карты
+          - paragraph: "Вешка — это не навигатор. Это инструмент самоконтроля: туристы сами отмечают пройденные точки, а приложение рассчитывает прогресс и прогноз финиша."
+          - generic:
+            - generic:
+              - generic: "1"
+              - generic:
+                - strong: Загрузи GPX-трек
+                - text: Файл маршрута с любого устройства или сервиса
+            - generic:
+              - generic: "2"
+              - generic:
+                - strong: Отмечай контрольные точки
+                - text: Тапни по точке, когда дошёл до неё — время фиксируется автоматически
+            - generic:
+              - generic: "3"
+              - generic:
+                - strong: Следи за прогрессом
+                - text: Пройдено км, остаток и прогноз финиша пересчитываются в реальном времени
+    - generic:
+      - generic:
+        - paragraph: Интерфейс
+        - heading "Чистый дизайн, созданный для условий маршрута" [level=2]:
+          - text: Чистый дизайн, созданный для
+          - emphasis: условий маршрута
+      - generic:
+        - generic:
+          - img "Стартовый экран"
+          - generic: Стартовыйэкран
+        - generic:
+          - img "Главный экран"
+          - generic: Главнаяс каталогом
+        - generic:
+          - img "Карта маршрута"
+          - generic: Картамаршрута
+        - generic:
+          - img "Завершённые маршруты"
+          - generic: Завершённыемаршруты
+        - generic:
+          - img "История прохождения"
+          - generic: Историяпрохождения
+    - generic:
+      - generic:
+        - paragraph: Возможности
+        - heading "Что умеет Вешка" [level=2]:
+          - text: Что умеет
+          - emphasis: Вешка
+      - generic:
+        - generic:
+          - generic: 📶
+          - generic: Работает без интернета
+          - generic: Весь прогресс хранится локально в браузере. Карта кэшируется. Никакого бэкенда.
+        - generic:
+          - generic: 🗺️
+          - generic: Поддержка любого GPX
+          - generic: Открытый стандарт — подходят треки с любых устройств и сервисов.
+        - generic:
+          - generic: ⏱️
+          - generic: Прогноз времени финиша
+          - generic: После 2 отметок приложение рассчитывает темп и прогнозирует, когда группа будет на финише.
+        - generic:
+          - generic: ↔️
+          - generic: Автоопределение направления
+          - generic: Первая отметка задаёт направление — приложение само разворачивает трек, если идёшь с конца.
+        - generic:
+          - generic: 📚
+          - generic: История маршрутов
+          - generic: Все пройденные маршруты сохраняются с временем прохождения каждого отрезка.
+        - generic:
+          - generic: 📱
+          - generic: Mobile-first, без установки
+          - generic: PWA в браузере телефона — работает как приложение, открывается мгновенно.
+    - generic:
+      - generic:
+        - generic:
+          - paragraph: Аудитория
+          - heading "Для кого Вешка" [level=2]:
+            - text: Для кого
+            - emphasis: Вешка
+          - paragraph: Приложение создано для всех, кто ходит по размеченным или авторским маршрутам — в одиночку и группами.
+          - generic:
+            - generic:
+              - generic: 🥾
+              - generic:
+                - generic: Пешие туристы и треккеры
+                - generic: Горные, лесные, равнинные маршруты — от однодневных вылазок до многодневных походов
+            - generic:
+              - generic: 🏕️
+              - generic:
+                - generic: Организаторы молодёжных походов
+                - generic: Удобно для групповых походов — видно общий прогресс без GPS-трекеров
+    - generic:
+      - generic:
+        - generic:
+          - paragraph: Технологии и статус
+          - heading "Сделано с умом, готово к росту" [level=2]:
+            - text: Сделано с умом,
+            - emphasis: готово к росту
+          - paragraph: Современный стек, строгая архитектура, ноль зависимости от бэкенда.
+          - generic:
+            - generic: React 18 + TypeScript
+            - generic: Feature-Sliced Design
+            - generic: OpenStreetMap
+            - generic: Zustand
+            - generic: Tailwind CSS
+            - generic: shadcn/ui
+            - generic: Vite
+            - generic: localStorage
+        - generic:
+          - paragraph: Этапы разработки
+          - generic:
+            - generic:
+              - generic:
+                - generic: Парсинг и валидация GPX
+                - generic: Полная поддержка trkpt/wpt, автогенерация точек
+            - generic:
+              - generic:
+                - generic: Карта с треком и маркерами
+                - generic: OpenStreetMap через изолированный адаптер
+            - generic:
+              - generic:
+                - generic: Отметка точек
+                - generic: Автоопределение направления
+            - generic:
+              - generic:
+                - generic: История и каталог маршрутов
+                - generic: Персистентность, несколько активных треков
+            - generic:
+              - generic:
+                - generic: Дизайн-система и мобильный UI
+                - generic: Zinc-палитра, Inter, touch-таргеты 44px+
+            - generic:
+              - generic:
+                - generic: GPS-метка и PWA
+                - generic: Опциональная геолокация, офлайн-кэш тайлов
+    - generic:
+      - heading "Вешка — маршрут под контролем" [level=2]
+      - paragraph: Простой, надёжный инструмент для туристов, который работает там, где другие приложения сдаются.
+      - generic:
+        - generic:
+          - strong: Проект
+          - text: veshka.app
+        - generic:
+          - strong: Тип
+          - text: Мобильное веб-приложение (PWA)
+        - generic:
+          - strong: Лицензия
+          - text: Открытый исходный код
+  - navigation [ref=f8e16]:
+    - button "←" [ref=f8e17] [cursor=pointer]
+    - button "→" [ref=f8e27] [cursor=pointer]
+    - generic [ref=f8e28]: 1 / 8

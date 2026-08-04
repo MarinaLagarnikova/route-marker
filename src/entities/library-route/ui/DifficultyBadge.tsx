@@ -15,6 +15,7 @@ const CIRCLE_COLORS: Record<Difficulty, { fill: string; stroke: string }> = {
 interface Props {
   difficulty: Difficulty
   className?: string
+  textColor?: string
 }
 
 function DifficultyCircle({ fill, stroke }: { fill: string; stroke: string }) {
@@ -33,12 +34,12 @@ function DifficultyCircle({ fill, stroke }: { fill: string; stroke: string }) {
   )
 }
 
-export function DifficultyBadge({ difficulty, className = '' }: Props) {
+export function DifficultyBadge({ difficulty, className = '', textColor = 'text-zinc-500' }: Props) {
   const { fill, stroke } = CIRCLE_COLORS[difficulty]
   return (
     <span className={`flex items-center gap-1.5 ${className}`}>
       <DifficultyCircle fill={fill} stroke={stroke} />
-      <span className="text-sm font-normal text-zinc-500 leading-normal">{LABELS[difficulty]}</span>
+      <span className={`text-sm font-normal leading-normal ${textColor}`}>{LABELS[difficulty]}</span>
     </span>
   )
 }

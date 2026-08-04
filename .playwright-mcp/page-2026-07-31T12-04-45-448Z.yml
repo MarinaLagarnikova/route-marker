@@ -1,0 +1,20 @@
+- generic [ref=f12e4]:
+  - heading "Вешка" [level=1] [ref=f12e10]
+  - generic [ref=f12e12]:
+    - generic [ref=f12e22]:
+      - paragraph [ref=f12e23]: Загрузите первый трек
+      - paragraph [ref=f12e24]: Отмечайте точки по мере прохождения — работает без GPS. Видно, сколько пройдено и когда будете на финише.
+    - button "Загрузить GPX трек" [ref=f12e25]
+  - generic [ref=f12e29]:
+    - generic [ref=f12e30]:
+      - generic [ref=f12e33]: Подборки маршрутов
+      - generic [ref=f12e34]: "6"
+    - generic [ref=f12e35]:
+      - button [ref=f12e36]:
+        - generic [ref=f12e40]:
+          - paragraph [ref=f12e41]: Избранное
+          - paragraph [ref=f12e42]: 0 маршрутов
+      - button [ref=f12e43]:
+        - generic [ref=f12e47]:
+          - paragraph [ref=f12e48]: Москва и область
+          - paragraph [ref=f12e49]: 6 маршрутов

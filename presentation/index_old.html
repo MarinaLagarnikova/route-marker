@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вешка — презентация для конкурса «Больше, чем путешествие»</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF7A29;
+      --orange-light: #FF9A5C;
+      --orange-dim: rgba(255,122,41,0.12);
+      --black: #0F0F0F;
+      --zinc-900: #18181B;
+      --zinc-800: #27272A;
+      --zinc-700: #3F3F46;
+      --zinc-500: #71717A;
+      --zinc-300: #D4D4D8;
+      --zinc-100: #F4F4F5;
+      --white: #FFFFFF;
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--zinc-900);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    /* ——— SLIDE SYSTEM ——— */
+    .slides {
+      width: 100%; height: 100vh;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 80px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+      transform: translateY(24px);
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    /* ——— NAV ——— */
+    .nav {
+      position: fixed;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(39,39,42,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      padding: 10px 20px;
+      z-index: 100;
+      user-select: none;
+    }
+
+    .nav-btn {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: none;
+      background: transparent;
+      color: var(--zinc-300);
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-btn:hover { background: var(--zinc-800); color: var(--white); }
+
+    .nav-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--zinc-700);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .dot.active {
+      background: var(--orange);
+      transform: scale(1.4);
+    }
+
+    .nav-counter {
+      font-size: 12px;
+      color: var(--zinc-500);
+      min-width: 40px;
+      text-align: center;
+    }
+
+    /* ——— SLIDE 1 — COVER ——— */
+    .slide-cover {
+      flex-direction: column;
+      text-align: center;
+      background: var(--zinc-900);
+    }
+
+    .cover-logo {
+      width: 72px; height: 72px;
+      border-radius: 18px;
+      margin-bottom: 28px;
+    }
+
+    .cover-title {
+      font-size: clamp(52px, 6vw, 80px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .cover-title span { color: var(--orange); }
+
+    .cover-sub {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--zinc-500);
+      max-width: 560px;
+      line-height: 1.6;
+      margin: 0 auto 48px;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .meta-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .meta-label {
+      font-size: 12px;
+      color: var(--zinc-500);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .meta-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--zinc-700);
+    }
+
+    /* ——— TWO-COL LAYOUT ——— */
+    .slide-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .col-text { display: flex; flex-direction: column; gap: 0; }
+
+    .slide-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+
+    .slide-h1 {
+      font-size: clamp(36px, 3.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .slide-h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .slide-body {
+      font-size: 17px;
+      color: var(--zinc-500);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .pain-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .pain-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 16px;
+      color: var(--zinc-300);
+      line-height: 1.5;
+    }
+
+    .pain-list .icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: var(--zinc-800);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-top: 1px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--zinc-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .stat-num {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-num.orange { color: var(--orange); }
+
+    .stat-desc {
+      font-size: 13px;
+      color: var(--zinc-500);
+      line-height: 1.5;
+    }
+
+    /* ——— PHONE MOCKUP ——— */
+    .phone-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phone-wrap img {
+      border-radius: 28px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    }
+
+    /* ——— STEPS ——— */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: var(--zinc-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .step-text span {
+      font-size: 13px;
+      color: var(--zinc-500);
+      line-height: 1.5;
+    }
+
+    /* ——— SLIDE 4 — SCREENS ——— */
+    .screens-slide {
+      flex-direction: column;
+      width: 100%;
+      max-width: 1240px;
+    }
+
+    .screens-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .screens-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .screen-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .screen-item img {
+      border-radius: 28px;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+    }
+
+    .screen-item.large img { width: 200px; }
+    .screen-item.medium img { width: 175px; }
+    .screen-item.small img { width: 155px; }
+
+    .screen-label {
+      font-size: 12px;
+      color: var(--zinc-500);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* ——— SLIDE 5 — FEATURES ——— */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .feat-card {
+      background: var(--zinc-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feat-card.highlight {
+      background: var(--orange);
+      border-color: transparent;
+    }
+
+    .feat-card.highlight .feat-desc,
+    .feat-card.highlight .feat-title {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .feat-emoji { font-size: 32px; line-height: 1; }
+
+    .feat-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .feat-desc {
+      font-size: 14px;
+      color: var(--zinc-500);
+      line-height: 1.6;
+    }
+
+    /* ——— SLIDE 6 — AUDIENCE ——— */
+    .audience-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .aud-card {
+      background: var(--zinc-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .aud-icon { font-size: 36px; flex-shrink: 0; }
+
+    .aud-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .aud-desc {
+      font-size: 13px;
+      color: var(--zinc-500);
+      line-height: 1.5;
+    }
+
+    /* ——— SLIDE 7 — TECH ——— */
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .tech-tag {
+      background: var(--zinc-800);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 13px;
+      color: var(--zinc-300);
+      font-weight: 500;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 8px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 28px;
+      bottom: 0;
+      width: 2px;
+      background: var(--zinc-700);
+    }
+
+    .tl-dot {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--zinc-600);
+      background: var(--zinc-900);
+      margin-top: 2px;
+    }
+
+    .tl-dot.done { background: var(--orange); border-color: var(--orange); }
+
+    .tl-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .tl-sub { font-size: 13px; color: var(--zinc-500); }
+
+    /* ——— SLIDE 8 — CONTACTS ——— */
+    .final-slide {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .final-title {
+      font-size: clamp(48px, 5vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .final-title span { color: var(--orange); }
+
+    .final-sub {
+      font-size: 18px;
+      color: var(--zinc-500);
+      max-width: 500px;
+      line-height: 1.6;
+      margin: 0 auto 48px;
+      position: relative; z-index: 1;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      position: relative; z-index: 1;
+    }
+
+    .contact-chip {
+      background: var(--zinc-800);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 14px 24px;
+      font-size: 15px;
+      color: var(--zinc-300);
+    }
+
+    .contact-chip strong {
+      display: block;
+      font-size: 13px;
+      color: var(--zinc-500);
+      font-weight: 400;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ——— BG GRID ——— */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .slide > * { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+
+<div class="slides" id="slides">
+
+  <!-- ===== SLIDE 1 — COVER ===== -->
+  <div class="slide slide-cover active">
+    <div class="bg-grid"></div>
+    <img class="cover-logo" src="assets/logo.png" alt="Вешка" />
+    <h1 class="cover-title">Вешка — <span>умный</span><br/>навигатор похода</h1>
+    <p class="cover-sub">
+      Мобильное веб-приложение для пеших маршрутов: загрузи GPX-трек, отмечай контрольные точки и знай, сколько ещё идти — даже без GPS и интернета.
+    </p>
+    <div class="cover-meta">
+      <div class="meta-item">
+        <span class="meta-value">100%</span>
+        <span class="meta-label">Работает офлайн</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-value">GPX</span>
+        <span class="meta-label">Любой трек</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 2 — PROBLEM ===== -->
+  <div class="slide">
+    <div class="bg-grid"></div>
+    <div class="slide-two-col">
+      <div class="col-text">
+        <p class="slide-label">Проблема</p>
+        <h2 class="slide-h1">Часто <em>GPS не работает</em> как надо</h2>
+        <p class="slide-body">Туристы теряются не потому, что нет карты — а потому что непонятно, где ты на маршруте, сколько прошёл и успеешь ли до темноты.</p>
+        <ul class="pain-list">
+          <li>
+            <div class="icon">📡</div>
+            <span>Интернет и GPS-сигнал пропадают в густом лесу и ущельях</span>
+          </li>
+          <li>
+            <div class="icon">🔋</div>
+            <span>Навигационные приложения требуют постоянного соединения и садят батарею</span>
+          </li>
+          <li>
+            <div class="icon">📊</div>
+            <span>Нет простого способа отслеживать прогресс группы и прогнозировать финиш</span>
+          </li>
+        </ul>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num orange">48%</div>
+          <div class="stat-desc">туристов сталкивались с потерей сигнала в длительных походах</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4 млн</div>
+          <div class="stat-desc">зарегистрированных туристических маршрутов в России</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">GPX</div>
+          <div class="stat-desc">открытый стандарт трека, поддерживаемый всеми устройствами</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange">∞</div>
+          <div class="stat-desc">километров маршрутов без надёжного покрытия связью</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 3 — SOLUTION ===== -->
+  <div class="slide">
+    <div class="bg-grid"></div>
+    <div class="slide-two-col">
+      <div class="col-text">
+        <p class="slide-label">Решение</p>
+        <h2 class="slide-h1">«Умный чек-лист» поверх <em>карты</em></h2>
+        <p class="slide-body">Вешка — это не навигатор. Это инструмент самоконтроля: туристы сами отмечают пройденные точки, а приложение рассчитывает прогресс и прогноз финиша.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>Загрузи GPX-трек</strong>
+              <span>Файл маршрута с любого устройства или сервиса</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>Отмечай контрольные точки</strong>
+              <span>Тапни по точке, когда дошёл до неё — время фиксируется автоматически</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <strong>Следи за прогрессом</strong>
+              <span>Пройдено км, остаток и прогноз финиша пересчитываются в реальном времени</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone-wrap">
+        <img src="assets/screen4_history.png" style="width:185px;" />
+        <img src="assets/screen3_route.png" style="width:205px;" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 4 — SCREENS ===== -->
+  <div class="slide screens-slide">
+    <div class="bg-grid"></div>
+    <div class="screens-header">
+      <p class="slide-label" style="text-align:center">Интерфейс</p>
+      <h2 class="slide-h1" style="text-align:center">Чистый дизайн, созданный для <em>условий маршрута</em></h2>
+    </div>
+    <div class="screens-grid">
+      <div class="screen-item small">
+        <img src="assets/screen1_start.png" alt="Стартовый экран" />
+        <span class="screen-label">Стартовый<br/>экран</span>
+      </div>
+      <div class="screen-item medium">
+        <img src="assets/screen2_home.png" alt="Главный экран" />
+        <span class="screen-label">Главная<br/>с каталогом</span>
+      </div>
+      <div class="screen-item large">
+        <img src="assets/screen3_route.png" alt="Карта маршрута" />
+        <span class="screen-label">Карта<br/>маршрута</span>
+      </div>
+      <div class="screen-item medium">
+        <img src="assets/screen5_completed.png" alt="Завершённые маршруты" />
+        <span class="screen-label">Завершённые<br/>маршруты</span>
+      </div>
+      <div class="screen-item small">
+        <img src="assets/screen4_history.png" alt="История прохождения" />
+        <span class="screen-label">История<br/>прохождения</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 5 — FEATURES ===== -->
+  <div class="slide" style="flex-direction:column; max-width:1100px; width:100%;">
+    <div class="bg-grid"></div>
+    <div style="text-align:center; margin-bottom:36px;">
+      <p class="slide-label">Возможности</p>
+      <h2 class="slide-h1">Что умеет <em>Вешка</em></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card highlight">
+        <div class="feat-emoji">📶</div>
+        <div class="feat-title">Работает без интернета</div>
+        <div class="feat-desc">Весь прогресс хранится локально в браузере. Карта кэшируется. Никакого бэкенда.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-emoji">🗺️</div>
+        <div class="feat-title">Поддержка любого GPX</div>
+        <div class="feat-desc">Открытый стандарт — подходят треки с любых устройств и сервисов.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-emoji">⏱️</div>
+        <div class="feat-title">Прогноз времени финиша</div>
+        <div class="feat-desc">После 2 отметок приложение рассчитывает темп и прогнозирует, когда группа будет на финише.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-emoji">↔️</div>
+        <div class="feat-title">Автоопределение направления</div>
+        <div class="feat-desc">Первая отметка задаёт направление — приложение само разворачивает трек, если идёшь с конца.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-emoji">📚</div>
+        <div class="feat-title">История маршрутов</div>
+        <div class="feat-desc">Все пройденные маршруты сохраняются с временем прохождения каждого отрезка.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-emoji">📱</div>
+        <div class="feat-title">Mobile-first, без установки</div>
+        <div class="feat-desc">Открывается в браузере телефона — работает как приложение, мгновенно.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 6 — AUDIENCE ===== -->
+  <div class="slide">
+    <div class="bg-grid"></div>
+    <div class="slide-two-col">
+      <div class="col-text">
+        <p class="slide-label">Аудитория</p>
+        <h2 class="slide-h1">Для кого <em>Вешка</em></h2>
+        <p class="slide-body">Приложение создано для всех, кто ходит по размеченным или авторским маршрутам — в одиночку и группами.</p>
+        <div class="audience-cards">
+          <div class="aud-card">
+            <div class="aud-icon">🥾</div>
+            <div>
+              <div class="aud-title">Пешие туристы и треккеры</div>
+              <div class="aud-desc">Горные, лесные, равнинные маршруты — от однодневных вылазок до многодневных походов</div>
+            </div>
+          </div>
+          <div class="aud-card">
+            <div class="aud-icon">🏕️</div>
+            <div>
+              <div class="aud-title">Организаторы молодёжных походов</div>
+              <div class="aud-desc">Удобно для групповых походов — видно общий прогресс без GPS-трекеров</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone-wrap">
+        <img src="assets/screen5_completed.png" style="width:240px;" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 7 — TECH ===== -->
+  <div class="slide">
+    <div class="bg-grid"></div>
+    <div class="slide-two-col">
+      <div class="col-text">
+        <p class="slide-label">Технологии и статус</p>
+        <h2 class="slide-h1">Сделано с умом, <em>готово к росту</em></h2>
+        <p class="slide-body">Современный стек, строгая архитектура, ноль зависимости от бэкенда.</p>
+        <div class="tech-list">
+          <span class="tech-tag">React 18 + TypeScript</span>
+          <span class="tech-tag">Feature-Sliced Design</span>
+          <span class="tech-tag">OpenStreetMap</span>
+          <span class="tech-tag">Zustand</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">shadcn/ui</span>
+          <span class="tech-tag">Vite</span>
+          <span class="tech-tag">localStorage</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:13px; color:var(--zinc-500); letter-spacing:0.08em; text-transform:uppercase; font-weight:600; margin-bottom:16px;">Этапы разработки</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-dot done"></div>
+            <div>
+              <div class="tl-title">Парсинг и валидация GPX</div>
+              <div class="tl-sub">Полная поддержка trkpt/wpt, автогенерация точек</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot done"></div>
+            <div>
+              <div class="tl-title">Карта с треком и маркерами</div>
+              <div class="tl-sub">OpenStreetMap через изолированный адаптер</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot done"></div>
+            <div>
+              <div class="tl-title">Отметка точек</div>
+              <div class="tl-sub">Автоопределение направления</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot done"></div>
+            <div>
+              <div class="tl-title">История и каталог маршрутов</div>
+              <div class="tl-sub">Персистентность, несколько активных треков</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot done"></div>
+            <div>
+              <div class="tl-title">Дизайн-система и мобильный UI</div>
+              <div class="tl-sub">Zinc-палитра, Inter, touch-таргеты 44px+</div>
+            </div>
+          </div>
+          <div class="timeline-item" style="padding-bottom:0;">
+            <div class="tl-dot" style="border-color:var(--orange);"></div>
+            <div>
+              <div class="tl-title" style="color:var(--orange);">GPS-метка и Android-приложение</div>
+              <div class="tl-sub">Опциональная геолокация, офлайн-кэш тайлов</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 8 — CONTACTS ===== -->
+  <div class="slide final-slide">
+    <div class="bg-grid"></div>
+    <img src="assets/logo.png" style="width:60px;height:60px;margin-bottom:24px;border-radius:14px;" />
+    <h2 class="final-title">Вешка — маршрут <span>под контролем</span></h2>
+    <p class="final-sub">Простой, надёжный инструмент для туристов, который работает там, где другие приложения сдаются.</p>
+    <div class="contact-row">
+      <div class="contact-chip">
+        <strong>Сайт</strong>
+        veshka.tech
+      </div>
+      <div class="contact-chip">
+        <strong>Почта</strong>
+        marinalagarnikova@yandex.ru
+      </div>
+      <div class="contact-chip">
+        <strong>Телефон (Max)</strong>
+        +7 (913) 229-71-39
+      </div>
+    </div>
+  </div>
+
+</div><!-- /slides -->
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-btn" onclick="go(-1)">&#8592;</button>
+  <div class="nav-dots" id="dots"></div>
+  <button class="nav-btn" onclick="go(1)">&#8594;</button>
+  <span class="nav-counter" id="counter"></span>
+</nav>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let cur = 0;
+
+  // Support ?page=N for headless PDF export
+  const urlPage = new URLSearchParams(window.location.search).get('page');
+  if (urlPage !== null) {
+    cur = Math.max(0, Math.min(slides.length - 1, parseInt(urlPage)));
+    document.querySelector('.nav').style.display = 'none';
+  }
+
+  function render() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === cur));
+    document.getElementById('counter').textContent = `${cur + 1} / ${slides.length}`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  function go(dir) {
+    cur = Math.max(0, Math.min(slides.length - 1, cur + dir));
+    render();
+  }
+
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.onclick = () => { cur = i; render(); };
+    dotsEl.appendChild(d);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') go(1);
+    if (e.key === 'ArrowLeft') go(-1);
+  });
+
+  render();
+</script>
+
+</body>
+</html>

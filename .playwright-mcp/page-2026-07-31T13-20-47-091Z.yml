@@ -1,0 +1,31 @@
+- generic [ref=f8e5]:
+  - generic [ref=f8e6]:
+    - generic [ref=f8e10]:
+      - status [ref=f8e19]
+      - region "Left sidebar" [ref=f8e21]:
+        - separator [ref=f8e25]
+      - generic [ref=f8e88]:
+        - button "100%, zoom and view options" [ref=f8e91]:
+          - generic [ref=f8e92]: 100%
+        - generic [ref=f8e98]:
+          - generic [ref=f8e99]:
+            - button "Present" [ref=f8e100]
+            - button "Prototype view" [ref=f8e101]
+          - button "Share" [ref=f8e103]
+    - region "Help/zoom toolbar" [ref=f8e124]:
+      - toolbar "Help/zoom toolbar" [ref=f8e126]:
+        - button "Help" [ref=f8e128]
+  - generic:
+    - status
+    - group [ref=f8e130]:
+      - alert [ref=f8e132]
+      - alert [ref=f8e134]
+    - region "Consent Manager" [ref=f8e136]:
+      - generic [ref=f8e137]:
+        - text: This website uses cookies, pixel tags, and local storage for performance, personalization, and marketing purposes. We use our own cookies and some from third parties. Only essential cookies are turned on by default.
+        - link "Cookies settings" [ref=f8e138]:
+          - /url: /consent-preferences/
+      - generic [ref=f8e139]:
+        - button "Do not allow cookies" [ref=f8e140]
+        - button "Allow all cookies" [ref=f8e141]
+      - button "Dismiss" [ref=f8e143]
