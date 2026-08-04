@@ -201,7 +201,7 @@ export function CollectionPage() {
             </div>
           ) : (
             <>
-              {collection.routes.length > 0 && (
+              {id !== 'favorites' && collection.routes.length > 0 && (
                 <button
                   onClick={() => setSortDrawerOpen(true)}
                   className="flex items-center gap-2 self-start active:opacity-70 transition-opacity"
@@ -213,7 +213,7 @@ export function CollectionPage() {
               )}
 
               {[
-                ...sortRoutes(collection.routes, sortOrder),
+                ...(id === 'favorites' ? collection.routes : sortRoutes(collection.routes, sortOrder)),
                 ...[...removingIds]
                   .filter((rid) => !collection.routes.some((r) => r.id === rid))
                   .map((rid) => routeCacheRef.current.get(rid))
