@@ -211,6 +211,7 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
             </div>
 
             {/* Attribution */}
+            <div className="h-px bg-zinc-100" />
             <Attribution source={route.source} />
 
           </div>
@@ -232,7 +233,12 @@ function ParamRow({ label, value }: { label: string; value: React.ReactNode }) {
 
 function Attribution({ source }: { source: LibraryRoute['source'] }) {
   return (
-    <div className="flex items-center gap-4">
+    <a
+      href={source.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-4 active:opacity-70 transition-opacity"
+    >
       {source.logoUrl && (
         <img src={source.logoUrl} alt={source.name} className="w-[43px] h-[38px] object-contain shrink-0" />
       )}
@@ -240,15 +246,9 @@ function Attribution({ source }: { source: LibraryRoute['source'] }) {
         <span className="text-sm font-medium text-zinc-900 leading-normal truncate">Маркированные маршруты России</span>
         <span className="text-xs text-zinc-500 leading-normal">Подробнее о маршруте</span>
       </div>
-      <a
-        href={source.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 bg-white active:bg-zinc-50 transition-colors shrink-0"
-        aria-label="Открыть источник"
-      >
+      <div className="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 bg-white shrink-0">
         <ArrowUpRight className="w-4 h-4 text-zinc-700" />
-      </a>
-    </div>
+      </div>
+    </a>
   )
 }
