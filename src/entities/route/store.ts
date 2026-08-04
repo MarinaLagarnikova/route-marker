@@ -308,6 +308,11 @@ function _markCircular(
       ...route.trackPoints.slice(0, pTrackIdx),
     ]
 
+    // Rotate trackSegments to match rotated trackPoints (circular = single loop)
+    const rotatedSegments: LatLon[][] | undefined = route.trackSegments
+      ? [rotatedTrack]
+      : undefined
+
     // Recalculate trackIndex in middle checkpoints relative to rotated track
     const rotatedMiddle = middle.map((cp) => ({
       ...cp,
@@ -321,6 +326,7 @@ function _markCircular(
     const next: RouteState = {
       ...route,
       trackPoints: rotatedTrack,
+      trackSegments: rotatedSegments,
       checkpoints: newCheckpoints,
       circularPhase: 2,
     }
@@ -335,6 +341,7 @@ function _markCircular(
 
     let finalCheckpoints: Checkpoint[]
     let finalTrackPoints = route.trackPoints
+    let finalTrackSegments = route.trackSegments
 
     if (arcCCW < arcCW) {
       // Shorter path is CCW → reverse middle, reverse trackPoints
@@ -355,8 +362,12 @@ function _markCircular(
         { ...pFinish, trackIndex: n - 1 },
       ]
       finalTrackPoints = [...route.trackPoints].reverse()
+      // Sync trackSegments with reversed trackPoints
+      finalTrackSegments = route.trackSegments ? [finalTrackPoints] : undefined
     } else {
       finalCheckpoints = [...checkpoints]
+      // Sync trackSegments with (already rotated) trackPoints
+      finalTrackSegments = route.trackSegments ? [route.trackPoints] : undefined
     }
 
     // Find Q's index in final list (by id)
@@ -366,6 +377,7 @@ function _markCircular(
     const next: RouteState = {
       ...route,
       trackPoints: finalTrackPoints,
+      trackSegments: finalTrackSegments,
       checkpoints: updated,
       circularPhase: 3,
       directionLocked: true,
