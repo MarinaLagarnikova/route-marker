@@ -80,8 +80,7 @@ export function createMapTilerAdapter(): MapAdapter {
           const segEnd = offset + seg.length - 1
 
           if (checkedUpToTrackIndex <= 0) {
-            // No progress yet — show entire track as solid (not dashed)
-            doneGeometry.push(segCoords)
+            remainingGeometry.push(segCoords)
           } else if (checkedUpToTrackIndex >= segEnd) {
             if (segCoords.length >= 2) doneGeometry.push(segCoords)
           } else if (checkedUpToTrackIndex >= offset) {
@@ -94,13 +93,8 @@ export function createMapTilerAdapter(): MapAdapter {
           offset += seg.length
         }
       } else {
-        // No progress yet — show entire track as solid (not dashed)
-        doneGeometry = checkedUpToTrackIndex > 0
-          ? [coords.slice(0, checkedUpToTrackIndex + 1)]
-          : [coords]
-        remainingGeometry = checkedUpToTrackIndex > 0
-          ? [coords.slice(checkedUpToTrackIndex)]
-          : []
+        doneGeometry = checkedUpToTrackIndex > 0 ? [coords.slice(0, checkedUpToTrackIndex + 1)] : []
+        remainingGeometry = [coords.slice(Math.max(0, checkedUpToTrackIndex))]
       }
 
       if (!map.getSource(doneSourceId)) {
