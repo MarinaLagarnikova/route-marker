@@ -1,6 +1,6 @@
 import '@maptiler/sdk/dist/maptiler-sdk.css'
 import { Component } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { StartPage } from '@/pages/start'
 import { RoutePage } from '@/pages/route'
 import { StagesPage } from '@/pages/stages'
@@ -30,7 +30,7 @@ class ErrorBoundary extends Component<{ children: React.ReactNode }, { error: Er
 export function App() {
   return (
     <ErrorBoundary>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/route" element={<RoutePage />} />
@@ -39,7 +39,7 @@ export function App() {
           <Route path="/completed" element={<CompletedPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ErrorBoundary>
   )
 }
