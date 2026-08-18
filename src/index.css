@@ -91,7 +91,11 @@ html, body, #root {
   overscroll-behavior: none;
 }
 
-/* Map controls: 16px gap between NavigationControl and GeolocateControl */
+/* Map controls: position and spacing */
+.maplibregl-ctrl-bottom-right {
+  right: 16px !important;
+}
+
 .maplibregl-ctrl-bottom-right .maplibregl-ctrl-group + .maplibregl-ctrl-group {
   margin-top: 16px;
 }
@@ -106,4 +110,19 @@ html, body, #root {
 .maplibregl-ctrl-group {
   border-radius: 12px !important;
   overflow: hidden !important;
+}
+
+/* Hide attribution toggle button (i), keep text attribution visible */
+.maplibregl-ctrl-attrib-button {
+  display: none !important;
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact {
+  min-height: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-inner {
+  display: block !important;
 }

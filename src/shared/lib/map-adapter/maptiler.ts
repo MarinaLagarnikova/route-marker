@@ -35,6 +35,7 @@ export function createMapTilerAdapter(): MapAdapter {
           zoom,
           navigationControl: false,
           geolocateControl: false,
+          attributionControl: false,
         })
 
         map = m
