@@ -327,7 +327,7 @@ function CompletedSection({
 // ────────────────────────────────────────────
 type PinnedRoute = Omit<LibraryRoute, 'track'>
 
-function PinnedRoutesSection({ onOpen }: { onOpen: (route: PinnedRoute) => Promise<void> }) {
+function PinnedRoutesSection({ onOpen, savedRoutes }: { onOpen: (route: PinnedRoute) => Promise<void>; savedRoutes: RouteState[] }) {
   const pinnedRoutes = useLibraryStore((s) => s.pinnedRoutes)
   const [loadingId, setLoadingId] = useState<string | null>(null)
 
@@ -335,32 +335,54 @@ function PinnedRoutesSection({ onOpen }: { onOpen: (route: PinnedRoute) => Promi
 
   return (
     <>
-      {pinnedRoutes.map((route) => (
-        <button
-          key={route.id}
-          disabled={loadingId !== null}
-          onClick={async () => {
-            setLoadingId(route.id)
-            try {
-              await onOpen(route)
-            } finally {
-              setLoadingId(null)
-            }
-          }}
-          className={`w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4 transition-colors ${loadingId === route.id ? 'opacity-60' : 'active:bg-zinc-50'}`}
-        >
-          <div className="flex-1 flex flex-col gap-1.5 min-w-0">
-            <div className="flex items-center justify-between gap-2 min-w-0">
-              <p className="text-sm font-semibold text-zinc-900 truncate">{route.name}</p>
-              <div className="flex items-center gap-1.5 shrink-0">
-                <SportShoe className="w-4 h-4 text-zinc-900" />
-                <span className="text-sm font-normal text-zinc-900">{Math.round(route.distanceKm)} км</span>
+      {pinnedRoutes.map((route) => {
+        const saved = savedRoutes.find((r) => r.libraryRouteId === route.id)
+        // Skip completed routes — they go to the completed section
+        const isCompleted = saved && saved.checkpoints.length > 0 && saved.checkpoints.every((cp) => cp.checkedAt !== undefined)
+        if (isCompleted) return null
+        const isActive = saved ? saved.checkpoints.some((cp) => cp.checkedAt !== undefined) : false
+
+        const handleClick = async () => {
+          setLoadingId(route.id)
+          try {
+            await onOpen(route)
+          } finally {
+            setLoadingId(null)
+          }
+        }
+
+        if (saved) {
+          return (
+            <RouteCard
+              key={route.id}
+              route={saved}
+              onClick={handleClick}
+              isActive={isActive}
+            />
+          )
+        }
+
+        // Not yet opened — show basic card from library data
+        return (
+          <button
+            key={route.id}
+            disabled={loadingId !== null}
+            onClick={handleClick}
+            className={`w-full text-left bg-white border border-zinc-200 rounded-2xl p-6 flex items-start gap-4 transition-colors ${loadingId === route.id ? 'opacity-60' : 'active:bg-zinc-50'}`}
+          >
+            <div className="flex-1 flex flex-col gap-1.5 min-w-0">
+              <div className="flex items-center justify-between gap-2 min-w-0">
+                <p className="text-sm font-semibold text-zinc-900 truncate">{route.name}</p>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <SportShoe className="w-4 h-4 text-zinc-900" />
+                  <span className="text-sm font-normal text-zinc-900">{Math.round(route.distanceKm)} км</span>
+                </div>
               </div>
+              <p className="text-sm font-normal text-zinc-500">0.0 км пройдено</p>
             </div>
-            <p className="text-sm font-normal text-zinc-500">0.0 км пройдено</p>
-          </div>
-        </button>
-      ))}
+          </button>
+        )
+      })}
     </>
   )
 }
@@ -488,7 +510,7 @@ export function StartPage() {
     (r) => r.checkpoints.length > 0 && r.checkpoints.every((cp) => cp.checkedAt !== undefined)
   )
   const activeRoutes = savedRoutes.filter(
-    (r) => !r.checkpoints.every((cp) => cp.checkedAt !== undefined)
+    (r) => !r.checkpoints.every((cp) => cp.checkedAt !== undefined) && !r.libraryRouteId
   )
 
 
@@ -520,7 +542,7 @@ export function StartPage() {
             </div>
           ) : (
             <>
-              <PinnedRoutesSection onOpen={handleOpenPinnedRoute} />
+              <PinnedRoutesSection onOpen={handleOpenPinnedRoute} savedRoutes={savedRoutes} />
               {activeRoutes.map((r) => (
                 <RouteCard
                   key={r.gpxHash}

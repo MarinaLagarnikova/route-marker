@@ -37,6 +37,11 @@ export function CompletedPage() {
           r.checkpoints.length > 0 &&
           r.checkpoints.every((cp) => cp.checkedAt !== undefined)
       )
+    completed.sort((a, b) => {
+      const lastA = a.checkpoints.filter((c) => c.checkedAt).pop()?.checkedAt ?? 0
+      const lastB = b.checkpoints.filter((c) => c.checkedAt).pop()?.checkedAt ?? 0
+      return lastB - lastA
+    })
     setRoutes(completed)
   }, [])
 
