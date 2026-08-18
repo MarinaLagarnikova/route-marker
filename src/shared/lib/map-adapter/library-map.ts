@@ -50,7 +50,6 @@ export async function initLibraryMap(
     zoom: 10,
     navigationControl: false,
     geolocateControl: false,
-    attributionControl: false,
   })
 
   if (onTap) {
@@ -135,7 +134,6 @@ export async function initCollectionMap(
     zoom: 8,
     navigationControl: false,
     geolocateControl: false,
-    attributionControl: false,
   })
 
   await new Promise<void>((resolve) => {
@@ -217,7 +215,6 @@ export async function initPlainMap(
     zoom,
     navigationControl: false,
     geolocateControl: false,
-    attributionControl: false,
   })
 
   m.on('load', () => { if (destroyed) m.remove() })
@@ -257,7 +254,6 @@ export async function initStartMarkersMap(
     zoom: 8,
     navigationControl: false,
     geolocateControl: false,
-    attributionControl: false,
   })
 
   const markers: maptilersdk.Marker[] = []
