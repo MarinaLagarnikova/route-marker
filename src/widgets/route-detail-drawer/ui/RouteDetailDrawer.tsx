@@ -25,6 +25,7 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
   const [addState, setAddState] = useState<'idle' | 'loading' | 'done'>(isPinned ? 'done' : 'idle')
   const [gpxTrack, setGpxTrack] = useState<GeoPoint[] | null>(route.track ?? null)
   const [gpxLoading, setGpxLoading] = useState(!route.track && !!route.gpx)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setVisible(true))
@@ -207,8 +208,39 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
             {/* Description */}
             <div className="flex flex-col gap-2">
               <h3 className="text-xl font-semibold text-zinc-900">Описание</h3>
-              <p className="text-sm text-zinc-500 leading-5">{route.description}</p>
+              {/* Descriptions may be several paragraphs, separated by a blank line. */}
+              {route.description.split(/\n\s*\n/).map((paragraph, i) => (
+                <p key={i} className="text-sm text-zinc-500 leading-5">
+                  {paragraph.trim()}
+                </p>
+              ))}
             </div>
+
+            {/* Photos */}
+            {route.photos && route.photos.length > 0 && (
+              <div className="flex flex-col gap-2">
+                <h3 className="text-xl font-semibold text-zinc-900">Фото</h3>
+                {/* Negative margin lets the strip bleed to the sheet edges while keeping content padding. */}
+                <div className="flex gap-2 overflow-x-auto overscroll-x-contain -mx-4 px-4 pb-1 snap-x snap-mandatory">
+                  {route.photos.map((src, i) => (
+                    <button
+                      key={src}
+                      type="button"
+                      onClick={() => setLightboxIndex(i)}
+                      className="w-[68%] shrink-0 snap-start rounded-xl overflow-hidden bg-zinc-100 active:opacity-80 transition-opacity"
+                      aria-label={`Фото ${i + 1} из ${route.photos!.length}`}
+                    >
+                      <img
+                        src={src}
+                        alt=""
+                        loading="lazy"
+                        className="w-full aspect-[3/4] object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Attribution */}
             <div className="h-px bg-zinc-100" />
@@ -218,7 +250,75 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
         </div>
         </div>{/* Sheet */}
       </div>{/* Wrapper */}
+
+      {lightboxIndex !== null && route.photos && (
+        <PhotoLightbox
+          photos={route.photos}
+          index={lightboxIndex}
+          onIndexChange={setLightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </>
+  )
+}
+
+function PhotoLightbox({
+  photos,
+  index,
+  onIndexChange,
+  onClose,
+}: {
+  photos: string[]
+  index: number
+  onIndexChange: (i: number) => void
+  onClose: () => void
+}) {
+  // Opened from a drawer that already scrolls; lock the page behind it.
+  useEffect(() => {
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previous
+    }
+  }, [])
+
+  return (
+    <div className="fixed inset-0 z-[60] bg-black flex flex-col" onClick={onClose}>
+      <div className="flex items-center justify-between px-4 py-3 shrink-0">
+        <span className="text-sm text-white/70">
+          {index + 1} / {photos.length}
+        </span>
+        <button
+          onClick={onClose}
+          className="w-9 h-9 flex items-center justify-center rounded-full bg-white/15 active:bg-white/25 transition-colors"
+          aria-label="Закрыть"
+        >
+          <X className="w-4 h-4 text-white" />
+        </button>
+      </div>
+
+      {/* Horizontal snap strip doubles as the swipe gesture — no gesture library needed. */}
+      <div
+        className="flex-1 min-h-0 flex overflow-x-auto overscroll-contain snap-x snap-mandatory"
+        onClick={(e) => e.stopPropagation()}
+        onScroll={(e) => {
+          const el = e.currentTarget
+          const next = Math.round(el.scrollLeft / el.clientWidth)
+          if (next !== index) onIndexChange(next)
+        }}
+        ref={(el) => {
+          // Jump to the tapped photo on open, without animating past the others.
+          if (el && el.scrollLeft === 0 && index > 0) el.scrollLeft = index * el.clientWidth
+        }}
+      >
+        {photos.map((src) => (
+          <div key={src} className="w-full h-full shrink-0 snap-start flex items-center justify-center p-2">
+            <img src={src} alt="" className="max-w-full max-h-full object-contain" />
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -243,7 +343,9 @@ function Attribution({ source }: { source: LibraryRoute['source'] }) {
         <img src={source.logoUrl} alt={source.name} className="w-[43px] h-[38px] object-contain shrink-0" />
       )}
       <div className="flex flex-col gap-1 flex-1 min-w-0">
-        <span className="text-sm font-medium text-zinc-900 leading-normal truncate">Маркированные маршруты России</span>
+        <span className="text-sm font-medium text-zinc-900 leading-normal truncate">
+          {source.tagline ?? source.name}
+        </span>
         <span className="text-xs text-zinc-500 leading-normal">Подробнее о маршруте</span>
       </div>
       <div className="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 bg-white shrink-0">

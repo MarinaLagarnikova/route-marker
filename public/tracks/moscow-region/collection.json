@@ -1,8 +1,149 @@
 {
   "id": "moscow-region",
   "name": "Москва и область",
-  "totalRoutes": 27,
+  "totalRoutes": 28,
   "routes": [
+    {
+      "id": "zvenigorodskie-holmy",
+      "name": "Звенигородские холмы",
+      "gpx": "zvenigorodskie-holmy/track.gpx",
+      "photos": [
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-1.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-2.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-3.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-4.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-5.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-6.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-7.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-8.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-9.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-10.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-11.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-12.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-13.jpg",
+        "/tracks/moscow-region/zvenigorodskie-holmy/photo-14.jpg"
+      ],
+      "region": {
+        "id": "moscow-region",
+        "name": "Москва и область"
+      },
+      "distanceKm": 10.8,
+      "durationLabel": "3—4 часа",
+      "difficulty": "easy",
+      "elevationGainM": 85,
+      "type": "linear",
+      "nearestSettlement": "Звенигород",
+      "description": "Линейный маршрут от станции Звенигород до Саввино-Сторожевского монастыря — через поле вдоль Москвы-реки, исторический центр города и валы древнего кремля.\n\nОт станции тропа идёт вдоль Москвы-реки, через открытое поле. Дальше маршрут выходит в центр Звенигорода — к собору Вознесения Господня, — а оттуда через парк по Малиновому оврагу поднимается к валам Звенигородского кремля: земляным укреплениям XIV века. Финальный отрезок идёт по экотропе к Саввино-Сторожевскому монастырю — путь вдоль монастырской стены по кругу выводит к главному входу.\n\nВ центре Звенигорода много кафе — например, «Хлебник» или «Братец Кролик». У стен самого монастыря тоже есть трапезная с красивым видом.\n\nКак добраться: электричка от Белорусского, Савёловского или Окружного вокзала до станции Звенигород, в пути около 1,5 часов.",
+      "highlights": [
+        "Саввино-Сторожевский монастырь",
+        "Звенигородский кремль",
+        "Москва-река",
+        "Малиновый овраг"
+      ],
+      "source": {
+        "name": "Вешка",
+        "tagline": "Маршрут от Вешки",
+        "url": "https://veshka.vercel.app",
+        "logoUrl": "/tracks/veshka-logo.svg"
+      },
+      "trackSimplified": [
+        {
+          "lat": 55.699972,
+          "lon": 36.880867,
+          "ele": 155
+        },
+        {
+          "lat": 55.700997,
+          "lon": 36.88163,
+          "ele": 153
+        },
+        {
+          "lat": 55.70395,
+          "lon": 36.876806,
+          "ele": 159
+        },
+        {
+          "lat": 55.702535,
+          "lon": 36.869605,
+          "ele": 152
+        },
+        {
+          "lat": 55.704886,
+          "lon": 36.859727,
+          "ele": 136
+        },
+        {
+          "lat": 55.706315,
+          "lon": 36.861728,
+          "ele": 125
+        },
+        {
+          "lat": 55.712477,
+          "lon": 36.861451,
+          "ele": 121
+        },
+        {
+          "lat": 55.717208,
+          "lon": 36.863875,
+          "ele": 122
+        },
+        {
+          "lat": 55.722375,
+          "lon": 36.852932,
+          "ele": 120
+        },
+        {
+          "lat": 55.727506,
+          "lon": 36.848876,
+          "ele": 128
+        },
+        {
+          "lat": 55.72903,
+          "lon": 36.852195,
+          "ele": 130
+        },
+        {
+          "lat": 55.73091,
+          "lon": 36.852108,
+          "ele": 138
+        },
+        {
+          "lat": 55.72999,
+          "lon": 36.856344,
+          "ele": 141
+        },
+        {
+          "lat": 55.730619,
+          "lon": 36.850009,
+          "ele": 133
+        },
+        {
+          "lat": 55.734986,
+          "lon": 36.846349,
+          "ele": 155
+        },
+        {
+          "lat": 55.728021,
+          "lon": 36.819573,
+          "ele": 132
+        },
+        {
+          "lat": 55.728592,
+          "lon": 36.817021,
+          "ele": 159
+        },
+        {
+          "lat": 55.727178,
+          "lon": 36.816766,
+          "ele": 151
+        },
+        {
+          "lat": 55.729525,
+          "lon": 36.814948,
+          "ele": 161
+        }
+      ]
+    },
     {
       "id": "walk-moscow",
       "name": "Прогулка по Москве",
@@ -26,6 +167,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/71/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -135,6 +277,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/85/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -284,6 +427,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/82/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -593,6 +737,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/84/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -997,6 +1142,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/62/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -1247,6 +1393,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/47/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -2091,6 +2238,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/86/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -2359,6 +2507,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/16/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -2832,6 +2981,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/81/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -2965,6 +3115,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/20/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -3133,6 +3284,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/24/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -3291,6 +3443,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/54/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -3524,6 +3677,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/21/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -4788,6 +4942,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/79/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -4936,6 +5091,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/52/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -5124,6 +5280,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/36/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -5432,6 +5589,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/80/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -5655,6 +5813,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/83/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -5938,6 +6097,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/51/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -6126,6 +6286,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/35/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -6299,6 +6460,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/77/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -6532,6 +6694,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/58/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -6865,6 +7028,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/37/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -7108,6 +7272,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/78/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -7241,6 +7406,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/45/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -7439,6 +7605,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/76/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },
@@ -7857,6 +8024,7 @@
       ],
       "source": {
         "name": "RuTrail",
+        "tagline": "Маркированные маршруты России",
         "url": "https://rutrail.org/trails/74/",
         "logoUrl": "/tracks/rutrail-logo.svg"
       },

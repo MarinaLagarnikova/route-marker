@@ -9,6 +9,8 @@ export type RouteType = 'linear' | 'loop' | 'out-and-back'
 
 export interface RouteSource {
   name: string
+  /** Line shown in the attribution block; falls back to `name`. */
+  tagline?: string
   logoUrl?: string
   url: string
 }
@@ -25,6 +27,8 @@ export interface LibraryRoute {
   nearestSettlement?: string
   description: string
   highlights?: string[]
+  /** Paths under /tracks/<region>/photos/, shown as a gallery in the detail drawer. */
+  photos?: string[]
   gpx?: string
   source: RouteSource
   track?: GeoPoint[]          // full geometry for drawer/map
