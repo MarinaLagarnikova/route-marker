@@ -18,6 +18,14 @@ export interface RouteSource {
   url?: string
 }
 
+export interface RoutePhoto {
+  /** Path from the site root: /tracks/<region>/<route-id>/photo-1.jpg */
+  src: string
+  caption?: string
+  /** Where along the track the shot was taken, km. Derived from the photo's GPS. */
+  km?: number
+}
+
 export interface LibraryRoute {
   id: string
   name: string
@@ -30,8 +38,7 @@ export interface LibraryRoute {
   nearestSettlement?: string
   description: string
   highlights?: string[]
-  /** Paths under /tracks/<region>/photos/, shown as a gallery in the detail drawer. */
-  photos?: string[]
+  photos?: RoutePhoto[]
   gpx?: string
   source: RouteSource
   track?: GeoPoint[]          // full geometry for drawer/map

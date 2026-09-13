@@ -8,20 +8,76 @@
       "name": "Звенигородские холмы",
       "gpx": "zvenigorodskie-holmy/track.gpx",
       "photos": [
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-1.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-2.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-3.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-4.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-5.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-6.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-7.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-8.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-9.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-10.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-11.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-12.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-13.jpg",
-        "/tracks/moscow-region/zvenigorodskie-holmy/photo-14.jpg"
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-1.jpg",
+          "caption": "Поле перед выходом к реке",
+          "km": 2.9
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-2.jpg",
+          "caption": "Москва-река в излучине",
+          "km": 3.5
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-3.jpg",
+          "caption": "Пойма реки и высокое небо",
+          "km": 4.1
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-4.jpg",
+          "caption": "Вид с моста через Москву-реку",
+          "km": 5.3
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-5.jpg",
+          "caption": "Вход в городской парк Звенигорода",
+          "km": 6.5
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-6.jpg",
+          "caption": "Настил по Малиновому оврагу",
+          "km": 7.0
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-7.jpg",
+          "caption": "Старые сосны над тропой",
+          "km": 7.5
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-8.jpg",
+          "caption": "Собор Вознесения Господня",
+          "km": 7.7
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-9.jpg",
+          "caption": "Тропа по дну оврага",
+          "km": 8.4
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-10.jpg",
+          "caption": "Родник в склоне оврага",
+          "km": 8.6
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-11.jpg",
+          "caption": "Башня монастырской стены",
+          "km": 10.5
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-12.jpg",
+          "caption": "Терраса с видом на долину",
+          "km": 10.8
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-13.jpg",
+          "caption": "Звонница Саввино-Сторожевского монастыря",
+          "km": 10.3
+        },
+        {
+          "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-14.jpg",
+          "caption": "Рождественский собор, XV век",
+          "km": 10.3
+        }
       ],
       "region": {
         "id": "moscow-region",
