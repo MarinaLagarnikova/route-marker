@@ -219,9 +219,10 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
             {/* Photos */}
             {route.photos && route.photos.length > 0 && (
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold text-zinc-900">Фото</h3>
-                {/* Negative margin lets the strip bleed to the sheet edges while keeping content padding. */}
-                <div className="flex gap-2 overflow-x-auto overscroll-x-contain -mx-4 px-4 pb-1 snap-x snap-mandatory">
+                {/* Negative margin lets the strip bleed to the sheet edges while keeping content padding.
+                    scroll-pl-4 is what keeps the first photo aligned with the text: snap points
+                    ignore padding, so without it the browser scrolls the padding away. */}
+                <div className="flex items-start gap-2 overflow-x-auto overscroll-x-contain -mx-4 px-4 scroll-pl-4 pb-1 snap-x snap-mandatory">
                   {route.photos.map((photo, i) => (
                     <button
                       key={photo.src}
@@ -237,7 +238,8 @@ export function RouteDetailDrawer({ route, onClose }: Props) {
                         className="w-full aspect-[3/4] object-cover rounded-xl bg-zinc-100"
                       />
                       {photo.caption && (
-                        <p className="text-xs text-zinc-500 leading-4 mt-1.5 line-clamp-2">
+                        // Two lines are reserved so cards keep a common height.
+                        <p className="text-xs text-zinc-500 leading-4 mt-1.5 line-clamp-2 min-h-8">
                           {photo.caption}
                         </p>
                       )}
