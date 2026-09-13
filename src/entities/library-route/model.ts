@@ -9,8 +9,10 @@ export type RouteType = 'linear' | 'loop' | 'out-and-back'
 
 export interface RouteSource {
   name: string
-  /** Line shown in the attribution block; falls back to `name`. */
+  /** First line of the attribution block; falls back to `name`. */
   tagline?: string
+  /** Second line. Linked sources fall back to a "read more" prompt. */
+  note?: string
   logoUrl?: string
   /** Omitted for our own routes: everything about them is already in the drawer. */
   url?: string
