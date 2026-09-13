@@ -24,6 +24,24 @@ describe('kmlToGpx', () => {
     ])
   })
 
+  it('keeps elevation from the third coordinate component', () => {
+    const kml = `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <Placemark>
+      <LineString><coordinates>37.0,55.0,120 37.1,55.1,135.5 37.2,55.2</coordinates></LineString>
+    </Placemark>
+  </Document>
+</kml>`
+
+    const gpx = kmlToGpx(kml)
+
+    expect(gpx).toContain('<ele>120</ele>')
+    expect(gpx).toContain('<ele>135.5</ele>')
+    // The last point has no elevation, so it stays a bare trkpt.
+    expect(gpx).toContain('<trkpt lat="55.2" lon="37.2"/>')
+  })
+
   it('converts Point placemarks to named waypoints', () => {
     const kml = `<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
@@ -126,6 +144,25 @@ describe('kmlToGpx', () => {
       { lat: 55.1, lon: 37.1 },
       { lat: 55.2, lon: 37.2 },
     ])
+  })
+
+  it('keeps elevation from gx:coord as well', () => {
+    const kml = `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+  <Document>
+    <Placemark>
+      <gx:Track>
+        <gx:coord>37.0 55.0 120</gx:coord>
+        <gx:coord>37.1 55.1 135.5</gx:coord>
+      </gx:Track>
+    </Placemark>
+  </Document>
+</kml>`
+
+    const gpx = kmlToGpx(kml)
+
+    expect(gpx).toContain('<ele>120</ele>')
+    expect(gpx).toContain('<ele>135.5</ele>')
   })
 
   it('keeps MultiGeometry line strings as separate track segments', () => {

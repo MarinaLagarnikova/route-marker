@@ -1,6 +1,8 @@
 interface KmlPoint {
   lat: number
   lon: number
+  /** Kept for library authoring and sharing; the route parser itself ignores elevation. */
+  ele?: number
 }
 
 interface KmlWaypoint extends KmlPoint {
@@ -21,8 +23,10 @@ function parseCoordinates(text: string): KmlPoint[] {
     .trim()
     .split(/\s+/)
     .map((tuple) => {
-      const [lon, lat] = tuple.split(',')
-      return { lat: parseFloat(lat), lon: parseFloat(lon) }
+      const [lon, lat, ele] = tuple.split(',')
+      const point: KmlPoint = { lat: parseFloat(lat), lon: parseFloat(lon) }
+      if (ele !== undefined && Number.isFinite(parseFloat(ele))) point.ele = parseFloat(ele)
+      return point
     })
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
 }
@@ -65,8 +69,11 @@ function readLineStrings(doc: Document): KmlPoint[][] {
 function readGxTracks(doc: Document): KmlPoint[][] {
   return Array.from(doc.getElementsByTagNameNS('*', 'Track')).map((track) =>
     Array.from(track.getElementsByTagNameNS('*', 'coord')).flatMap((el) => {
-      const [lon, lat] = (el.textContent ?? '').trim().split(/\s+/).map(parseFloat)
-      return Number.isFinite(lat) && Number.isFinite(lon) ? [{ lat, lon }] : []
+      const [lon, lat, ele] = (el.textContent ?? '').trim().split(/\s+/).map(Number)
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return []
+      const point: KmlPoint = { lat, lon }
+      if (Number.isFinite(ele)) point.ele = ele
+      return [point]
     })
   )
 }
@@ -86,7 +93,11 @@ function buildGpx(segments: KmlPoint[][], waypoints: KmlWaypoint[], name: string
     .map(
       (seg) =>
         `    <trkseg>\n${seg
-          .map((p) => `      <trkpt lat="${p.lat}" lon="${p.lon}"/>`)
+          .map((p) =>
+            p.ele !== undefined
+              ? `      <trkpt lat="${p.lat}" lon="${p.lon}"><ele>${p.ele}</ele></trkpt>`
+              : `      <trkpt lat="${p.lat}" lon="${p.lon}"/>`
+          )
           .join('\n')}\n    </trkseg>`
     )
     .join('\n')
