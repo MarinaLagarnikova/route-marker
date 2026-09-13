@@ -54,7 +54,10 @@ public/tracks/
    npx tsx scripts/simplify-gpx.ts public/tracks/<регион>/<id>/track.gpx
    ```
 
-6. Добавить запись в `collection.json` региона и увеличить `totalRoutes`:
+6. Добавить запись в `collection.json` региона, увеличить `totalRoutes`, а также
+   поправить `count` в `src/entities/library-route/data.ts` — счётчик на карточке
+   подборки на главной хранится отдельно, потому что нужен сразу при первой отрисовке.
+   Если забыть, тест `data.test.ts` упадёт и скажет, где расхождение.
 
    ```jsonc
    {
@@ -63,10 +66,10 @@ public/tracks/
      "gpx": "zvenigorodskie-holmy/track.gpx",     // путь относительно папки региона
      "photos": ["/tracks/moscow-region/zvenigorodskie-holmy/photo-1.jpg"],  // от корня сайта
      "region": { "id": "moscow-region", "name": "Москва и область" },
-     "distanceKm": 10.8,
+     "distanceKm": 10.1,
      "durationLabel": "3—4 часа",       // длинное тире, не дефис
      "difficulty": "easy",
-     "elevationGainM": 85,
+     "elevationGainM": 83,
      "type": "linear",
      "nearestSettlement": "Звенигород",
      "description": "…",
@@ -90,6 +93,6 @@ public/tracks/
 ## Набор высоты
 
 GPS пишет высоту с шумом: у трека по Звенигороду перепад 50 м, а сырой набор —
-337 м. Для `elevationGainM` считай набор со сглаживанием (порог ~15 м), иначе
+больше 300 м. Для `elevationGainM` считай набор со сглаживанием (порог ~15 м), иначе
 цифра будет несопоставима с остальной библиотекой, где у маршрута 10–15 км
 обычно 70–150 м.

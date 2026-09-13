@@ -31,62 +31,62 @@
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-5.jpg",
           "caption": "Вход в городской парк Звенигорода",
-          "km": 6.5
+          "km": 5.8
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-6.jpg",
           "caption": "Настил по Малиновому оврагу",
-          "km": 7.0
+          "km": 6.3
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-7.jpg",
           "caption": "Старые сосны над тропой",
-          "km": 7.5
+          "km": 6.8
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-8.jpg",
           "caption": "Собор Вознесения Господня",
-          "km": 7.7
+          "km": 7.0
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-9.jpg",
           "caption": "Тропа по дну оврага",
-          "km": 8.4
+          "km": 7.7
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-10.jpg",
           "caption": "Родник в склоне оврага",
-          "km": 8.6
+          "km": 7.8
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-11.jpg",
           "caption": "Башня монастырской стены",
-          "km": 10.5
+          "km": 9.8
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-12.jpg",
           "caption": "Терраса с видом на долину",
-          "km": 10.8
+          "km": 10.1
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-13.jpg",
           "caption": "Звонница Саввино-Сторожевского монастыря",
-          "km": 10.3
+          "km": 9.6
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-14.jpg",
           "caption": "Рождественский собор, XV век",
-          "km": 10.3
+          "km": 9.6
         }
       ],
       "region": {
         "id": "moscow-region",
         "name": "Москва и область"
       },
-      "distanceKm": 10.8,
+      "distanceKm": 10.1,
       "durationLabel": "3—4 часа",
       "difficulty": "easy",
-      "elevationGainM": 85,
+      "elevationGainM": 83,
       "type": "linear",
       "nearestSettlement": "Звенигород",
       "description": "Линейный маршрут от станции Звенигород до Саввино-Сторожевского монастыря — через поле вдоль Москвы-реки, исторический центр города и валы древнего кремля.\n\nОт станции тропа идёт вдоль Москвы-реки, через открытое поле. Дальше маршрут выходит в центр Звенигорода — к собору Вознесения Господня, — а оттуда через парк по Малиновому оврагу поднимается к валам Звенигородского кремля: земляным укреплениям XIV века. Финальный отрезок идёт по экотропе к Саввино-Сторожевскому монастырю — путь вдоль монастырской стены по кругу выводит к главному входу.\n\nВ центре Звенигорода много кафе — например, «Хлебник» или «Братец Кролик». У стен самого монастыря тоже есть трапезная с красивым видом.\n\nКак добраться: электричка от Белорусского, Савёловского или Окружного вокзала до станции Звенигород, в пути около 1,5 часов.",
@@ -154,23 +154,13 @@
           "ele": 128
         },
         {
-          "lat": 55.72903,
-          "lon": 36.852195,
-          "ele": 130
-        },
-        {
-          "lat": 55.73091,
-          "lon": 36.852108,
+          "lat": 55.730466,
+          "lon": 36.852661,
           "ele": 138
         },
         {
-          "lat": 55.72999,
-          "lon": 36.856344,
-          "ele": 141
-        },
-        {
-          "lat": 55.730619,
-          "lon": 36.850009,
+          "lat": 55.730692,
+          "lon": 36.849888,
           "ele": 133
         },
         {
