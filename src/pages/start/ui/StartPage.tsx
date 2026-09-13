@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronRight, CloudUpload, Flag, FolderOpen, SportShoe, X } from 'lucide-react'
 import { parseGpx } from '@/shared/lib/gpx'
+import { parseTrackFile } from '@/shared/lib/track-file'
 import { useRouteStore, hashString } from '@/entities/route'
 import { storageGet, storageSet, storageKeys } from '@/shared/lib/storage'
 import { APP_NAME } from '@/shared/config'
@@ -336,7 +337,7 @@ function PinnedRoutesSection({ onOpen, savedRoutes }: { onOpen: (route: PinnedRo
   return (
     <>
       {pinnedRoutes.map((route) => {
-        const saved = savedRoutes.find((r) => r.libraryRouteId === route.id)
+        const saved = findSavedForPinned(savedRoutes, route)
         // Skip completed routes — they go to the completed section
         const isCompleted = saved && saved.checkpoints.length > 0 && saved.checkpoints.every((cp) => cp.checkedAt !== undefined)
         if (isCompleted) return null
@@ -417,6 +418,34 @@ function LibraryCollectionsSection() {
   )
 }
 
+function findSavedForPinned(savedRoutes: RouteState[], route: PinnedRoute): RouteState | undefined {
+  return savedRoutes.find((r) => r.libraryRouteId === route.id) || savedRoutes.find((r) => r.name === route.name)
+}
+
+function loadSavedRoutes(pinnedRoutes: PinnedRoute[]): RouteState[] {
+  const allKeys = storageKeys()
+  // Regular routes: skip multi-stage keys (multi_ prefix or _sN suffix) and library metadata keys
+  const routeKeys = allKeys.filter(
+    (k) => !k.startsWith('multi_') && !k.startsWith('library_') && !/^.+_s\d+$/.test(k)
+  )
+  const routes = routeKeys
+    .map((k) => storageGet<RouteState>(k))
+    .filter((r): r is RouteState => r !== null && typeof r.gpxHash === 'string')
+
+  // Patch libraryRouteId for routes loaded before this feature was added
+  for (const route of routes) {
+    if (!route.libraryRouteId) {
+      const pinned = pinnedRoutes.find((p) => p.name === route.name)
+      if (pinned) {
+        route.libraryRouteId = pinned.id
+        storageSet(route.gpxHash, route)
+      }
+    }
+  }
+
+  return routes
+}
+
 export function StartPage() {
   const navigate = useNavigate()
   const loadRoute = useRouteStore((s) => s.loadRoute)
@@ -427,36 +456,23 @@ export function StartPage() {
   const [parsedGpx, setParsedGpx] = useState<{ data: GpxData; xml: string } | null>(null)
   const [routeName, setRouteName] = useState('')
   const [parseError, setParseError] = useState<string | null>(null)
-  const [savedRoutes, setSavedRoutes] = useState<RouteState[]>([])
+  const [savedRoutes, setSavedRoutes] = useState<RouteState[]>(() => loadSavedRoutes(pinnedRoutes))
 
   useEffect(() => {
-    const allKeys = storageKeys()
-    // Regular routes: skip multi-stage keys (multi_ prefix or _sN suffix)
-    const routeKeys = allKeys.filter(
-      (k) => !k.startsWith('multi_') && !/^.+_s\d+$/.test(k)
-    )
-    const routes = routeKeys
-      .map((k) => storageGet<RouteState>(k))
-      .filter((r): r is RouteState => r !== null && typeof r.gpxHash === 'string')
-    setSavedRoutes(routes)
-  }, [])
+    setSavedRoutes(loadSavedRoutes(pinnedRoutes))
+  }, [pinnedRoutes])
 
-  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+  async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
     e.target.value = ''
-    const reader = new FileReader()
-    reader.onload = (ev) => {
-      const xml = ev.target?.result as string
-      try {
-        const data = parseGpx(xml)
-        setParseError(null)
-        handleParsed(data, xml)
-      } catch (err) {
-        setParseError(err instanceof Error ? err.message : 'Ошибка разбора файла')
-      }
+    try {
+      const { data, xml } = await parseTrackFile(file)
+      setParseError(null)
+      handleParsed(data, xml)
+    } catch (err) {
+      setParseError(err instanceof Error ? err.message : 'Ошибка разбора файла')
     }
-    reader.readAsText(file)
   }
 
   function handleParsed(data: GpxData, xml: string) {
@@ -506,11 +522,23 @@ export function StartPage() {
     navigate('/route')
   }
 
-  const completedRoutes = savedRoutes.filter(
-    (r) => r.checkpoints.length > 0 && r.checkpoints.every((cp) => cp.checkedAt !== undefined)
-  )
+  const completedRoutes = savedRoutes
+    .filter((r) => r.checkpoints.length > 0 && r.checkpoints.every((cp) => cp.checkedAt !== undefined))
+    .sort((a, b) => {
+      const lastA = a.checkpoints.filter((c) => c.checkedAt).pop()?.checkedAt ?? 0
+      const lastB = b.checkpoints.filter((c) => c.checkedAt).pop()?.checkedAt ?? 0
+      return lastB - lastA
+    })
+
+  // Build set of gpxHashes "claimed" by pinned routes for robust exclusion
+  const pinnedSavedHashes = new Set<string>()
+  for (const pr of pinnedRoutes) {
+    const saved = findSavedForPinned(savedRoutes, pr)
+    if (saved) pinnedSavedHashes.add(saved.gpxHash)
+  }
+
   const activeRoutes = savedRoutes.filter(
-    (r) => !r.checkpoints.every((cp) => cp.checkedAt !== undefined) && !r.libraryRouteId
+    (r) => !r.checkpoints.every((cp) => cp.checkedAt !== undefined) && !pinnedSavedHashes.has(r.gpxHash) && !r.libraryRouteId
   )
 
 
@@ -575,7 +603,7 @@ export function StartPage() {
         <input
           ref={fileInputRef}
           type="file"
-          accept=".gpx"
+          accept=".gpx,.kmz,.kml"
           className="hidden"
           onChange={handleFileChange}
         />
@@ -584,7 +612,7 @@ export function StartPage() {
           className="w-full h-11 bg-zinc-900 text-white text-sm font-medium rounded-xl flex items-center justify-center gap-2.5 active:bg-zinc-800 transition-colors"
         >
           <CloudUpload className="w-4 h-4" />
-          Загрузить GPX трек
+          Загрузить трек
         </button>
       </div>
 
