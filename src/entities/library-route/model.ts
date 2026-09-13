@@ -12,7 +12,8 @@ export interface RouteSource {
   /** Line shown in the attribution block; falls back to `name`. */
   tagline?: string
   logoUrl?: string
-  url: string
+  /** Omitted for our own routes: everything about them is already in the drawer. */
+  url?: string
 }
 
 export interface LibraryRoute {

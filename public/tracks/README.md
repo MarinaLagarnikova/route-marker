@@ -74,7 +74,8 @@ public/tracks/
      "source": {
        "name": "Вешка",
        "tagline": "Маршрут от Вешки",
-       "url": "https://veshka.vercel.app",
+       // url не указываем: у своих маршрутов ссылки нет, и блок
+       // атрибуции рендерится без кнопки перехода
        "logoUrl": "/tracks/veshka-logo.svg"
      },
      "trackSimplified": []              // вывод simplify-gpx.ts

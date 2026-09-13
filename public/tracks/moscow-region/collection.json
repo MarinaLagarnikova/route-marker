@@ -43,7 +43,6 @@
       "source": {
         "name": "Вешка",
         "tagline": "Маршрут от Вешки",
-        "url": "https://veshka.vercel.app",
         "logoUrl": "/tracks/veshka-logo.svg"
       },
       "trackSimplified": [

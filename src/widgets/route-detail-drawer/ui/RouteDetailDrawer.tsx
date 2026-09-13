@@ -332,6 +332,25 @@ function ParamRow({ label, value }: { label: string; value: React.ReactNode }) {
 }
 
 function Attribution({ source }: { source: LibraryRoute['source'] }) {
+  const logo = source.logoUrl && (
+    <img src={source.logoUrl} alt={source.name} className="w-[43px] h-[38px] object-contain shrink-0" />
+  )
+  const title = (
+    <span className="text-sm font-medium text-zinc-900 leading-normal truncate">
+      {source.tagline ?? source.name}
+    </span>
+  )
+
+  // Our own routes have nowhere to link to — the drawer already holds everything.
+  if (!source.url) {
+    return (
+      <div className="flex items-center gap-4">
+        {logo}
+        <div className="flex flex-col flex-1 min-w-0">{title}</div>
+      </div>
+    )
+  }
+
   return (
     <a
       href={source.url}
@@ -339,13 +358,9 @@ function Attribution({ source }: { source: LibraryRoute['source'] }) {
       rel="noopener noreferrer"
       className="flex items-center gap-4 active:opacity-70 transition-opacity"
     >
-      {source.logoUrl && (
-        <img src={source.logoUrl} alt={source.name} className="w-[43px] h-[38px] object-contain shrink-0" />
-      )}
+      {logo}
       <div className="flex flex-col gap-1 flex-1 min-w-0">
-        <span className="text-sm font-medium text-zinc-900 leading-normal truncate">
-          {source.tagline ?? source.name}
-        </span>
+        {title}
         <span className="text-xs text-zinc-500 leading-normal">Подробнее о маршруте</span>
       </div>
       <div className="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 bg-white shrink-0">
