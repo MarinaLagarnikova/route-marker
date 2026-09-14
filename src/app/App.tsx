@@ -1,6 +1,9 @@
 import '@maptiler/sdk/dist/maptiler-sdk.css'
-import { Component } from 'react'
+import { Component, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { SplashScreen, SPLASH_SEEN_KEY } from '@/widgets/splash-screen'
+import { storageGet, storageSet } from '@/shared/lib/storage'
+import { useBootstrap } from './useBootstrap'
 import { StartPage } from '@/pages/start'
 import { RoutePage } from '@/pages/route'
 import { StagesPage } from '@/pages/stages'
@@ -28,8 +31,19 @@ class ErrorBoundary extends Component<{ children: React.ReactNode }, { error: Er
 }
 
 export function App() {
+  // Прогрев идёт всегда — он ускоряет переход в подборку и на повторных запусках.
+  const ready = useBootstrap()
+  // Читаем один раз при инициализации: иначе экран мигнёт на повторных запусках.
+  const [showSplash, setShowSplash] = useState(() => !storageGet<boolean>(SPLASH_SEEN_KEY))
+
+  function dismissSplash() {
+    storageSet(SPLASH_SEEN_KEY, true)
+    setShowSplash(false)
+  }
+
   return (
     <ErrorBoundary>
+      {showSplash && <SplashScreen ready={ready} onDone={dismissSplash} />}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<StartPage />} />
