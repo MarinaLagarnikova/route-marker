@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { SplashScreen, SPLASH_SEEN_KEY } from '@/widgets/splash-screen'
 import { storageGet, storageSet } from '@/shared/lib/storage'
 import { useBootstrap } from './useBootstrap'
+import { AndroidFileOpen } from './AndroidFileOpen'
 import { StartPage } from '@/pages/start'
 import { RoutePage } from '@/pages/route'
 import { StagesPage } from '@/pages/stages'
@@ -45,6 +46,7 @@ export function App() {
     <ErrorBoundary>
       {showSplash && <SplashScreen ready={ready} onDone={dismissSplash} />}
       <BrowserRouter>
+        <AndroidFileOpen />
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/route" element={<RoutePage />} />

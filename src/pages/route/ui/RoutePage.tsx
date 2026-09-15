@@ -5,6 +5,14 @@ import { RouteMap } from '@/widgets/route-map'
 import { useRouteStore } from '@/entities/route'
 import { useGpsAutoMark } from '@/features/mark-checkpoint'
 import { useOffRouteDetect } from '@/features/mark-checkpoint/lib/useOffRouteDetect'
+import {
+  isAndroidApp,
+  onAndroidPosition,
+  onAndroidCheckpointAutoMarked,
+  onAndroidOffRoute,
+  startBackgroundTracking,
+  stopBackgroundTracking,
+} from '@/shared/lib/android'
 import { FinishCelebration } from './FinishCelebration'
 import { OffRouteBanner } from './OffRouteBanner'
 import type { LatLon } from '@/shared/lib/geo'
@@ -32,7 +40,11 @@ export function RoutePage() {
     }
   }, [route?.checkpoints])
 
+  // В приложении позицию даёт фоновый сервис: он продолжает работать, когда
+  // WebView свёрнут и таймеры в нём засыпают.
   useEffect(() => {
+    if (isAndroidApp()) return onAndroidPosition(setUserPos)
+
     if (!navigator.geolocation) return
     const id = navigator.geolocation.watchPosition(
       (pos) => setUserPos({
@@ -67,6 +79,26 @@ export function RoutePage() {
     markCheckpoint,
   })
 
+  // Фоновое слежение живёт ровно столько, сколько идёт прохождение. Перезапуск
+  // на каждое изменение отметок — это и синхронизация: сервис берёт состояние
+  // из присланных данных.
+  useEffect(() => {
+    if (!isAndroidApp() || !route || !isRouteInProgress) return
+    startBackgroundTracking(route.checkpoints, route.trackPoints)
+    return () => stopBackgroundTracking()
+  }, [route?.gpxHash, route?.checkpoints, route?.trackPoints, isRouteInProgress])
+
+  // Точку мог отметить сервис, пока приложение было свёрнуто.
+  useEffect(() => onAndroidCheckpointAutoMarked(markCheckpoint), [markCheckpoint])
+
+  // Сход, замеченный в фоне: баннер надо показать, когда человек вернётся в
+  // приложение. Снимается он веб-детектором, как только трек снова рядом.
+  const [offRouteFromService, setOffRouteFromService] = useState(false)
+  useEffect(() => onAndroidOffRoute(() => setOffRouteFromService(true)), [])
+  useEffect(() => {
+    if (!isOffRoute) setOffRouteFromService(false)
+  }, [isOffRoute])
+
   const handleCelebrationDone = useCallback(() => setShowCelebration(false), [])
 
   if (!route) return null
@@ -79,7 +111,7 @@ export function RoutePage() {
         <div className="absolute inset-0">
           <RouteMap userPos={userPos ? { lat: userPos.lat, lon: userPos.lon } : null} />
         </div>
-        <OffRouteBanner visible={isOffRoute} />
+        <OffRouteBanner visible={isOffRoute || offRouteFromService} />
         {showCelebration && (
           <FinishCelebration onDone={handleCelebrationDone} />
         )}

@@ -4,6 +4,7 @@ import { ChevronLeft, Ellipsis, Trash2, History, Share, X } from 'lucide-react'
 import { useRouteStore, selectCoveredKm, selectTotalKm } from '@/entities/route'
 import { useLibraryStore } from '@/entities/library-route'
 import { HistoryDrawer } from '@/features/history'
+import { shareGpxNative } from '@/shared/lib/android'
 
 type DrawerMode = 'menu' | 'delete' | null
 
@@ -61,6 +62,11 @@ export function RouteHeader() {
   async function handleShare() {
     if (!route?.gpxXml) return
     closeDrawer()
+
+    // В приложении файл отдаём нативно: WebView не умеет делиться файлами
+    // через navigator.share и молча уходил бы в скачивание.
+    if (shareGpxNative(route.gpxXml, route.name)) return
+
     const file = new File([route.gpxXml], `${route.name}.gpx`, { type: 'application/gpx+xml' })
     if (navigator.canShare?.({ files: [file] })) {
       await navigator.share({ files: [file], title: route?.name })
