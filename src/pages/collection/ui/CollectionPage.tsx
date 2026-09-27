@@ -2,14 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowUpDown, Check, ChevronDown, ChevronLeft, FolderOpen, Map as MapIcon, SportShoe, Timer } from 'lucide-react'
 import { Drawer } from '@/shared/ui/drawer'
-import { fetchCollection } from '@/shared/lib/library-api'
-import { useLibraryStore } from '@/entities/library-route'
+import { useCollection, useLibraryStore } from '@/entities/library-route'
 import type { FavoriteEntry } from '@/entities/library-route'
 import { DifficultyBadge } from '@/entities/library-route/ui/DifficultyBadge'
 import { TrackThumbnail } from '@/entities/library-route/ui/TrackThumbnail'
-import { CollectionMap } from '@/widgets/collection-map'
 import { RouteDetailDrawer } from '@/widgets/route-detail-drawer'
-import type { LibraryCollection, LibraryRoute } from '@/entities/library-route'
+import type { LibraryRoute } from '@/entities/library-route'
 import { ElevationSparkline } from '@/shared/ui/elevation-sparkline'
 
 type SortOrder = 'short' | 'long'
@@ -31,83 +29,18 @@ function sortRoutes(routes: LibraryRoute[], order: SortOrder): LibraryRoute[] {
     : copy.sort((a, b) => b.distanceKm - a.distanceKm)
 }
 
-function buildFavoritesCollection(
-  favorites: FavoriteEntry[],
-  cache: Record<string, LibraryCollection>
-): LibraryCollection {
-  const favoriteIds = new Set(favorites.map((f) => f.id))
-  const all = Object.values(cache).flatMap((c) => c.routes)
-  const routes = all.filter((r) => favoriteIds.has(r.id))
-  return { id: 'favorites', name: 'Хочу пройти', totalRoutes: routes.length, routes }
-}
-
 export function CollectionPage() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const favorites = useLibraryStore((s) => s.favorites)
-  const collectionsCache = useLibraryStore((s) => s.collectionsCache)
-  const setCollectionCache = useLibraryStore((s) => s.setCollectionCache)
+  const { collection, loading, error } = useCollection(id)
 
-  const [collection, setCollection] = useState<LibraryCollection | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  const [fullscreenMap, setFullscreenMap] = useState(false)
   const [selectedRoute, setSelectedRoute] = useState<LibraryRoute | null>(null)
   const [sortOrder, setSortOrder] = useState<SortOrder>('short')
   const [sortDrawerOpen, setSortDrawerOpen] = useState(false)
   const [removingIds, setRemovingIds] = useState<Set<string>>(new Set())
   const routeCacheRef = useRef<Map<string, LibraryRoute>>(new Map())
   const prevFavoritesRef = useRef<FavoriteEntry[]>(favorites)
-
-  useEffect(() => {
-    if (!id) return
-    if (id === 'favorites') {
-      if (favorites.length === 0) {
-        setCollection(buildFavoritesCollection(favorites, collectionsCache))
-        setLoading(false)
-        return
-      }
-      // Load any collections that aren't cached yet
-      const regionIds = [...new Set(favorites.map((f) => f.regionId))]
-      const missingIds = regionIds.filter((rid) => !collectionsCache[rid])
-      if (missingIds.length === 0) {
-        setCollection(buildFavoritesCollection(favorites, collectionsCache))
-        setLoading(false)
-        return
-      }
-      setLoading(true)
-      Promise.all(
-        missingIds.map((rid) =>
-          fetchCollection(rid).then((col) => setCollectionCache(rid, col))
-        )
-      )
-        .catch(() => setError('Не удалось загрузить список'))
-        .finally(() => setLoading(false))
-      return
-    }
-    const cached = collectionsCache[id]
-    if (cached) {
-      setCollection(cached)
-      setLoading(false)
-      return
-    }
-    setLoading(true)
-    fetchCollection(id)
-      .then((col) => {
-        setCollectionCache(id, col)
-        setCollection(col)
-      })
-      .catch(() => setError('Не удалось загрузить подборку'))
-      .finally(() => setLoading(false))
-  }, [id])
-
-  // Keep favorites collection reactive to favorites and cache changes
-  useEffect(() => {
-    if (id === 'favorites') {
-      setCollection(buildFavoritesCollection(favorites, collectionsCache))
-    }
-  }, [id, favorites, collectionsCache])
 
   // Cache all seen routes so we can render them during fade-out animation
   useEffect(() => {
@@ -178,7 +111,7 @@ export function CollectionPage() {
         {id !== 'favorites' && (
           <div className="px-4 mt-3">
             <button
-              onClick={() => setFullscreenMap(true)}
+              onClick={() => navigate(`/collection/${id}/map`)}
               className="w-full h-9 flex items-center justify-center gap-2 border border-zinc-200 rounded-[12px] bg-white active:bg-zinc-50 transition-colors"
             >
               <MapIcon className="w-5 h-5 text-zinc-900" />
@@ -237,14 +170,6 @@ export function CollectionPage() {
 
         <div className="mb-8" />
       </div>
-
-      {/* Fullscreen map overlay */}
-      {fullscreenMap && (
-        <CollectionMap
-          routes={collection.routes}
-          onClose={() => setFullscreenMap(false)}
-        />
-      )}
 
       {/* Route detail drawer */}
       {selectedRoute && (

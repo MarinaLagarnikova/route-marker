@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronRight, CloudUpload, Flag, FolderOpen, SportShoe, X } from 'lucide-react'
-import { parseGpx } from '@/shared/lib/gpx'
 import { parseTrackFile } from '@/shared/lib/track-file'
 import { useRouteStore, hashString } from '@/entities/route'
 import { storageGet, storageSet, storageKeys } from '@/shared/lib/storage'
 import { APP_NAME } from '@/shared/config'
+import { useSheetDrag } from '@/shared/lib/sheet-drag'
+import { startLibraryRoute } from '@/features/start-library-route'
 import { COLLECTION_CARD_LIST, useLibraryStore } from '@/entities/library-route'
 import type { LibraryRoute } from '@/entities/library-route'
-import { fetchRouteGpxXml } from '@/shared/lib/library-api'
 import type { GpxData } from '@/shared/lib/gpx'
 import type { RouteState } from '@/entities/route'
 
@@ -190,14 +190,18 @@ function AddTrackDrawer({ routeName, onNameChange, onConfirm, onCancel }: AddTra
     setTimeout(onCancel, 300)
   }
 
+  const drag = useSheetDrag(handleClose)
+
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black/30 z-40 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+        className={`fixed inset-0 bg-black/30 z-40 ${drag.dragging ? '' : 'transition-opacity duration-300'} ${visible ? 'opacity-100' : 'opacity-0'}`}
+        style={drag.offset ? { opacity: Math.max(0, 1 - drag.offset / 400) } : undefined}
         onClick={handleClose}
       />
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 max-w-[560px] mx-auto flex flex-col transition-transform duration-300 ease-out pointer-events-none ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`fixed bottom-0 left-0 right-0 z-50 max-w-[560px] mx-auto flex flex-col ease-out pointer-events-none ${drag.dragging ? '' : 'transition-transform duration-300'} ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        style={drag.offset ? { transform: `translateY(${drag.offset}px)` } : undefined}
       >
         <div className="flex justify-end px-4 pb-1.5 pointer-events-none">
           <button
@@ -208,7 +212,7 @@ function AddTrackDrawer({ routeName, onNameChange, onConfirm, onCancel }: AddTra
             <X className="w-4 h-4 text-white" />
           </button>
         </div>
-        <div className="bg-white border border-zinc-200 rounded-t-2xl pointer-events-auto">
+        <div ref={drag.sheetRef} className="bg-white border border-zinc-200 rounded-t-2xl pointer-events-auto">
           {/* Handle */}
           <div className="flex items-center justify-center pt-4">
             <div className="w-[100px] h-2 bg-zinc-100 rounded-full" />
@@ -499,22 +503,7 @@ export function StartPage() {
   }
 
   async function handleOpenPinnedRoute(route: PinnedRoute) {
-    if (!route.gpx) return
-    const xml = await fetchRouteGpxXml(route.region.id, route.gpx)
-    const hash = hashString(xml)
-    const existing = storageGet<RouteState>(hash)
-    if (existing) {
-      // Patch libraryRouteId if missing (e.g. loaded before this feature was added)
-      if (!existing.libraryRouteId) {
-        existing.libraryRouteId = route.id
-        storageSet(hash, existing)
-      }
-      loadSaved(existing)
-    } else {
-      const data = parseGpx(xml)
-      loadRoute(route.name, data.trackPoints, data.waypoints, xml, data.trackSegments, route.id)
-    }
-    navigate('/route')
+    if (await startLibraryRoute(route)) navigate('/route')
   }
 
   function handleContinue(route: RouteState) {
