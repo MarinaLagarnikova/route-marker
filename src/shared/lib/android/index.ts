@@ -9,7 +9,8 @@
 
 interface AndroidBridge {
   isAndroid(): boolean
-  startTracking(checkpointsJson: string, trackPointsJson: string): void
+  /** hikeJson необязателен: старые сборки оболочки знают только два аргумента. */
+  startTracking(checkpointsJson: string, trackPointsJson: string, hikeJson?: string): void
   stopTracking(): void
   shareGpx(gpxXml: string, routeName: string): void
   openFilePicker(): void
@@ -47,18 +48,39 @@ export function isAndroidApp(): boolean {
   }
 }
 
+/** Данные похода для постоянного уведомления: название, длина и время старта. */
+export interface BackgroundHike {
+  name: string
+  totalKm: number
+  /** Время первой отметки в миллисекундах; оболочка сама переживёт и секунды. */
+  startedAt: number
+}
+
 /**
  * Запускает фоновое слежение. Вызывается и при каждом изменении отметок —
  * сервис пересчитывает состояние из присланных данных, так что это же и
  * способ его синхронизировать.
+ *
+ * distanceKm у отмеченных точек задаёт сервису стартовый километраж, а hike
+ * наполняет уведомление с процентом пройденного пути. Без них слежение
+ * работает, но уведомление остаётся безымянным и считает прогресс с нуля.
  */
 export function startBackgroundTracking(
-  checkpoints: { lat: number; lon: number; checkedAt?: number }[],
-  trackPoints: { lat: number; lon: number }[]
+  checkpoints: { lat: number; lon: number; checkedAt?: number; distanceKm?: number }[],
+  trackPoints: { lat: number; lon: number }[],
+  hike?: BackgroundHike
 ): void {
   bridge()?.startTracking(
-    JSON.stringify(checkpoints.map(({ lat, lon, checkedAt }) => ({ lat, lon, checkedAt: checkedAt ?? null }))),
-    JSON.stringify(trackPoints.map(({ lat, lon }) => ({ lat, lon })))
+    JSON.stringify(
+      checkpoints.map(({ lat, lon, checkedAt, distanceKm }) => ({
+        lat,
+        lon,
+        checkedAt: checkedAt ?? null,
+        distanceKm: distanceKm ?? null,
+      }))
+    ),
+    JSON.stringify(trackPoints.map(({ lat, lon }) => ({ lat, lon }))),
+    hike ? JSON.stringify(hike) : ''
   )
 }
 

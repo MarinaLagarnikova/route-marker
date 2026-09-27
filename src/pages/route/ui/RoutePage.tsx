@@ -84,7 +84,12 @@ export function RoutePage() {
   // из присланных данных.
   useEffect(() => {
     if (!isAndroidApp() || !route || !isRouteInProgress) return
-    startBackgroundTracking(route.checkpoints, route.trackPoints)
+    startBackgroundTracking(route.checkpoints, route.trackPoints, {
+      name: route.name ?? '',
+      totalKm: route.totalKm ?? 0,
+      // Отсчёт ведём от первой отметки; до неё поход считается начатым сейчас.
+      startedAt: route.checkpoints.find((cp) => cp.checkedAt != null)?.checkedAt ?? Date.now(),
+    })
     return () => stopBackgroundTracking()
   }, [route?.gpxHash, route?.checkpoints, route?.trackPoints, isRouteInProgress])
 
