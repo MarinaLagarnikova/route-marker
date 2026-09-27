@@ -1,19 +1,22 @@
 # Правила маршрутизации ONREZA.
 #
-# Версия контракта обязательна и идёт первой строкой: без неё платформа
-# отвергает файл на валидации, и деплой падает уже после успешной сборки.
-#
 # Приложение — SPA на React Router: адреса вроде /route или /collection/ural
 # существуют только в браузере, файлов под них в dist нет. Без этого правила
 # платформа ищет такой файл, не находит и отвечает своей страницей 404 —
 # ломается перезагрузка и переход по прямой ссылке на внутренний экран.
 #
-# if_no_file = true оставляет приоритет за статикой: /assets/* и manifest.json
+# Форма записи — каноническая (schemaVersion, rules, condition.path, camelCase
+# в action). Документация показывает более короткий authoring-профиль
+# (schema, rule, when, if_no_file), но его разворачивает CLI `nrz` перед
+# отправкой; при деплое из git файл проверяется прямо по контракту
+# EdgeRuleSetAuthoring, где эти алиасы — неизвестные поля.
+#
+# ifNoFile = true оставляет приоритет за статикой: /assets/* и manifest.json
 # отдаются как файлы, а всё остальное попадает в index.html, где управление
 # забирает роутер.
-schema = "EDGE_RULE_SET_V1"
+schemaVersion = "EDGE_RULE_SET_V1"
 
-[[rule]]
+[[rules]]
 id = "spa-fallback"
-when.path = { prefix = "/" }
-action.rewrite = { target = "/index.html", if_no_file = true }
+condition.path = { type = "prefix", value = "/" }
+action = { type = "rewrite", target = "/index.html", ifNoFile = true }
