@@ -3,6 +3,10 @@ import { createMapTilerAdapter } from '@/shared/lib/map-adapter'
 import type { MapAdapter } from '@/shared/lib/map-adapter'
 import { useRouteStore } from '@/entities/route'
 import { getLastChecked } from '@/entities/checkpoint'
+import { useLibraryStore, PhotoStories } from '@/entities/library-route'
+import type { RoutePhoto } from '@/entities/library-route'
+import { readOverlayVisible, writeOverlayVisible, type RoutePoi } from '@/shared/lib/poi'
+import { PoiSheet } from './PoiSheet'
 import type { LatLon } from '@/shared/lib/geo'
 
 interface Props {
@@ -17,10 +21,28 @@ export function RouteMap({ userPos }: Props) {
   const unmarkLast = useRouteStore((s) => s.unmarkLast)
   const [mapError, setMapError] = useState<string | null>(null)
   const [mapReady, setMapReady] = useState(false)
+  const [selectedPoi, setSelectedPoi] = useState<RoutePoi | null>(null)
+  const [photoIndex, setPhotoIndex] = useState<number | null>(null)
+
+  // Слой живёт только у библиотечных маршрутов: у своего GPX запечённых
+  // объектов не существует. Данные берём из закреплённого маршрута — старт из
+  // библиотеки закрепляет его, и они уже лежат в localStorage вместе с ним.
+  const libraryRoute = useLibraryStore((s) =>
+    route?.libraryRouteId ? s.pinnedRoutes.find((r) => r.id === route.libraryRouteId) : undefined,
+  )
+  const pois = libraryRoute?.pois ?? []
+  const photos: RoutePhoto[] = (libraryRoute?.photos ?? []).filter(
+    (photo) => photo.lat !== undefined && photo.lon !== undefined,
+  )
+  const hasOverlay = pois.length > 0 || photos.length > 0
 
   // Track current checkpoints for the tap handler closure
   const checkpointsRef = useRef(route?.checkpoints ?? [])
   checkpointsRef.current = route?.checkpoints ?? []
+
+  // Карта инициализируется один раз, поэтому слой читаем из ref, а не из замыкания
+  const overlayRef = useRef({ pois, photos, hasOverlay })
+  overlayRef.current = { pois, photos, hasOverlay }
 
   function handleTap(index: number) {
     const cps = checkpointsRef.current
@@ -61,6 +83,25 @@ export function RouteMap({ userPos }: Props) {
       adapter.drawTrack(route.trackPoints, trackIdx, route.trackSegments)
       adapter.drawCheckpoints(cpsForMap, handleTap, numbering)
       setMapReady(true)
+
+      if (!overlayRef.current.hasOverlay) return
+      const visible = readOverlayVisible()
+      adapter.setOverlayVisible(visible)
+      adapter.addOverlayToggle(visible, (next) => {
+        writeOverlayVisible(next)
+        if (!next) {
+          setSelectedPoi(null)
+          setPhotoIndex(null)
+        }
+      })
+      // Сеть тут не нужна — объекты и координаты фото запечены в библиотеке
+      void adapter.drawPois(overlayRef.current.pois, setSelectedPoi)
+      void adapter.drawPhotoPins(
+        overlayRef.current.photos.map((photo) => ({
+          src: photo.src, lat: photo.lat!, lon: photo.lon!,
+        })),
+        setPhotoIndex,
+      )
     }).catch((e: unknown) => {
       if (cancelled) return
       const msg = e instanceof Error ? e.message : String(e)
@@ -117,7 +158,16 @@ export function RouteMap({ userPos }: Props) {
         </div>
       )}
 
+      {selectedPoi && <PoiSheet poi={selectedPoi} onClose={() => setSelectedPoi(null)} />}
 
+      {photoIndex !== null && photos.length > 0 && (
+        <PhotoStories
+          photos={photos}
+          index={photoIndex}
+          onIndexChange={setPhotoIndex}
+          onClose={() => setPhotoIndex(null)}
+        />
+      )}
     </div>
   )
 }
