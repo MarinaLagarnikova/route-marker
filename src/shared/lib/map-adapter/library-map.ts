@@ -7,11 +7,22 @@
 import * as maptilersdk from '@maptiler/sdk'
 import { MAP_API_KEY } from '@/shared/config'
 import type { GeoPoint } from '@/entities/library-route'
+import type { RoutePoi } from '@/shared/lib/poi'
+import { applyOverlayVisibility, createOverlayToggle, drawOverlay } from './overlay'
+import type { PhotoPin } from './types'
 
 maptilersdk.config.apiKey = MAP_API_KEY
 
 export interface LibraryMapHandle {
   destroy(): void
+  /**
+   * Слой «Интересное» для одного маршрута. На карте подборки маршрутов до
+   * тридцати, и объекты всех сразу — это сотни значков, поэтому показываем
+   * только выбранный.
+   */
+  showOverlay?(pois: RoutePoi[], photos: PhotoPin[]): Promise<void>
+  clearOverlay?(): void
+  addOverlayToggle?(initialVisible: boolean, onToggle: (visible: boolean) => void): void
 }
 
 export interface LibraryMapOptions {
@@ -116,7 +127,8 @@ export async function initCollectionMap(
   routes: Array<{ id: string; track: GeoPoint[]; name: string }>,
   onRouteTap: (routeId: string) => void,
   controls = true,
-  cancel: { cancelled: boolean } = { cancelled: false }
+  cancel: { cancelled: boolean } = { cancelled: false },
+  overlayTaps?: { onPoiTap: (poi: RoutePoi) => void; onPhotoTap: (index: number) => void },
 ): Promise<LibraryMapHandle> {
   if (routes.length === 0) return { destroy: () => {} }
 
@@ -189,10 +201,37 @@ export async function initCollectionMap(
     m.on('error', () => resolve())
   })
 
+  let overlayVisible = true
+  let overlayToggle: ReturnType<typeof createOverlayToggle> | null = null
+
   return {
     destroy() {
       destroyed = true
       m.remove()
+    },
+
+    async showOverlay(pois: RoutePoi[], photos: PhotoPin[]) {
+      if (destroyed || !overlayTaps) return
+      await drawOverlay(m, pois, photos, overlayTaps)
+      applyOverlayVisibility(m, overlayVisible)
+    },
+
+    clearOverlay() {
+      if (destroyed || !overlayTaps) return
+      void drawOverlay(m, [], [], overlayTaps)
+    },
+
+    addOverlayToggle(initialVisible: boolean, onToggle: (visible: boolean) => void) {
+      if (destroyed || overlayToggle) return
+      overlayVisible = initialVisible
+      overlayToggle = createOverlayToggle(() => {
+        overlayVisible = !overlayVisible
+        applyOverlayVisibility(m, overlayVisible)
+        overlayToggle?.sync(overlayVisible)
+        onToggle(overlayVisible)
+      })
+      overlayToggle.sync(overlayVisible)
+      m.addControl(overlayToggle.control, 'bottom-right')
     },
   }
 }

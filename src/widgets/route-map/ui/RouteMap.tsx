@@ -6,7 +6,7 @@ import { getLastChecked } from '@/entities/checkpoint'
 import { useLibraryStore, PhotoStories } from '@/entities/library-route'
 import type { RoutePhoto } from '@/entities/library-route'
 import { readOverlayVisible, writeOverlayVisible, type RoutePoi } from '@/shared/lib/poi'
-import { PoiSheet } from './PoiSheet'
+import { PoiSheet } from '@/shared/ui/PoiSheet'
 import type { LatLon } from '@/shared/lib/geo'
 
 interface Props {

@@ -2,7 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { ChevronLeft } from 'lucide-react'
 import { initCollectionMap } from '@/shared/lib/map-adapter/library-map'
 import { RouteDetailDrawer } from '@/widgets/route-detail-drawer'
-import type { LibraryRoute } from '@/entities/library-route'
+import { PhotoStories } from '@/entities/library-route'
+import type { LibraryRoute, RoutePhoto } from '@/entities/library-route'
+import { readOverlayVisible, writeOverlayVisible, type RoutePoi } from '@/shared/lib/poi'
+import { PoiSheet } from '@/shared/ui/PoiSheet'
 import type { LibraryMapHandle } from '@/shared/lib/map-adapter/library-map'
 
 interface Props {
@@ -10,11 +13,22 @@ interface Props {
   onBack: () => void
 }
 
+function placedPhotos(route: LibraryRoute | null): RoutePhoto[] {
+  return (route?.photos ?? []).filter((p) => p.lat !== undefined && p.lon !== undefined)
+}
+
 export function CollectionMap({ routes, onBack }: Props) {
   const mapContainerRef = useRef<HTMLDivElement>(null)
   const mapHandleRef = useRef<LibraryMapHandle | null>(null)
   const [selectedRoute, setSelectedRoute] = useState<LibraryRoute | null>(null)
   const [mapLoaded, setMapLoaded] = useState(false)
+  const [selectedPoi, setSelectedPoi] = useState<RoutePoi | null>(null)
+  const [photoIndex, setPhotoIndex] = useState<number | null>(null)
+
+  // Слой переживает закрытие шторки: иначе объекты видно только из-под неё,
+  // а смотрят их как раз на открытой карте.
+  const [overlayRoute, setOverlayRoute] = useState<LibraryRoute | null>(null)
+  const overlayPhotos = placedPhotos(overlayRoute)
 
   useEffect(() => {
     if (!mapContainerRef.current) return
@@ -26,10 +40,14 @@ export function CollectionMap({ routes, onBack }: Props) {
       routes.map((r) => ({ id: r.id, track: r.trackSimplified, name: r.name })),
       (routeId) => {
         const found = routes.find((r) => r.id === routeId)
-        if (found) setSelectedRoute(found)
+        if (found) {
+          setSelectedRoute(found)
+          setOverlayRoute(found)
+        }
       },
       true,
-      cancel
+      cancel,
+      { onPoiTap: setSelectedPoi, onPhotoTap: setPhotoIndex },
     ).then((h) => {
       if (cancel.cancelled) { h.destroy(); return }
       handle = h
@@ -43,6 +61,31 @@ export function CollectionMap({ routes, onBack }: Props) {
       mapHandleRef.current = null
     }
   }, [routes])
+
+  // Объекты показываем только у выбранного маршрута: в подборке их до тридцати,
+  // и все сразу — это сотни значков.
+  useEffect(() => {
+    if (!mapLoaded) return
+    setSelectedPoi(null)
+    setPhotoIndex(null)
+    const pois = overlayRoute?.pois ?? []
+    const photos = placedPhotos(overlayRoute)
+    void mapHandleRef.current?.showOverlay?.(
+      pois,
+      photos.map((p) => ({ src: p.src, lat: p.lat!, lon: p.lon! })),
+    )
+    // Кнопка, которая ничего не делает, хуже отсутствующей: тогл появляется
+    // только когда у выбранного маршрута есть что показать.
+    if (pois.length > 0 || photos.length > 0) {
+      mapHandleRef.current?.addOverlayToggle?.(readOverlayVisible(), (visible) => {
+        writeOverlayVisible(visible)
+        if (!visible) {
+          setSelectedPoi(null)
+          setPhotoIndex(null)
+        }
+      })
+    }
+  }, [overlayRoute, mapLoaded])
 
   return (
     <div className="h-dvh flex flex-col max-w-[560px] mx-auto relative">
@@ -65,6 +108,19 @@ export function CollectionMap({ routes, onBack }: Props) {
       >
         <ChevronLeft className="w-4 h-4 text-zinc-900" />
       </button>
+
+      {!selectedRoute && selectedPoi && (
+        <PoiSheet poi={selectedPoi} onClose={() => setSelectedPoi(null)} />
+      )}
+
+      {photoIndex !== null && overlayPhotos.length > 0 && (
+        <PhotoStories
+          photos={overlayPhotos}
+          index={photoIndex}
+          onIndexChange={setPhotoIndex}
+          onClose={() => setPhotoIndex(null)}
+        />
+      )}
 
       {/* Route detail drawer — appears over the map */}
       {selectedRoute && (
