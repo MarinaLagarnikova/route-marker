@@ -1,3 +1,5 @@
+import type { RoutePoi } from '@/shared/lib/poi'
+
 export interface GeoPoint {
   lat: number
   lon: number
@@ -24,6 +26,13 @@ export interface RoutePhoto {
   caption?: string
   /** Where along the track the shot was taken, km. Derived from the photo's GPS. */
   km?: number
+  /**
+   * Position on the map, baked from `km` by scripts/fetch-osm-pois.ts.
+   * Not derived at runtime: the collection map only has the simplified track,
+   * and a kilometre mark projected onto 17 points lands in the wrong place.
+   */
+  lat?: number
+  lon?: number
 }
 
 export interface LibraryRoute {
@@ -39,6 +48,8 @@ export interface LibraryRoute {
   description: string
   highlights?: string[]
   photos?: RoutePhoto[]
+  /** Объекты слоя «Интересное» из OSM, запечённые на этапе сборки данных. */
+  pois?: RoutePoi[]
   gpx?: string
   source: RouteSource
   track?: GeoPoint[]          // full geometry for drawer/map

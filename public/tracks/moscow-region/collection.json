@@ -11,72 +11,100 @@
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-1.jpg",
           "caption": "Поле перед выходом к реке",
-          "km": 2.9
+          "km": 2.9,
+          "lat": 55.712612,
+          "lon": 36.861733
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-2.jpg",
           "caption": "Москва-река в излучине",
-          "km": 3.5
+          "km": 3.5,
+          "lat": 55.717075,
+          "lon": 36.86361
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-3.jpg",
           "caption": "Пойма реки и высокое небо",
-          "km": 4.1
+          "km": 4.1,
+          "lat": 55.720244,
+          "lon": 36.857092
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-4.jpg",
           "caption": "Вид с моста через Москву-реку",
-          "km": 5.3
+          "km": 5.3,
+          "lat": 55.728322,
+          "lon": 36.850913
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-5.jpg",
           "caption": "Вход в городской парк Звенигорода",
-          "km": 5.8
+          "km": 5.8,
+          "lat": 55.730796,
+          "lon": 36.849858
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-6.jpg",
           "caption": "Настил по Малиновому оврагу",
-          "km": 6.3
+          "km": 6.3,
+          "lat": 55.733848,
+          "lon": 36.84708
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-7.jpg",
           "caption": "Старые сосны над тропой",
-          "km": 6.8
+          "km": 6.8,
+          "lat": 55.733614,
+          "lon": 36.842826
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-8.jpg",
           "caption": "Собор Вознесения Господня",
-          "km": 7.0
+          "km": 7,
+          "lat": 55.73294,
+          "lon": 36.840162
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-9.jpg",
           "caption": "Тропа по дну оврага",
-          "km": 7.7
+          "km": 7.7,
+          "lat": 55.734701,
+          "lon": 36.841373
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-10.jpg",
           "caption": "Родник в склоне оврага",
-          "km": 7.8
+          "km": 7.8,
+          "lat": 55.734187,
+          "lon": 36.840162
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-11.jpg",
           "caption": "Башня монастырской стены",
-          "km": 9.8
+          "km": 9.8,
+          "lat": 55.727432,
+          "lon": 36.816423
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-12.jpg",
           "caption": "Терраса с видом на долину",
-          "km": 10.1
+          "km": 10.1,
+          "lat": 55.729525,
+          "lon": 36.814948
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-13.jpg",
           "caption": "Звонница Саввино-Сторожевского монастыря",
-          "km": 9.6
+          "km": 9.6,
+          "lat": 55.728375,
+          "lon": 36.817306
         },
         {
           "src": "/tracks/moscow-region/zvenigorodskie-holmy/photo-14.jpg",
           "caption": "Рождественский собор, XV век",
-          "km": 9.6
+          "km": 9.6,
+          "lat": 55.728375,
+          "lon": 36.817306
         }
       ],
       "region": {
@@ -187,6 +215,435 @@
           "lat": 55.729525,
           "lon": 36.814948,
           "ele": 161
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/11950417970",
+          "category": "supply",
+          "kind": "shop",
+          "name": "Магнит",
+          "lat": 55.703158,
+          "lon": 36.877771,
+          "km": 0.53
+        },
+        {
+          "id": "node/13778378087",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.70421,
+          "lon": 36.876891,
+          "km": 0.64
+        },
+        {
+          "id": "node/13778386726",
+          "category": "supply",
+          "kind": "shop",
+          "name": "Пятёрочка",
+          "lat": 55.702522,
+          "lon": 36.869131,
+          "km": 1.26
+        },
+        {
+          "id": "node/13778386721",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.705046,
+          "lon": 36.85935,
+          "km": 1.94
+        },
+        {
+          "id": "node/3631769916",
+          "category": "water",
+          "kind": "drinking_water",
+          "lat": 55.718046,
+          "lon": 36.865587,
+          "km": 3.47
+        },
+        {
+          "id": "node/5605392021",
+          "category": "view",
+          "kind": "viewpoint",
+          "lat": 55.728155,
+          "lon": 36.850326,
+          "km": 5.26
+        },
+        {
+          "id": "node/14192162246",
+          "category": "supply",
+          "kind": "shop",
+          "name": "Чижик",
+          "lat": 55.729217,
+          "lon": 36.853249,
+          "km": 5.46
+        },
+        {
+          "id": "node/1357454480",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "А.П. Чехов",
+          "lat": 55.72999,
+          "lon": 36.85372,
+          "km": 5.55
+        },
+        {
+          "id": "node/465491339",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Павшим за Родину звенигородцам и воинам 5 армии Западного фронта",
+          "lat": 55.730692,
+          "lon": 36.85398,
+          "km": 5.58
+        },
+        {
+          "id": "node/7756949285",
+          "category": "heritage",
+          "kind": "museum",
+          "name": "Назад в СССР",
+          "lat": 55.73062,
+          "lon": 36.85266,
+          "km": 5.58
+        },
+        {
+          "id": "node/1396094261",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 55.730615,
+          "lon": 36.852146,
+          "km": 5.62
+        },
+        {
+          "id": "node/11360097333",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.730559,
+          "lon": 36.850439,
+          "km": 5.75
+        },
+        {
+          "id": "node/13143920623",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.730558,
+          "lon": 36.849264,
+          "km": 5.79
+        },
+        {
+          "id": "node/13143920642",
+          "category": "heritage",
+          "kind": "artwork",
+          "name": "Колокол",
+          "lat": 55.730746,
+          "lon": 36.848929,
+          "km": 5.81
+        },
+        {
+          "id": "way/195721832",
+          "category": "heritage",
+          "kind": "museum",
+          "name": "Музей Русского Десерта",
+          "lat": 55.731065,
+          "lon": 36.848197,
+          "km": 5.82
+        },
+        {
+          "id": "node/11360097336",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.731418,
+          "lon": 36.849516,
+          "km": 5.88
+        },
+        {
+          "id": "node/11360276882",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.733061,
+          "lon": 36.849076,
+          "km": 6.13
+        },
+        {
+          "id": "node/11130013606",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Малиновый овраг",
+          "lat": 55.733754,
+          "lon": 36.848212,
+          "km": 6.22
+        },
+        {
+          "id": "node/2002311388",
+          "category": "heritage",
+          "kind": "museum",
+          "name": "Дом А. П. Чехова",
+          "lat": 55.735235,
+          "lon": 36.847108,
+          "km": 6.45
+        },
+        {
+          "id": "node/3631772004",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "А. П. Чехову",
+          "lat": 55.735903,
+          "lon": 36.847809,
+          "km": 6.45
+        },
+        {
+          "id": "node/3631772005",
+          "category": "water",
+          "kind": "drinking_water",
+          "lat": 55.735633,
+          "lon": 36.847,
+          "km": 6.45
+        },
+        {
+          "id": "node/11360276886",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.735142,
+          "lon": 36.846182,
+          "km": 6.45
+        },
+        {
+          "id": "node/5535316277",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Пень чеховской липы",
+          "lat": 55.735358,
+          "lon": 36.844947,
+          "km": 6.47
+        },
+        {
+          "id": "node/11360276887",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.734892,
+          "lon": 36.846043,
+          "km": 6.47
+        },
+        {
+          "id": "node/11999261698",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.734305,
+          "lon": 36.843332,
+          "km": 6.71
+        },
+        {
+          "id": "node/12001038046",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Западный вал Звенигородского кремля",
+          "lat": 55.733142,
+          "lon": 36.841468,
+          "km": 6.91
+        },
+        {
+          "id": "node/465604262",
+          "category": "water",
+          "kind": "spring",
+          "name": "Святой источник",
+          "lat": 55.732069,
+          "lon": 36.839414,
+          "km": 7
+        },
+        {
+          "id": "node/12001038048",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Восточный вал Звенигородского кремля",
+          "lat": 55.73403,
+          "lon": 36.84108,
+          "km": 7.22
+        },
+        {
+          "id": "node/12001038047",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Северный вал Звенигородского кремля",
+          "lat": 55.734364,
+          "lon": 36.842397,
+          "km": 7.34
+        },
+        {
+          "id": "way/1295010006",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Звенигородский городок",
+          "lat": 55.734625,
+          "lon": 36.841766,
+          "km": 7.66
+        },
+        {
+          "id": "node/12675820127",
+          "category": "water",
+          "kind": "spring",
+          "lat": 55.734205,
+          "lon": 36.840355,
+          "km": 7.79
+        },
+        {
+          "id": "node/3731895100",
+          "category": "water",
+          "kind": "spring",
+          "lat": 55.734009,
+          "lon": 36.839877,
+          "km": 7.82
+        },
+        {
+          "id": "node/12675814392",
+          "category": "water",
+          "kind": "spring",
+          "lat": 55.733794,
+          "lon": 36.839455,
+          "km": 7.89
+        },
+        {
+          "id": "node/7960566497",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 55.731038,
+          "lon": 36.834435,
+          "km": 8.31
+        },
+        {
+          "id": "node/11999261703",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.731659,
+          "lon": 36.834519,
+          "km": 8.31
+        },
+        {
+          "id": "node/11999109825",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.729606,
+          "lon": 36.82371,
+          "km": 9.07
+        },
+        {
+          "id": "node/7482009191",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 55.727734,
+          "lon": 36.820333,
+          "km": 9.37
+        },
+        {
+          "id": "node/4784736547",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Язык колокола",
+          "lat": 55.728522,
+          "lon": 36.816073,
+          "km": 9.57
+        },
+        {
+          "id": "way/97869365",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Трапезная палата",
+          "lat": 55.728626,
+          "lon": 36.81613,
+          "km": 9.57
+        },
+        {
+          "id": "way/97869367",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Казначейский корпус",
+          "lat": 55.728917,
+          "lon": 36.816562,
+          "km": 9.57
+        },
+        {
+          "id": "way/97869362",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Царицыны палаты",
+          "lat": 55.727974,
+          "lon": 36.817075,
+          "km": 9.65
+        },
+        {
+          "id": "node/11360099597",
+          "category": "heritage",
+          "kind": "museum",
+          "name": "Древний Звенигород",
+          "lat": 55.72799,
+          "lon": 36.816952,
+          "km": 9.68
+        },
+        {
+          "id": "way/97869349",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Братские корпуса",
+          "lat": 55.72747,
+          "lon": 36.816602,
+          "km": 9.79
+        },
+        {
+          "id": "node/3888726503",
+          "category": "water",
+          "kind": "drinking_water",
+          "name": "колодец Саввы Сторожевского",
+          "lat": 55.727208,
+          "lon": 36.814188,
+          "km": 9.83
+        },
+        {
+          "id": "way/97869338",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Дворец царя Алексея Михайловича",
+          "lat": 55.727762,
+          "lon": 36.8159,
+          "km": 9.88
+        },
+        {
+          "id": "node/510593511",
+          "category": "view",
+          "kind": "viewpoint",
+          "lat": 55.729078,
+          "lon": 36.814596,
+          "km": 10.09
+        },
+        {
+          "id": "node/510593681",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Преподобному Савве",
+          "lat": 55.72954,
+          "lon": 36.81602,
+          "km": 10.09
+        },
+        {
+          "id": "node/11999109823",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.729974,
+          "lon": 36.815532,
+          "km": 10.09
+        },
+        {
+          "id": "node/11999109824",
+          "category": "signage",
+          "kind": "information",
+          "lat": 55.728997,
+          "lon": 36.815357,
+          "km": 10.09
+        },
+        {
+          "id": "way/97869340",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Стрелецкие палаты",
+          "lat": 55.729166,
+          "lon": 36.815362,
+          "km": 10.09
         }
       ]
     },

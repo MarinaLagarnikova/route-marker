@@ -1,5 +1,13 @@
 import { describe, it, expect } from 'vitest'
-import { haversineKm, cumulativeDistances, projectWptOnTrack, isCircularRoute } from './index'
+import {
+  haversineKm,
+  cumulativeDistances,
+  projectWptOnTrack,
+  isCircularRoute,
+  nearestTrackPoint,
+  nearestContourPoint,
+  pointAtKm,
+} from './index'
 
 describe('haversineKm', () => {
   it('returns ~0 for same point', () => {
@@ -74,5 +82,75 @@ describe('isCircularRoute', () => {
     // Last point ~220m from first (lat offset ~0.002° ≈ 222m)
     pts.push({ lat: 55.002, lon: 37.0 })
     expect(isCircularRoute(pts)).toBe(true)
+  })
+})
+
+// Трек с шагом ~1.1 км на градус широты /100: 0.01° ≈ 1.11 км
+const TRACK = [
+  { lat: 55.0, lon: 37.0 },
+  { lat: 55.01, lon: 37.0 },
+  { lat: 55.02, lon: 37.0 },
+  { lat: 55.03, lon: 37.0 },
+]
+
+describe('nearestTrackPoint', () => {
+  it('returns index and distance to the closest track point', () => {
+    const res = nearestTrackPoint({ lat: 55.0201, lon: 37.0 }, TRACK)
+    expect(res.index).toBe(2)
+    expect(res.distanceKm).toBeCloseTo(0.011, 2)
+  })
+
+  it('measures distance in kilometres, not degrees', () => {
+    // 0.01° широты ≈ 1.11 км
+    const res = nearestTrackPoint({ lat: 55.04, lon: 37.0 }, TRACK)
+    expect(res.index).toBe(3)
+    expect(res.distanceKm).toBeCloseTo(1.11, 1)
+  })
+
+  it('handles a single-point track', () => {
+    const res = nearestTrackPoint({ lat: 55.0, lon: 37.0 }, [{ lat: 55.0, lon: 37.0 }])
+    expect(res).toEqual({ index: 0, distanceKm: 0 })
+  })
+})
+
+describe('nearestContourPoint', () => {
+  it('picks the contour vertex closest to the track, not the centre', () => {
+    // Болото: край касается трека, центр далеко на востоке
+    const contour = [
+      { lat: 55.015, lon: 37.001 }, // край у трека
+      { lat: 55.015, lon: 37.2 },
+      { lat: 55.025, lon: 37.2 },
+    ]
+    const res = nearestContourPoint(contour, TRACK)
+    expect(res.point).toEqual({ lat: 55.015, lon: 37.001 })
+    expect(res.distanceKm).toBeLessThan(0.7)
+  })
+
+  it('returns the vertex itself for a single-vertex contour', () => {
+    const res = nearestContourPoint([{ lat: 55.0, lon: 37.0 }], TRACK)
+    expect(res.point).toEqual({ lat: 55.0, lon: 37.0 })
+    expect(res.distanceKm).toBeCloseTo(0, 5)
+  })
+})
+
+describe('pointAtKm', () => {
+  it('returns the first point at km 0', () => {
+    expect(pointAtKm(TRACK, 0)).toEqual(TRACK[0])
+  })
+
+  it('interpolates between track points', () => {
+    const distances = cumulativeDistances(TRACK)
+    const total = distances[distances.length - 1]
+    const mid = pointAtKm(TRACK, total / 2)
+    expect(mid.lat).toBeCloseTo(55.015, 4)
+    expect(mid.lon).toBeCloseTo(37.0, 4)
+  })
+
+  it('clamps beyond the end of the track', () => {
+    expect(pointAtKm(TRACK, 9999)).toEqual(TRACK[TRACK.length - 1])
+  })
+
+  it('clamps before the start', () => {
+    expect(pointAtKm(TRACK, -5)).toEqual(TRACK[0])
   })
 })
