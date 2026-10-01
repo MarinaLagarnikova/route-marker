@@ -22,21 +22,16 @@ describe('categorizeOsmTags — что берём', () => {
     expect(categorizeOsmTags({ natural: 'wetland' })).toEqual({ category: 'caution', kind: 'wetland' })
   })
 
-  it('вершина, перевал и видовая точка — посмотреть', () => {
-    expect(categorizeOsmTags({ natural: 'peak' })?.category).toBe('view')
-    expect(categorizeOsmTags({ mountain_pass: 'yes' })?.category).toBe('view')
-    expect(categorizeOsmTags({ tourism: 'viewpoint' })?.category).toBe('view')
-    expect(categorizeOsmTags({ waterway: 'waterfall' })?.category).toBe('view')
+  it('вершина, перевал, водопад и видовая точка — природа', () => {
+    expect(categorizeOsmTags({ natural: 'peak' })?.category).toBe('nature')
+    expect(categorizeOsmTags({ mountain_pass: 'yes' })?.category).toBe('nature')
+    expect(categorizeOsmTags({ tourism: 'viewpoint' })?.category).toBe('nature')
+    expect(categorizeOsmTags({ waterway: 'waterfall' })?.category).toBe('nature')
   })
 
   it('памятник и музей — рукотворное, если у них есть имя', () => {
     expect(categorizeOsmTags({ historic: 'memorial', name: 'А. П. Чехову' })?.category).toBe('heritage')
     expect(categorizeOsmTags({ tourism: 'museum', name: 'Дом А. П. Чехова' })?.category).toBe('heritage')
-  })
-
-  it('указатель тропы — маркировка', () => {
-    expect(categorizeOsmTags({ tourism: 'information', information: 'guidepost' })?.category).toBe('signage')
-    expect(categorizeOsmTags({ tourism: 'information', information: 'route_marker' })?.category).toBe('signage')
   })
 
   it('продуктовый магазин — снабжение', () => {
@@ -78,8 +73,11 @@ describe('categorizeOsmTags — что отсеиваем', () => {
     expect(categorizeOsmTags({ amenity: 'shelter' })?.category).toBe('camp')
   })
 
-  it('стенды и таблички: щит без указателя не берём', () => {
-    // В Звенигороде 20 безымянных щитов оказались табличками у музейных экспонатов
+  it('любая придорожная информация, включая указатели тропы', () => {
+    // Указатель человеку, идущему по готовому треку с контрольными точками,
+    // ничего не добавляет: на Звенигороде их было 13 из 50 объектов
+    expect(categorizeOsmTags({ tourism: 'information', information: 'guidepost' })).toBeNull()
+    expect(categorizeOsmTags({ tourism: 'information', information: 'route_marker' })).toBeNull()
     expect(categorizeOsmTags({ tourism: 'information', information: 'board' })).toBeNull()
     expect(categorizeOsmTags({ tourism: 'information' })).toBeNull()
   })
@@ -110,9 +108,9 @@ describe('приоритет категорий', () => {
     }
   })
 
-  it('маркировка уступает ночёвке и предупреждениям', () => {
-    expect(CATEGORY_PRIORITY.signage).toBeGreaterThan(CATEGORY_PRIORITY.camp)
-    expect(CATEGORY_PRIORITY.signage).toBeGreaterThan(CATEGORY_PRIORITY.caution)
+  it('наследие уступает ночёвке и предупреждениям', () => {
+    expect(CATEGORY_PRIORITY.heritage).toBeGreaterThan(CATEGORY_PRIORITY.camp)
+    expect(CATEGORY_PRIORITY.heritage).toBeGreaterThan(CATEGORY_PRIORITY.caution)
   })
 })
 
@@ -127,7 +125,7 @@ describe('подписи', () => {
       { mountain_pass: 'yes' }, { tourism: 'viewpoint' }, { waterway: 'waterfall' },
       { historic: 'memorial', name: 'Памятник' }, { historic: 'ruins', name: 'Руины' },
       { tourism: 'museum', name: 'Музей' },
-      { tourism: 'information', information: 'guidepost' }, { shop: 'convenience' },
+      { shop: 'convenience' },
     ]
     for (const tags of kinds) {
       const result = categorizeOsmTags(tags)

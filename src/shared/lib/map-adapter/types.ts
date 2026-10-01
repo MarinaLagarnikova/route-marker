@@ -7,6 +7,11 @@ export interface PhotoPin {
   src: string
   lat: number
   lon: number
+  /**
+   * Направление тропы в точке съёмки, градусы от севера. Плашка отводится
+   * поперёк него, чтобы не лечь на линию трека. Без него уйдёт строго на запад.
+   */
+  bearing?: number
 }
 
 export interface MapAdapter {

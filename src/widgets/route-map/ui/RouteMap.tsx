@@ -98,7 +98,7 @@ export function RouteMap({ userPos }: Props) {
       void adapter.drawPois(overlayRef.current.pois, setSelectedPoi)
       void adapter.drawPhotoPins(
         overlayRef.current.photos.map((photo) => ({
-          src: photo.src, lat: photo.lat!, lon: photo.lon!,
+          src: photo.src, lat: photo.lat!, lon: photo.lon!, bearing: photo.bearing,
         })),
         setPhotoIndex,
       )

@@ -89,6 +89,53 @@ export function pointAtKm(track: LatLon[], km: number): LatLon {
   }
 }
 
+/** Направление отрезка в градусах от севера по часовой стрелке. */
+function segmentBearing(a: LatLon, b: LatLon): number {
+  const toRad = Math.PI / 180
+  const lat1 = a.lat * toRad
+  const lat2 = b.lat * toRad
+  const dLon = (b.lon - a.lon) * toRad
+  const y = Math.sin(dLon) * Math.cos(lat2)
+  const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon)
+  return (((Math.atan2(y, x) * 180) / Math.PI) + 360) % 360
+}
+
+/**
+ * Направление трека в точке по километражу. Нужно, чтобы отвести плашку
+ * фотографии поперёк тропы: снимки сделаны на треке и иначе ложатся на линию.
+ */
+export function bearingAtKm(track: LatLon[], km: number): number {
+  if (track.length < 2) return 0
+  const dists = cumulativeDistances(track)
+  const total = dists[dists.length - 1]
+
+  // Отрезок, на который попал километраж; за краями берём крайний
+  let i = 1
+  if (km >= total) {
+    i = dists.length - 1
+  } else if (km > 0) {
+    while (i < dists.length - 1 && dists[i] < km) i++
+  }
+
+  // Склеенные треки дают нулевые отрезки — у них направления нет, берём соседний
+  while (i < track.length && haversineKm(track[i - 1], track[i]) === 0) i++
+  if (i >= track.length) return 0
+
+  return segmentBearing(track[i - 1], track[i])
+}
+
+/**
+ * Отвод влево по ходу движения, в экранных пикселях (x вправо, y вниз).
+ *
+ * Нужен, чтобы увести плашку фотографии с линии трека: снимки сделаны на тропе
+ * и иначе рвут пунктир. Поперёк, а не «влево по экрану» — на участке
+ * «запад — восток» экранный сдвиг увёл бы плашку вдоль тропы и снова на линию.
+ */
+export function leftOfBearing(bearing: number, distance: number): [number, number] {
+  const rad = (bearing * Math.PI) / 180
+  return [-distance * Math.cos(rad), -distance * Math.sin(rad)]
+}
+
 export function projectWptOnTrack(wpt: LatLon, track: LatLon[]): number {
   let minDist = Infinity
   let minIdx = 0

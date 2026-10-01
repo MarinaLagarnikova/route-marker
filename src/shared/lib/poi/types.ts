@@ -3,9 +3,8 @@ export type PoiCategory =
   | 'water'     // питьевая вода
   | 'camp'      // ночёвка и привал
   | 'caution'   // осторожно
-  | 'view'      // посмотреть
+  | 'nature'    // природа
   | 'heritage'  // рукотворное
-  | 'signage'   // маркировка
   | 'supply'    // снабжение
 
 /** Конкретный вид объекта — нужен для подписи, когда у объекта нет имени в OSM. */
@@ -15,7 +14,6 @@ export type PoiKind =
   | 'ford' | 'wetland' | 'cliff' | 'scree'
   | 'peak' | 'saddle' | 'cave' | 'rock' | 'mountain_pass' | 'viewpoint' | 'waterfall'
   | 'memorial' | 'monument' | 'ruins' | 'manor' | 'archaeology' | 'attraction' | 'museum' | 'artwork'
-  | 'information'
   | 'shop'
 
 export interface RoutePoi {
@@ -35,9 +33,8 @@ export const CATEGORY_LABELS: Record<PoiCategory, string> = {
   water: 'Питьевая вода',
   camp: 'Ночёвка и привал',
   caution: 'Осторожно',
-  view: 'Посмотреть',
+  nature: 'Природа',
   heritage: 'Рукотворное',
-  signage: 'Маркировка',
   supply: 'Снабжение',
 }
 
@@ -50,9 +47,8 @@ export const CATEGORY_PRIORITY: Record<PoiCategory, number> = {
   camp: 2,
   caution: 3,
   supply: 4,
-  view: 5,
+  nature: 5,
   heritage: 6,
-  signage: 7,
 }
 
 export const KIND_LABELS: Record<PoiKind, string> = {
@@ -83,6 +79,5 @@ export const KIND_LABELS: Record<PoiKind, string> = {
   attraction: 'Достопримечательность',
   museum: 'Музей',
   artwork: 'Арт-объект',
-  information: 'Информационный щит',
   shop: 'Магазин',
 }

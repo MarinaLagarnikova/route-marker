@@ -7,6 +7,8 @@ import {
   nearestTrackPoint,
   nearestContourPoint,
   pointAtKm,
+  bearingAtKm,
+  leftOfBearing,
 } from './index'
 
 describe('haversineKm', () => {
@@ -152,5 +154,110 @@ describe('pointAtKm', () => {
 
   it('clamps before the start', () => {
     expect(pointAtKm(TRACK, -5)).toEqual(TRACK[0])
+  })
+})
+
+describe('bearingAtKm', () => {
+  // Трек TRACK идёт строго на север, поэтому направление везде нулевое
+  it('returns 0 for a track running due north', () => {
+    expect(bearingAtKm(TRACK, 1)).toBeCloseTo(0, 1)
+  })
+
+  it('returns 90 for a track running due east', () => {
+    const east = [
+      { lat: 55.0, lon: 37.0 },
+      { lat: 55.0, lon: 37.01 },
+      { lat: 55.0, lon: 37.02 },
+    ]
+    expect(bearingAtKm(east, 0.3)).toBeCloseTo(90, 1)
+  })
+
+  it('returns 180 for a track running due south', () => {
+    const south = [
+      { lat: 55.02, lon: 37.0 },
+      { lat: 55.01, lon: 37.0 },
+      { lat: 55.0, lon: 37.0 },
+    ]
+    expect(bearingAtKm(south, 0.5)).toBeCloseTo(180, 1)
+  })
+
+  // Фотография на повороте должна унаследовать направление того отрезка, на
+  // котором стоит, а не усреднённое по всему треку
+  it('takes the bearing of the segment the km falls into', () => {
+    const corner = [
+      { lat: 55.0, lon: 37.0 },
+      { lat: 55.01, lon: 37.0 },  // на север
+      { lat: 55.01, lon: 37.02 }, // дальше на восток
+    ]
+    const toCorner = haversineKm(corner[0], corner[1])
+    expect(bearingAtKm(corner, toCorner / 2)).toBeCloseTo(0, 1)
+    expect(bearingAtKm(corner, toCorner + 0.3)).toBeCloseTo(90, 1)
+  })
+
+  it('clamps beyond the end to the bearing of the last segment', () => {
+    expect(bearingAtKm(TRACK, 9999)).toBeCloseTo(0, 1)
+  })
+
+  it('clamps before the start to the bearing of the first segment', () => {
+    expect(bearingAtKm(TRACK, -5)).toBeCloseTo(0, 1)
+  })
+
+  it('returns 0 for a track too short to have a direction', () => {
+    expect(bearingAtKm([{ lat: 55, lon: 37 }], 0)).toBe(0)
+  })
+
+  // Склеенные треки дают нулевые отрезки — направление берём у соседнего
+  it('skips a zero-length segment instead of returning NaN', () => {
+    const doubled = [
+      { lat: 55.0, lon: 37.0 },
+      { lat: 55.0, lon: 37.0 },
+      { lat: 55.0, lon: 37.01 },
+    ]
+    expect(bearingAtKm(doubled, 0)).toBeCloseTo(90, 1)
+  })
+})
+
+describe('leftOfBearing', () => {
+  // Экранные оси: x вправо, y вниз. Идём на север — слева запад, то есть -x
+  it('идём на север — отводит на запад', () => {
+    const [x, y] = leftOfBearing(0, 10)
+    expect(x).toBeCloseTo(-10, 5)
+    expect(y).toBeCloseTo(0, 5)
+  })
+
+  it('идём на восток — отводит на север, то есть вверх по экрану', () => {
+    const [x, y] = leftOfBearing(90, 10)
+    expect(x).toBeCloseTo(0, 5)
+    expect(y).toBeCloseTo(-10, 5)
+  })
+
+  it('идём на юг — отводит на восток', () => {
+    const [x, y] = leftOfBearing(180, 10)
+    expect(x).toBeCloseTo(10, 5)
+    expect(y).toBeCloseTo(0, 5)
+  })
+
+  it('идём на запад — отводит на юг, то есть вниз по экрану', () => {
+    const [x, y] = leftOfBearing(270, 10)
+    expect(x).toBeCloseTo(0, 5)
+    expect(y).toBeCloseTo(10, 5)
+  })
+
+  it('длина отвода не зависит от направления', () => {
+    for (const bearing of [0, 13.6, 150.8, 236.4, 261.5, 350.7]) {
+      const [x, y] = leftOfBearing(bearing, 35)
+      expect(Math.hypot(x, y), `беаринг ${bearing}`).toBeCloseTo(35, 5)
+    }
+  })
+
+  // Снимок на тропе: отвод обязан быть поперёк, иначе плашка едет вдоль линии
+  it('отвод перпендикулярен ходу движения', () => {
+    for (const bearing of [0, 13.6, 90, 150.8, 236.4, 261.5, 350.7]) {
+      const rad = (bearing * Math.PI) / 180
+      const travel = [Math.sin(rad), -Math.cos(rad)]
+      const [x, y] = leftOfBearing(bearing, 35)
+      const dot = travel[0] * x + travel[1] * y
+      expect(dot, `беаринг ${bearing}`).toBeCloseTo(0, 5)
+    }
   })
 })

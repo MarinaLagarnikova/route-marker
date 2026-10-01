@@ -5,6 +5,7 @@ import type { LatLon } from '@/shared/lib/geo'
 import type { Checkpoint } from '@/entities/checkpoint'
 import type { RoutePoi } from '@/shared/lib/poi'
 import { applyOverlayVisibility, createOverlayToggle, drawOverlay } from './overlay'
+import { MARKER_BORDER, MARKER_SHADOW_CSS } from './marker-style'
 
 maptilersdk.config.apiKey = MAP_API_KEY
 
@@ -150,12 +151,12 @@ export function createMapTilerAdapter(): MapAdapter {
         const el = document.createElement('div')
         el.style.cssText = [
           'width:28px', 'height:28px', 'border-radius:50%', 'cursor:pointer',
-          `border:2px solid ${checked ? '#171717' : '#9ca3af'}`,
+          `border:${MARKER_BORDER}px solid ${checked ? '#171717' : '#9ca3af'}`,
           `background:${checked ? '#171717' : '#ffffff'}`,
           'display:flex', 'align-items:center', 'justify-content:center',
           'font-size:11px', 'font-weight:600', 'font-family:monospace',
           `color:${checked ? '#fff' : '#0a0a0a'}`,
-          'box-shadow:0 1px 4px rgba(0,0,0,0.2)',
+          `box-shadow:${MARKER_SHADOW_CSS}`,
           'user-select:none',
         ].join(';')
         el.textContent = numbering === 'all' || (numbering === 'checked-only' && checked)
@@ -210,7 +211,8 @@ export function createMapTilerAdapter(): MapAdapter {
       const el = document.createElement('div')
       el.style.cssText = [
         'width:14px', 'height:14px', 'border-radius:50%',
-        'background:#3b82f6', 'border:2.5px solid #fff',
+        'background:#3b82f6', `border:${MARKER_BORDER}px solid #fff`,
+        // Не тень, а свечение: метка положения не «лежит» на карте, а светится
         'box-shadow:0 0 0 3px rgba(59,130,246,0.35)',
       ].join(';')
 

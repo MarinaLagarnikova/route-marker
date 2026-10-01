@@ -72,7 +72,7 @@ export function CollectionMap({ routes, onBack }: Props) {
     const photos = placedPhotos(overlayRoute)
     void mapHandleRef.current?.showOverlay?.(
       pois,
-      photos.map((p) => ({ src: p.src, lat: p.lat!, lon: p.lon! })),
+      photos.map((p) => ({ src: p.src, lat: p.lat!, lon: p.lon!, bearing: p.bearing })),
     )
     // Кнопка, которая ничего не делает, хуже отсутствующей: тогл появляется
     // только когда у выбранного маршрута есть что показать.

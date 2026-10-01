@@ -25,9 +25,11 @@ import {
   nearestTrackPoint,
   nearestContourPoint,
   pointAtKm,
+  bearingAtKm,
   type LatLon,
 } from '../src/shared/lib/geo'
 import { categorizeOsmTags, type OsmTags } from '../src/shared/lib/poi/categorize'
+import { CATEGORY_PRIORITY } from '../src/shared/lib/poi/types'
 import { dedupeNearbyPois } from '../src/shared/lib/poi/dedupe'
 import type { RoutePoi } from '../src/shared/lib/poi/types'
 
@@ -69,7 +71,12 @@ interface CollectionFile {
     id: string
     name: string
     gpx?: string
-    photos?: Array<{ src: string; caption?: string; km?: number; lat?: number; lon?: number }>
+    photos?: Array<{
+      src: string; caption?: string; km?: number
+      lat?: number; lon?: number
+      /** Направление тропы в точке съёмки — плашка отводится поперёк него. */
+      bearing?: number
+    }>
     pois?: RoutePoi[]
     [key: string]: unknown
   }>
@@ -190,8 +197,13 @@ async function collectPois(track: LatLon[], label: string): Promise<RoutePoi[]> 
 async function main() {
   const [target, ...flags] = process.argv.slice(2)
   const dryRun = flags.includes('--dry')
+  // Пересчёт по уже запечённым данным, без Overpass. Нужен, когда поменялась не
+  // добыча, а модель: выброшена категория или у фотографий появилось новое поле.
+  // Ходить за объектами заново в такие моменты вредно — набор перетряхнётся
+  // против сегодняшнего OSM вместе с правкой, к которой это не относится.
+  const localOnly = flags.includes('--local')
   if (!target) {
-    console.error('Usage: npx tsx scripts/fetch-osm-pois.ts <route-id | --all> [--dry]')
+    console.error('Usage: npx tsx scripts/fetch-osm-pois.ts <route-id | --all> [--dry] [--local]')
     process.exit(1)
   }
 
@@ -213,16 +225,23 @@ async function main() {
         continue
       }
 
-      const pois = await collectPois(track, route.id)
+      // Категория, выброшенная из модели, остаётся в запечённых данных и без
+      // значка на карте не рисуется — чистим её тем же проходом
+      const pois = localOnly
+        ? (route.pois ?? []).filter((poi) => poi.category in CATEGORY_PRIORITY)
+        : await collectPois(track, route.id)
       route.pois = pois
 
-      // Координаты фотографий считаем здесь же: в рантайме полного трека нет
+      // Координаты фотографий считаем здесь же: в рантайме полного трека нет.
+      // Направление тропы — тоже: на карте подборки трек упрощён до десятков
+      // точек, и беаринг по нему вышел бы грубым.
       let photosPlaced = 0
       for (const photo of route.photos ?? []) {
         if (photo.km === undefined) continue
         const position = pointAtKm(track, photo.km)
         photo.lat = Number(position.lat.toFixed(6))
         photo.lon = Number(position.lon.toFixed(6))
+        photo.bearing = Number(bearingAtKm(track, photo.km).toFixed(1))
         photosPlaced++
       }
 

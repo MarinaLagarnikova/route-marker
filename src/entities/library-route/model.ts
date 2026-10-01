@@ -33,6 +33,11 @@ export interface RoutePhoto {
    */
   lat?: number
   lon?: number
+  /**
+   * Направление тропы в точке съёмки, градусы от севера. Запекается там же:
+   * плашка отводится поперёк тропы, чтобы не лечь на линию трека.
+   */
+  bearing?: number
 }
 
 export interface LibraryRoute {

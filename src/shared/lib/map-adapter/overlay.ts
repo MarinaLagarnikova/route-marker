@@ -1,6 +1,11 @@
 import type * as maptilersdk from '@maptiler/sdk'
-import { CATEGORY_PRIORITY, type RoutePoi } from '@/shared/lib/poi'
-import { POI_ICON_IDS, registerPhotoPin, registerPoiIcons } from './poi-icons'
+import {
+  CATEGORY_PRIORITY, PHOTO_MIN_ZOOM, POI_ZOOM_STEPS, type RoutePoi,
+} from '@/shared/lib/poi'
+import { leftOfBearing } from '@/shared/lib/geo'
+import {
+  POI_ICON_IDS, POI_PIN_ANCHOR_OFFSET, registerPhotoPin, registerPoiIcons,
+} from './poi-icons'
 import type { PhotoPin } from './types'
 
 /**
@@ -10,8 +15,29 @@ export const OVERLAY_LAYERS = {
   poi: 'poi-layer',
   poiSource: 'poi-source',
   photo: 'photo-layer',
+  photoAnchor: 'photo-anchor-layer',
   photoSource: 'photo-source',
 } as const
+
+/**
+ * Насколько отвести плашку фотографии от тропы, CSS-пиксели. Плашка шириной
+ * 36 px расходится с линией трека с запасом: от её края до линии остаётся ~8 px.
+ */
+const PHOTO_OFFSET = 26
+
+/**
+ * Ступени видимости объектов: ниже первой порог равен нулю, а приоритеты
+ * начинаются с единицы — слой пуст.
+ *
+ * ВАЖНО: MapLibre пересчитывает ['zoom'] внутри filter только на целых зумах.
+ * Дробный порог в POI_ZOOM_STEPS просто не сработает.
+ */
+function poiZoomFilter(): maptilersdk.FilterSpecification {
+  const steps = POI_ZOOM_STEPS.flatMap((step) => [step.zoom, step.maxPriority])
+  return [
+    '<=', ['get', 'priority'], ['step', ['zoom'], 0, ...steps],
+  ] as unknown as maptilersdk.FilterSpecification
+}
 
 interface OverlayTaps {
   onPoiTap: (poi: RoutePoi) => void
@@ -19,9 +45,14 @@ interface OverlayTaps {
 }
 
 function poiFeatures(pois: RoutePoi[]): GeoJSON.FeatureCollection {
+  // Объекты запечены в библиотеку и живут дольше кода: выброшенная категория
+  // ещё какое-то время лежит в данных. Без значка её не нарисовать, и просить
+  // у движка несуществующую картинку — только сыпать ошибками в консоль.
+  const known = pois.filter((poi) => POI_ICON_IDS[poi.category] !== undefined)
+
   return {
     type: 'FeatureCollection',
-    features: pois.map((poi) => ({
+    features: known.map((poi) => ({
       type: 'Feature',
       geometry: { type: 'Point', coordinates: [poi.lon, poi.lat] },
       properties: {
@@ -52,7 +83,7 @@ export async function drawOverlay(
     photoFeatures.push({
       type: 'Feature',
       geometry: { type: 'Point', coordinates: [photo.lon, photo.lat] },
-      properties: { index, icon },
+      properties: { index, icon, offset: leftOfBearing(photo.bearing ?? 0, PHOTO_OFFSET) },
     })
   }
 
@@ -68,10 +99,16 @@ export async function drawOverlay(
       id: OVERLAY_LAYERS.poi,
       type: 'symbol',
       source: OVERLAY_LAYERS.poiSource,
+      // Ступени по зуму: на обзоре слой молчит, объекты проступают по важности
+      filter: poiZoomFilter(),
       layout: {
         'icon-image': ['get', 'icon'],
-        // 0.5 давало 14 px против 28 у марок контрольных точек — значки терялись
-        'icon-size': 0.8,
+        // Размер запечён в саму картинку (36×45), масштабировать её не нужно
+        'icon-size': 1,
+        // Метка — капля: место обозначает остриё, а не середина фигуры.
+        // Сдвиг компенсирует поле под тень между остриём и краем картинки.
+        'icon-anchor': 'bottom',
+        'icon-offset': POI_PIN_ANCHOR_OFFSET,
         // Разрежением занимается сам движок: при наложении переживает тот,
         // у кого меньше ключ сортировки, то есть более важная категория.
         'icon-allow-overlap': false,
@@ -98,16 +135,42 @@ export async function drawOverlay(
 
   if (!map.getSource(OVERLAY_LAYERS.photoSource)) {
     map.addSource(OVERLAY_LAYERS.photoSource, { type: 'geojson', data: photoData })
+
+    // Точка на настоящем месте съёмки. Плашка отведена вбок, и без якоря
+    // непонятно, к чему она относится; выноску не нарисовать — линия живёт в
+    // географии, а сдвиг в пикселях, и на каждом зуме они разъедутся.
+    map.addLayer({
+      id: OVERLAY_LAYERS.photoAnchor,
+      type: 'circle',
+      source: OVERLAY_LAYERS.photoSource,
+      minzoom: PHOTO_MIN_ZOOM,
+      paint: {
+        'circle-radius': 3,
+        'circle-color': '#171717',
+        'circle-stroke-width': 1.5,
+        'circle-stroke-color': '#ffffff',
+      },
+    })
+
     map.addLayer({
       id: OVERLAY_LAYERS.photo,
       type: 'symbol',
       source: OVERLAY_LAYERS.photoSource,
+      // Фотографии приходят последними, иначе вторая ступень объектов и снимки
+      // приезжают одной волной
+      minzoom: PHOTO_MIN_ZOOM,
       layout: {
         'icon-image': ['get', 'icon'],
-        'icon-size': 0.75,
-        // Фотографий мало, и конкуренцию значкам они проигрывать не должны
-        'icon-allow-overlap': true,
-        'icon-ignore-placement': true,
+        // Размер и тень запечены в картинку — масштабировать её нельзя,
+        // иначе вместе с плашкой ужмётся и тень
+        'icon-size': 1,
+        // Значкам фото не уступают, а вот друг другу — да: иначе четыре снимка
+        // у монастыря ложатся стопкой
+        'icon-allow-overlap': false,
+        'icon-ignore-placement': false,
+        'symbol-sort-key': 0,
+        // Снимки сделаны на тропе: без отвода плашка ляжет на линию трека
+        'icon-offset': ['array', 'number', 2, ['get', 'offset']],
       },
     })
     map.on('click', OVERLAY_LAYERS.photo, (event) => {
@@ -122,16 +185,22 @@ export async function drawOverlay(
 /** Прячет или показывает оба слоя, если они уже созданы. */
 export function applyOverlayVisibility(map: maptilersdk.Map | null, visible: boolean): void {
   const visibility = visible ? 'visible' : 'none'
-  for (const layer of [OVERLAY_LAYERS.poi, OVERLAY_LAYERS.photo]) {
+  for (const layer of [OVERLAY_LAYERS.poi, OVERLAY_LAYERS.photo, OVERLAY_LAYERS.photoAnchor]) {
     if (map?.getLayer(layer)) map.setLayoutProperty(layer, 'visibility', visibility)
   }
 }
 
-/** Значок кнопки слоя: звёздочка-«интересное», наследует цвет кнопки. */
+/**
+ * Значок кнопки слоя — lucide `layers`, наследует цвет кнопки. Была звёздочка,
+ * но «рукотворное» теперь рисуется звездой, и кнопка с ней перекликалась.
+ */
 const TOGGLE_ICON = [
   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"',
   ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:auto">',
-  '<path d="M12 3.5 14.2 9.3 20 11.5 14.2 13.7 12 19.5 9.8 13.7 4 11.5 9.8 9.3z"/>',
+  '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91',
+  'a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/>',
+  '<path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/>',
+  '<path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/>',
   '</svg>',
 ].join('')
 

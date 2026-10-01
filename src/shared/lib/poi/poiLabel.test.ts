@@ -8,18 +8,15 @@ const base: RoutePoi = {
 
 describe('poiLabel', () => {
   it('показывает имя из OSM, когда оно есть', () => {
-    expect(poiLabel({ ...base, name: 'Святой источник' })).toEqual({
-      title: 'Святой источник',
-      subtitle: 'Родник · 4,2 км',
-    })
+    expect(poiLabel({ ...base, name: 'Святой источник' })).toBe('Святой источник')
   })
 
   it('безымянный объект подписывается по виду', () => {
-    expect(poiLabel(base)).toEqual({ title: 'Родник', subtitle: '4,2 км' })
+    expect(poiLabel(base)).toBe('Родник')
   })
 
-  it('километраж округляется до десятых с запятой', () => {
-    expect(poiLabel({ ...base, km: 0.04 }).subtitle).toBe('0 км')
-    expect(poiLabel({ ...base, km: 12.36 }).subtitle).toBe('12,4 км')
+  // Вторую строку шторки занимает название группы, и повтор там ни к чему
+  it('пустое имя не считается именем', () => {
+    expect(poiLabel({ ...base, name: '' })).toBe('Родник')
   })
 })
