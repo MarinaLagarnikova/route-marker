@@ -18,7 +18,7 @@ export const COLLECTION_CARD_LIST: CollectionCardMeta[] = [
   { id: 'moscow-region',   name: 'Москва и область',           count: 28, imageUrl: col2 },
   { id: 'central-russia',  name: 'Центральная Россия',          count: 25, imageUrl: col3 },
   { id: 'caucasus-crimea', name: 'Кавказ и Крым',               count: 16, imageUrl: col4 },
-  { id: 'murmansk-region', name: 'Мурманская область',          count: 13, imageUrl: col5 },
+  { id: 'murmansk-region', name: 'Мурманская область',          count: 10, imageUrl: col5 },
   { id: 'siberia',         name: 'Сибирь',                      count: 12, imageUrl: col6 },
   { id: 'spb-karelia',     name: 'Санкт-Петербург и Карелия',   count: 9,  imageUrl: col7 },
   { id: 'ural',            name: 'Урал',                        count: 8,  imageUrl: col8 },

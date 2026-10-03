@@ -1,7 +1,7 @@
 {
   "id": "murmansk-region",
   "name": "Мурманская область",
-  "totalRoutes": 13,
+  "totalRoutes": 10,
   "routes": [
     {
       "id": "kamennye-ozera",
@@ -156,6 +156,65 @@
           "lon": 32.802796,
           "ele": 183.582977
         }
+      ],
+      "pois": [
+        {
+          "id": "node/12238834271",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.973137,
+          "lon": 32.809971,
+          "km": 2.93
+        },
+        {
+          "id": "node/2101210200",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.984709,
+          "lon": 32.791147,
+          "km": 4.73
+        },
+        {
+          "id": "node/2036691431",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.987598,
+          "lon": 32.787688,
+          "km": 5.09
+        },
+        {
+          "id": "node/4513195945",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.978763,
+          "lon": 32.6894,
+          "km": 10.62
+        },
+        {
+          "id": "node/12100945901",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.951948,
+          "lon": 32.709709,
+          "km": 14.74
+        },
+        {
+          "id": "node/12100946001",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.951847,
+          "lon": 32.707826,
+          "km": 14.74
+        },
+        {
+          "id": "node/1947201961",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Мончегорск",
+          "lat": 67.916351,
+          "lon": 32.803996,
+          "km": 21.03
+        }
       ]
     },
     {
@@ -255,6 +314,17 @@
           "lat": 67.911863,
           "lon": 32.774148,
           "ele": 253.3
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/2123519248",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Ниттис",
+          "lat": 67.914064,
+          "lon": 32.755674,
+          "km": 2.94
         }
       ]
     },
@@ -511,147 +581,116 @@
           "lon": 32.77551,
           "ele": 291.637573
         }
-      ]
-    },
-    {
-      "id": "skitur-kaiting-v-hibiny",
-      "name": "Скитур с кайтингом из Мончегорска в Хибины",
-      "gpx": "skitur-kaiting-v-hibiny.gpx",
-      "region": {
-        "id": "murmansk-region",
-        "name": "Мурманская область"
-      },
-      "distanceKm": 30,
-      "durationLabel": "1—2 дня",
-      "difficulty": "hard",
-      "elevationGainM": 600,
-      "type": "linear",
-      "nearestSettlement": "Мончегорск",
-      "description": "Сложный зимний переход на лыжах через замёрзшее озеро Имандра с кайтом и подъёмом на горы Хибин. Маршрут для опытных лыжников-туристов с кайтинговым снаряжением.",
-      "highlights": [
-        "кайтинг",
-        "озеро Имандра",
-        "Хибины",
-        "зима",
-        "сложный"
       ],
-      "source": {
-        "name": "RuTrail",
-        "tagline": "Маркированные маршруты России",
-        "url": "https://rutrail.org/trails/128/",
-        "logoUrl": "/tracks/rutrail-logo.svg"
-      },
-      "trackSimplified": [
+      "pois": [
         {
-          "lat": 67.9358,
-          "lon": 32.9183
+          "id": "node/1578534332",
+          "category": "water",
+          "kind": "spring",
+          "name": "Габбрский родник",
+          "lat": 67.873044,
+          "lon": 32.787036,
+          "km": 0.04
         },
         {
-          "lat": 67.95,
-          "lon": 32.95
-        }
-      ]
-    },
-    {
-      "id": "skitur-monchtundry-hippik",
-      "name": "Скитур в Мончетундрах (Гора Хиппик)",
-      "gpx": "skitur-monchtundry-hippik.gpx",
-      "region": {
-        "id": "murmansk-region",
-        "name": "Мурманская область"
-      },
-      "distanceKm": 7.7,
-      "durationLabel": "5—6 часов",
-      "difficulty": "medium",
-      "elevationGainM": 77,
-      "type": "linear",
-      "nearestSettlement": "Мончегорск",
-      "description": "Зимний лыжный поход по Мончетундрам к горе Хиппик — через открытую горную тундру с продолжительными видами на Имандру и кольские сопки.",
-      "highlights": [
-        "Мончетундры",
-        "Хиппик",
-        "зима",
-        "горная тундра",
-        "Имандра"
-      ],
-      "source": {
-        "name": "RuTrail",
-        "tagline": "Маркированные маршруты России",
-        "url": "https://rutrail.org/trails/130/",
-        "logoUrl": "/tracks/rutrail-logo.svg"
-      },
-      "trackSimplified": [
-        {
-          "lat": 67.910782,
-          "lon": 32.953234
+          "id": "node/12102945601",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 67.865591,
+          "lon": 32.695668,
+          "km": 5.02
         },
         {
-          "lat": 67.902744,
-          "lon": 32.9498
+          "id": "node/12140922925",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.866508,
+          "lon": 32.647628,
+          "km": 7.52
         },
         {
-          "lat": 67.900064,
-          "lon": 32.953062
+          "id": "node/12140922924",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.878322,
+          "lon": 32.627148,
+          "km": 9.16
         },
         {
-          "lat": 67.899999,
-          "lon": 32.956924
+          "id": "node/12102945502",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 67.881077,
+          "lon": 32.627349,
+          "km": 9.57
         },
         {
-          "lat": 67.901097,
-          "lon": 32.959671
+          "id": "node/12140922893",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Девичьи косы",
+          "lat": 67.887573,
+          "lon": 32.64386,
+          "km": 10.72
         },
         {
-          "lat": 67.905326,
-          "lon": 32.960958
+          "id": "node/14085654829",
+          "category": "nature",
+          "kind": "saddle",
+          "lat": 67.893919,
+          "lon": 32.679088,
+          "km": 12.51
         },
         {
-          "lat": 67.909975,
-          "lon": 32.958298
+          "id": "way/1548650312",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.893051,
+          "lon": 32.681751,
+          "km": 12.68
         },
         {
-          "lat": 67.910588,
-          "lon": 32.952461
+          "id": "way/1548650313",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.893104,
+          "lon": 32.682239,
+          "km": 12.68
         },
         {
-          "lat": 67.902679,
-          "lon": 32.949028
+          "id": "node/12102945501",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Водопад Скальный",
+          "lat": 67.892239,
+          "lon": 32.699096,
+          "km": 13.46
         },
         {
-          "lat": 67.902744,
-          "lon": 32.931604
+          "id": "node/12100946101",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Разносторонний",
+          "lat": 67.904738,
+          "lon": 32.712395,
+          "km": 15.31
         },
         {
-          "lat": 67.899192,
-          "lon": 32.92594
+          "id": "node/1947201961",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Мончегорск",
+          "lat": 67.916351,
+          "lon": 32.803996,
+          "km": 22.26
         },
         {
-          "lat": 67.899159,
-          "lon": 32.918901
-        },
-        {
-          "lat": 67.900709,
-          "lon": 32.915897
-        },
-        {
-          "lat": 67.906941,
-          "lon": 32.91873
-        },
-        {
-          "lat": 67.908974,
-          "lon": 32.916412
-        },
-        {
-          "lat": 67.91146,
-          "lon": 32.916327
-        },
-        {
-          "lat": 67.914074,
-          "lon": 32.924137
-        },
-        {
-          "lat": 67.918688,
-          "lon": 32.917271
+          "id": "node/12140922923",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.881126,
+          "lon": 32.620903,
+          "km": 30.98
         }
       ]
     },
@@ -703,43 +742,25 @@
           "lat": 67.913987,
           "lon": 32.755696
         }
-      ]
-    },
-    {
-      "id": "skitur-nyud-voronya",
-      "name": "Скитур Нюд — Воронья",
-      "gpx": "skitur-nyud-voronya.gpx",
-      "region": {
-        "id": "murmansk-region",
-        "name": "Мурманская область"
-      },
-      "distanceKm": 12,
-      "durationLabel": "1 день",
-      "difficulty": "easy",
-      "elevationGainM": 72,
-      "type": "linear",
-      "nearestSettlement": "Мончегорск",
-      "description": "Зимний лыжный маршрут по хребту от горы Нюд до горы Воронья — по открытым плато с видами на снежные просторы Кольского полуострова. Подходит для начинающих лыжников-туристов.",
-      "highlights": [
-        "скитур",
-        "зима",
-        "горное плато",
-        "Мончегорск"
       ],
-      "source": {
-        "name": "RuTrail",
-        "tagline": "Маркированные маршруты России",
-        "url": "https://rutrail.org/trails/126/",
-        "logoUrl": "/tracks/rutrail-logo.svg"
-      },
-      "trackSimplified": [
+      "pois": [
         {
-          "lat": 67.9358,
-          "lon": 32.9183
+          "id": "node/1947201961",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Мончегорск",
+          "lat": 67.916351,
+          "lon": 32.803996,
+          "km": 0
         },
         {
-          "lat": 67.95,
-          "lon": 32.95
+          "id": "node/2123519248",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Ниттис",
+          "lat": 67.914064,
+          "lon": 32.755674,
+          "km": 2.42
         }
       ]
     },
@@ -843,6 +864,25 @@
           "lat": 67.918688,
           "lon": 32.917271
         }
+      ],
+      "pois": [
+        {
+          "id": "way/1548639799",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.898957,
+          "lon": 32.958845,
+          "km": 1.39
+        },
+        {
+          "id": "node/639595803",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Нюдуайвенч",
+          "lat": 67.903616,
+          "lon": 32.931002,
+          "km": 4.45
+        }
       ]
     },
     {
@@ -942,6 +982,98 @@
           "lat": 67.8712,
           "lon": 33.107774,
           "ele": 128.1
+        }
+      ],
+      "pois": [
+        {
+          "id": "way/330827212",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.882234,
+          "lon": 33.041354,
+          "km": 0.15
+        },
+        {
+          "id": "node/1512487650",
+          "category": "water",
+          "kind": "drinking_water",
+          "name": "Родник Крепость",
+          "lat": 67.883291,
+          "lon": 33.048232,
+          "km": 0.5
+        },
+        {
+          "id": "node/2328077852",
+          "category": "water",
+          "kind": "drinking_water",
+          "name": "Родник Кварцитовый",
+          "lat": 67.883639,
+          "lon": 33.049813,
+          "km": 0.5
+        },
+        {
+          "id": "way/314451588",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.883757,
+          "lon": 33.048591,
+          "km": 0.5
+        },
+        {
+          "id": "way/330827225",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.883692,
+          "lon": 33.050069,
+          "km": 0.5
+        },
+        {
+          "id": "node/12238624634",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.883166,
+          "lon": 33.053504,
+          "km": 0.72
+        },
+        {
+          "id": "way/139418264",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.882256,
+          "lon": 33.061267,
+          "km": 1.06
+        },
+        {
+          "id": "way/316566821",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.882254,
+          "lon": 33.065918,
+          "km": 1.21
+        },
+        {
+          "id": "way/914023305",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.880106,
+          "lon": 33.068019,
+          "km": 1.44
+        },
+        {
+          "id": "way/139418268",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.880058,
+          "lon": 33.074185,
+          "km": 1.68
+        },
+        {
+          "id": "way/914023304",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.878035,
+          "lon": 33.079657,
+          "km": 2
         }
       ]
     },
@@ -1087,6 +1219,58 @@
           "lat": 67.916648,
           "lon": 32.932314,
           "ele": 179.2
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/12104528001",
+          "category": "water",
+          "kind": "well",
+          "lat": 67.919042,
+          "lon": 32.935626,
+          "km": 0.31
+        },
+        {
+          "id": "node/9082514874",
+          "category": "water",
+          "kind": "drinking_water",
+          "lat": 67.921501,
+          "lon": 32.939696,
+          "km": 0.61
+        },
+        {
+          "id": "way/981241564",
+          "category": "water",
+          "kind": "well",
+          "lat": 67.921203,
+          "lon": 32.940277,
+          "km": 0.61
+        },
+        {
+          "id": "node/12104477601",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.911859,
+          "lon": 32.925496,
+          "km": 1.97
+        },
+        {
+          "id": "node/639595803",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Нюдуайвенч",
+          "lat": 67.903616,
+          "lon": 32.931002,
+          "km": 3.02
+        },
+        {
+          "id": "node/12238665563",
+          "category": "water",
+          "kind": "drinking_water",
+          "name": "Родник Горнолыжный",
+          "lat": 67.907713,
+          "lon": 32.910652,
+          "km": 10.98
         }
       ]
     },
@@ -1583,6 +1767,264 @@
           "lon": 32.939782,
           "ele": 152.3
         }
+      ],
+      "pois": [
+        {
+          "id": "node/9082514874",
+          "category": "water",
+          "kind": "drinking_water",
+          "lat": 67.921501,
+          "lon": 32.939696,
+          "km": 0
+        },
+        {
+          "id": "node/12104477601",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.911859,
+          "lon": 32.925496,
+          "km": 1.37
+        },
+        {
+          "id": "node/639595803",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Нюдуайвенч",
+          "lat": 67.903616,
+          "lon": 32.931002,
+          "km": 2.42
+        },
+        {
+          "id": "node/12104371401",
+          "category": "water",
+          "kind": "spring",
+          "lat": 67.888834,
+          "lon": 32.959005,
+          "km": 5.36
+        },
+        {
+          "id": "node/1528431311",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Вурэчуайвенч",
+          "lat": 67.870383,
+          "lon": 33.008454,
+          "km": 10.94
+        },
+        {
+          "id": "way/314443216",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.87697,
+          "lon": 33.03401,
+          "km": 13.83
+        },
+        {
+          "id": "way/314968663",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.879273,
+          "lon": 33.039439,
+          "km": 14.14
+        },
+        {
+          "id": "way/330827212",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.882234,
+          "lon": 33.041354,
+          "km": 14.6
+        },
+        {
+          "id": "node/1512487650",
+          "category": "water",
+          "kind": "drinking_water",
+          "name": "Родник Крепость",
+          "lat": 67.883291,
+          "lon": 33.048232,
+          "km": 14.95
+        },
+        {
+          "id": "node/2328077852",
+          "category": "water",
+          "kind": "drinking_water",
+          "name": "Родник Кварцитовый",
+          "lat": 67.883639,
+          "lon": 33.049813,
+          "km": 14.95
+        },
+        {
+          "id": "way/314451588",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.883757,
+          "lon": 33.048591,
+          "km": 14.95
+        },
+        {
+          "id": "node/12238624634",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.883166,
+          "lon": 33.053504,
+          "km": 15.17
+        },
+        {
+          "id": "way/330827225",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.884588,
+          "lon": 33.054665,
+          "km": 15.28
+        },
+        {
+          "id": "way/316566821",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.884638,
+          "lon": 33.058644,
+          "km": 15.42
+        },
+        {
+          "id": "way/139418264",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.883726,
+          "lon": 33.058778,
+          "km": 15.47
+        },
+        {
+          "id": "node/12238624633",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Стоянка \"Викинг\"",
+          "lat": 67.890843,
+          "lon": 33.083025,
+          "km": 16.85
+        },
+        {
+          "id": "node/12488714063",
+          "category": "heritage",
+          "kind": "artwork",
+          "name": "Ворон",
+          "lat": 67.885799,
+          "lon": 33.103142,
+          "km": 18.15
+        },
+        {
+          "id": "way/1548650317",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.88578,
+          "lon": 33.101206,
+          "km": 18.15
+        },
+        {
+          "id": "node/12238624632",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Стоянка \"Вуречь\"",
+          "lat": 67.857655,
+          "lon": 33.072689,
+          "km": 22.58
+        },
+        {
+          "id": "way/374680502",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.858547,
+          "lon": 33.078589,
+          "km": 22.72
+        },
+        {
+          "id": "node/2096931638",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.857225,
+          "lon": 33.078161,
+          "km": 22.76
+        },
+        {
+          "id": "node/12238624631",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.857066,
+          "lon": 33.077781,
+          "km": 22.76
+        },
+        {
+          "id": "way/374680309",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.856278,
+          "lon": 33.078556,
+          "km": 22.89
+        },
+        {
+          "id": "node/13713764895",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.820553,
+          "lon": 33.0319,
+          "km": 27.62
+        },
+        {
+          "id": "way/193678516",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.853512,
+          "lon": 33.002069,
+          "km": 35.84
+        },
+        {
+          "id": "way/321321554",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.870937,
+          "lon": 32.942776,
+          "km": 40.95
+        },
+        {
+          "id": "node/2036569133",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 67.870298,
+          "lon": 32.940823,
+          "km": 41.07
+        },
+        {
+          "id": "way/321322459",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.870149,
+          "lon": 32.928099,
+          "km": 41.7
+        },
+        {
+          "id": "node/12238665563",
+          "category": "water",
+          "kind": "drinking_water",
+          "name": "Родник Горнолыжный",
+          "lat": 67.907713,
+          "lon": 32.910652,
+          "km": 46.31
+        },
+        {
+          "id": "node/12104528001",
+          "category": "water",
+          "kind": "well",
+          "lat": 67.919042,
+          "lon": 32.935626,
+          "km": 48.07
+        },
+        {
+          "id": "way/981241564",
+          "category": "water",
+          "kind": "well",
+          "lat": 67.921203,
+          "lon": 32.940277,
+          "km": 48.37
+        }
       ]
     },
     {
@@ -1683,6 +2125,42 @@
           "lon": 33.044581,
           "ele": 179.7
         }
+      ],
+      "pois": [
+        {
+          "id": "way/314968663",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.879273,
+          "lon": 33.039439,
+          "km": 0.31
+        },
+        {
+          "id": "node/1528431311",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Вурэчуайвенч",
+          "lat": 67.870383,
+          "lon": 33.008454,
+          "km": 3.51
+        },
+        {
+          "id": "node/12238673796",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Ворон",
+          "lat": 67.875914,
+          "lon": 33.03084,
+          "km": 4.8
+        },
+        {
+          "id": "way/314443216",
+          "category": "caution",
+          "kind": "wetland",
+          "lat": 67.876445,
+          "lon": 33.033195,
+          "km": 4.95
+        }
       ]
     },
     {
@@ -1772,6 +2250,65 @@
           "lat": 67.919158,
           "lon": 32.943129,
           "ele": 168.8
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/9082514874",
+          "category": "water",
+          "kind": "drinking_water",
+          "lat": 67.921501,
+          "lon": 32.939696,
+          "km": 0.27
+        },
+        {
+          "id": "way/981241564",
+          "category": "water",
+          "kind": "well",
+          "lat": 67.921203,
+          "lon": 32.940277,
+          "km": 0.27
+        },
+        {
+          "id": "node/12104528001",
+          "category": "water",
+          "kind": "well",
+          "lat": 67.919042,
+          "lon": 32.935626,
+          "km": 0.6
+        },
+        {
+          "id": "node/12104477601",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 67.911859,
+          "lon": 32.925496,
+          "km": 1.64
+        },
+        {
+          "id": "node/639595803",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Нюдуайвенч",
+          "lat": 67.903616,
+          "lon": 32.931002,
+          "km": 2.7
+        },
+        {
+          "id": "way/1548639800",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.897934,
+          "lon": 32.958743,
+          "km": 4.24
+        },
+        {
+          "id": "way/1548639799",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 67.898957,
+          "lon": 32.958845,
+          "km": 4.37
         }
       ]
     }
