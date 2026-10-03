@@ -37,6 +37,7 @@ import {
 import { categorizeOsmTags, type OsmTags } from '../src/shared/lib/poi/categorize'
 import { CATEGORY_PRIORITY } from '../src/shared/lib/poi/types'
 import { dedupeNearbyPois } from '../src/shared/lib/poi/dedupe'
+import { applyExclusions } from '../src/shared/lib/poi/exclude'
 import type { RoutePoi } from '../src/shared/lib/poi/types'
 import { matchesTarget, skipReason } from './poi-plan'
 import { parseOverpassBody } from './overpass-body'
@@ -108,6 +109,8 @@ interface CollectionFile {
       bearing?: number
     }>
     pois?: RoutePoi[]
+    /** Виды, которые этому маршруту не нужны: см. shared/lib/poi/exclude. */
+    poiExclude?: string[]
     [key: string]: unknown
   }>
   [key: string]: unknown
@@ -294,6 +297,9 @@ async function main() {
           firstNetworkRoute = false
           pois = await collectPois(track, route.id)
         }
+        // Отсев, назначенный маршруту, применяем в обоих режимах: иначе
+        // перезабор вернул бы выброшенное обратно
+        pois = applyExclusions(pois, route.poiExclude)
       } catch (error) {
         failed.push(`${route.id}: ${error instanceof Error ? error.message : String(error)}`)
         console.error(`! ${route.id}: ${String(error)}`)
