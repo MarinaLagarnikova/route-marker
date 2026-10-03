@@ -335,6 +335,966 @@
           "lat": 44.1391308,
           "lon": 40.2906064
         }
+      ],
+      "pois": [
+        {
+          "id": "node/417330601",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.139355,
+          "lon": 40.290864,
+          "km": 0.15
+        },
+        {
+          "id": "node/8328960833",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.133747,
+          "lon": 40.304499,
+          "km": 2
+        },
+        {
+          "id": "node/1977768322",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.133623,
+          "lon": 40.305085,
+          "km": 2.13
+        },
+        {
+          "id": "node/12923557732",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.133165,
+          "lon": 40.310445,
+          "km": 2.59
+        },
+        {
+          "id": "way/220512140",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.133139,
+          "lon": 40.310689,
+          "km": 2.59
+        },
+        {
+          "id": "node/1705952501",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Манькин шум",
+          "lat": 44.133754,
+          "lon": 40.311269,
+          "km": 2.62
+        },
+        {
+          "id": "way/220512141",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.133129,
+          "lon": 40.310895,
+          "km": 2.62
+        },
+        {
+          "id": "node/462753757",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.134084,
+          "lon": 40.311999,
+          "km": 2.63
+        },
+        {
+          "id": "node/1942318247",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.133175,
+          "lon": 40.311244,
+          "km": 2.63
+        },
+        {
+          "id": "node/2296256567",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Мальдивы",
+          "lat": 44.132517,
+          "lon": 40.310695,
+          "km": 2.65
+        },
+        {
+          "id": "node/6480494455",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.132778,
+          "lon": 40.310907,
+          "km": 2.65
+        },
+        {
+          "id": "node/2511241005",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.130567,
+          "lon": 40.316138,
+          "km": 3.17
+        },
+        {
+          "id": "node/2511241010",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.129592,
+          "lon": 40.317088,
+          "km": 3.28
+        },
+        {
+          "id": "way/184012921",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.128359,
+          "lon": 40.317315,
+          "km": 3.37
+        },
+        {
+          "id": "node/2511251313",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.129089,
+          "lon": 40.320226,
+          "km": 3.56
+        },
+        {
+          "id": "node/2511251280",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.12818,
+          "lon": 40.320885,
+          "km": 3.7
+        },
+        {
+          "id": "node/12606440810",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.12409,
+          "lon": 40.325923,
+          "km": 4.34
+        },
+        {
+          "id": "node/12606440808",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.124012,
+          "lon": 40.326757,
+          "km": 4.4
+        },
+        {
+          "id": "node/12606440809",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.124032,
+          "lon": 40.326711,
+          "km": 4.4
+        },
+        {
+          "id": "node/2930582000",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.123422,
+          "lon": 40.326907,
+          "km": 4.44
+        },
+        {
+          "id": "node/2511251282",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.123189,
+          "lon": 40.327756,
+          "km": 4.55
+        },
+        {
+          "id": "node/2930581998",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.123038,
+          "lon": 40.328316,
+          "km": 4.57
+        },
+        {
+          "id": "node/2930581997",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.12213,
+          "lon": 40.332275,
+          "km": 4.92
+        },
+        {
+          "id": "node/2930581996",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.12066,
+          "lon": 40.333933,
+          "km": 5.16
+        },
+        {
+          "id": "node/12055868594",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.114919,
+          "lon": 40.340543,
+          "km": 6.03
+        },
+        {
+          "id": "way/184012919",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.103384,
+          "lon": 40.364633,
+          "km": 8.7
+        },
+        {
+          "id": "node/7800692038",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "40 ОМСБР",
+          "lat": 44.100973,
+          "lon": 40.3758,
+          "km": 9.7
+        },
+        {
+          "id": "node/8817252342",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.100932,
+          "lon": 40.376596,
+          "km": 9.7
+        },
+        {
+          "id": "node/2930581995",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.100836,
+          "lon": 40.375828,
+          "km": 9.71
+        },
+        {
+          "id": "node/11672596203",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Поляна Тайвань",
+          "lat": 44.100918,
+          "lon": 40.375849,
+          "km": 9.71
+        },
+        {
+          "id": "node/12606395491",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.100779,
+          "lon": 40.376033,
+          "km": 9.73
+        },
+        {
+          "id": "node/8796030317",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.093247,
+          "lon": 40.368269,
+          "km": 12.86
+        },
+        {
+          "id": "node/6480494462",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 44.086173,
+          "lon": 40.361594,
+          "km": 14.5
+        },
+        {
+          "id": "node/1002666228",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.056449,
+          "lon": 40.358523,
+          "km": 18.73
+        },
+        {
+          "id": "node/7605487785",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.056294,
+          "lon": 40.35808,
+          "km": 18.73
+        },
+        {
+          "id": "node/12923747110",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.045568,
+          "lon": 40.366015,
+          "km": 20.27
+        },
+        {
+          "id": "node/417778820",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.039036,
+          "lon": 40.369318,
+          "km": 21.07
+        },
+        {
+          "id": "node/12923753528",
+          "category": "water",
+          "kind": "spring",
+          "name": "Под тропинкой",
+          "lat": 44.029814,
+          "lon": 40.380916,
+          "km": 22.6
+        },
+        {
+          "id": "node/4087747645",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.029705,
+          "lon": 40.384863,
+          "km": 22.89
+        },
+        {
+          "id": "node/7605480586",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.030627,
+          "lon": 40.386055,
+          "km": 23.04
+        },
+        {
+          "id": "node/6480494475",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.030314,
+          "lon": 40.388192,
+          "km": 23.14
+        },
+        {
+          "id": "node/462612309",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.030406,
+          "lon": 40.389458,
+          "km": 23.27
+        },
+        {
+          "id": "node/1002664817",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.028521,
+          "lon": 40.393593,
+          "km": 23.75
+        },
+        {
+          "id": "node/4087747634",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.027692,
+          "lon": 40.399763,
+          "km": 24.19
+        },
+        {
+          "id": "node/4087747635",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.027954,
+          "lon": 40.40849,
+          "km": 24.95
+        },
+        {
+          "id": "node/417779472",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.027173,
+          "lon": 40.412971,
+          "km": 25.36
+        },
+        {
+          "id": "node/4087747633",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.027614,
+          "lon": 40.413078,
+          "km": 25.41
+        },
+        {
+          "id": "node/12923753530",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Здесь красиво",
+          "lat": 44.028079,
+          "lon": 40.416342,
+          "km": 25.63
+        },
+        {
+          "id": "node/12923748681",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.027093,
+          "lon": 40.426158,
+          "km": 26.62
+        },
+        {
+          "id": "node/12163411608",
+          "category": "water",
+          "kind": "spring",
+          "name": "в засуху капель",
+          "lat": 44.026366,
+          "lon": 40.427049,
+          "km": 26.74
+        },
+        {
+          "id": "way/184012920",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.023958,
+          "lon": 40.427456,
+          "km": 27.01
+        },
+        {
+          "id": "node/9063274321",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.024325,
+          "lon": 40.432631,
+          "km": 27.35
+        },
+        {
+          "id": "node/1944506324",
+          "category": "water",
+          "kind": "spring",
+          "name": "в засуху капель",
+          "lat": 44.024284,
+          "lon": 40.432958,
+          "km": 27.38
+        },
+        {
+          "id": "node/12128313961",
+          "category": "water",
+          "kind": "spring",
+          "name": "в засуху бодрая капель",
+          "lat": 44.023826,
+          "lon": 40.43365,
+          "km": 27.46
+        },
+        {
+          "id": "way/184012923",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.022753,
+          "lon": 40.434168,
+          "km": 27.59
+        },
+        {
+          "id": "node/4087747622",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.023248,
+          "lon": 40.43631,
+          "km": 27.68
+        },
+        {
+          "id": "way/170245293",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.022992,
+          "lon": 40.436422,
+          "km": 27.72
+        },
+        {
+          "id": "node/1977829636",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Осетинский",
+          "lat": 44.021986,
+          "lon": 40.439783,
+          "km": 28.09
+        },
+        {
+          "id": "node/4087747618",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.021063,
+          "lon": 40.44201,
+          "km": 28.3
+        },
+        {
+          "id": "node/11220379700",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.026114,
+          "lon": 40.440259,
+          "km": 29.53
+        },
+        {
+          "id": "node/11234532319",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.028122,
+          "lon": 40.43947,
+          "km": 29.8
+        },
+        {
+          "id": "node/4087747644",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.029447,
+          "lon": 40.443568,
+          "km": 30.06
+        },
+        {
+          "id": "node/1944506851",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.031708,
+          "lon": 40.437335,
+          "km": 30.54
+        },
+        {
+          "id": "way/184012915",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.031783,
+          "lon": 40.437375,
+          "km": 30.54
+        },
+        {
+          "id": "node/601028125",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.031831,
+          "lon": 40.437369,
+          "km": 30.56
+        },
+        {
+          "id": "node/11234532300",
+          "category": "nature",
+          "kind": "rock",
+          "name": "Палец",
+          "lat": 44.031811,
+          "lon": 40.43734,
+          "km": 30.56
+        },
+        {
+          "id": "node/11220379701",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.031557,
+          "lon": 40.436303,
+          "km": 30.63
+        },
+        {
+          "id": "node/8882037617",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.035326,
+          "lon": 40.430753,
+          "km": 31.23
+        },
+        {
+          "id": "way/894357548",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.035824,
+          "lon": 40.432981,
+          "km": 31.23
+        },
+        {
+          "id": "node/11234532292",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.037607,
+          "lon": 40.43276,
+          "km": 31.44
+        },
+        {
+          "id": "way/1212602179",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.037471,
+          "lon": 40.432167,
+          "km": 31.44
+        },
+        {
+          "id": "node/9105175417",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.03849,
+          "lon": 40.431842,
+          "km": 31.54
+        },
+        {
+          "id": "node/13967303801",
+          "category": "water",
+          "kind": "spring",
+          "name": "Не пить! Над родником туалет",
+          "lat": 44.038008,
+          "lon": 40.431044,
+          "km": 31.54
+        },
+        {
+          "id": "way/1212602187",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.038024,
+          "lon": 40.429908,
+          "km": 31.64
+        },
+        {
+          "id": "node/697826433",
+          "category": "water",
+          "kind": "spring",
+          "name": "Не пить! Над родниками туалет",
+          "lat": 44.038878,
+          "lon": 40.42963,
+          "km": 31.73
+        },
+        {
+          "id": "node/8725080624",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.038756,
+          "lon": 40.429295,
+          "km": 31.74
+        },
+        {
+          "id": "node/1944506996",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.041164,
+          "lon": 40.420451,
+          "km": 32.54
+        },
+        {
+          "id": "node/2281819619",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.042188,
+          "lon": 40.419255,
+          "km": 32.66
+        },
+        {
+          "id": "way/1212602188",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Балаган Ветренный",
+          "lat": 44.041556,
+          "lon": 40.418721,
+          "km": 32.69
+        },
+        {
+          "id": "way/218981200",
+          "category": "camp",
+          "kind": "hut",
+          "name": "Балаган Ветренный",
+          "lat": 44.041542,
+          "lon": 40.418462,
+          "km": 32.7
+        },
+        {
+          "id": "node/473487722",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Тхачский",
+          "lat": 44.037983,
+          "lon": 40.429763,
+          "km": 33.76
+        },
+        {
+          "id": "node/789302498",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.037936,
+          "lon": 40.429676,
+          "km": 33.76
+        },
+        {
+          "id": "node/12148039201",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.039617,
+          "lon": 40.432234,
+          "km": 34.01
+        },
+        {
+          "id": "node/8846567618",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.040643,
+          "lon": 40.432127,
+          "km": 34.16
+        },
+        {
+          "id": "node/698816869",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.043336,
+          "lon": 40.432634,
+          "km": 34.43
+        },
+        {
+          "id": "way/187029186",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.046776,
+          "lon": 40.431646,
+          "km": 35.09
+        },
+        {
+          "id": "way/187029235",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.047301,
+          "lon": 40.431744,
+          "km": 35.14
+        },
+        {
+          "id": "node/469933569",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Большой Тхач",
+          "lat": 44.042814,
+          "lon": 40.429459,
+          "km": 35.69
+        },
+        {
+          "id": "node/11161655157",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.04375,
+          "lon": 40.42848,
+          "km": 35.78
+        },
+        {
+          "id": "way/187029240",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.044701,
+          "lon": 40.426358,
+          "km": 35.98
+        },
+        {
+          "id": "way/187029213",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.045687,
+          "lon": 40.425026,
+          "km": 36.18
+        },
+        {
+          "id": "way/187029179",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.047175,
+          "lon": 40.423366,
+          "km": 36.4
+        },
+        {
+          "id": "way/187029197",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.04833,
+          "lon": 40.421987,
+          "km": 36.59
+        },
+        {
+          "id": "node/1002666411",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.050167,
+          "lon": 40.417685,
+          "km": 37.13
+        },
+        {
+          "id": "way/170245290",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.052052,
+          "lon": 40.415661,
+          "km": 37.35
+        },
+        {
+          "id": "node/1002665711",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.054755,
+          "lon": 40.409481,
+          "km": 37.92
+        },
+        {
+          "id": "node/2303440603",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Кристальная",
+          "lat": 44.059572,
+          "lon": 40.403712,
+          "km": 38.9
+        },
+        {
+          "id": "node/7800733332",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.062292,
+          "lon": 40.398909,
+          "km": 39.54
+        },
+        {
+          "id": "node/7800733325",
+          "category": "water",
+          "kind": "spring",
+          "name": "В засуху норм",
+          "lat": 44.060625,
+          "lon": 40.397819,
+          "km": 39.69
+        },
+        {
+          "id": "node/12487211084",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.060555,
+          "lon": 40.397372,
+          "km": 39.72
+        },
+        {
+          "id": "way/1212602193",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.061302,
+          "lon": 40.397124,
+          "km": 39.74
+        },
+        {
+          "id": "node/7135034085",
+          "category": "water",
+          "kind": "spring",
+          "name": "Сезонный",
+          "lat": 44.064016,
+          "lon": 40.392362,
+          "km": 40.37
+        },
+        {
+          "id": "way/734171161",
+          "category": "nature",
+          "kind": "rock",
+          "lat": 44.065502,
+          "lon": 40.394872,
+          "km": 40.57
+        },
+        {
+          "id": "way/1212602173",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.066771,
+          "lon": 40.392223,
+          "km": 40.75
+        },
+        {
+          "id": "node/1944507180",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.066811,
+          "lon": 40.392082,
+          "km": 40.76
+        },
+        {
+          "id": "node/698816866",
+          "category": "water",
+          "kind": "spring",
+          "name": "Сезонный",
+          "lat": 44.067184,
+          "lon": 40.392611,
+          "km": 40.83
+        },
+        {
+          "id": "node/12979986594",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.075057,
+          "lon": 40.379485,
+          "km": 42.67
+        },
+        {
+          "id": "node/11484438369",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.075662,
+          "lon": 40.379636,
+          "km": 42.69
+        },
+        {
+          "id": "node/12979986593",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.076126,
+          "lon": 40.37909,
+          "km": 42.78
+        },
+        {
+          "id": "way/1212602195",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.076042,
+          "lon": 40.378737,
+          "km": 42.78
+        },
+        {
+          "id": "way/1212602194",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.076647,
+          "lon": 40.378808,
+          "km": 42.84
+        },
+        {
+          "id": "node/7800744236",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.078158,
+          "lon": 40.378978,
+          "km": 43.03
+        },
+        {
+          "id": "node/12238429107",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.079951,
+          "lon": 40.378226,
+          "km": 43.27
+        },
+        {
+          "id": "node/9236247785",
+          "category": "water",
+          "kind": "spring",
+          "name": "Родник",
+          "lat": 44.091845,
+          "lon": 40.377602,
+          "km": 44.69
+        },
+        {
+          "id": "node/1944507263",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.093007,
+          "lon": 40.37643,
+          "km": 44.88
+        },
+        {
+          "id": "node/2930581994",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.093332,
+          "lon": 40.37644,
+          "km": 44.88
+        },
+        {
+          "id": "node/12238411564",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.093037,
+          "lon": 40.376564,
+          "km": 44.88
+        }
       ]
     },
     {
@@ -412,6 +1372,68 @@
         {
           "lat": 43.576865,
           "lon": 40.400937
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/9891582909",
+          "category": "heritage",
+          "kind": "artwork",
+          "name": "Кемпинг НАХАЗО",
+          "lat": 43.591838,
+          "lon": 40.359665,
+          "km": 0
+        },
+        {
+          "id": "node/9926303418",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Нахазо",
+          "lat": 43.5913,
+          "lon": 40.358396,
+          "km": 0
+        },
+        {
+          "id": "way/1079018217",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 43.591452,
+          "lon": 40.35825,
+          "km": 0
+        },
+        {
+          "id": "way/1079018218",
+          "category": "camp",
+          "kind": "picnic_site",
+          "name": "Чил зона",
+          "lat": 43.591153,
+          "lon": 40.358414,
+          "km": 0
+        },
+        {
+          "id": "node/13279247401",
+          "category": "camp",
+          "kind": "hut",
+          "name": "Палаточные настилы 20 шт",
+          "lat": 43.590705,
+          "lon": 40.360355,
+          "km": 0.14
+        },
+        {
+          "id": "node/1014750384",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 43.588876,
+          "lon": 40.37626,
+          "km": 2.43
+        },
+        {
+          "id": "node/1014750617",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 43.587294,
+          "lon": 40.385961,
+          "km": 3.2
         }
       ]
     },
@@ -491,6 +1513,319 @@
         {
           "lat": 44.499111,
           "lon": 34.112104
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/9285611130",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 44.488783,
+          "lon": 34.092293,
+          "km": 0.39
+        },
+        {
+          "id": "node/4279670892",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.488967,
+          "lon": 34.092393,
+          "km": 0.41
+        },
+        {
+          "id": "node/4279676992",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 44.490583,
+          "lon": 34.095225,
+          "km": 0.8
+        },
+        {
+          "id": "node/4242786189",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.492004,
+          "lon": 34.091152,
+          "km": 0.95
+        },
+        {
+          "id": "way/1128430582",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.491613,
+          "lon": 34.091288,
+          "km": 0.95
+        },
+        {
+          "id": "node/7847737585",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Вид снизу на водопад Учан-Су",
+          "lat": 44.49249,
+          "lon": 34.093,
+          "km": 1.07
+        },
+        {
+          "id": "node/9285611129",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.492163,
+          "lon": 34.092176,
+          "km": 1.07
+        },
+        {
+          "id": "node/481281383",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Учан-Су",
+          "lat": 44.492708,
+          "lon": 34.092143,
+          "km": 1.1
+        },
+        {
+          "id": "node/2419557256",
+          "category": "nature",
+          "kind": "rock",
+          "name": "Крестовая скала",
+          "lat": 44.492902,
+          "lon": 34.092087,
+          "km": 1.1
+        },
+        {
+          "id": "node/5060514539",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.493032,
+          "lon": 34.091799,
+          "km": 1.1
+        },
+        {
+          "id": "node/6276777325",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Стоянка в заповеднике запрещена",
+          "lat": 44.492712,
+          "lon": 34.091498,
+          "km": 1.1
+        },
+        {
+          "id": "node/8845826252",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.492877,
+          "lon": 34.0911,
+          "km": 1.1
+        },
+        {
+          "id": "way/670256030",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.492861,
+          "lon": 34.092207,
+          "km": 1.1
+        },
+        {
+          "id": "way/670256036",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.492528,
+          "lon": 34.092274,
+          "km": 1.1
+        },
+        {
+          "id": "way/1125416758",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.493035,
+          "lon": 34.09189,
+          "km": 1.1
+        },
+        {
+          "id": "way/670256033",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.493125,
+          "lon": 34.092494,
+          "km": 1.11
+        },
+        {
+          "id": "way/1128430575",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.496815,
+          "lon": 34.097249,
+          "km": 2.2
+        },
+        {
+          "id": "way/670256020",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.497519,
+          "lon": 34.099181,
+          "km": 2.39
+        },
+        {
+          "id": "way/670256021",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.497791,
+          "lon": 34.099148,
+          "km": 2.41
+        },
+        {
+          "id": "node/1997883261",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.498344,
+          "lon": 34.099661,
+          "km": 2.76
+        },
+        {
+          "id": "node/2945993624",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Ставри-Кая",
+          "lat": 44.498275,
+          "lon": 34.099909,
+          "km": 2.76
+        },
+        {
+          "id": "way/391261979",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.498351,
+          "lon": 34.09991,
+          "km": 2.76
+        },
+        {
+          "id": "node/13130045381",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Ставрикайская",
+          "lat": 44.499192,
+          "lon": 34.09794,
+          "km": 3.04
+        },
+        {
+          "id": "node/2018180937",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Пятый",
+          "lat": 44.501365,
+          "lon": 34.101407,
+          "km": 3.83
+        },
+        {
+          "id": "node/2018181335",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Шестой",
+          "lat": 44.501632,
+          "lon": 34.101147,
+          "km": 3.83
+        },
+        {
+          "id": "node/10537059265",
+          "category": "nature",
+          "kind": "rock",
+          "name": "Скала Куш-Кая",
+          "lat": 44.501784,
+          "lon": 34.10132,
+          "km": 3.83
+        },
+        {
+          "id": "node/2018181334",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Четвертый",
+          "lat": 44.501069,
+          "lon": 34.101776,
+          "km": 3.85
+        },
+        {
+          "id": "node/4897027521",
+          "category": "water",
+          "kind": "spring",
+          "name": "Ольга",
+          "lat": 44.49981,
+          "lon": 34.103634,
+          "km": 4.11
+        },
+        {
+          "id": "node/4897027621",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.500789,
+          "lon": 34.102947,
+          "km": 4.17
+        },
+        {
+          "id": "node/2946002835",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Верхний Яузлар",
+          "lat": 44.501687,
+          "lon": 34.102235,
+          "km": 4.3
+        },
+        {
+          "id": "node/4144860176",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.501768,
+          "lon": 34.101504,
+          "km": 4.3
+        },
+        {
+          "id": "way/674179368",
+          "category": "caution",
+          "kind": "cliff",
+          "name": "Куш-Кая",
+          "lat": 44.501885,
+          "lon": 34.101659,
+          "km": 4.3
+        },
+        {
+          "id": "node/2018180918",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Верхний Яузлар",
+          "lat": 44.50319,
+          "lon": 34.102126,
+          "km": 4.37
+        },
+        {
+          "id": "node/4424923705",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.502956,
+          "lon": 34.102666,
+          "km": 4.37
+        },
+        {
+          "id": "node/3458897453",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.501936,
+          "lon": 34.110629,
+          "km": 5.58
+        },
+        {
+          "id": "node/7139146643",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.500119,
+          "lon": 34.111121,
+          "km": 6
+        },
+        {
+          "id": "node/2018180912",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Буфилья",
+          "lat": 44.500023,
+          "lon": 34.111061,
+          "km": 6.02
         }
       ]
     },
@@ -728,6 +2063,84 @@
           "lon": 45.955841,
           "ele": 1284.5
         }
+      ],
+      "pois": [
+        {
+          "id": "node/7425843389",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 42.767364,
+          "lon": 46.13337,
+          "km": 0
+        },
+        {
+          "id": "node/12486175737",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 42.781363,
+          "lon": 46.131826,
+          "km": 1.93
+        },
+        {
+          "id": "node/12486179101",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 42.78392,
+          "lon": 46.111362,
+          "km": 4.15
+        },
+        {
+          "id": "node/10271683185",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Хачхар",
+          "lat": 42.790448,
+          "lon": 46.097223,
+          "km": 5.55
+        },
+        {
+          "id": "node/10271683190",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Кашкерлам",
+          "lat": 42.798383,
+          "lon": 46.070057,
+          "km": 8.04
+        },
+        {
+          "id": "node/12486170673",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 42.792063,
+          "lon": 46.048652,
+          "km": 10.45
+        },
+        {
+          "id": "node/7314315190",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 42.761665,
+          "lon": 45.948975,
+          "km": 24.8
+        },
+        {
+          "id": "node/9064608348",
+          "category": "water",
+          "kind": "spring",
+          "name": "Родник (3)",
+          "lat": 42.761273,
+          "lon": 45.948427,
+          "km": 24.8
+        },
+        {
+          "id": "node/4198181490",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Нохчи Келой",
+          "lat": 42.760223,
+          "lon": 45.956311,
+          "km": 25.6
+        }
       ]
     },
     {
@@ -797,6 +2210,61 @@
           "lat": 42.763663,
           "lon": 46.158331,
           "ele": 2340.4
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/7425843389",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 42.767364,
+          "lon": 46.13337,
+          "km": 0
+        },
+        {
+          "id": "node/7082149382",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "высокая качель",
+          "lat": 42.764971,
+          "lon": 46.132262,
+          "km": 0.29
+        },
+        {
+          "id": "node/10159255817",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Вид на Чеберлойский каньон",
+          "lat": 42.76175,
+          "lon": 46.130054,
+          "km": 0.75
+        },
+        {
+          "id": "node/6445774986",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Красивый вид на долину",
+          "lat": 42.757129,
+          "lon": 46.131103,
+          "km": 1.25
+        },
+        {
+          "id": "node/12403538408",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Место под палатку",
+          "lat": 42.760987,
+          "lon": 46.15846,
+          "km": 4.08
+        },
+        {
+          "id": "node/10271683186",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Шимерой",
+          "lat": 42.763602,
+          "lon": 46.158581,
+          "km": 4.36
         }
       ]
     },
@@ -980,6 +2448,127 @@
           "lat": 42.759582,
           "lon": 45.947885
         }
+      ],
+      "pois": [
+        {
+          "id": "node/7425843389",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 42.767364,
+          "lon": 46.13337,
+          "km": 0
+        },
+        {
+          "id": "node/7082149382",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "высокая качель",
+          "lat": 42.764971,
+          "lon": 46.132262,
+          "km": 0.28
+        },
+        {
+          "id": "node/10159255817",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Вид на Чеберлойский каньон",
+          "lat": 42.76175,
+          "lon": 46.130054,
+          "km": 0.7
+        },
+        {
+          "id": "node/6445774986",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Красивый вид на долину",
+          "lat": 42.757129,
+          "lon": 46.131103,
+          "km": 1.27
+        },
+        {
+          "id": "node/7082149367",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Реконструкция древнего поселения Хой",
+          "lat": 42.751918,
+          "lon": 46.131791,
+          "km": 1.79
+        },
+        {
+          "id": "node/7082149376",
+          "category": "water",
+          "kind": "spring",
+          "lat": 42.752077,
+          "lon": 46.133093,
+          "km": 1.79
+        },
+        {
+          "id": "way/885802625",
+          "category": "heritage",
+          "kind": "ruins",
+          "name": "Хойский историко-архитектурный комплекс XII-XIX веков",
+          "lat": 42.752803,
+          "lon": 46.129661,
+          "km": 1.97
+        },
+        {
+          "id": "node/12484822230",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 42.740313,
+          "lon": 46.076104,
+          "km": 6.98
+        },
+        {
+          "id": "node/8180355952",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 42.728322,
+          "lon": 46.055547,
+          "km": 9.3
+        },
+        {
+          "id": "node/8180355949",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 42.728227,
+          "lon": 46.055278,
+          "km": 9.33
+        },
+        {
+          "id": "node/8180355951",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 42.728366,
+          "lon": 46.055512,
+          "km": 9.36
+        },
+        {
+          "id": "node/8180355953",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Площадка под стоянку с палаткой",
+          "lat": 42.73387,
+          "lon": 46.055296,
+          "km": 10.11
+        },
+        {
+          "id": "node/7314315190",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 42.761665,
+          "lon": 45.948975,
+          "km": 26.26
+        },
+        {
+          "id": "node/9064608348",
+          "category": "water",
+          "kind": "spring",
+          "name": "Родник (3)",
+          "lat": 42.761273,
+          "lon": 45.948427,
+          "km": 26.29
+        }
       ]
     },
     {
@@ -1069,6 +2658,374 @@
           "lat": 44.49813,
           "lon": 38.95816,
           "ele": 417
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/446067273",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.54196,
+          "lon": 38.969187,
+          "km": 0.1
+        },
+        {
+          "id": "node/12999362973",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 44.540165,
+          "lon": 38.96857,
+          "km": 0.28
+        },
+        {
+          "id": "node/12999362974",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 44.540252,
+          "lon": 38.96869,
+          "km": 0.28
+        },
+        {
+          "id": "node/12999362972",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 44.540022,
+          "lon": 38.968508,
+          "km": 0.46
+        },
+        {
+          "id": "way/344468714",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Автокемпинг Каверзинские водопады",
+          "lat": 44.539706,
+          "lon": 38.968091,
+          "km": 0.46
+        },
+        {
+          "id": "node/6351650202",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Братская могила",
+          "lat": 44.537787,
+          "lon": 38.9682,
+          "km": 0.69
+        },
+        {
+          "id": "node/446066899",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.526695,
+          "lon": 38.96649,
+          "km": 2.08
+        },
+        {
+          "id": "node/1031878039",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.52678,
+          "lon": 38.966256,
+          "km": 2.08
+        },
+        {
+          "id": "node/10605081563",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.518308,
+          "lon": 38.956308,
+          "km": 3.56
+        },
+        {
+          "id": "node/1842965617",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.513155,
+          "lon": 38.953612,
+          "km": 4.16
+        },
+        {
+          "id": "node/2354394880",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.510908,
+          "lon": 38.952073,
+          "km": 4.44
+        },
+        {
+          "id": "node/3577468391",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.51091,
+          "lon": 38.952026,
+          "km": 4.44
+        },
+        {
+          "id": "node/6500219195",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.509256,
+          "lon": 38.952911,
+          "km": 4.67
+        },
+        {
+          "id": "node/3577432055",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.508834,
+          "lon": 38.952986,
+          "km": 4.71
+        },
+        {
+          "id": "node/4162510396",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.508597,
+          "lon": 38.95244,
+          "km": 4.77
+        },
+        {
+          "id": "node/10605081562",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.508259,
+          "lon": 38.95241,
+          "km": 4.81
+        },
+        {
+          "id": "node/4162510393",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.507227,
+          "lon": 38.951838,
+          "km": 4.92
+        },
+        {
+          "id": "node/10605081561",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.507218,
+          "lon": 38.951829,
+          "km": 4.92
+        },
+        {
+          "id": "node/13438374701",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Голубиный",
+          "lat": 44.507341,
+          "lon": 38.952008,
+          "km": 4.92
+        },
+        {
+          "id": "node/10605081560",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.507019,
+          "lon": 38.951464,
+          "km": 4.98
+        },
+        {
+          "id": "node/10605081558",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.506619,
+          "lon": 38.950706,
+          "km": 5.03
+        },
+        {
+          "id": "node/10605081559",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.506814,
+          "lon": 38.950999,
+          "km": 5.03
+        },
+        {
+          "id": "node/10605081557",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.506324,
+          "lon": 38.950428,
+          "km": 5.06
+        },
+        {
+          "id": "node/7838161373",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.505313,
+          "lon": 38.949515,
+          "km": 5.21
+        },
+        {
+          "id": "node/10605081533",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.505,
+          "lon": 38.94914,
+          "km": 5.28
+        },
+        {
+          "id": "node/698816840",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "м. Каверзинский",
+          "lat": 44.502955,
+          "lon": 38.948044,
+          "km": 5.49
+        },
+        {
+          "id": "node/4162510273",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.502699,
+          "lon": 38.947076,
+          "km": 5.49
+        },
+        {
+          "id": "node/10605081535",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.503118,
+          "lon": 38.948449,
+          "km": 5.49
+        },
+        {
+          "id": "node/849838356",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.50279,
+          "lon": 38.9492,
+          "km": 5.56
+        },
+        {
+          "id": "node/842310566",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.500327,
+          "lon": 38.95155,
+          "km": 5.93
+        },
+        {
+          "id": "node/10605081536",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.498105,
+          "lon": 38.954594,
+          "km": 6.28
+        },
+        {
+          "id": "way/415194634",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.497955,
+          "lon": 38.954472,
+          "km": 6.28
+        },
+        {
+          "id": "node/698816841",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Б.Каверзинский",
+          "lat": 44.498051,
+          "lon": 38.954714,
+          "km": 6.29
+        },
+        {
+          "id": "node/10605081521",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.498005,
+          "lon": 38.954803,
+          "km": 6.3
+        },
+        {
+          "id": "way/351946990",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.498124,
+          "lon": 38.954827,
+          "km": 6.3
+        },
+        {
+          "id": "node/10605081537",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.497973,
+          "lon": 38.955484,
+          "km": 6.36
+        },
+        {
+          "id": "node/4162510240",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.498098,
+          "lon": 38.956685,
+          "km": 6.49
+        },
+        {
+          "id": "node/10605081540",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.498101,
+          "lon": 38.957047,
+          "km": 6.49
+        },
+        {
+          "id": "node/8733851517",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.498225,
+          "lon": 38.957158,
+          "km": 6.51
+        },
+        {
+          "id": "node/698816842",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Университетская",
+          "lat": 44.498173,
+          "lon": 38.958128,
+          "km": 6.59
+        },
+        {
+          "id": "node/3577472227",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.498153,
+          "lon": 38.957901,
+          "km": 6.59
+        },
+        {
+          "id": "node/8589599883",
+          "category": "camp",
+          "kind": "firepit",
+          "lat": 44.498898,
+          "lon": 38.95843,
+          "km": 6.59
+        },
+        {
+          "id": "node/10605081556",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.498292,
+          "lon": 38.957905,
+          "km": 6.59
+        },
+        {
+          "id": "node/10605081564",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.499044,
+          "lon": 38.958655,
+          "km": 6.59
+        },
+        {
+          "id": "node/13615909058",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.496798,
+          "lon": 38.957898,
+          "km": 6.59
         }
       ]
     },
@@ -1320,6 +3277,1454 @@
           "lon": 40.180011,
           "ele": 419
         }
+      ],
+      "pois": [
+        {
+          "id": "node/1906584269",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 44.291791,
+          "lon": 40.182228,
+          "km": 0.18
+        },
+        {
+          "id": "node/1906584267",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 44.291586,
+          "lon": 40.182846,
+          "km": 0.27
+        },
+        {
+          "id": "way/1286058785",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.278305,
+          "lon": 40.183602,
+          "km": 1.91
+        },
+        {
+          "id": "node/1902852533",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.277656,
+          "lon": 40.184415,
+          "km": 1.92
+        },
+        {
+          "id": "node/9010735066",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.278131,
+          "lon": 40.185669,
+          "km": 1.95
+        },
+        {
+          "id": "way/1286058802",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.278109,
+          "lon": 40.185577,
+          "km": 1.95
+        },
+        {
+          "id": "node/2362626600",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.27729,
+          "lon": 40.186475,
+          "km": 2.05
+        },
+        {
+          "id": "way/142276849",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.278217,
+          "lon": 40.187726,
+          "km": 2.14
+        },
+        {
+          "id": "way/1286058795",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.27859,
+          "lon": 40.188733,
+          "km": 2.21
+        },
+        {
+          "id": "node/2362626610",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.277925,
+          "lon": 40.188962,
+          "km": 2.39
+        },
+        {
+          "id": "node/2362626603",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.277651,
+          "lon": 40.189782,
+          "km": 2.44
+        },
+        {
+          "id": "node/2362626606",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Наковальня",
+          "lat": 44.277735,
+          "lon": 40.18968,
+          "km": 2.44
+        },
+        {
+          "id": "node/2363156466",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.27793,
+          "lon": 40.190489,
+          "km": 2.65
+        },
+        {
+          "id": "node/8809084017",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.277606,
+          "lon": 40.190698,
+          "km": 2.7
+        },
+        {
+          "id": "node/2362626493",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.277145,
+          "lon": 40.191277,
+          "km": 2.75
+        },
+        {
+          "id": "node/3543044032",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.276445,
+          "lon": 40.191238,
+          "km": 2.8
+        },
+        {
+          "id": "node/999471009",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.276305,
+          "lon": 40.191744,
+          "km": 2.84
+        },
+        {
+          "id": "node/2362626550",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.276321,
+          "lon": 40.191491,
+          "km": 2.84
+        },
+        {
+          "id": "node/2362626561",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.276837,
+          "lon": 40.193298,
+          "km": 2.99
+        },
+        {
+          "id": "node/2362626568",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.277002,
+          "lon": 40.193929,
+          "km": 3.04
+        },
+        {
+          "id": "way/348076604",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.276962,
+          "lon": 40.194099,
+          "km": 3.06
+        },
+        {
+          "id": "node/2362626587",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.276817,
+          "lon": 40.194802,
+          "km": 3.1
+        },
+        {
+          "id": "way/142276841",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.277178,
+          "lon": 40.194723,
+          "km": 3.1
+        },
+        {
+          "id": "node/3543044043",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.276984,
+          "lon": 40.195375,
+          "km": 3.15
+        },
+        {
+          "id": "node/2362626594",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.277144,
+          "lon": 40.195537,
+          "km": 3.18
+        },
+        {
+          "id": "node/13723990807",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.27753,
+          "lon": 40.196988,
+          "km": 3.21
+        },
+        {
+          "id": "node/2362626487",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.271423,
+          "lon": 40.193068,
+          "km": 4.06
+        },
+        {
+          "id": "node/2362626486",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.270961,
+          "lon": 40.194726,
+          "km": 4.2
+        },
+        {
+          "id": "node/11883728969",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Красивый вид",
+          "lat": 44.268505,
+          "lon": 40.200192,
+          "km": 4.74
+        },
+        {
+          "id": "node/3127232817",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.26588,
+          "lon": 40.203676,
+          "km": 5.18
+        },
+        {
+          "id": "node/3127232816",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.265372,
+          "lon": 40.204807,
+          "km": 5.29
+        },
+        {
+          "id": "node/998732496",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.264141,
+          "lon": 40.208836,
+          "km": 5.6
+        },
+        {
+          "id": "node/2362626485",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.262594,
+          "lon": 40.207531,
+          "km": 5.75
+        },
+        {
+          "id": "node/11883096869",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.262602,
+          "lon": 40.207549,
+          "km": 5.75
+        },
+        {
+          "id": "node/14107565503",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Лаганаки. Лагерь",
+          "lat": 44.261729,
+          "lon": 40.211312,
+          "km": 6.07
+        },
+        {
+          "id": "node/3127232815",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.253658,
+          "lon": 40.216079,
+          "km": 7.12
+        },
+        {
+          "id": "node/13767290701",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Пещера желаний",
+          "lat": 44.253611,
+          "lon": 40.216389,
+          "km": 7.12
+        },
+        {
+          "id": "node/3127232814",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Пещера Желаний",
+          "lat": 44.25316,
+          "lon": 40.216264,
+          "km": 7.19
+        },
+        {
+          "id": "node/13192181614",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.253015,
+          "lon": 40.216782,
+          "km": 7.26
+        },
+        {
+          "id": "way/142276850",
+          "category": "caution",
+          "kind": "cliff",
+          "name": "Хребет Скалистый",
+          "lat": 44.253106,
+          "lon": 40.216856,
+          "km": 7.26
+        },
+        {
+          "id": "node/2362626484",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.253355,
+          "lon": 40.216411,
+          "km": 7.3
+        },
+        {
+          "id": "node/9010735059",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.253791,
+          "lon": 40.217824,
+          "km": 7.46
+        },
+        {
+          "id": "node/6718292387",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Красивый вид и обрыв",
+          "lat": 44.252375,
+          "lon": 40.217254,
+          "km": 7.55
+        },
+        {
+          "id": "node/2362626490",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.251539,
+          "lon": 40.217802,
+          "km": 7.65
+        },
+        {
+          "id": "node/6718289390",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Красивый вид на долину",
+          "lat": 44.251674,
+          "lon": 40.217804,
+          "km": 7.65
+        },
+        {
+          "id": "node/6718324285",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.251499,
+          "lon": 40.217874,
+          "km": 7.68
+        },
+        {
+          "id": "node/2362626489",
+          "category": "nature",
+          "kind": "cave",
+          "name": "ВАО",
+          "lat": 44.251467,
+          "lon": 40.218548,
+          "km": 7.74
+        },
+        {
+          "id": "way/308186822",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.251415,
+          "lon": 40.218733,
+          "km": 7.74
+        },
+        {
+          "id": "node/2362626488",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.251042,
+          "lon": 40.218679,
+          "km": 7.81
+        },
+        {
+          "id": "node/4845970962",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Красивый вид",
+          "lat": 44.25053,
+          "lon": 40.21928,
+          "km": 7.95
+        },
+        {
+          "id": "node/1584310451",
+          "category": "caution",
+          "kind": "cliff",
+          "name": "Полка",
+          "lat": 44.24713,
+          "lon": 40.221882,
+          "km": 8.47
+        },
+        {
+          "id": "node/1584310722",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Даховская",
+          "lat": 44.248037,
+          "lon": 40.221928,
+          "km": 8.47
+        },
+        {
+          "id": "node/8638429993",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.247321,
+          "lon": 40.221141,
+          "km": 8.47
+        },
+        {
+          "id": "node/2363156464",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Даховский обвал",
+          "lat": 44.242396,
+          "lon": 40.224232,
+          "km": 9.7
+        },
+        {
+          "id": "node/8025736279",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.242022,
+          "lon": 40.224849,
+          "km": 9.78
+        },
+        {
+          "id": "node/9010735064",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.242124,
+          "lon": 40.224813,
+          "km": 9.78
+        },
+        {
+          "id": "way/307534040",
+          "category": "caution",
+          "kind": "cliff",
+          "name": "Хребет Уна-Коз",
+          "lat": 44.2421,
+          "lon": 40.224695,
+          "km": 9.78
+        },
+        {
+          "id": "node/11883086572",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Грот",
+          "lat": 44.241869,
+          "lon": 40.225321,
+          "km": 9.98
+        },
+        {
+          "id": "node/7736610196",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.240954,
+          "lon": 40.225951,
+          "km": 10.09
+        },
+        {
+          "id": "node/2363157677",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.2398,
+          "lon": 40.23723,
+          "km": 11.56
+        },
+        {
+          "id": "node/998732543",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Чёртов палец",
+          "lat": 44.239108,
+          "lon": 40.237423,
+          "km": 11.71
+        },
+        {
+          "id": "node/2363156462",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Скала Чертов Палец",
+          "lat": 44.239173,
+          "lon": 40.237385,
+          "km": 11.71
+        },
+        {
+          "id": "node/9010735065",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.239124,
+          "lon": 40.237333,
+          "km": 11.71
+        },
+        {
+          "id": "node/4845970961",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.239598,
+          "lon": 40.239246,
+          "km": 11.83
+        },
+        {
+          "id": "way/250197152",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.239514,
+          "lon": 40.239143,
+          "km": 11.83
+        },
+        {
+          "id": "node/2363156463",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Скала-Грот Кольцо",
+          "lat": 44.239236,
+          "lon": 40.238048,
+          "km": 11.88
+        },
+        {
+          "id": "node/10147084689",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.239304,
+          "lon": 40.237933,
+          "km": 11.88
+        },
+        {
+          "id": "node/2363156461",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Разлом- Сквозная",
+          "lat": 44.239108,
+          "lon": 40.237651,
+          "km": 11.9
+        },
+        {
+          "id": "node/2363157554",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.239057,
+          "lon": 40.237043,
+          "km": 11.95
+        },
+        {
+          "id": "node/2363156460",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Пыльная",
+          "lat": 44.238896,
+          "lon": 40.234987,
+          "km": 12.14
+        },
+        {
+          "id": "node/6203330989",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.238881,
+          "lon": 40.230933,
+          "km": 12.45
+        },
+        {
+          "id": "way/861111978",
+          "category": "caution",
+          "kind": "cliff",
+          "name": "Хребет Уна-Коз",
+          "lat": 44.239311,
+          "lon": 40.228772,
+          "km": 12.65
+        },
+        {
+          "id": "node/11883086470",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Грот",
+          "lat": 44.240723,
+          "lon": 40.226113,
+          "km": 12.95
+        },
+        {
+          "id": "node/6677328185",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.241718,
+          "lon": 40.224746,
+          "km": 13.08
+        },
+        {
+          "id": "node/5179645923",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Грот",
+          "lat": 44.242182,
+          "lon": 40.224265,
+          "km": 13.15
+        },
+        {
+          "id": "node/12151864331",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Камень утюг",
+          "lat": 44.242176,
+          "lon": 40.22322,
+          "km": 13.21
+        },
+        {
+          "id": "way/283370039",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.242009,
+          "lon": 40.223314,
+          "km": 13.21
+        },
+        {
+          "id": "node/5183048523",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.239805,
+          "lon": 40.219914,
+          "km": 13.6
+        },
+        {
+          "id": "node/999471846",
+          "category": "water",
+          "kind": "spring",
+          "name": "Клён",
+          "lat": 44.238726,
+          "lon": 40.218555,
+          "km": 13.79
+        },
+        {
+          "id": "node/5350786521",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Старинный даховский мост",
+          "lat": 44.236863,
+          "lon": 40.205354,
+          "km": 15
+        },
+        {
+          "id": "node/6396877853",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Место расстрела Казаков",
+          "lat": 44.251013,
+          "lon": 40.20429,
+          "km": 16.46
+        },
+        {
+          "id": "node/4946536323",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.258264,
+          "lon": 40.201634,
+          "km": 17.95
+        },
+        {
+          "id": "node/8849958417",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Вид на ущелье",
+          "lat": 44.269019,
+          "lon": 40.188459,
+          "km": 19.54
+        },
+        {
+          "id": "node/2710465669",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Три братца",
+          "lat": 44.269287,
+          "lon": 40.187982,
+          "km": 19.63
+        },
+        {
+          "id": "node/634146772",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Шум",
+          "lat": 44.268668,
+          "lon": 40.184092,
+          "km": 19.96
+        },
+        {
+          "id": "way/209218418",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.266818,
+          "lon": 40.177765,
+          "km": 20.6
+        },
+        {
+          "id": "node/634148274",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Каскадный",
+          "lat": 44.264599,
+          "lon": 40.174443,
+          "km": 20.99
+        },
+        {
+          "id": "node/999476607",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Сердце Руфабго",
+          "lat": 44.264223,
+          "lon": 40.173384,
+          "km": 21.06
+        },
+        {
+          "id": "node/634148271",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Девичья Коса",
+          "lat": 44.263185,
+          "lon": 40.17212,
+          "km": 21.23
+        },
+        {
+          "id": "way/209218419",
+          "category": "caution",
+          "kind": "cliff",
+          "name": "Скалистый хребет",
+          "lat": 44.262943,
+          "lon": 40.172151,
+          "km": 21.23
+        },
+        {
+          "id": "way/310702576",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.262439,
+          "lon": 40.17253,
+          "km": 21.23
+        },
+        {
+          "id": "node/6716241386",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.262812,
+          "lon": 40.170565,
+          "km": 21.37
+        },
+        {
+          "id": "way/310702575",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.261787,
+          "lon": 40.170952,
+          "km": 21.4
+        },
+        {
+          "id": "node/8274762869",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Вероятно грот",
+          "lat": 44.260641,
+          "lon": 40.168405,
+          "km": 21.69
+        },
+        {
+          "id": "node/8274762870",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.260513,
+          "lon": 40.167912,
+          "km": 21.69
+        },
+        {
+          "id": "node/5155090830",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.260833,
+          "lon": 40.165081,
+          "km": 21.9
+        },
+        {
+          "id": "node/2194483931",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Девичьи косы",
+          "lat": 44.259757,
+          "lon": 40.163943,
+          "km": 22.08
+        },
+        {
+          "id": "node/10700080187",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Грот",
+          "lat": 44.259825,
+          "lon": 40.163315,
+          "km": 22.08
+        },
+        {
+          "id": "way/209218420",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.259809,
+          "lon": 40.164237,
+          "km": 22.08
+        },
+        {
+          "id": "node/5155090829",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.259506,
+          "lon": 40.163303,
+          "km": 22.17
+        },
+        {
+          "id": "node/2710455448",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Лёлькин",
+          "lat": 44.258647,
+          "lon": 40.161437,
+          "km": 22.21
+        },
+        {
+          "id": "way/209218421",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.259457,
+          "lon": 40.162623,
+          "km": 22.21
+        },
+        {
+          "id": "way/484877320",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.25919,
+          "lon": 40.161865,
+          "km": 22.21
+        },
+        {
+          "id": "node/12243992970",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Чаша любви",
+          "lat": 44.259298,
+          "lon": 40.163032,
+          "km": 22.25
+        },
+        {
+          "id": "way/890231124",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.259015,
+          "lon": 40.163149,
+          "km": 22.25
+        },
+        {
+          "id": "way/209218422",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.260376,
+          "lon": 40.164551,
+          "km": 22.41
+        },
+        {
+          "id": "way/209218417",
+          "category": "caution",
+          "kind": "cliff",
+          "name": "Парус",
+          "lat": 44.261465,
+          "lon": 40.165958,
+          "km": 22.65
+        },
+        {
+          "id": "node/9780807315",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.261693,
+          "lon": 40.166023,
+          "km": 22.68
+        },
+        {
+          "id": "node/5155090832",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.262057,
+          "lon": 40.16676,
+          "km": 22.71
+        },
+        {
+          "id": "node/3161594111",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Камнепад",
+          "lat": 44.262234,
+          "lon": 40.165945,
+          "km": 22.76
+        },
+        {
+          "id": "node/3161599318",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Бачурин",
+          "lat": 44.262832,
+          "lon": 40.164492,
+          "km": 22.87
+        },
+        {
+          "id": "way/890231122",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.262832,
+          "lon": 40.164492,
+          "km": 22.87
+        },
+        {
+          "id": "node/5155090833",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.26296,
+          "lon": 40.16982,
+          "km": 23.3
+        },
+        {
+          "id": "way/173912340",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.26384,
+          "lon": 40.170001,
+          "km": 23.48
+        },
+        {
+          "id": "node/4309846048",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.264284,
+          "lon": 40.171172,
+          "km": 23.61
+        },
+        {
+          "id": "node/2624759543",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.273718,
+          "lon": 40.180235,
+          "km": 24.95
+        },
+        {
+          "id": "way/142276843",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.273744,
+          "lon": 40.180277,
+          "km": 24.95
+        },
+        {
+          "id": "node/1119991746",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Сквозная (верхний выход)",
+          "lat": 44.268703,
+          "lon": 40.17921,
+          "km": 25.65
+        },
+        {
+          "id": "node/10022962207",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Сквозная",
+          "lat": 44.26857,
+          "lon": 40.179265,
+          "km": 25.65
+        },
+        {
+          "id": "node/2624759608",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 44.268057,
+          "lon": 40.177763,
+          "km": 25.68
+        },
+        {
+          "id": "node/5155090851",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.268911,
+          "lon": 40.179923,
+          "km": 25.73
+        },
+        {
+          "id": "node/2624759542",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.26957,
+          "lon": 40.180804,
+          "km": 25.86
+        },
+        {
+          "id": "node/7731562485",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.270673,
+          "lon": 40.184344,
+          "km": 26.37
+        },
+        {
+          "id": "node/7768842885",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.273506,
+          "lon": 40.18259,
+          "km": 26.76
+        },
+        {
+          "id": "way/320835092",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.27382,
+          "lon": 40.183064,
+          "km": 26.78
+        },
+        {
+          "id": "node/11405759038",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Водоскаты молодости",
+          "lat": 44.275952,
+          "lon": 40.182522,
+          "km": 26.98
+        },
+        {
+          "id": "node/14068713802",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Портал",
+          "lat": 44.277574,
+          "lon": 40.182197,
+          "km": 27.19
+        },
+        {
+          "id": "node/6716257885",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.280186,
+          "lon": 40.179696,
+          "km": 27.56
+        },
+        {
+          "id": "node/2601832088",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.28076,
+          "lon": 40.178792,
+          "km": 27.63
+        },
+        {
+          "id": "node/2624706109",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Душ",
+          "lat": 44.280684,
+          "lon": 40.178591,
+          "km": 27.63
+        },
+        {
+          "id": "node/2843724301",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Мезмайский Водопадный грот",
+          "lat": 44.280311,
+          "lon": 40.176957,
+          "km": 27.68
+        },
+        {
+          "id": "node/4844511759",
+          "category": "water",
+          "kind": "spring",
+          "name": "Мезмайский",
+          "lat": 44.28092,
+          "lon": 40.17842,
+          "km": 27.68
+        },
+        {
+          "id": "node/6716257886",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.281253,
+          "lon": 40.178474,
+          "km": 27.71
+        },
+        {
+          "id": "node/11091338505",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.28115,
+          "lon": 40.177701,
+          "km": 27.71
+        },
+        {
+          "id": "node/1465913296",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.282301,
+          "lon": 40.177613,
+          "km": 27.84
+        },
+        {
+          "id": "way/142276845",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.282886,
+          "lon": 40.179094,
+          "km": 27.84
+        },
+        {
+          "id": "way/280220394",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.28233,
+          "lon": 40.17769,
+          "km": 27.84
+        },
+        {
+          "id": "way/1081142764",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.282886,
+          "lon": 40.179094,
+          "km": 27.84
+        },
+        {
+          "id": "node/1465913299",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.282754,
+          "lon": 40.177274,
+          "km": 27.89
+        },
+        {
+          "id": "way/854977527",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.283296,
+          "lon": 40.17856,
+          "km": 27.89
+        },
+        {
+          "id": "way/256849056",
+          "category": "caution",
+          "kind": "cliff",
+          "name": "Скалистый хребет",
+          "lat": 44.283209,
+          "lon": 40.17687,
+          "km": 27.97
+        },
+        {
+          "id": "way/854977526",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.284339,
+          "lon": 40.177638,
+          "km": 28.01
+        },
+        {
+          "id": "node/11036908895",
+          "category": "nature",
+          "kind": "cave",
+          "name": "Музей пещера(Стоянка древнего человека)",
+          "lat": 44.284994,
+          "lon": 40.176367,
+          "km": 28.16
+        },
+        {
+          "id": "node/11668587110",
+          "category": "heritage",
+          "kind": "artwork",
+          "name": "Древний человек",
+          "lat": 44.284978,
+          "lon": 40.176316,
+          "km": 28.16
+        },
+        {
+          "id": "way/236030674",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.28488,
+          "lon": 40.175829,
+          "km": 28.16
+        },
+        {
+          "id": "way/854971327",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.285032,
+          "lon": 40.17636,
+          "km": 28.16
+        },
+        {
+          "id": "node/11172818677",
+          "category": "nature",
+          "kind": "cave",
+          "lat": 44.284223,
+          "lon": 40.176137,
+          "km": 28.21
+        },
+        {
+          "id": "node/11172818678",
+          "category": "nature",
+          "kind": "rock",
+          "name": "Разлом",
+          "lat": 44.284495,
+          "lon": 40.175872,
+          "km": 28.21
+        },
+        {
+          "id": "way/151743914",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.284403,
+          "lon": 40.176042,
+          "km": 28.21
+        },
+        {
+          "id": "way/280220391",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.284403,
+          "lon": 40.176042,
+          "km": 28.21
+        },
+        {
+          "id": "way/1081142766",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Скозная щель",
+          "lat": 44.284074,
+          "lon": 40.17584,
+          "km": 28.29
+        },
+        {
+          "id": "node/5046318421",
+          "category": "nature",
+          "kind": "rock",
+          "name": "Грот",
+          "lat": 44.284216,
+          "lon": 40.175518,
+          "km": 28.34
+        },
+        {
+          "id": "way/320835094",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.284734,
+          "lon": 40.175607,
+          "km": 28.37
+        },
+        {
+          "id": "node/6586692096",
+          "category": "water",
+          "kind": "spring",
+          "name": "Скалистый",
+          "lat": 44.284892,
+          "lon": 40.175039,
+          "km": 28.41
+        },
+        {
+          "id": "node/13989692702",
+          "category": "nature",
+          "kind": "waterfall",
+          "name": "Анастасия",
+          "lat": 44.28489,
+          "lon": 40.175036,
+          "km": 28.41
+        },
+        {
+          "id": "node/8850072318",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Вид на каньон",
+          "lat": 44.285206,
+          "lon": 40.175144,
+          "km": 28.46
+        },
+        {
+          "id": "way/236062103",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.28549,
+          "lon": 40.174973,
+          "km": 28.46
+        },
+        {
+          "id": "way/320826035",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.285534,
+          "lon": 40.175074,
+          "km": 28.46
+        },
+        {
+          "id": "way/320835096",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.285534,
+          "lon": 40.175074,
+          "km": 28.46
+        },
+        {
+          "id": "way/348076603",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.28546,
+          "lon": 40.174962,
+          "km": 28.46
+        },
+        {
+          "id": "way/1081142747",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Хаджохская теснина",
+          "lat": 44.285362,
+          "lon": 40.175111,
+          "km": 28.46
+        },
+        {
+          "id": "node/1747311359",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.287005,
+          "lon": 40.174716,
+          "km": 28.64
+        },
+        {
+          "id": "node/4309846195",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 44.287379,
+          "lon": 40.173902,
+          "km": 28.72
+        },
+        {
+          "id": "node/11035548456",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 44.287508,
+          "lon": 40.173885,
+          "km": 28.72
+        },
+        {
+          "id": "node/412801391",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.287413,
+          "lon": 40.174281,
+          "km": 28.77
+        },
+        {
+          "id": "node/1747311352",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Кролики",
+          "lat": 44.287847,
+          "lon": 40.174216,
+          "km": 28.77
+        },
+        {
+          "id": "node/1747311357",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Косуля",
+          "lat": 44.28804,
+          "lon": 40.174883,
+          "km": 28.77
+        },
+        {
+          "id": "node/8013781852",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Хаджохская теснина",
+          "lat": 44.287507,
+          "lon": 40.174389,
+          "km": 28.77
+        },
+        {
+          "id": "way/236062104",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.287739,
+          "lon": 40.174589,
+          "km": 28.77
+        },
+        {
+          "id": "way/236062105",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.287535,
+          "lon": 40.174637,
+          "km": 28.77
+        },
+        {
+          "id": "way/320826001",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.287593,
+          "lon": 40.174638,
+          "km": 28.77
+        },
+        {
+          "id": "way/320826005",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.287628,
+          "lon": 40.174652,
+          "km": 28.77
+        },
+        {
+          "id": "way/320835080",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.287731,
+          "lon": 40.174674,
+          "km": 28.77
+        }
       ]
     },
     {
@@ -1495,6 +4900,102 @@
           "lat": 42.725897,
           "lon": 46.069003,
           "ele": 1590.5
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/7425843389",
+          "category": "supply",
+          "kind": "shop",
+          "lat": 42.767364,
+          "lon": 46.13337,
+          "km": 0
+        },
+        {
+          "id": "node/7082149382",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "высокая качель",
+          "lat": 42.764971,
+          "lon": 46.132262,
+          "km": 0.33
+        },
+        {
+          "id": "node/10159255817",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Вид на Чеберлойский каньон",
+          "lat": 42.76175,
+          "lon": 46.130054,
+          "km": 0.74
+        },
+        {
+          "id": "node/6445774986",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Красивый вид на долину",
+          "lat": 42.757129,
+          "lon": 46.131103,
+          "km": 1.24
+        },
+        {
+          "id": "node/12486245302",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 42.753718,
+          "lon": 46.164615,
+          "km": 4.66
+        },
+        {
+          "id": "node/6640560695",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 42.748661,
+          "lon": 46.193933,
+          "km": 7.47
+        },
+        {
+          "id": "node/12484799648",
+          "category": "water",
+          "kind": "spring",
+          "lat": 42.747761,
+          "lon": 46.195366,
+          "km": 7.63
+        },
+        {
+          "id": "node/12484783887",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Cemp",
+          "lat": 42.741971,
+          "lon": 46.196329,
+          "km": 8.54
+        },
+        {
+          "id": "node/12484799649",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Cemp",
+          "lat": 42.731154,
+          "lon": 46.174376,
+          "km": 11.4
+        },
+        {
+          "id": "node/8237558071",
+          "category": "water",
+          "kind": "spring",
+          "lat": 42.73351,
+          "lon": 46.150255,
+          "km": 13.43
+        },
+        {
+          "id": "node/5203679721",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Гора Абдалзабазул",
+          "lat": 42.726327,
+          "lon": 46.15136,
+          "km": 15.69
         }
       ]
     },
@@ -1692,6 +5193,797 @@
           "lon": 39.280958,
           "ele": 107
         }
+      ],
+      "pois": [
+        {
+          "id": "node/12770807551",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.24558,
+          "lon": 39.258569,
+          "km": 2.12
+        },
+        {
+          "id": "node/2409946205",
+          "category": "water",
+          "kind": "spring",
+          "name": "Ручей",
+          "lat": 44.24745,
+          "lon": 39.268554,
+          "km": 2.95
+        },
+        {
+          "id": "node/3078892107",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.24924,
+          "lon": 39.269671,
+          "km": 3.16
+        },
+        {
+          "id": "node/12100653408",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.248827,
+          "lon": 39.269869,
+          "km": 3.24
+        },
+        {
+          "id": "node/2409946206",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Стоянка \"Бар-Лесной\"",
+          "lat": 44.248121,
+          "lon": 39.271609,
+          "km": 3.34
+        },
+        {
+          "id": "node/932065811",
+          "category": "water",
+          "kind": "spring",
+          "name": "Старый Водозабор",
+          "lat": 44.248542,
+          "lon": 39.272525,
+          "km": 3.44
+        },
+        {
+          "id": "node/2409946213",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.248548,
+          "lon": 39.272354,
+          "km": 3.44
+        },
+        {
+          "id": "node/10881643180",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Защитникам г.Туапсе от работников туапсинского ж.д вокзала",
+          "lat": 44.247013,
+          "lon": 39.276434,
+          "km": 3.79
+        },
+        {
+          "id": "node/12100637839",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 44.247016,
+          "lon": 39.276133,
+          "km": 3.79
+        },
+        {
+          "id": "node/2409946204",
+          "category": "water",
+          "kind": "spring",
+          "name": "Ручей",
+          "lat": 44.244862,
+          "lon": 39.275641,
+          "km": 4.01
+        },
+        {
+          "id": "node/2409946209",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Родниковая поляна/Сковородка",
+          "lat": 44.245001,
+          "lon": 39.27636,
+          "km": 4.01
+        },
+        {
+          "id": "node/8448045463",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.244268,
+          "lon": 39.277096,
+          "km": 4.01
+        },
+        {
+          "id": "node/11492076169",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.244926,
+          "lon": 39.274837,
+          "km": 4.01
+        },
+        {
+          "id": "node/11870151606",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.24454,
+          "lon": 39.276886,
+          "km": 4.01
+        },
+        {
+          "id": "node/11870151613",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.244641,
+          "lon": 39.276644,
+          "km": 4.01
+        },
+        {
+          "id": "node/8448045464",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.244427,
+          "lon": 39.277359,
+          "km": 4.07
+        },
+        {
+          "id": "node/5518070343",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.244884,
+          "lon": 39.278282,
+          "km": 4.14
+        },
+        {
+          "id": "node/4196914662",
+          "category": "water",
+          "kind": "spring",
+          "name": "Есть надежда",
+          "lat": 44.246039,
+          "lon": 39.281016,
+          "km": 4.43
+        },
+        {
+          "id": "way/1379168497",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.246733,
+          "lon": 39.280921,
+          "km": 4.47
+        },
+        {
+          "id": "node/412801327",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Индюшка",
+          "lat": 44.246908,
+          "lon": 39.2805,
+          "km": 4.5
+        },
+        {
+          "id": "node/13428231855",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.24689,
+          "lon": 39.281055,
+          "km": 4.5
+        },
+        {
+          "id": "node/3430561886",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Индюшонок",
+          "lat": 44.248373,
+          "lon": 39.282332,
+          "km": 4.59
+        },
+        {
+          "id": "node/7706682629",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.247836,
+          "lon": 39.282247,
+          "km": 4.59
+        },
+        {
+          "id": "node/7729270385",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.248148,
+          "lon": 39.282744,
+          "km": 4.59
+        },
+        {
+          "id": "way/206309639",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.248181,
+          "lon": 39.282051,
+          "km": 4.59
+        },
+        {
+          "id": "way/1379166582",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.248129,
+          "lon": 39.282275,
+          "km": 4.59
+        },
+        {
+          "id": "node/4345369974",
+          "category": "water",
+          "kind": "spring",
+          "name": "хороший и всегда действующий источник из трубы",
+          "lat": 44.247545,
+          "lon": 39.281656,
+          "km": 4.63
+        },
+        {
+          "id": "way/206309652",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.247842,
+          "lon": 39.281109,
+          "km": 4.63
+        },
+        {
+          "id": "node/7706682630",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.246412,
+          "lon": 39.282338,
+          "km": 4.83
+        },
+        {
+          "id": "node/7706682631",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.247259,
+          "lon": 39.284164,
+          "km": 4.96
+        },
+        {
+          "id": "node/7706682632",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.24747,
+          "lon": 39.285076,
+          "km": 4.96
+        },
+        {
+          "id": "node/13055740201",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Чтобы помнили (стихийный)",
+          "lat": 44.248087,
+          "lon": 39.288735,
+          "km": 5.33
+        },
+        {
+          "id": "node/8917135617",
+          "category": "water",
+          "kind": "spring",
+          "name": "Родник",
+          "lat": 44.242792,
+          "lon": 39.297326,
+          "km": 6.56
+        },
+        {
+          "id": "node/7706682636",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.237947,
+          "lon": 39.298431,
+          "km": 7.45
+        },
+        {
+          "id": "node/932065830",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.23773,
+          "lon": 39.298507,
+          "km": 7.53
+        },
+        {
+          "id": "node/5518070180",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Бойцам РККА",
+          "lat": 44.23685,
+          "lon": 39.301051,
+          "km": 7.68
+        },
+        {
+          "id": "node/11377973484",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Защитникам города Туапсе",
+          "lat": 44.224545,
+          "lon": 39.304806,
+          "km": 9.17
+        },
+        {
+          "id": "node/746311940",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.213497,
+          "lon": 39.314113,
+          "km": 10.8
+        },
+        {
+          "id": "node/11377963771",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.208379,
+          "lon": 39.30933,
+          "km": 11.4
+        },
+        {
+          "id": "node/4966602622",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.206941,
+          "lon": 39.31013,
+          "km": 11.53
+        },
+        {
+          "id": "node/13030511165",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Оборонный",
+          "lat": 44.207811,
+          "lon": 39.311346,
+          "km": 11.53
+        },
+        {
+          "id": "node/5715026214",
+          "category": "water",
+          "kind": "spring",
+          "name": "Зиночка",
+          "lat": 44.206914,
+          "lon": 39.310639,
+          "km": 11.57
+        },
+        {
+          "id": "node/7801704785",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Автокемпинг",
+          "lat": 44.207187,
+          "lon": 39.311431,
+          "km": 11.57
+        },
+        {
+          "id": "node/11377973488",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.206704,
+          "lon": 39.310223,
+          "km": 11.57
+        },
+        {
+          "id": "node/412801335",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Семашхо",
+          "lat": 44.205592,
+          "lon": 39.313036,
+          "km": 11.84
+        },
+        {
+          "id": "node/952634202",
+          "category": "heritage",
+          "kind": "monument",
+          "name": "Оборонный",
+          "lat": 44.205519,
+          "lon": 39.31288,
+          "km": 11.84
+        },
+        {
+          "id": "node/7511370555",
+          "category": "heritage",
+          "kind": "monument",
+          "name": "Крест",
+          "lat": 44.205665,
+          "lon": 39.313083,
+          "km": 11.84
+        },
+        {
+          "id": "node/7511363777",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Вид на Анастасиевку, Георгиевское, Кривенковское",
+          "lat": 44.203116,
+          "lon": 39.312408,
+          "km": 12.09
+        },
+        {
+          "id": "node/8880996717",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Защитникам Кавказа",
+          "lat": 44.20002,
+          "lon": 39.320812,
+          "km": 12.91
+        },
+        {
+          "id": "node/746312046",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.198528,
+          "lon": 39.324645,
+          "km": 13.25
+        },
+        {
+          "id": "node/8880956218",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.197912,
+          "lon": 39.325611,
+          "km": 13.38
+        },
+        {
+          "id": "way/1459361853",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.197878,
+          "lon": 39.32578,
+          "km": 13.38
+        },
+        {
+          "id": "way/1459361854",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.197427,
+          "lon": 39.325765,
+          "km": 13.38
+        },
+        {
+          "id": "way/97532458",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 44.197123,
+          "lon": 39.330443,
+          "km": 13.75
+        },
+        {
+          "id": "node/2537616330",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.194152,
+          "lon": 39.333106,
+          "km": 14.12
+        },
+        {
+          "id": "node/529942622",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.192765,
+          "lon": 39.331914,
+          "km": 14.25
+        },
+        {
+          "id": "node/529942629",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.192941,
+          "lon": 39.333155,
+          "km": 14.25
+        },
+        {
+          "id": "node/12802092829",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.192996,
+          "lon": 39.333366,
+          "km": 14.25
+        },
+        {
+          "id": "node/13382239823",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.19308,
+          "lon": 39.333228,
+          "km": 14.25
+        },
+        {
+          "id": "node/13383864125",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.193088,
+          "lon": 39.332394,
+          "km": 14.25
+        },
+        {
+          "id": "node/13383864126",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.193208,
+          "lon": 39.331957,
+          "km": 14.25
+        },
+        {
+          "id": "node/464230062",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.192669,
+          "lon": 39.332882,
+          "km": 14.31
+        },
+        {
+          "id": "node/464230051",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.19192,
+          "lon": 39.333981,
+          "km": 14.37
+        },
+        {
+          "id": "node/464230059",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.192126,
+          "lon": 39.333572,
+          "km": 14.37
+        },
+        {
+          "id": "node/751902213",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.191871,
+          "lon": 39.333903,
+          "km": 14.37
+        },
+        {
+          "id": "node/13382239808",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.191848,
+          "lon": 39.333775,
+          "km": 14.37
+        },
+        {
+          "id": "node/443016445",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Двубратский",
+          "lat": 44.187519,
+          "lon": 39.33072,
+          "km": 14.96
+        },
+        {
+          "id": "node/698816799",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.186822,
+          "lon": 39.329261,
+          "km": 15.1
+        },
+        {
+          "id": "way/240973173",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.187091,
+          "lon": 39.328918,
+          "km": 15.1
+        },
+        {
+          "id": "way/97532457",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 44.186496,
+          "lon": 39.32922,
+          "km": 15.13
+        },
+        {
+          "id": "node/698816800",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.185857,
+          "lon": 39.329377,
+          "km": 15.2
+        },
+        {
+          "id": "way/97532452",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 44.186205,
+          "lon": 39.327785,
+          "km": 15.23
+        },
+        {
+          "id": "way/240973178",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.178992,
+          "lon": 39.314485,
+          "km": 16.77
+        },
+        {
+          "id": "way/42451299",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Анастасиевские поляны",
+          "lat": 44.172526,
+          "lon": 39.30791,
+          "km": 17.93
+        },
+        {
+          "id": "node/7525829318",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.172461,
+          "lon": 39.305312,
+          "km": 18.11
+        },
+        {
+          "id": "node/13909088883",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.172548,
+          "lon": 39.30599,
+          "km": 18.11
+        },
+        {
+          "id": "node/4813539284",
+          "category": "heritage",
+          "kind": "archaeology",
+          "name": "Дольмен (разрушен)",
+          "lat": 44.173029,
+          "lon": 39.304658,
+          "km": 18.22
+        },
+        {
+          "id": "node/13909093702",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.17386,
+          "lon": 39.30538,
+          "km": 18.22
+        },
+        {
+          "id": "node/13961258001",
+          "category": "water",
+          "kind": "spring",
+          "lat": 44.174105,
+          "lon": 39.301439,
+          "km": 18.54
+        },
+        {
+          "id": "node/7485378139",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.175622,
+          "lon": 39.301054,
+          "km": 18.64
+        },
+        {
+          "id": "node/7485378140",
+          "category": "nature",
+          "kind": "viewpoint",
+          "name": "Вид на долину р. Пшенахо",
+          "lat": 44.17554,
+          "lon": 39.301102,
+          "km": 18.64
+        },
+        {
+          "id": "node/2749531933",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.174372,
+          "lon": 39.298631,
+          "km": 18.77
+        },
+        {
+          "id": "node/13275551668",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.175815,
+          "lon": 39.295273,
+          "km": 19.07
+        },
+        {
+          "id": "node/7098932342",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.175934,
+          "lon": 39.294024,
+          "km": 19.12
+        },
+        {
+          "id": "node/598798378",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Дольмены",
+          "lat": 44.176818,
+          "lon": 39.292266,
+          "km": 19.27
+        },
+        {
+          "id": "node/7538042795",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.177274,
+          "lon": 39.292699,
+          "km": 19.27
+        },
+        {
+          "id": "node/7538042796",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.176745,
+          "lon": 39.292385,
+          "km": 19.27
+        },
+        {
+          "id": "node/7417616507",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Дольмен",
+          "lat": 44.17807,
+          "lon": 39.292514,
+          "km": 19.42
+        },
+        {
+          "id": "node/1287801582",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.178584,
+          "lon": 39.291765,
+          "km": 19.49
+        },
+        {
+          "id": "node/5615003022",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.178386,
+          "lon": 39.290862,
+          "km": 19.49
+        },
+        {
+          "id": "node/13909093720",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.174989,
+          "lon": 39.286276,
+          "km": 20.01
+        },
+        {
+          "id": "way/82630540",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.174865,
+          "lon": 39.286436,
+          "km": 20.01
+        },
+        {
+          "id": "node/5963873498",
+          "category": "supply",
+          "kind": "shop",
+          "name": "Продукты",
+          "lat": 44.170621,
+          "lon": 39.28245,
+          "km": 20.69
+        },
+        {
+          "id": "node/7473379506",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.17066,
+          "lon": 39.279808,
+          "km": 20.76
+        },
+        {
+          "id": "node/7605353671",
+          "category": "water",
+          "kind": "well",
+          "lat": 44.170562,
+          "lon": 39.281538,
+          "km": 20.76
+        }
       ]
     },
     {
@@ -1786,6 +6078,93 @@
         {
           "lat": 43.658834,
           "lon": 40.321414
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/4487183140",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 43.657457,
+          "lon": 40.321036,
+          "km": 0
+        },
+        {
+          "id": "node/9176461530",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.641202,
+          "lon": 40.327476,
+          "km": 2.43
+        },
+        {
+          "id": "node/11349825908",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.639986,
+          "lon": 40.327587,
+          "km": 2.43
+        },
+        {
+          "id": "node/10996995670",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Кемпинг ЕНДЕМИК",
+          "lat": 43.64092,
+          "lon": 40.329502,
+          "km": 2.66
+        },
+        {
+          "id": "node/12162940844",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.641104,
+          "lon": 40.330834,
+          "km": 2.75
+        },
+        {
+          "id": "node/1014654578",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 43.647379,
+          "lon": 40.331687,
+          "km": 4.31
+        },
+        {
+          "id": "node/11830376770",
+          "category": "heritage",
+          "kind": "attraction",
+          "name": "Альпака-Парк",
+          "lat": 43.655113,
+          "lon": 40.324821,
+          "km": 5.51
+        },
+        {
+          "id": "node/4831479624",
+          "category": "heritage",
+          "kind": "artwork",
+          "name": "Символы Олимпийских игр",
+          "lat": 43.659437,
+          "lon": 40.32179,
+          "km": 6.69
+        },
+        {
+          "id": "node/4833067969",
+          "category": "supply",
+          "kind": "shop",
+          "name": "Derewnya Market",
+          "lat": 43.65921,
+          "lon": 40.321641,
+          "km": 6.69
+        },
+        {
+          "id": "node/5208221443",
+          "category": "heritage",
+          "kind": "artwork",
+          "name": "Буква \"Д\"",
+          "lat": 43.659504,
+          "lon": 40.321133,
+          "km": 6.69
         }
       ]
     },
@@ -1882,6 +6261,24 @@
           "lon": 40.289958,
           "ele": 1563.5
         }
+      ],
+      "pois": [
+        {
+          "id": "node/9904072639",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 43.61359,
+          "lon": 40.28735,
+          "km": 4.25
+        },
+        {
+          "id": "node/904053184",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 43.610539,
+          "lon": 40.288715,
+          "km": 4.95
+        }
       ]
     },
     {
@@ -1971,6 +6368,43 @@
           "lat": 44.569111,
           "lon": 34.008567,
           "ele": 515
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/7138634114",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.566546,
+          "lon": 33.949854,
+          "km": 0.04
+        },
+        {
+          "id": "node/1917115563",
+          "category": "water",
+          "kind": "drinking_water",
+          "name": "KMX-28116",
+          "lat": 44.579334,
+          "lon": 33.992249,
+          "km": 4.84
+        },
+        {
+          "id": "node/1917117857",
+          "category": "water",
+          "kind": "spring",
+          "name": "Лезер",
+          "lat": 44.570751,
+          "lon": 34.000465,
+          "km": 6.33
+        },
+        {
+          "id": "node/1917117694",
+          "category": "water",
+          "kind": "spring",
+          "name": "Кампа-Чорах",
+          "lat": 44.568699,
+          "lon": 34.008202,
+          "km": 7.1
         }
       ]
     },
@@ -2259,6 +6693,884 @@
           "lat": 43.8428307,
           "lon": 39.7657696
         }
+      ],
+      "pois": [
+        {
+          "id": "way/198648469",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.064039,
+          "lon": 40.018638,
+          "km": 1.58
+        },
+        {
+          "id": "node/2887419257",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.06333,
+          "lon": 40.019134,
+          "km": 1.64
+        },
+        {
+          "id": "node/395038450",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.062882,
+          "lon": 40.018995,
+          "km": 1.67
+        },
+        {
+          "id": "node/993807484",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.060111,
+          "lon": 40.021768,
+          "km": 1.99
+        },
+        {
+          "id": "way/212749045",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.05724,
+          "lon": 40.020263,
+          "km": 2.28
+        },
+        {
+          "id": "node/395039166",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Абадзешский",
+          "lat": 44.030093,
+          "lon": 40.000991,
+          "km": 6.46
+        },
+        {
+          "id": "node/9917995817",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Памятник бойцам",
+          "lat": 44.028525,
+          "lon": 40.001807,
+          "km": 6.46
+        },
+        {
+          "id": "node/7831951186",
+          "category": "water",
+          "kind": "spring",
+          "name": "Красивый",
+          "lat": 44.024596,
+          "lon": 39.988268,
+          "km": 7.68
+        },
+        {
+          "id": "way/1000850703",
+          "category": "camp",
+          "kind": "hut",
+          "name": "КОШ",
+          "lat": 44.020517,
+          "lon": 39.971603,
+          "km": 9.2
+        },
+        {
+          "id": "node/2102980115",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.01921,
+          "lon": 39.970912,
+          "km": 9.29
+        },
+        {
+          "id": "node/2372831141",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.019821,
+          "lon": 39.970332,
+          "km": 9.29
+        },
+        {
+          "id": "node/4315385159",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Балаган Армянка",
+          "lat": 44.019438,
+          "lon": 39.970521,
+          "km": 9.29
+        },
+        {
+          "id": "node/9268152895",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.019564,
+          "lon": 39.970672,
+          "km": 9.29
+        },
+        {
+          "id": "node/6592819188",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Инструкторская щель",
+          "lat": 44.019444,
+          "lon": 39.970109,
+          "km": 9.31
+        },
+        {
+          "id": "node/12385437601",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 44.018927,
+          "lon": 39.970027,
+          "km": 9.31
+        },
+        {
+          "id": "node/395039130",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.016351,
+          "lon": 39.968606,
+          "km": 9.59
+        },
+        {
+          "id": "way/432854139",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.016715,
+          "lon": 39.971876,
+          "km": 9.7
+        },
+        {
+          "id": "node/13026904036",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.015236,
+          "lon": 39.97359,
+          "km": 9.91
+        },
+        {
+          "id": "node/5145095498",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.014031,
+          "lon": 39.97285,
+          "km": 10.08
+        },
+        {
+          "id": "way/432857058",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.012988,
+          "lon": 39.972403,
+          "km": 10.14
+        },
+        {
+          "id": "node/5312436186",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 44.013758,
+          "lon": 39.974879,
+          "km": 10.2
+        },
+        {
+          "id": "node/1781162727",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Инструкторское окно",
+          "lat": 44.01254,
+          "lon": 39.975157,
+          "km": 10.33
+        },
+        {
+          "id": "way/432854140",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.012385,
+          "lon": 39.974923,
+          "km": 10.33
+        },
+        {
+          "id": "node/7761058803",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.012833,
+          "lon": 39.976034,
+          "km": 10.35
+        },
+        {
+          "id": "way/432854137",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.012582,
+          "lon": 39.97543,
+          "km": 10.35
+        },
+        {
+          "id": "node/7749946986",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 44.012065,
+          "lon": 39.975472,
+          "km": 10.39
+        },
+        {
+          "id": "way/718109801",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 44.009901,
+          "lon": 39.972111,
+          "km": 10.79
+        },
+        {
+          "id": "node/760569865",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 44.006412,
+          "lon": 39.968919,
+          "km": 11.39
+        },
+        {
+          "id": "way/433056994",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 44.007382,
+          "lon": 39.966856,
+          "km": 11.41
+        },
+        {
+          "id": "way/467634665",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 44.004777,
+          "lon": 39.966577,
+          "km": 11.67
+        },
+        {
+          "id": "node/5312486634",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.999559,
+          "lon": 39.964928,
+          "km": 12.3
+        },
+        {
+          "id": "way/635344928",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 43.992977,
+          "lon": 39.961594,
+          "km": 13.3
+        },
+        {
+          "id": "way/718113101",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 43.992479,
+          "lon": 39.960537,
+          "km": 13.39
+        },
+        {
+          "id": "way/718113097",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 43.984408,
+          "lon": 39.960971,
+          "km": 14.26
+        },
+        {
+          "id": "node/428943023",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Гузерипльский",
+          "lat": 43.982569,
+          "lon": 39.959088,
+          "km": 14.49
+        },
+        {
+          "id": "way/442178829",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 43.982016,
+          "lon": 39.958383,
+          "km": 14.51
+        },
+        {
+          "id": "way/718111544",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 43.981962,
+          "lon": 39.958198,
+          "km": 14.51
+        },
+        {
+          "id": "way/442178828",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 43.982528,
+          "lon": 39.959579,
+          "km": 14.54
+        },
+        {
+          "id": "node/13026933293",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 43.978105,
+          "lon": 39.958366,
+          "km": 15.1
+        },
+        {
+          "id": "node/13026933294",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.976534,
+          "lon": 39.956092,
+          "km": 15.37
+        },
+        {
+          "id": "node/13026933295",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.976009,
+          "lon": 39.954897,
+          "km": 15.49
+        },
+        {
+          "id": "node/6715356486",
+          "category": "camp",
+          "kind": "picnic_site",
+          "name": "НеТанин",
+          "lat": 43.974965,
+          "lon": 39.95127,
+          "km": 15.87
+        },
+        {
+          "id": "way/717750848",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 43.974065,
+          "lon": 39.945758,
+          "km": 16.35
+        },
+        {
+          "id": "way/717750847",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 43.973264,
+          "lon": 39.945518,
+          "km": 16.42
+        },
+        {
+          "id": "way/717750849",
+          "category": "caution",
+          "kind": "scree",
+          "lat": 43.972866,
+          "lon": 39.94398,
+          "km": 16.55
+        },
+        {
+          "id": "node/10704584304",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Армянский",
+          "lat": 43.971648,
+          "lon": 39.941559,
+          "km": 16.82
+        },
+        {
+          "id": "node/445850054",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.970566,
+          "lon": 39.93804,
+          "km": 17.23
+        },
+        {
+          "id": "node/1203464895",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.969393,
+          "lon": 39.935651,
+          "km": 17.49
+        },
+        {
+          "id": "way/1150731476",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 43.968092,
+          "lon": 39.933539,
+          "km": 17.75
+        },
+        {
+          "id": "node/12067958102",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.967168,
+          "lon": 39.932403,
+          "km": 17.93
+        },
+        {
+          "id": "node/986041185",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.966993,
+          "lon": 39.931671,
+          "km": 18.01
+        },
+        {
+          "id": "node/12499156506",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 43.959933,
+          "lon": 39.930451,
+          "km": 19.06
+        },
+        {
+          "id": "way/1190358138",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Приют Фишт",
+          "lat": 43.959398,
+          "lon": 39.930191,
+          "km": 19.13
+        },
+        {
+          "id": "node/3721935242",
+          "category": "camp",
+          "kind": "firepit",
+          "lat": 43.958973,
+          "lon": 39.930247,
+          "km": 19.15
+        },
+        {
+          "id": "node/4350979222",
+          "category": "camp",
+          "kind": "firepit",
+          "lat": 43.958924,
+          "lon": 39.930048,
+          "km": 19.15
+        },
+        {
+          "id": "way/435834078",
+          "category": "camp",
+          "kind": "hut",
+          "name": "Гостиница",
+          "lat": 43.959136,
+          "lon": 39.929863,
+          "km": 19.15
+        },
+        {
+          "id": "way/826152460",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.959266,
+          "lon": 39.92961,
+          "km": 19.15
+        },
+        {
+          "id": "way/826152461",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.959299,
+          "lon": 39.929657,
+          "km": 19.15
+        },
+        {
+          "id": "way/826152462",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.959345,
+          "lon": 39.929714,
+          "km": 19.15
+        },
+        {
+          "id": "way/826152463",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.959361,
+          "lon": 39.929739,
+          "km": 19.15
+        },
+        {
+          "id": "node/3721935241",
+          "category": "camp",
+          "kind": "firepit",
+          "lat": 43.959609,
+          "lon": 39.92946,
+          "km": 19.25
+        },
+        {
+          "id": "node/4350979270",
+          "category": "camp",
+          "kind": "firepit",
+          "lat": 43.959819,
+          "lon": 39.929446,
+          "km": 19.25
+        },
+        {
+          "id": "node/7713666725",
+          "category": "camp",
+          "kind": "firepit",
+          "lat": 43.959718,
+          "lon": 39.929281,
+          "km": 19.25
+        },
+        {
+          "id": "node/3579303336",
+          "category": "heritage",
+          "kind": "memorial",
+          "name": "Погибшим альпинистам",
+          "lat": 43.959774,
+          "lon": 39.9286,
+          "km": 19.28
+        },
+        {
+          "id": "node/12067965334",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 43.952097,
+          "lon": 39.929096,
+          "km": 20.31
+        },
+        {
+          "id": "way/635344933",
+          "category": "caution",
+          "kind": "cliff",
+          "lat": 43.947342,
+          "lon": 39.924734,
+          "km": 20.88
+        },
+        {
+          "id": "node/445866414",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.9466,
+          "lon": 39.926595,
+          "km": 21.11
+        },
+        {
+          "id": "node/10705349135",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.93525,
+          "lon": 39.920758,
+          "km": 22.69
+        },
+        {
+          "id": "node/12500645262",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Белореченский",
+          "lat": 43.934705,
+          "lon": 39.919218,
+          "km": 22.84
+        },
+        {
+          "id": "node/12499156503",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 43.933593,
+          "lon": 39.898299,
+          "km": 24.81
+        },
+        {
+          "id": "node/445855640",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.932151,
+          "lon": 39.891433,
+          "km": 25.42
+        },
+        {
+          "id": "node/10705349107",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.931355,
+          "lon": 39.891707,
+          "km": 25.46
+        },
+        {
+          "id": "node/985932708",
+          "category": "camp",
+          "kind": "hut",
+          "name": "Летники",
+          "lat": 43.931749,
+          "lon": 39.89104,
+          "km": 25.48
+        },
+        {
+          "id": "node/7713732842",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.933304,
+          "lon": 39.888581,
+          "km": 25.74
+        },
+        {
+          "id": "node/428943027",
+          "category": "nature",
+          "kind": "saddle",
+          "name": "Черкесский",
+          "lat": 43.933159,
+          "lon": 39.887734,
+          "km": 25.83
+        },
+        {
+          "id": "node/7562095438",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.93475,
+          "lon": 39.884997,
+          "km": 26.18
+        },
+        {
+          "id": "node/13026890970",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.92704,
+          "lon": 39.865838,
+          "km": 28.21
+        },
+        {
+          "id": "node/5712539954",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 43.924896,
+          "lon": 39.863195,
+          "km": 28.54
+        },
+        {
+          "id": "way/826148653",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 43.925064,
+          "lon": 39.860849,
+          "km": 28.78
+        },
+        {
+          "id": "node/4364996961",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.920128,
+          "lon": 39.857501,
+          "km": 29.44
+        },
+        {
+          "id": "node/985977813",
+          "category": "water",
+          "kind": "spring",
+          "name": "Холодный",
+          "lat": 43.90322,
+          "lon": 39.837315,
+          "km": 32.71
+        },
+        {
+          "id": "way/826147235",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 43.903041,
+          "lon": 39.837027,
+          "km": 32.71
+        },
+        {
+          "id": "node/12294150287",
+          "category": "camp",
+          "kind": "picnic_site",
+          "lat": 43.899036,
+          "lon": 39.826727,
+          "km": 33.84
+        },
+        {
+          "id": "node/5712539933",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.899236,
+          "lon": 39.826616,
+          "km": 33.86
+        },
+        {
+          "id": "node/1708477973",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 43.895315,
+          "lon": 39.824982,
+          "km": 34.34
+        },
+        {
+          "id": "way/190546439",
+          "category": "camp",
+          "kind": "hut",
+          "name": "Кордон Бабук-Аул",
+          "lat": 43.890601,
+          "lon": 39.819834,
+          "km": 35.01
+        },
+        {
+          "id": "node/760570479",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 43.883813,
+          "lon": 39.82264,
+          "km": 35.86
+        },
+        {
+          "id": "node/7713758711",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.872845,
+          "lon": 39.811018,
+          "km": 38.11
+        },
+        {
+          "id": "node/7713758712",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.872879,
+          "lon": 39.81114,
+          "km": 38.11
+        },
+        {
+          "id": "node/7713758713",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.872838,
+          "lon": 39.811178,
+          "km": 38.11
+        },
+        {
+          "id": "node/7713758714",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.872798,
+          "lon": 39.811054,
+          "km": 38.11
+        },
+        {
+          "id": "node/7713758715",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.872793,
+          "lon": 39.811214,
+          "km": 38.11
+        },
+        {
+          "id": "node/7713758716",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.872747,
+          "lon": 39.811098,
+          "km": 38.11
+        },
+        {
+          "id": "way/437293755",
+          "category": "camp",
+          "kind": "camp_site",
+          "name": "Приют Бабук-Аул",
+          "lat": 43.873167,
+          "lon": 39.811221,
+          "km": 38.11
+        },
+        {
+          "id": "node/4351100835",
+          "category": "water",
+          "kind": "drinking_water",
+          "lat": 43.872458,
+          "lon": 39.810771,
+          "km": 38.2
+        },
+        {
+          "id": "node/4351100843",
+          "category": "camp",
+          "kind": "firepit",
+          "lat": 43.872599,
+          "lon": 39.81019,
+          "km": 38.2
+        },
+        {
+          "id": "node/7713732876",
+          "category": "water",
+          "kind": "drinking_water",
+          "lat": 43.87242,
+          "lon": 39.810652,
+          "km": 38.2
+        },
+        {
+          "id": "way/437293757",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.872602,
+          "lon": 39.810064,
+          "km": 38.2
+        },
+        {
+          "id": "way/826161163",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.87289,
+          "lon": 39.810708,
+          "km": 38.2
+        },
+        {
+          "id": "node/5712539775",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.871267,
+          "lon": 39.797129,
+          "km": 39.35
+        },
+        {
+          "id": "node/5712539760",
+          "category": "camp",
+          "kind": "shelter",
+          "lat": 43.871433,
+          "lon": 39.785338,
+          "km": 40.3
+        },
+        {
+          "id": "node/5712539726",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.869457,
+          "lon": 39.774943,
+          "km": 41.14
+        },
+        {
+          "id": "node/5712539715",
+          "category": "caution",
+          "kind": "ford",
+          "lat": 43.867157,
+          "lon": 39.774011,
+          "km": 41.38
+        },
+        {
+          "id": "node/5712539713",
+          "category": "nature",
+          "kind": "waterfall",
+          "lat": 43.859675,
+          "lon": 39.768259,
+          "km": 42.43
+        },
+        {
+          "id": "node/5712539704",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.857666,
+          "lon": 39.764535,
+          "km": 42.88
+        },
+        {
+          "id": "node/12996014553",
+          "category": "camp",
+          "kind": "camp_site",
+          "lat": 43.856669,
+          "lon": 39.764483,
+          "km": 43.01
+        },
+        {
+          "id": "node/12996028242",
+          "category": "camp",
+          "kind": "hut",
+          "name": "КПП \"Река Белая\"",
+          "lat": 43.843003,
+          "lon": 39.765862,
+          "km": 44.74
+        }
       ]
     },
     {
@@ -2335,6 +7647,24 @@
           "lon": 40.307896,
           "ele": 2262.3
         }
+      ],
+      "pois": [
+        {
+          "id": "node/1014654527",
+          "category": "nature",
+          "kind": "peak",
+          "lat": 43.63945,
+          "lon": 40.311424,
+          "km": 1.75
+        },
+        {
+          "id": "node/9857528523",
+          "category": "water",
+          "kind": "spring",
+          "lat": 43.637487,
+          "lon": 40.31077,
+          "km": 2.03
+        }
       ]
     },
     {
@@ -2404,6 +7734,42 @@
           "lat": 43.417189,
           "lon": 43.610314,
           "ele": 990.9
+        }
+      ],
+      "pois": [
+        {
+          "id": "node/4548049289",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 43.448408,
+          "lon": 43.593397,
+          "km": 0.9
+        },
+        {
+          "id": "node/6322041255",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Большая Кизиловка",
+          "lat": 43.437383,
+          "lon": 43.594469,
+          "km": 2.2
+        },
+        {
+          "id": "node/9793475497",
+          "category": "nature",
+          "kind": "viewpoint",
+          "lat": 43.416326,
+          "lon": 43.609914,
+          "km": 5.37
+        },
+        {
+          "id": "node/3750360098",
+          "category": "nature",
+          "kind": "peak",
+          "name": "Нартия",
+          "lat": 43.417161,
+          "lon": 43.609948,
+          "km": 5.47
         }
       ]
     }
