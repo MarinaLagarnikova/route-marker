@@ -666,6 +666,11 @@
           "ele": 120
         }
       ],
+      "poiExclude": [
+        "ford",
+        "wetland",
+        "spring"
+      ],
       "pois": [
         {
           "id": "node/4123046989",
@@ -1736,14 +1741,6 @@
           "km": 5.41
         },
         {
-          "id": "node/6539253733",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.714251,
-          "lon": 37.583429,
-          "km": 5.92
-        },
-        {
           "id": "node/781124605",
           "category": "nature",
           "kind": "viewpoint",
@@ -1807,14 +1804,6 @@
           "lat": 55.709575,
           "lon": 37.568242,
           "km": 6.97
-        },
-        {
-          "id": "node/9496046936",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.709113,
-          "lon": 37.566285,
-          "km": 7.08
         },
         {
           "id": "node/11302361600",
@@ -1939,14 +1928,6 @@
           "km": 9.27
         },
         {
-          "id": "node/11755592188",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.708402,
-          "lon": 37.548412,
-          "km": 9.29
-        },
-        {
           "id": "node/11755646256",
           "category": "camp",
           "kind": "shelter",
@@ -1977,14 +1958,6 @@
           "lat": 55.708247,
           "lon": 37.551293,
           "km": 9.46
-        },
-        {
-          "id": "way/1553589945",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.70808,
-          "lon": 37.5539,
-          "km": 9.63
         }
       ]
     },
@@ -10968,6 +10941,11 @@
           "lon": 37.587128
         }
       ],
+      "poiExclude": [
+        "ford",
+        "wetland",
+        "spring"
+      ],
       "pois": [
         {
           "id": "node/6516952594",
@@ -10997,14 +10975,6 @@
           "km": 1.36
         },
         {
-          "id": "way/839906984",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.834809,
-          "lon": 37.609283,
-          "km": 2.54
-        },
-        {
           "id": "node/7674039185",
           "category": "heritage",
           "kind": "attraction",
@@ -11022,14 +10992,6 @@
           "km": 2.94
         },
         {
-          "id": "way/118845369",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.840365,
-          "lon": 37.614211,
-          "km": 3.24
-        },
-        {
           "id": "node/5177441732",
           "category": "heritage",
           "kind": "museum",
@@ -11037,14 +10999,6 @@
           "lat": 55.839609,
           "lon": 37.616788,
           "km": 3.32
-        },
-        {
-          "id": "way/1073365116",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.840714,
-          "lon": 37.617802,
-          "km": 3.46
         },
         {
           "id": "node/4351419301",
@@ -11088,14 +11042,6 @@
           "lat": 55.84208,
           "lon": 37.643301,
           "km": 5.31
-        },
-        {
-          "id": "node/652452565",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.840926,
-          "lon": 37.643086,
-          "km": 5.43
         },
         {
           "id": "node/8354199078",
@@ -11195,30 +11141,6 @@
           "km": 7.63
         },
         {
-          "id": "way/62046291",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.828421,
-          "lon": 37.65619,
-          "km": 7.93
-        },
-        {
-          "id": "way/523683500",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.827801,
-          "lon": 37.660771,
-          "km": 8.21
-        },
-        {
-          "id": "node/11985964574",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.825961,
-          "lon": 37.666981,
-          "km": 8.63
-        },
-        {
           "id": "node/4934521905",
           "category": "nature",
           "kind": "viewpoint",
@@ -11227,76 +11149,12 @@
           "km": 9.14
         },
         {
-          "id": "way/503112254",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.821125,
-          "lon": 37.674985,
-          "km": 9.45
-        },
-        {
-          "id": "way/880946100",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.820856,
-          "lon": 37.675901,
-          "km": 9.52
-        },
-        {
-          "id": "way/506295374",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.819969,
-          "lon": 37.676305,
-          "km": 9.63
-        },
-        {
           "id": "node/4934521912",
           "category": "nature",
           "kind": "viewpoint",
           "lat": 55.819741,
           "lon": 37.677171,
           "km": 9.67
-        },
-        {
-          "id": "way/952446161",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.819301,
-          "lon": 37.677568,
-          "km": 9.67
-        },
-        {
-          "id": "way/952446160",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.819676,
-          "lon": 37.678058,
-          "km": 9.75
-        },
-        {
-          "id": "way/196301433",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.8226,
-          "lon": 37.692051,
-          "km": 10.76
-        },
-        {
-          "id": "node/7243371794",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.822124,
-          "lon": 37.708562,
-          "km": 12.79
-        },
-        {
-          "id": "node/4980332570",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.821929,
-          "lon": 37.709832,
-          "km": 12.88
         },
         {
           "id": "node/4087603248",
@@ -11843,46 +11701,6 @@
           "km": 20.95
         },
         {
-          "id": "node/10570971843",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.783932,
-          "lon": 37.77775,
-          "km": 21.41
-        },
-        {
-          "id": "node/7819602729",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.783049,
-          "lon": 37.779353,
-          "km": 21.57
-        },
-        {
-          "id": "node/11063483036",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.782943,
-          "lon": 37.779522,
-          "km": 21.64
-        },
-        {
-          "id": "node/4796536469",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.780083,
-          "lon": 37.779003,
-          "km": 21.9
-        },
-        {
-          "id": "node/11063249871",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.779993,
-          "lon": 37.777209,
-          "km": 21.96
-        },
-        {
           "id": "node/4339464903",
           "category": "camp",
           "kind": "picnic_site",
@@ -11891,28 +11709,12 @@
           "km": 22.12
         },
         {
-          "id": "node/2960083918",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.777136,
-          "lon": 37.77702,
-          "km": 22.37
-        },
-        {
           "id": "node/11050054407",
           "category": "heritage",
           "kind": "memorial",
           "name": "Красный пруд",
           "lat": 55.775524,
           "lon": 37.774632,
-          "km": 22.53
-        },
-        {
-          "id": "node/11063362453",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.776001,
-          "lon": 37.776075,
           "km": 22.53
         },
         {
@@ -11986,14 +11788,6 @@
           "km": 23.47
         },
         {
-          "id": "way/292470423",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.770291,
-          "lon": 37.796985,
-          "km": 24.1
-        },
-        {
           "id": "node/621054401",
           "category": "heritage",
           "kind": "memorial",
@@ -12026,14 +11820,6 @@
           "lat": 55.760864,
           "lon": 37.811159,
           "km": 25.85
-        },
-        {
-          "id": "node/6873109295",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.762145,
-          "lon": 37.818509,
-          "km": 26.29
         },
         {
           "id": "node/1641062020",
@@ -12525,14 +12311,6 @@
           "km": 38.76
         },
         {
-          "id": "way/230386238",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.686892,
-          "lon": 37.806733,
-          "km": 39.59
-        },
-        {
           "id": "node/8868420767",
           "category": "camp",
           "kind": "shelter",
@@ -12555,22 +12333,6 @@
           "lat": 55.684888,
           "lon": 37.827165,
           "km": 41.02
-        },
-        {
-          "id": "way/41977100",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.658917,
-          "lon": 37.824837,
-          "km": 44.39
-        },
-        {
-          "id": "way/230511902",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.65854,
-          "lon": 37.817536,
-          "km": 44.95
         },
         {
           "id": "node/5660040521",
@@ -12728,14 +12490,6 @@
           "km": 56.53
         },
         {
-          "id": "way/1355573941",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.631067,
-          "lon": 37.730202,
-          "km": 56.62
-        },
-        {
           "id": "node/6840770256",
           "category": "camp",
           "kind": "shelter",
@@ -12750,22 +12504,6 @@
           "lat": 55.629149,
           "lon": 37.723906,
           "km": 57.1
-        },
-        {
-          "id": "node/6840770252",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.629625,
-          "lon": 37.724001,
-          "km": 57.11
-        },
-        {
-          "id": "node/6840770253",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.629572,
-          "lon": 37.723252,
-          "km": 57.11
         },
         {
           "id": "node/6840770250",
@@ -12816,14 +12554,6 @@
           "km": 57.76
         },
         {
-          "id": "way/1315946972",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.628514,
-          "lon": 37.712298,
-          "km": 57.92
-        },
-        {
           "id": "node/4147842155",
           "category": "camp",
           "kind": "shelter",
@@ -12832,27 +12562,11 @@
           "km": 57.94
         },
         {
-          "id": "way/1315946971",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.628391,
-          "lon": 37.711516,
-          "km": 57.96
-        },
-        {
           "id": "node/4147842168",
           "category": "camp",
           "kind": "shelter",
           "lat": 55.629226,
           "lon": 37.710066,
-          "km": 58.06
-        },
-        {
-          "id": "way/1315946974",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.628927,
-          "lon": 37.710599,
           "km": 58.06
         },
         {
@@ -12944,30 +12658,6 @@
           "km": 59.3
         },
         {
-          "id": "way/1354477798",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.626125,
-          "lon": 37.691158,
-          "km": 59.59
-        },
-        {
-          "id": "node/4268458249",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.623354,
-          "lon": 37.684185,
-          "km": 60.39
-        },
-        {
-          "id": "way/435431804",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.62338,
-          "lon": 37.684172,
-          "km": 60.39
-        },
-        {
           "id": "node/13125359756",
           "category": "nature",
           "kind": "viewpoint",
@@ -13009,46 +12699,6 @@
           "lat": 55.61949,
           "lon": 37.685732,
           "km": 61.24
-        },
-        {
-          "id": "node/4066986821",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.618535,
-          "lon": 37.679443,
-          "km": 61.58
-        },
-        {
-          "id": "node/4066986878",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.617799,
-          "lon": 37.678801,
-          "km": 61.58
-        },
-        {
-          "id": "node/5254505938",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.618998,
-          "lon": 37.679961,
-          "km": 61.58
-        },
-        {
-          "id": "way/435431801",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.619359,
-          "lon": 37.680637,
-          "km": 61.58
-        },
-        {
-          "id": "way/751032056",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.618184,
-          "lon": 37.680022,
-          "km": 61.58
         },
         {
           "id": "node/9022308419",
@@ -13113,59 +12763,11 @@
           "km": 61.82
         },
         {
-          "id": "way/411288582",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.616525,
-          "lon": 37.679167,
-          "km": 61.87
-        },
-        {
-          "id": "way/411288583",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.616489,
-          "lon": 37.679719,
-          "km": 61.87
-        },
-        {
-          "id": "way/411288584",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.616847,
-          "lon": 37.678765,
-          "km": 61.87
-        },
-        {
-          "id": "node/4066986872",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.615334,
-          "lon": 37.679204,
-          "km": 61.98
-        },
-        {
-          "id": "node/4066986838",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.614535,
-          "lon": 37.679028,
-          "km": 62.11
-        },
-        {
           "id": "node/454537511",
           "category": "nature",
           "kind": "viewpoint",
           "lat": 55.614075,
           "lon": 37.680826,
-          "km": 62.16
-        },
-        {
-          "id": "node/4029414221",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.613816,
-          "lon": 37.679224,
           "km": 62.16
         },
         {
@@ -13222,14 +12824,6 @@
           "km": 62.39
         },
         {
-          "id": "node/11873758515",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.612497,
-          "lon": 37.680322,
-          "km": 62.39
-        },
-        {
           "id": "way/1367393024",
           "category": "heritage",
           "kind": "archaeology",
@@ -13245,22 +12839,6 @@
           "lat": 55.610597,
           "lon": 37.681745,
           "km": 62.6
-        },
-        {
-          "id": "node/4022491512",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.609533,
-          "lon": 37.683262,
-          "km": 62.81
-        },
-        {
-          "id": "node/4066986902",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.609172,
-          "lon": 37.684462,
-          "km": 62.83
         },
         {
           "id": "node/4003715293",
@@ -13288,14 +12866,6 @@
           "km": 62.9
         },
         {
-          "id": "node/4066986895",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.608373,
-          "lon": 37.685629,
-          "km": 63
-        },
-        {
           "id": "node/8108056684",
           "category": "heritage",
           "kind": "attraction",
@@ -13303,14 +12873,6 @@
           "lat": 55.608476,
           "lon": 37.684373,
           "km": 63
-        },
-        {
-          "id": "way/435431803",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.608046,
-          "lon": 37.686399,
-          "km": 63.05
         },
         {
           "id": "node/4023197860",
@@ -13357,14 +12919,6 @@
           "km": 63.38
         },
         {
-          "id": "way/1367386200",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.607791,
-          "lon": 37.693194,
-          "km": 63.52
-        },
-        {
           "id": "way/1367386202",
           "category": "caution",
           "kind": "cliff",
@@ -13379,30 +12933,6 @@
           "lat": 55.602602,
           "lon": 37.70067,
           "km": 64.4
-        },
-        {
-          "id": "way/435435725",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.60224,
-          "lon": 37.700242,
-          "km": 64.44
-        },
-        {
-          "id": "node/829868443",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.601928,
-          "lon": 37.698704,
-          "km": 64.51
-        },
-        {
-          "id": "node/6936528703",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.59944,
-          "lon": 37.700325,
-          "km": 64.8
         },
         {
           "id": "node/4392724433",
@@ -13774,14 +13304,6 @@
           "km": 69.98
         },
         {
-          "id": "node/11991267003",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.595049,
-          "lon": 37.673548,
-          "km": 70.06
-        },
-        {
           "id": "way/845029268",
           "category": "camp",
           "kind": "shelter",
@@ -14102,44 +13624,12 @@
           "km": 80.34
         },
         {
-          "id": "way/203804723",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.614862,
-          "lon": 37.567429,
-          "km": 80.36
-        },
-        {
-          "id": "node/10582397072",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.619414,
-          "lon": 37.559372,
-          "km": 81.35
-        },
-        {
           "id": "node/5394322256",
           "category": "camp",
           "kind": "shelter",
           "lat": 55.626642,
           "lon": 37.535774,
           "km": 83.31
-        },
-        {
-          "id": "node/2588793778",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.626278,
-          "lon": 37.534199,
-          "km": 83.41
-        },
-        {
-          "id": "way/567921760",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.625596,
-          "lon": 37.533883,
-          "km": 83.49
         },
         {
           "id": "node/5394322217",
@@ -14159,52 +13649,12 @@
           "km": 84.07
         },
         {
-          "id": "node/2663293709",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.623596,
-          "lon": 37.525079,
-          "km": 84.13
-        },
-        {
-          "id": "node/6437816900",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.623824,
-          "lon": 37.524271,
-          "km": 84.13
-        },
-        {
-          "id": "way/567942499",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.622567,
-          "lon": 37.524466,
-          "km": 84.13
-        },
-        {
-          "id": "way/355173481",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.623117,
-          "lon": 37.522142,
-          "km": 84.34
-        },
-        {
           "id": "node/5200715991",
           "category": "nature",
           "kind": "waterfall",
           "lat": 55.625036,
           "lon": 37.520531,
           "km": 84.54
-        },
-        {
-          "id": "node/13895629266",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.625603,
-          "lon": 37.518327,
-          "km": 84.61
         },
         {
           "id": "way/260769185",
@@ -14243,94 +13693,6 @@
           "km": 86
         },
         {
-          "id": "node/1199700608",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.624098,
-          "lon": 37.49474,
-          "km": 86.88
-        },
-        {
-          "id": "node/1199700563",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.624636,
-          "lon": 37.49304,
-          "km": 87.08
-        },
-        {
-          "id": "node/13895629295",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.627385,
-          "lon": 37.490566,
-          "km": 87.43
-        },
-        {
-          "id": "node/260350878",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.627788,
-          "lon": 37.490424,
-          "km": 87.46
-        },
-        {
-          "id": "node/1199700567",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.633177,
-          "lon": 37.492425,
-          "km": 88.05
-        },
-        {
-          "id": "node/13895629294",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.632981,
-          "lon": 37.492253,
-          "km": 88.05
-        },
-        {
-          "id": "way/821856809",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.632936,
-          "lon": 37.492308,
-          "km": 88.05
-        },
-        {
-          "id": "way/821856827",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.633018,
-          "lon": 37.49221,
-          "km": 88.05
-        },
-        {
-          "id": "way/821856828",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.632945,
-          "lon": 37.492297,
-          "km": 88.05
-        },
-        {
-          "id": "node/13895629292",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.634399,
-          "lon": 37.492002,
-          "km": 88.24
-        },
-        {
-          "id": "node/13895629293",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.634502,
-          "lon": 37.492637,
-          "km": 88.24
-        },
-        {
           "id": "node/5176063126",
           "category": "heritage",
           "kind": "attraction",
@@ -14346,14 +13708,6 @@
           "lat": 55.637742,
           "lon": 37.493094,
           "km": 88.91
-        },
-        {
-          "id": "node/11249020588",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.638144,
-          "lon": 37.488374,
-          "km": 89.36
         },
         {
           "id": "node/3799154919",
@@ -14459,14 +13813,6 @@
           "km": 93.76
         },
         {
-          "id": "node/3609684453",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.654182,
-          "lon": 37.459707,
-          "km": 93.78
-        },
-        {
           "id": "node/4178349194",
           "category": "camp",
           "kind": "picnic_site",
@@ -14524,14 +13870,6 @@
           "km": 95.75
         },
         {
-          "id": "way/863042372",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.670283,
-          "lon": 37.455049,
-          "km": 96.26
-        },
-        {
           "id": "node/7900118184",
           "category": "supply",
           "kind": "shop",
@@ -14539,14 +13877,6 @@
           "lat": 55.672833,
           "lon": 37.458292,
           "km": 96.65
-        },
-        {
-          "id": "node/7981972524",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.681894,
-          "lon": 37.462734,
-          "km": 98.01
         },
         {
           "id": "node/7294615085",
@@ -14852,22 +14182,6 @@
           "km": 107.88
         },
         {
-          "id": "node/12956613327",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.713402,
-          "lon": 37.538921,
-          "km": 108.39
-        },
-        {
-          "id": "node/1533971861",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.718604,
-          "lon": 37.53787,
-          "km": 108.95
-        },
-        {
           "id": "node/11755511564",
           "category": "heritage",
           "kind": "artwork",
@@ -15015,14 +14329,6 @@
           "lat": 55.723207,
           "lon": 37.512948,
           "km": 113.29
-        },
-        {
-          "id": "node/8614978989",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.722425,
-          "lon": 37.504396,
-          "km": 113.71
         },
         {
           "id": "node/3516348883",
@@ -15283,14 +14589,6 @@
           "km": 120.62
         },
         {
-          "id": "node/9422407817",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.74993,
-          "lon": 37.476346,
-          "km": 120.66
-        },
-        {
           "id": "node/11837687812",
           "category": "heritage",
           "kind": "artwork",
@@ -15325,22 +14623,6 @@
           "km": 121.15
         },
         {
-          "id": "node/3713794072",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.745407,
-          "lon": 37.47361,
-          "km": 121.29
-        },
-        {
-          "id": "way/493126431",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.740276,
-          "lon": 37.462673,
-          "km": 122.21
-        },
-        {
           "id": "node/500962278",
           "category": "camp",
           "kind": "shelter",
@@ -15354,14 +14636,6 @@
           "kind": "shelter",
           "lat": 55.739155,
           "lon": 37.45748,
-          "km": 122.57
-        },
-        {
-          "id": "node/14115239906",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.739438,
-          "lon": 37.457288,
           "km": 122.57
         },
         {
@@ -15380,15 +14654,6 @@
           "lat": 55.742752,
           "lon": 37.439552,
           "km": 123.71
-        },
-        {
-          "id": "node/10946863044",
-          "category": "water",
-          "kind": "spring",
-          "name": "Святой источник преподобного Серафима Саровского",
-          "lat": 55.745896,
-          "lon": 37.435457,
-          "km": 124.13
         },
         {
           "id": "node/10946863046",
@@ -15606,68 +14871,11 @@
           "km": 145.15
         },
         {
-          "id": "node/5004007375",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.82675,
-          "lon": 37.470823,
-          "km": 145.51
-        },
-        {
-          "id": "node/10891439597",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.826677,
-          "lon": 37.470515,
-          "km": 145.51
-        },
-        {
-          "id": "node/10891487171",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.826611,
-          "lon": 37.470292,
-          "km": 145.51
-        },
-        {
-          "id": "node/5004007378",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.826484,
-          "lon": 37.471888,
-          "km": 145.58
-        },
-        {
-          "id": "node/5004007379",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.826575,
-          "lon": 37.47203,
-          "km": 145.61
-        },
-        {
-          "id": "node/2231898889",
-          "category": "water",
-          "kind": "spring",
-          "name": "Царевна-Лебедь",
-          "lat": 55.826639,
-          "lon": 37.472558,
-          "km": 145.65
-        },
-        {
           "id": "node/434429988",
           "category": "nature",
           "kind": "viewpoint",
           "lat": 55.826649,
           "lon": 37.47242,
-          "km": 145.66
-        },
-        {
-          "id": "node/5004007403",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.826587,
-          "lon": 37.472261,
           "km": 145.66
         },
         {
@@ -15733,14 +14941,6 @@
           "lat": 55.815541,
           "lon": 37.478631,
           "km": 147.24
-        },
-        {
-          "id": "way/497921527",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.817839,
-          "lon": 37.478048,
-          "km": 147.45
         },
         {
           "id": "node/11116460747",
@@ -16020,30 +15220,6 @@
           "lat": 55.82412,
           "lon": 37.537478,
           "km": 157.36
-        },
-        {
-          "id": "node/6566070677",
-          "category": "water",
-          "kind": "spring",
-          "lat": 55.824513,
-          "lon": 37.538173,
-          "km": 157.36
-        },
-        {
-          "id": "way/1562782466",
-          "category": "caution",
-          "kind": "wetland",
-          "lat": 55.824545,
-          "lon": 37.538302,
-          "km": 157.36
-        },
-        {
-          "id": "node/8257898838",
-          "category": "caution",
-          "kind": "ford",
-          "lat": 55.823661,
-          "lon": 37.542069,
-          "km": 157.61
         },
         {
           "id": "node/7670957428",
