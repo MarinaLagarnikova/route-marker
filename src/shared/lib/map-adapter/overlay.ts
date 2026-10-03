@@ -29,13 +29,22 @@ const PHOTO_OFFSET = 26
  * Ступени видимости объектов: ниже первой порог равен нулю, а приоритеты
  * начинаются с единицы — слой пуст.
  *
+ * Ступень с нулевым зумом действует всегда, поэтому она становится порогом по
+ * умолчанию, а не остановкой: `step` требует строго возрастающих остановок, и
+ * нулевая рядом с нулевым умолчанием — лишняя.
+ *
  * ВАЖНО: MapLibre пересчитывает ['zoom'] внутри filter только на целых зумах.
  * Дробный порог в POI_ZOOM_STEPS просто не сработает.
  */
 function poiZoomFilter(): maptilersdk.FilterSpecification {
-  const steps = POI_ZOOM_STEPS.flatMap((step) => [step.zoom, step.maxPriority])
+  const always = POI_ZOOM_STEPS.filter((step) => step.zoom <= 0)
+  const base = always.length > 0 ? always[always.length - 1].maxPriority : 0
+  const steps = POI_ZOOM_STEPS
+    .filter((step) => step.zoom > 0)
+    .flatMap((step) => [step.zoom, step.maxPriority])
+
   return [
-    '<=', ['get', 'priority'], ['step', ['zoom'], 0, ...steps],
+    '<=', ['get', 'priority'], ['step', ['zoom'], base, ...steps],
   ] as unknown as maptilersdk.FilterSpecification
 }
 

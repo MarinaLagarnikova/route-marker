@@ -3,6 +3,9 @@ import { CATEGORY_PRIORITY } from './types'
 import { POI_ZOOM_STEPS, PHOTO_MIN_ZOOM, maxPriorityAtZoom } from './zoomSteps'
 import type { PoiCategory } from './types'
 
+/** Зум, на котором маршрут открывается после fitBounds (Звенигород — около 11.7). */
+const OVERVIEW_ZOOM = 12
+
 /** Категории, видимые на этом зуме. */
 function visibleAt(zoom: number): PoiCategory[] {
   const limit = maxPriorityAtZoom(zoom)
@@ -12,9 +15,11 @@ function visibleAt(zoom: number): PoiCategory[] {
 }
 
 describe('ступени слоя по зуму', () => {
-  it('на обзорном зуме не показывает ни одной категории', () => {
-    expect(visibleAt(11)).toEqual([])
-    expect(visibleAt(12)).toEqual([])
+  // Маршрут открывается после fitBounds примерно на 11.7. Если на этом зуме слой
+  // пуст, тап по кнопке слоя не даёт ничего видимого — кнопка кажется сломанной
+  it('на обзорном зуме показывает первую ступень', () => {
+    expect(visibleAt(11)).toEqual(['camp', 'caution', 'water'])
+    expect(visibleAt(12)).toEqual(['camp', 'caution', 'water'])
   })
 
   it('первая ступень — только то, что решает в походе', () => {
@@ -38,8 +43,9 @@ describe('ступени слоя по зуму', () => {
     expect(PHOTO_MIN_ZOOM).toBeGreaterThanOrEqual(lastStep)
   })
 
+  // Плашка снимка крупная: на обзоре она закроет трек, ради которого всё затеяно
   it('на обзорном зуме фотографий нет', () => {
-    expect(PHOTO_MIN_ZOOM).toBeGreaterThan(POI_ZOOM_STEPS[0].zoom)
+    expect(PHOTO_MIN_ZOOM).toBeGreaterThan(OVERVIEW_ZOOM)
   })
 
   it('ступени идут по возрастанию зума и порога', () => {
