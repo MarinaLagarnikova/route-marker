@@ -43,6 +43,7 @@ function Spinner() {
  */
 export function StartRouteButton({ route }: { route: LibraryRoute }) {
   const navigate = useNavigate()
+  // Закреплённость решает только надпись на кнопке: «Продолжить» или «Начать».
   const isPinned = useLibraryStore((s) => s.isPinned(route.id))
   const pinRoute = useLibraryStore((s) => s.pinRoute)
   const [loading, setLoading] = useState(false)
@@ -51,7 +52,10 @@ export function StartRouteButton({ route }: { route: LibraryRoute }) {
     if (loading) return
     setLoading(true)
     try {
-      if (!isPinned) pinRoute(route)
+      // Зовём всегда, в том числе для уже закреплённого: pinRoute освежает
+      // снимок данными из подборки. Снимок, сделанный до раскатки слоя, иначе
+      // остался бы без объектов навсегда.
+      pinRoute(route)
       if (await startLibraryRoute(route)) navigate('/route')
       else setLoading(false)
     } catch {

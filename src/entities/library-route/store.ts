@@ -61,10 +61,20 @@ export const useLibraryStore = create<LibraryStore>((set, get) => ({
 
   pinRoute(route: LibraryRoute) {
     const current = get().pinnedRoutes
-    if (current.some((r) => r.id === route.id)) return
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { track: _track, ...rest } = route
-    const next = [rest, ...current]
+
+    // Снимок закреплённого маршрута живёт в localStorage месяцами, а данные
+    // подборки под ним меняются: объекты добываются, категории перетряхиваются.
+    // Раньше повторное закрепление выходило сразу, и человек, закрепивший
+    // маршрут до раскатки слоя, не видел ни объектов, ни кнопки слоя — никакая
+    // перезагрузка это не чинила. Порядок списка при этом не трогаем: он
+    // отражает, когда маршрут закрепили, а не когда обновили данные.
+    const index = current.findIndex((r) => r.id === route.id)
+    const next = index === -1
+      ? [rest, ...current]
+      : current.map((r, i) => (i === index ? rest : r))
+
     storageSet(PINNED_KEY, next)
     set({ pinnedRoutes: next })
   },

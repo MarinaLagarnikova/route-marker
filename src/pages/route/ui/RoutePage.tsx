@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { RouteHeader } from '@/widgets/route-header'
 import { RouteMap } from '@/widgets/route-map'
 import { useRouteStore } from '@/entities/route'
+import { useRefreshPinnedRoute } from '@/entities/library-route'
 import { useGpsAutoMark } from '@/features/mark-checkpoint'
 import { useOffRouteDetect } from '@/features/mark-checkpoint/lib/useOffRouteDetect'
 import {
@@ -24,6 +25,12 @@ export function RoutePage() {
   const [showCelebration, setShowCelebration] = useState(false)
   const celebratedRef = useRef(false)
   const [userPos, setUserPos] = useState<(LatLon & { accuracy: number; speed: number | null }) | null>(null)
+
+  // Закреплённый снимок маршрута стареет: объекты слоя добываются подборка за
+  // подборкой уже после того, как человек закрепил маршрут. Со стартового
+  // экрана маршрут открывается сюда напрямую, минуя кнопку «Начать», поэтому
+  // освежаем снимок здесь. Без сети остаётся прежний, молча.
+  useRefreshPinnedRoute(route?.libraryRouteId)
 
   useEffect(() => {
     if (!route) navigate('/', { replace: true })
