@@ -1,10 +1,16 @@
 #!/usr/bin/env tsx
 /**
  * Собирает объекты слоя «Интересное» из OpenStreetMap вдоль треков библиотеки.
- * Usage: npx tsx scripts/fetch-osm-pois.ts <route-id | --all> [--dry]
+ * Usage: npx tsx scripts/fetch-osm-pois.ts <route-id | region-id | --all>
+ *                                          [--dry] [--local] [--force]
  *
  * Результат дописывается в public/tracks/<region>/collection.json полем `pois`
  * и заодно пересчитывает координаты фотографий по их километражу.
+ *
+ * Прогон рассчитан на обрыв. Overpass отказывает подолгу и без предупреждения,
+ * поэтому: пишем после каждого маршрута, а не в конце региона; упавший маршрут
+ * не роняет остальные; повторный запуск той же команды пропускает уже добытое и
+ * доедает остаток. Перезабрать добытое заново — `--force`.
  *
  * Про Overpass, ценой часа таймаутов:
  *  - регексп по КЛЮЧУ (`[~"^(natural|tourism)$"~"."]`) не использует индекс
@@ -32,15 +38,39 @@ import { categorizeOsmTags, type OsmTags } from '../src/shared/lib/poi/categoriz
 import { CATEGORY_PRIORITY } from '../src/shared/lib/poi/types'
 import { dedupeNearbyPois } from '../src/shared/lib/poi/dedupe'
 import type { RoutePoi } from '../src/shared/lib/poi/types'
+import { matchesTarget, skipReason } from './poi-plan'
+import { parseOverpassBody } from './overpass-body'
 
 const TRACKS_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'tracks')
 const CORRIDOR_KM = 0.15
 const ANCHOR_STEP_KM = 0.12
 const CHUNK_ANCHORS = 150
 const PAD_DEG = 0.003
+/** Пауза между запросами: Overpass общий, и ломиться в него подряд невежливо. */
+const REQUEST_GAP_MS = 2000
+/** Пауза между маршрутами — та же вежливость, но крупнее. */
+const ROUTE_GAP_MS = 5000
+/**
+ * Повторы коротки намеренно. Пока записи не было до конца региона, долгая
+ * лестница имела смысл: сдаться значило потерять всё добытое. С чекпоинтами
+ * дешевле упасть быстро, записать остальное и вернуться позже — на «Каменных
+ * озёрах» прежние шесть попыток с паузами до трёх минут держали процесс
+ * четверть часа и всё равно ничего не добыли.
+ */
+const MAX_ATTEMPTS = 3
+const RETRY_WAIT_MS = 10_000
+/** Сам запрос объявляет `[timeout:120]`, ждать дольше сервера бессмысленно. */
+const REQUEST_TIMEOUT_S = 150
+/**
+ * Зеркала чередуются по попыткам, поэтому мёртвое съедает половину из них.
+ * `overpass.kumi.systems` отсюда не отвечает вовсе (таймаут на 30с), а
+ * `overpass.osm.ch` оказался швейцарским срезом: на тот же запрос 272 байта
+ * против 7965 — отвечает бодро, а данных по России в нём нет.
+ * Проверять зеркало надо не кодом ответа, а объёмом на знакомом запросе.
+ */
 const MIRRORS = [
   'https://overpass-api.de/api/interpreter',
-  'https://overpass.kumi.systems/api/interpreter',
+  'https://maps.mail.ru/osm/tools/overpass/api/interpreter',
 ]
 
 /** Что спрашиваем у Overpass. Значения перечислены явно — так работает индекс. */
@@ -130,21 +160,24 @@ function buildQuery(points: LatLon[]): string {
   return `[out:json][timeout:120];\n(\n${body}\n);\nout tags geom;`
 }
 
+const pause = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
 async function askOverpass(query: string, attempt = 1): Promise<OverpassElement[]> {
   const endpoint = MIRRORS[(attempt - 1) % MIRRORS.length]
   try {
     const raw = execFileSync(
       'curl',
-      ['-s', '--max-time', '300', '-A', 'veshka-pois/1.0 (route library)',
+      ['-s', '--max-time', String(REQUEST_TIMEOUT_S), '-A', 'veshka-pois/1.0 (route library)',
        '--data-binary', '@-', endpoint],
       { input: query, maxBuffer: 128 * 1024 * 1024, encoding: 'utf-8' },
     )
-    return (JSON.parse(raw) as { elements: OverpassElement[] }).elements ?? []
+    return parseOverpassBody(raw) as unknown as OverpassElement[]
   } catch (error) {
-    if (attempt >= 6) throw new Error(`Overpass не ответил: ${String(error)}`)
-    const waitMs = Math.min(30_000 * attempt, 180_000)
-    console.error(`  … Overpass молчит, повтор через ${waitMs / 1000}с`)
-    await new Promise((r) => setTimeout(r, waitMs))
+    const reason = error instanceof Error ? error.message : String(error)
+    if (attempt >= MAX_ATTEMPTS) throw new Error(`Overpass не ответил: ${reason}`)
+    const waitMs = RETRY_WAIT_MS * attempt
+    console.error(`  … ${reason}; повтор через ${waitMs / 1000}с`)
+    await pause(waitMs)
     return askOverpass(query, attempt + 1)
   }
 }
@@ -169,6 +202,7 @@ async function collectPois(track: LatLon[], label: string): Promise<RoutePoi[]> 
 
   for (const [i, part] of parts.entries()) {
     process.stderr.write(`  ${label}: запрос ${i + 1}/${parts.length}\n`)
+    if (i > 0) await pause(REQUEST_GAP_MS)
     const elements = await askOverpass(buildQuery(part))
     for (const element of elements) {
       const id = `${element.type}/${element.id}`
@@ -194,6 +228,9 @@ async function collectPois(track: LatLon[], label: string): Promise<RoutePoi[]> 
   return dedupeNearbyPois(sorted)
 }
 
+const USAGE = 'Usage: npx tsx scripts/fetch-osm-pois.ts'
+  + ' <route-id | region-id | --all> [--dry] [--local] [--force]'
+
 async function main() {
   const [target, ...flags] = process.argv.slice(2)
   const dryRun = flags.includes('--dry')
@@ -202,34 +239,66 @@ async function main() {
   // Ходить за объектами заново в такие моменты вредно — набор перетряхнётся
   // против сегодняшнего OSM вместе с правкой, к которой это не относится.
   const localOnly = flags.includes('--local')
-  if (!target) {
-    console.error('Usage: npx tsx scripts/fetch-osm-pois.ts <route-id | --all> [--dry] [--local]')
+  const force = flags.includes('--force')
+  if (!target || target.startsWith('--') && target !== '--all') {
+    console.error(USAGE)
     process.exit(1)
   }
+
+  const done: string[] = []
+  const skipped: string[] = []
+  const failed: string[] = []
+  let matched = 0
+  let firstNetworkRoute = true
 
   for (const region of readdirSync(TRACKS_DIR)) {
     const collectionPath = join(TRACKS_DIR, region, 'collection.json')
     if (!existsSync(collectionPath)) continue
 
     const collection = JSON.parse(readFileSync(collectionPath, 'utf-8')) as CollectionFile
-    let changed = false
 
     for (const route of collection.routes) {
-      if (target !== '--all' && route.id !== target) continue
-      if (!route.gpx) continue
+      if (!matchesTarget(target, region, route.id)) continue
+      matched++
+      if (!route.gpx) {
+        skipped.push(`${route.id}: в подборке нет файла трека`)
+        continue
+      }
+
+      const skip = skipReason(route, { force, localOnly })
+      if (skip) {
+        skipped.push(`${route.id}: ${skip}`)
+        continue
+      }
 
       const gpxPath = join(TRACKS_DIR, region, route.gpx)
       const track = parseTrack(gpxPath)
       if (track.length < 2) {
+        // Битый трек — не редкость: качалка кладёт страницу ошибки под именем
+        // GPX, и файл в 23 байта выглядит как файл
+        skipped.push(`${route.id}: в треке нет точек (${route.gpx})`)
         console.error(`! ${route.id}: в треке нет точек, пропускаю`)
         continue
       }
 
-      // Категория, выброшенная из модели, остаётся в запечённых данных и без
-      // значка на карте не рисуется — чистим её тем же проходом
-      const pois = localOnly
-        ? (route.pois ?? []).filter((poi) => poi.category in CATEGORY_PRIORITY)
-        : await collectPois(track, route.id)
+      // Падение одного маршрута не должно уносить остальные: Overpass отказывает
+      // надолго и выборочно, а добытое до обрыва уже записано на диск
+      let pois: RoutePoi[]
+      try {
+        if (localOnly) {
+          // Категория, выброшенная из модели, остаётся в запечённых данных и без
+          // значка на карте не рисуется — чистим её тем же проходом
+          pois = (route.pois ?? []).filter((poi) => poi.category in CATEGORY_PRIORITY)
+        } else {
+          if (!firstNetworkRoute) await pause(ROUTE_GAP_MS)
+          firstNetworkRoute = false
+          pois = await collectPois(track, route.id)
+        }
+      } catch (error) {
+        failed.push(`${route.id}: ${error instanceof Error ? error.message : String(error)}`)
+        console.error(`! ${route.id}: ${String(error)}`)
+        continue
+      }
       route.pois = pois
 
       // Координаты фотографий считаем здесь же: в рантайме полного трека нет.
@@ -245,19 +314,33 @@ async function main() {
         photosPlaced++
       }
 
-      changed = true
       const byCategory = pois.reduce<Record<string, number>>((acc, poi) => {
         acc[poi.category] = (acc[poi.category] ?? 0) + 1
         return acc
       }, {})
       console.log(`${route.id}: ${pois.length} объектов, ${photosPlaced} фото на треке`)
       console.log('  ', JSON.stringify(byCategory, null, 0))
-    }
 
-    if (changed && !dryRun) {
-      writeFileSync(collectionPath, `${JSON.stringify(collection, null, 2)}\n`, 'utf-8')
-      console.log(`записано: ${collectionPath}`)
+      // Чекпоинт: пишем сразу, иначе обрыв на середине региона съедает всё, что
+      // добыто до него
+      if (!dryRun) {
+        writeFileSync(collectionPath, `${JSON.stringify(collection, null, 2)}\n`, 'utf-8')
+      }
+      done.push(route.id)
     }
+  }
+
+  if (matched === 0) {
+    console.error(`! под цель «${target}» не подошёл ни один маршрут\n${USAGE}`)
+    process.exit(1)
+  }
+
+  console.log(`\nИтог: добыто ${done.length}, пропущено ${skipped.length}, упало ${failed.length}`)
+  for (const line of skipped) console.log(`  пропуск — ${line}`)
+  for (const line of failed) console.log(`  падение — ${line}`)
+  if (failed.length > 0) {
+    console.log(`\nПовторите ту же команду — добытое пропустится, остаток доедется.`)
+    process.exit(1)
   }
 }
 
